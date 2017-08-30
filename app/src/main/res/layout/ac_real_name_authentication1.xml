@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/title_back"
+            android:layout_width="13dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/arrow_left_gray" />
+
+        <TextView
+            android:id="@+id/title_tool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z2" />
+
+        <TextView
+            android:id="@+id/title_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#c2c2c2" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="姓名"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请输入您的真实姓名"
+                android:textColor="@color/absolute_black"
+                android:textColorHint="@color/edittext_color" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/sex"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="性别"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <TextView
+                android:id="@+id/men_and_women"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="11dp"
+                android:layout_toLeftOf="@+id/iv1"
+                android:text="请选择"
+                android:textColor="@color/absolute_black"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="证件类别"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:text="身份证"
+                android:textColor="@color/absolute_black"
+                android:textSize="@dimen/z2" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="身份证号"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请输入您的身份证号"
+                android:textColor="@color/absolute_black"
+                android:textColorHint="@color/edittext_color" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/validity_of_a_certificate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="证件有效期"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <EditText
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="11dp"
+                android:layout_toLeftOf="@+id/iv2"
+                android:layout_toRightOf="@+id/tv1"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请选择/请输入"
+                android:textColor="@color/absolute_black"
+                android:textColorHint="@color/edittext_color" />
+
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text="如果您的证件有效期为长期请直接输入'长期'"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="所在地区"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <TextView
+                android:id="@+id/choose_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="11dp"
+                android:layout_toLeftOf="@+id/iv3"
+                android:text="请选择"
+                android:textColor="@color/absolute_black"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/iv3"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:text="详情地址"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:gravity="right"
+                android:hint="请输入您的详细地址"
+                android:textColor="@color/absolute_black"
+                android:textColorHint="@color/edittext_color" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

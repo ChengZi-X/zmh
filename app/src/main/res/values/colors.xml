@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#B0B0B0</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="orange">#FFC107</color>
+    <color name="green">#259B24</color>
+    <color name="purple">#9C27B0</color>
+    <color name="lime">#CDDC39</color>
+
+    <color name="ripple">#EEEEEE</color><!--水波纹 -->
+    <color name="view_wire">#E6E6E6</color><!--view -->
+    <color name="absolute_black">#000000</color><!--纯黑色 -->
+    <color name="light_black">#333333</color><!--淡黑色 -->
+    <color name="white">#FFFFFF</color><!--白色 -->
+    <color name="babyblue">#1B82D2</color><!--浅蓝色 -->
+    <color name="service_dialog">#A1A1A1</color>
+    <color name="edittext_color">#999999</color><!--edittext颜色 -->
+    <color name="background">#F2F2F2</color><!-- 背景色 -->
+    <color name="transparent">#0000</color><!-- 透明 -->
+    <color name="transparent2">#8000</color><!-- 透明 -->
+</resources>

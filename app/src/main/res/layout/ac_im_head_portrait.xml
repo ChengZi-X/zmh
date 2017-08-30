@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/photograph"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/top_selector">
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/camera" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13dp"
+                android:layout_toRightOf="@+id/iv1"
+                android:gravity="center_vertical"
+                android:text="拍照"
+                android:textColor="#757575"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true" />
+
+        <RelativeLayout
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bottom_selector">
+
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="15dp"
+                android:layout_height="18dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13dp"
+                android:layout_toRightOf="@+id/iv2"
+                android:gravity="center_vertical"
+                android:text="从相册中选择"
+                android:textColor="#757575"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

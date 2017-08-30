@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">众盟汇</string>
+    <string name="tab_Homepage">主页</string>
+    <string name="tab_Business">业务</string>
+    <string name="tab_Fund">资金</string>
+    <string name="tab_My">我的</string>
+</resources>

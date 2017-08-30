@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zmh.zz.zmh">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".splash.SplashActivity"
+            android:theme="@style/SplashAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".login.Ac_Login" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".login.Ac_Register" />
+        <activity android:name=".login.Ac_Register_Password" />
+        <activity android:name=".login.Ac_Forget_Password" />
+        <activity android:name=".login.Ac_Reset_Password" />
+        <activity android:name=".activity.Ac_Setting" />
+        <activity android:name=".activity.Ac_Personal_Information" />
+        <activity android:name=".activity.Ac_Account_Security" />
+        <activity android:name=".activity.Ac_In_Regard_To" />
+        <activity android:name=".activity.Ac_New_Express_Address" />
+        <activity
+            android:name=".activity.Ac_Im_Head_Portrait"
+            android:theme="@style/dialog" />
+        <activity android:name=".activity.Ac_Add_Address" />
+        <activity android:name=".activity.Ac_Verify_Phone_Number_Phone" />
+        <activity android:name=".activity.Ac_Verify_Phone_Number_Mailbox" />
+        <activity android:name=".activity.Ac_Change_Password" />
+        <activity android:name=".activity.Ac_New_Phone_Number" />
+        <activity android:name=".activity.Ac_New_Mailbox" />
+        <activity android:name=".activity.Ac_Real_Name_Authentication" />
+        <activity android:name=".activity.Ac_Notice"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.zmh.zz.zmh.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!--元数据-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

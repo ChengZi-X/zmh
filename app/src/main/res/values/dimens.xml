@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="z1">15sp</dimen>//注册登录显示的字体大小
+    <dimen name="z2">18sp</dimen>//类似我的里面的所有字体大小
+</resources>
