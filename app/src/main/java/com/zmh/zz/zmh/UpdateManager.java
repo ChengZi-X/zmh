@@ -46,7 +46,6 @@ public class UpdateManager {
         this.mContext = context;
     }
 
-
     /**
      * 获取软件版本号
      *
