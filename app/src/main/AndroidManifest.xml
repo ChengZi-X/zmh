@@ -43,8 +43,10 @@
         <activity android:name=".activity.Ac_Change_Password" />
         <activity android:name=".activity.Ac_New_Phone_Number" />
         <activity android:name=".activity.Ac_New_Mailbox" />
-        <activity android:name=".activity.Ac_Real_Name_Authentication" />
-        <activity android:name=".activity.Ac_Notice"/>
+        <activity android:name=".activity.Ac_Real_Name_Authentication_false" />
+        <activity android:name=".activity.Ac_Real_Name_Authentication_true" />
+        <activity android:name=".activity.Ac_Notice" />
+        <activity android:name=".activity.Ac_Uploading_Of_Documents" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

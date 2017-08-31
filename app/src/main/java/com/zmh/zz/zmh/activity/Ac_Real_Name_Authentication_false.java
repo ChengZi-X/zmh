@@ -24,12 +24,12 @@ import java.util.Locale;
 
 /**
  * Created by Administrator on 2017/8/8.
- * 实名认证
+ * 实名认证_false
  */
 
-public class Ac_Real_Name_Authentication extends AppCompatActivity implements View.OnClickListener {
+public class Ac_Real_Name_Authentication_false extends AppCompatActivity implements View.OnClickListener {
     private RelativeLayout mSex, mCertificate;
-    private TextView mMen_and_women, mChoose_address, toolbartitle, mTitle_save;
+    private TextView mMen_and_women, mChoose_address, toolbartitle, mTitle_submit;
     private EditText mDate;
     private ImageView mTitle_back;
     int which = 0;
@@ -53,18 +53,18 @@ public class Ac_Real_Name_Authentication extends AppCompatActivity implements Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_real_name_authentication1);
+        setContentView(R.layout.ac_real_name_authentication_false);
         mTitle_back = (ImageView) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("基本信息");
         TextPaint tp = toolbartitle.getPaint();
         tp.setFakeBoldText(true);
-        mTitle_save = (TextView) findViewById(R.id.title_save);
-        mTitle_save.setText("提交");
-        TextPaint tp1 = mTitle_save.getPaint();
+        mTitle_submit = (TextView) findViewById(R.id.title_submit);
+        mTitle_submit.setText("提交");
+        TextPaint tp1 = mTitle_submit.getPaint();
         tp1.setFakeBoldText(true);
-        mTitle_save.setOnClickListener(this);
+        mTitle_submit.setOnClickListener(this);
         mSex = (RelativeLayout) findViewById(R.id.sex);
         mCertificate = (RelativeLayout) findViewById(R.id.validity_of_a_certificate);
         mMen_and_women = (TextView) findViewById(R.id.men_and_women);
@@ -79,8 +79,8 @@ public class Ac_Real_Name_Authentication extends AppCompatActivity implements Vi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_save:
-                AlertDialog.Builder dialog = new AlertDialog.Builder(Ac_Real_Name_Authentication.this);
+            case R.id.title_submit:
+                AlertDialog.Builder dialog = new AlertDialog.Builder(Ac_Real_Name_Authentication_false.this);
                 dialog.setTitle("提示");
                 dialog.setMessage("\r\r\r\r\r\r\r\r您的资料已提交,请耐心等待,我们将在1-2个工作日人审核完成。");
                 dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
@@ -96,7 +96,7 @@ public class Ac_Real_Name_Authentication extends AppCompatActivity implements Vi
                 finish();
                 break;
             case R.id.sex:
-                AlertDialog.Builder dialog1 = new AlertDialog.Builder(Ac_Real_Name_Authentication.this);
+                AlertDialog.Builder dialog1 = new AlertDialog.Builder(Ac_Real_Name_Authentication_false.this);
                 dialog1.setTitle("性别");
                 if (mMen_and_women.getText().toString().equals("男")) {
                     which = 0;
@@ -115,14 +115,14 @@ public class Ac_Real_Name_Authentication extends AppCompatActivity implements Vi
                 }).show();
                 break;
             case R.id.validity_of_a_certificate:
-                DatePickerDialog dateDlg = new DatePickerDialog(Ac_Real_Name_Authentication.this, date,
+                DatePickerDialog dateDlg = new DatePickerDialog(Ac_Real_Name_Authentication_false.this, date,
                         dateAndTime.get(Calendar.YEAR),
                         dateAndTime.get(Calendar.MONTH),
                         dateAndTime.get(Calendar.DAY_OF_MONTH));
                 dateDlg.show();
                 break;
             case R.id.choose_address:
-                ChangeAddressPopwindow mChangeAddressPopwindow = new ChangeAddressPopwindow(Ac_Real_Name_Authentication.this);
+                ChangeAddressPopwindow mChangeAddressPopwindow = new ChangeAddressPopwindow(Ac_Real_Name_Authentication_false.this);
                 mChangeAddressPopwindow.setAddress("河南", "郑州", "金水区");
                 mChangeAddressPopwindow.showAtLocation(mChoose_address, Gravity.BOTTOM, 0, 0);
                 mChangeAddressPopwindow

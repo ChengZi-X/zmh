@@ -100,7 +100,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/bank_card"
+                android:id="@+id/certificate_photo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="?android:attr/selectableItemBackground">
@@ -124,7 +124,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_toLeftOf="@+id/iv22"
                     android:text="未完善"
-                    android:textColor="#999999"
+                    android:textColor="@color/edittext_color"
                     android:textSize="@dimen/z2" />
 
                 <ImageView
