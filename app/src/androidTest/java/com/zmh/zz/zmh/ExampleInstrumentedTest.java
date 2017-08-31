@@ -1,7 +1,7 @@
 package com.zmh.zz.zmh;
 
 import android.content.Context;
-import android.support.test.InstrumentationRegistry;
+import android.support.testn.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
 import org.junit.Test;

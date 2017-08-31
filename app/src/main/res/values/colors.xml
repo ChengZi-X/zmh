@@ -17,6 +17,6 @@
     <color name="service_dialog">#A1A1A1</color>
     <color name="edittext_color">#999999</color><!--edittext颜色 -->
     <color name="background">#F2F2F2</color><!-- 背景色 -->
-    <color name="transparent">#0000</color><!-- 透明 -->
+    <color name="transparent">#00000000</color><!-- 透明 -->
     <color name="transparent2">#8000</color><!-- 透明 -->
 </resources>

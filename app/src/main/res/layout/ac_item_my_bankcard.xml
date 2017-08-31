@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_round_babyblue">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="37dp">
+
+            <ImageView
+                android:id="@+id/im_card"
+                android:layout_width="23dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="3dp"
+                android:src="@mipmap/credit_card01" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/im_card"
+                android:text="中国建设银行"
+                android:textColor="@color/white"
+                android:textSize="@dimen/z1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/im_card"
+                android:layout_marginTop="13dp"
+                android:text="**** **** **** **** 3800"
+                android:textColor="@color/white"
+                android:textSize="@dimen/z1" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

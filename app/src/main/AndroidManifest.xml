@@ -33,6 +33,7 @@
         <activity android:name=".activity.Ac_Personal_Information" />
         <activity android:name=".activity.Ac_Account_Security" />
         <activity android:name=".activity.Ac_In_Regard_To" />
+        <activity android:name=".activity.Ac_My_Bank_Card"/>
         <activity android:name=".activity.Ac_New_Express_Address" />
         <activity
             android:name=".activity.Ac_Im_Head_Portrait"

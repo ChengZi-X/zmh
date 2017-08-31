@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseFragment;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.activity.Ac_My_Bank_Card;
 import com.zmh.zz.zmh.activity.Ac_Notice;
 import com.zmh.zz.zmh.activity.Ac_Personal_Information;
 import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_true;
@@ -76,9 +77,9 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
             case R.id.real_name_authentication:
                 startActivity(new Intent(getActivity(), Ac_Real_Name_Authentication_true.class));
                 break;
-//            case R.id.bank_card:
-//                startActivity(new Intent(getActivity(), Ac_Bank_Card.class));
-//                break;
+            case R.id.bank_card:
+                startActivity(new Intent(getActivity(), Ac_My_Bank_Card.class));
+                break;
             case R.id.notice:
                 startActivity(new Intent(getActivity(), Ac_Notice.class));
                 break;
