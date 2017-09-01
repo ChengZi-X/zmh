@@ -30,7 +30,7 @@
                 android:textColor="@color/light_black"
                 android:textSize="@dimen/z2" />
 
-            <com.zmh.zz.zmh.utlis.CircleImageView2
+            <com.zmh.zz.zmh.utlis.CircleImageView1
                 android:id="@+id/iv1"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
