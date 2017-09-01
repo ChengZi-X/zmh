@@ -50,7 +50,9 @@
             android:layout_marginLeft="15dp"
             android:background="@null"
             android:hint="验证码"
-            android:textColorHint="@color/edittext_color" />
+            android:textColor="@color/absolute_black"
+            android:textColorHint="@color/edittext_color"
+            android:textSize="@dimen/z2" />
     </RelativeLayout>
 
     <RelativeLayout

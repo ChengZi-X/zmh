@@ -27,7 +27,7 @@ import java.util.Locale;
  */
 
 public class Ac_Real_Name_Authentication_false extends AppCompatActivity implements View.OnClickListener {
-    private RelativeLayout mSex, mCertificate,mTitle_back;
+    private RelativeLayout mSex, mCertificate, mTitle_back;
     private TextView mMen_and_women, mChoose_address, toolbartitle, mTitle_submit;
     private EditText mDate;
     int which = 0;
@@ -108,6 +108,9 @@ public class Ac_Real_Name_Authentication_false extends AppCompatActivity impleme
                         } else if (which == 1) {
                             mMen_and_women.setText("女");
                         }
+                        if (!mMen_and_women.getText().toString().equals("请选择")) {
+                            mMen_and_women.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
+                        }
                         dialog.dismiss();
                     }
                 }).show();
@@ -128,6 +131,9 @@ public class Ac_Real_Name_Authentication_false extends AppCompatActivity impleme
                             @Override
                             public void onClick(String province, String city, String area) {
                                 mChoose_address.setText(province + " " + city + " " + area);
+                                if (!mChoose_address.getText().toString().equals("请选择")) {
+                                    mChoose_address.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
+                                }
                             }
                         });
                 break;

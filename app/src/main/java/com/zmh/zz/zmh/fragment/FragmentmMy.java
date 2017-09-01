@@ -15,7 +15,7 @@ import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.activity.Ac_My_Bank_Card;
 import com.zmh.zz.zmh.activity.Ac_Notice;
 import com.zmh.zz.zmh.activity.Ac_Personal_Information;
-import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_true;
+import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_false;
 import com.zmh.zz.zmh.activity.Ac_Setting;
 import com.zmh.zz.zmh.utlis.CircleImageView2;
 import com.zmh.zz.zmh.utlis.CommomDialog;
@@ -75,7 +75,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
 //                startActivity(new Intent(getActivity(), Ac_Me_Integral.class));
 //                break;
             case R.id.real_name_authentication:
-                startActivity(new Intent(getActivity(), Ac_Real_Name_Authentication_true.class));
+                startActivity(new Intent(getActivity(), Ac_Real_Name_Authentication_false.class));
                 break;
             case R.id.bank_card:
                 startActivity(new Intent(getActivity(), Ac_My_Bank_Card.class));

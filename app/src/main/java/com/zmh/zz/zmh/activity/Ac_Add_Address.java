@@ -43,6 +43,7 @@ public class Ac_Add_Address extends AppCompatActivity implements View.OnClickLis
         mCheck = (CheckBoxSample) findViewById(R.id.check);
         mCheck.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -61,12 +62,15 @@ public class Ac_Add_Address extends AppCompatActivity implements View.OnClickLis
                             @Override
                             public void onClick(String province, String city, String area) {
                                 mChoose_address.setText(province + " " + city + " " + area);
+                                if (!mChoose_address.getText().toString().equals("省份 城市 县城")) {
+                                    mChoose_address.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
+                                }
                             }
                         });
                 break;
             case R.id.check:
                 mCheck.toggle();
-                ToastUtils.showToast(Ac_Add_Address.this, mCheck.isChecked()+"");
+                ToastUtils.showToast(Ac_Add_Address.this, mCheck.isChecked() + "");
                 break;
         }
     }
