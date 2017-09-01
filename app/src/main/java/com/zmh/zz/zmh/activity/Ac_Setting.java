@@ -8,7 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,11 +22,10 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
  */
 
 public class Ac_Setting extends AppCompatActivity implements View.OnClickListener {
-    private RelativeLayout mPersonal_information, mAccount_security, mClear_cache, mIn_regard_to;
+    private RelativeLayout mPersonal_information, mAccount_security, mClear_cache, mIn_regard_to,mTitle_back;
     ClearAll clearAll;
     private String size;
     private TextView mCache, mLog_out, toolbartitle;
-    private ImageView toolbarback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +38,7 @@ public class Ac_Setting extends AppCompatActivity implements View.OnClickListene
         mLog_out = (TextView) findViewById(R.id.log_out);
         TextPaint tp2 = mLog_out.getPaint();
         tp2.setFakeBoldText(true);
-        toolbarback = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mPersonal_information = (RelativeLayout) findViewById(R.id.personal_information);
         mAccount_security = (RelativeLayout) findViewById(R.id.account_security);
         mIn_regard_to = (RelativeLayout) findViewById(R.id.in_regard_to);
@@ -52,7 +50,7 @@ public class Ac_Setting extends AppCompatActivity implements View.OnClickListene
         mIn_regard_to.setOnClickListener(this);
         mClear_cache.setOnClickListener(this);
         mLog_out.setOnClickListener(this);
-        toolbarback.setOnClickListener(this);
+        mTitle_back.setOnClickListener(this);
         Init();
     }
 

@@ -8,7 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
@@ -23,7 +23,7 @@ public class Ac_New_Phone_Number extends AppCompatActivity implements View.OnCli
     private EditText mPhone_Number, mVerification_Code;
     private Button mBut_binding;
     private TextView toolbartitle;
-    private ImageView mTitle_back;
+    private RelativeLayout mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class Ac_New_Phone_Number extends AppCompatActivity implements View.OnCli
         mPhone_Number.addTextChangedListener(this);
         mVerification_Code.addTextChangedListener(this);
         mBut_binding.setOnClickListener(this);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
     }
 

@@ -17,7 +17,7 @@
  *  limitations under the License.
  */
 
-package com.zmh.zz.zmh.wheelview;
+package com.zmh.zz.zmh.wheelviews;
 
 import android.content.Context;
 import android.os.Handler;

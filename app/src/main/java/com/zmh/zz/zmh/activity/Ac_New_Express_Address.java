@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
@@ -27,7 +27,7 @@ public class Ac_New_Express_Address extends AppCompatActivity implements View.On
     private CustomSwipeListView mLv_address;
     private AddressAdapter addressAdapter;
     private List<AddressInfo> addressList;
-    private ImageView toolbarback;
+    private RelativeLayout mTitle_back;
     private TextView toolbartitle;
 
     @Override
@@ -41,9 +41,9 @@ public class Ac_New_Express_Address extends AppCompatActivity implements View.On
         tp.setFakeBoldText(true);
         TextPaint tp1 = mBut_new_address.getPaint();
         tp1.setFakeBoldText(true);
-        toolbarback = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mBut_new_address.setOnClickListener(this);
-        toolbarback.setOnClickListener(this);
+        mTitle_back.setOnClickListener(this);
         InitData();
     }
 

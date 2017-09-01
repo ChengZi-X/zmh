@@ -8,7 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
@@ -23,7 +23,7 @@ public class Ac_Change_Password extends AppCompatActivity implements View.OnClic
     private EditText mOld_password, mNew_password, mConfirm_new_password;
     private Button mBut_affirm;
     private TextView toolbartitle;
-    private ImageView mTitle_back;
+    private RelativeLayout mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class Ac_Change_Password extends AppCompatActivity implements View.OnClic
         mNew_password.addTextChangedListener(this);
         mConfirm_new_password.addTextChangedListener(this);
         mBut_affirm.setOnClickListener(this);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
 
     }

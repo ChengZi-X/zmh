@@ -54,21 +54,21 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.zmh.zz.zmh.wheelview.WheelView
+            <com.zmh.zz.zmh.wheelviews.WheelView
                 android:id="@+id/wv_address_province"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1" />
 
-            <com.zmh.zz.zmh.wheelview.WheelView
+            <com.zmh.zz.zmh.wheelviews.WheelView
                 android:id="@+id/wv_address_city"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1" />
 
-            <com.zmh.zz.zmh.wheelview.WheelView
+            <com.zmh.zz.zmh.wheelviews.WheelView
                 android:id="@+id/wv_address_area"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

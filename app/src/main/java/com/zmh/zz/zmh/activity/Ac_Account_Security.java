@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import com.zmh.zz.zmh.R;
 public class Ac_Account_Security extends AppCompatActivity implements View.OnClickListener {
     private RelativeLayout mPhone_number, mMailbox, mChange_password;
     private TextView toolbartitle;
-    private ImageView mTitle_back;
+    private RelativeLayout mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,7 @@ public class Ac_Account_Security extends AppCompatActivity implements View.OnCli
         mPhone_number.setOnClickListener(this);
         mMailbox.setOnClickListener(this);
         mChange_password.setOnClickListener(this);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
     }
 

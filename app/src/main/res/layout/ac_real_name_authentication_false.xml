@@ -11,13 +11,18 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white">
 
-        <ImageView
+        <RelativeLayout
             android:id="@+id/title_back"
-            android:layout_width="13dp"
-            android:layout_height="22dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/arrow_left_gray" />
+            android:layout_width="43dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/arrow_left_gray" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/title_tool"
@@ -26,7 +31,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="50dp"
             android:textColor="@color/light_black"
-            android:textSize="@dimen/z2" />
+            android:textSize="@dimen/z3" />
 
         <TextView
             android:id="@+id/title_submit"
@@ -36,7 +41,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:textColor="@color/light_black"
-            android:textSize="@dimen/z2" />
+            android:textSize="@dimen/z3" />
 
         <View
             android:layout_width="match_parent"
@@ -106,7 +111,7 @@
                 android:layout_marginRight="11dp"
                 android:layout_toLeftOf="@+id/iv1"
                 android:text="请选择"
-                android:textColor="@color/absolute_black"
+                android:textColor="@color/edittext_color"
                 android:textSize="@dimen/z2" />
 
             <ImageView
@@ -270,7 +275,7 @@
                 android:layout_marginRight="11dp"
                 android:layout_toLeftOf="@+id/iv3"
                 android:text="请选择"
-                android:textColor="@color/absolute_black"
+                android:textColor="@color/edittext_color"
                 android:textSize="18dp" />
 
             <ImageView

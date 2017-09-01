@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
@@ -17,7 +17,7 @@ import com.zmh.zz.zmh.R;
 
 public class Ac_In_Regard_To extends AppCompatActivity implements View.OnClickListener {
     private TextView Tv, toolbartitle;
-    private ImageView toolbarback;
+    private RelativeLayout mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class Ac_In_Regard_To extends AppCompatActivity implements View.OnClickLi
         Tv = (TextView) findViewById(R.id.tv2);
         TextPaint tp2 = Tv.getPaint();
         tp2.setFakeBoldText(true);
-        toolbarback = (ImageView) findViewById(R.id.title_back);
-        toolbarback.setOnClickListener(this);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
+        mTitle_back.setOnClickListener(this);
     }
 
     @Override

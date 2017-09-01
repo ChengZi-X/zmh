@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.zmh.zz.zmh.wheelview.adapter;
+package com.zmh.zz.zmh.wheelviews.adapter;
 
 import android.database.DataSetObserver;
 import android.view.View;

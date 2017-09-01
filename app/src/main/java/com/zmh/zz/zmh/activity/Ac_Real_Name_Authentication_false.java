@@ -10,7 +10,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,10 +27,9 @@ import java.util.Locale;
  */
 
 public class Ac_Real_Name_Authentication_false extends AppCompatActivity implements View.OnClickListener {
-    private RelativeLayout mSex, mCertificate;
+    private RelativeLayout mSex, mCertificate,mTitle_back;
     private TextView mMen_and_women, mChoose_address, toolbartitle, mTitle_submit;
     private EditText mDate;
-    private ImageView mTitle_back;
     int which = 0;
     DateFormat fmtDate = new java.text.SimpleDateFormat("yyyy-MM-dd");
     //获取一个日历对象
@@ -54,7 +52,7 @@ public class Ac_Real_Name_Authentication_false extends AppCompatActivity impleme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_real_name_authentication_false);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("基本信息");

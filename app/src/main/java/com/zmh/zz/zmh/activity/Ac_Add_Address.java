@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.ChangeAddressPopwindow;
@@ -20,14 +20,14 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
 
 public class Ac_Add_Address extends AppCompatActivity implements View.OnClickListener {
     private TextView mChoose_address, toolbartitle, mTitle_save;
-    private ImageView mTitle_back;
+    private RelativeLayout mTitle_back;
     private CheckBoxSample mCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_add_address);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("新增快件地址");

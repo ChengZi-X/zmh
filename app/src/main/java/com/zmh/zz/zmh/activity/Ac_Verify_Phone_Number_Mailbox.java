@@ -9,7 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
@@ -24,7 +24,7 @@ public class Ac_Verify_Phone_Number_Mailbox extends AppCompatActivity implements
     private EditText mVerification_code;
     private Button mBut_next;
     private TextView toolbartitle;
-    private ImageView mTitle_back;
+    private RelativeLayout mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class Ac_Verify_Phone_Number_Mailbox extends AppCompatActivity implements
         tp.setFakeBoldText(true);
         mVerification_code.addTextChangedListener(this);
         mBut_next.setOnClickListener(this);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
     }
 

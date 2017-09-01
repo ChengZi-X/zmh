@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.zmh.zz.zmh.wheelview.OnWheelChangedListener;
-import com.zmh.zz.zmh.wheelview.OnWheelScrollListener;
-import com.zmh.zz.zmh.wheelview.WheelView;
-import com.zmh.zz.zmh.wheelview.adapter.AbstractWheelTextAdapter1;
+import com.zmh.zz.zmh.wheelviews.OnWheelChangedListener;
+import com.zmh.zz.zmh.wheelviews.OnWheelScrollListener;
+import com.zmh.zz.zmh.wheelviews.WheelView;
+import com.zmh.zz.zmh.wheelviews.adapter.AbstractWheelTextAdapter1;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,7 +66,7 @@ public class ChangeAddressPopwindow extends PopupWindow implements View.OnClickL
     public ChangeAddressPopwindow(final Context context) {
         super(context);
         this.context = context;
-        View view = View.inflate(context, R.layout.edit_changeaddress_pop_layout, null);
+        View view = View.inflate(context, R.layout.changeaddress_pop_layout, null);
 
         wvProvince = (WheelView) view.findViewById(R.id.wv_address_province);
         wvCitys = (WheelView) view.findViewById(R.id.wv_address_city);

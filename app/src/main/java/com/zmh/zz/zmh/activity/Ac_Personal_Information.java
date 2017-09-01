@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,8 +17,7 @@ import com.zmh.zz.zmh.R;
  */
 
 public class Ac_Personal_Information extends AppCompatActivity implements View.OnClickListener {
-    private RelativeLayout mExpress_address, mIm_head_portrait;
-    private ImageView toolbarback;
+    private RelativeLayout mExpress_address, mIm_head_portrait,mTitle_back;
     private TextView toolbartitle;
 
     @Override
@@ -30,12 +28,12 @@ public class Ac_Personal_Information extends AppCompatActivity implements View.O
         toolbartitle.setText("个人信息");
         TextPaint tp = toolbartitle.getPaint();
         tp.setFakeBoldText(true);
-        toolbarback = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mIm_head_portrait = (RelativeLayout) findViewById(R.id.im_head_portrait);
         mExpress_address = (RelativeLayout) findViewById(R.id.express_address);
         mIm_head_portrait.setOnClickListener(this);
         mExpress_address.setOnClickListener(this);
-        toolbarback.setOnClickListener(this);
+        mTitle_back.setOnClickListener(this);
     }
 
     @Override

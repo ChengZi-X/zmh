@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,14 +18,13 @@ import com.zmh.zz.zmh.R;
 
 public class Ac_Real_Name_Authentication_true extends AppCompatActivity implements View.OnClickListener {
     private TextView toolbartitle;
-    private ImageView mTitle_back;
-    private RelativeLayout mCertificate_photo;
+    private RelativeLayout mCertificate_photo,mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_real_name_authentication_true);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("实名认证");

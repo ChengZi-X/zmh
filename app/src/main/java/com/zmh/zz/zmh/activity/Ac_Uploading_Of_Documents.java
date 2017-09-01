@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,15 +17,14 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
  */
 
 public class Ac_Uploading_Of_Documents extends AppCompatActivity implements View.OnClickListener {
-    private RelativeLayout mFront, mVerso;
+    private RelativeLayout mFront, mVerso,mTitle_back;
     private TextView toolbartitle, mTitle_submit;
-    private ImageView mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_uploading_of_documents);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("证件照片");

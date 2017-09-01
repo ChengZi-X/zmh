@@ -12,13 +12,18 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white">
 
-        <ImageView
+        <RelativeLayout
             android:id="@+id/title_back"
-            android:layout_width="13dp"
-            android:layout_height="22dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:src="@mipmap/arrow_left_gray" />
+            android:layout_width="43dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/arrow_left_gray" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/title_tool"
@@ -27,7 +32,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="50dp"
             android:textColor="@color/light_black"
-            android:textSize="@dimen/z2" />
+            android:textSize="@dimen/z3" />
 
         <TextView
             android:id="@+id/title_save"
@@ -37,7 +42,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:textColor="@color/light_black"
-            android:textSize="@dimen/z2" />
+            android:textSize="@dimen/z3" />
 
         <View
             android:layout_width="match_parent"
@@ -232,14 +237,14 @@
             android:layout_marginTop="2dp"
             app:color_background="@color/babyblue"
             app:color_border="@color/babyblue"
-            app:size="20dp" />
+            app:size="18dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="23dp"
             android:text="设置成默认收货地址"
             android:textColor="@color/light_black"
-            android:textSize="17sp" />
+            android:textSize="15sp" />
     </RelativeLayout>
 </LinearLayout>

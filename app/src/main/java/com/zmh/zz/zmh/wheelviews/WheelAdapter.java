@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.zmh.zz.zmh.wheelview;
+package com.zmh.zz.zmh.wheelviews;
 
 /**
  * Wheel adapter interface

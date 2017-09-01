@@ -8,7 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
@@ -24,7 +24,7 @@ public class Ac_New_Mailbox extends AppCompatActivity implements View.OnClickLis
     private Button mBut_binding;
     private EditText mMailbox;
     private TextView toolbartitle;
-    private ImageView mTitle_back;
+    private RelativeLayout mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class Ac_New_Mailbox extends AppCompatActivity implements View.OnClickLis
         tp.setFakeBoldText(true);
         mBut_binding.setOnClickListener(this);
         mMailbox.addTextChangedListener(this);
-        mTitle_back = (ImageView) findViewById(R.id.title_back);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
 
     }

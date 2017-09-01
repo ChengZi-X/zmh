@@ -17,7 +17,7 @@
  *  limitations under the License.
  */
 
-package com.zmh.zz.zmh.wheelview;
+package com.zmh.zz.zmh.wheelviews;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -35,7 +35,7 @@ import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.wheelview.adapter.WheelViewAdapter;
+import com.zmh.zz.zmh.wheelviews.adapter.WheelViewAdapter;
 
 import java.util.LinkedList;
 import java.util.List;
