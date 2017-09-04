@@ -22,7 +22,7 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
  */
 
 public class Ac_Setting extends AppCompatActivity implements View.OnClickListener {
-    private RelativeLayout mPersonal_information, mAccount_security, mClear_cache, mIn_regard_to,mTitle_back;
+    private RelativeLayout mPersonal_information, mAccount_security, mClear_cache, mIn_regard_to, mTitle_back;
     ClearAll clearAll;
     private String size;
     private TextView mCache, mLog_out, toolbartitle;
@@ -96,8 +96,7 @@ public class Ac_Setting extends AppCompatActivity implements View.OnClickListene
             public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
                 SharedPreferences spout = Ac_Setting.this.getSharedPreferences("userInfo", 0);
                 SharedPreferences.Editor ed = spout.edit();
-                ed.clear();//清除账号的缓存
-                ed.commit();
+                ed.remove("PASSWORD").commit();//清除账号缓存
                 Intent intent = new Intent(Ac_Setting.this, Ac_Login.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);

@@ -3,22 +3,23 @@ package com.zmh.zz.zmh.login;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
-import android.text.TextWatcher;
+import android.text.TextPaint;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.MainActivity;
 import com.zmh.zz.zmh.R;
-
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
 
@@ -26,52 +27,43 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
  * Created by Administrator on 2017/7/10.
  * 登录
  */
-public class Ac_Login extends AppCompatActivity implements View.OnClickListener, TextWatcher {
+public class Ac_Login extends AppCompatActivity implements View.OnClickListener {
     private long m_exitTime = 1;// 连点两次退出程序
     private SharedPreferences sp;
     private String userNameValue, passwordValue;
     private ProgressDialog MyDialog = null;
-    private TextView mTv_register, tv_forget_password;//注册,忘记密码
+    private RelativeLayout mTv_register, tv_forget_password;//注册,忘记密码
     private EditText mEt_UserName, mEt_Password;// 账号,密码
-    private CheckBox mCb_AutomaticLogin;// 自动登录,记住密码
-    private Button mBut_login; // 登录,
+    private TextView mBut_login, toolbartitle; // 登录,
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Transparent_title_bar();
         setContentView(R.layout.ac_login);
+        toolbartitle = (TextView) findViewById(R.id.title_tool);
+        toolbartitle.setText("登录");
+        TextPaint tp = toolbartitle.getPaint();
+        tp.setFakeBoldText(true);
         mEt_UserName = (EditText) findViewById(R.id.et_username);
         mEt_UserName.setFilters(new InputFilter[]{filter});
         mEt_Password = (EditText) findViewById(R.id.et_password);
         mEt_Password.setFilters(new InputFilter[]{filter});
-        mCb_AutomaticLogin = (CheckBox) findViewById(R.id.cb_automaticlogin);
-        mBut_login = (Button) findViewById(R.id.but_log);
-        mTv_register = (TextView) findViewById(R.id.tv_register);
-        tv_forget_password = (TextView) findViewById(R.id.tv_forget_password);
+        mBut_login = (TextView) findViewById(R.id.but_log);
+        mTv_register = (RelativeLayout) findViewById(R.id.tv_register);
+        tv_forget_password = (RelativeLayout) findViewById(R.id.tv_forget_password);
         tv_forget_password.setOnClickListener(this);
         mBut_login.setOnClickListener(this);
         mTv_register.setOnClickListener(this);
-        mEt_UserName.addTextChangedListener(this);
-        mEt_Password.addTextChangedListener(this);
-        AutomaticLogin();
-    }
-
-    /**
-     * 自动登录逻辑
-     */
-    private void AutomaticLogin() {
+        //第二次无需输入账号和密码直接登录
         sp = getSharedPreferences("userInfo", 0);
         String name = sp.getString("USER_NAME", "");
         String pass = sp.getString("PASSWORD", "");
-        boolean choseAutoLogin = sp.getBoolean("autologin", false);
         mEt_UserName.setText(name);
         mEt_Password.setText(pass);
-        if (choseAutoLogin) {
-            mCb_AutomaticLogin.setChecked(true);
+        if (!name.equals("") && !pass.equals("")) {
             startActivity(new Intent(Ac_Login.this, MainActivity.class));
             finish();
-        } else {
-
         }
     }
 
@@ -98,18 +90,11 @@ public class Ac_Login extends AppCompatActivity implements View.OnClickListener,
         userNameValue = mEt_UserName.getText().toString();
         passwordValue = mEt_Password.getText().toString();
         SharedPreferences.Editor editor = sp.edit();
-        if (userNameValue.equals("123")
-                && passwordValue.equals("123")) {
+        if (userNameValue.equals("123") && passwordValue.equals("123")) {
             ToastUtils.showToast(Ac_Login.this, "登录成功");
             //保存用户名和密码
             editor.putString("USER_NAME", userNameValue);
             editor.putString("PASSWORD", passwordValue);
-            //是否自动登录
-            if (mCb_AutomaticLogin.isChecked()) {
-                editor.putBoolean("autologin", true);
-            } else {
-                editor.putBoolean("autologin", false);
-            }
             editor.commit();
             //跳转
             startActivity(new Intent(Ac_Login.this, MainActivity.class));
@@ -223,20 +208,21 @@ public class Ac_Login extends AppCompatActivity implements View.OnClickListener,
         return super.dispatchKeyEvent(event);
     }
 
-    @Override
-    public void afterTextChanged(Editable editable) {
-        if (mEt_UserName.getText().toString().length() > 0 && mEt_Password.getText().toString().length() > 0) {
-            mBut_login.setEnabled(true);
-        } else {
-            mBut_login.setEnabled(false);
+    /**
+     * 透明标题栏
+     */
+    private void Transparent_title_bar() {
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+            window.setNavigationBarColor(Color.TRANSPARENT);
         }
-    }
-
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
     }
 }

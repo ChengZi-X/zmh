@@ -7,11 +7,13 @@ import android.view.WindowManager;
 
 import com.zmh.zz.zmh.BaseFragment;
 import com.zmh.zz.zmh.R;
+
 /**
  * 资金
  */
 public class FragmentFund extends BaseFragment implements View.OnClickListener {
     private View view;
+
     @Override
     public View initView() {
         view = View.inflate(getActivity(), R.layout.fund, null);
@@ -20,12 +22,12 @@ public class FragmentFund extends BaseFragment implements View.OnClickListener {
     }
 
     public void initData() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//因为不是所有的系统都可以设置颜色的，在4.4以下就不可以。。
+        //改变通知栏的颜色，4.4以下不可以。。
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.colorAccent));
         }
-
     }
 
     @Override

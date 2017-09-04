@@ -15,7 +15,7 @@ import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.activity.Ac_My_Bank_Card;
 import com.zmh.zz.zmh.activity.Ac_Notice;
 import com.zmh.zz.zmh.activity.Ac_Personal_Information;
-import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_false;
+import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_true;
 import com.zmh.zz.zmh.activity.Ac_Setting;
 import com.zmh.zz.zmh.utlis.CircleImageView2;
 import com.zmh.zz.zmh.utlis.CommomDialog;
@@ -53,7 +53,8 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
         mBank_card.setOnClickListener(this);
         mService.setOnClickListener(this);
         mNotice.setOnClickListener(this);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//因为不是所有的系统都可以设置颜色的，在4.4以下就不可以。。
+        //变化通知栏颜色,4.4以下不支持
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(getResources().getColor(R.color.babyblue));
@@ -75,7 +76,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
 //                startActivity(new Intent(getActivity(), Ac_Me_Integral.class));
 //                break;
             case R.id.real_name_authentication:
-                startActivity(new Intent(getActivity(), Ac_Real_Name_Authentication_false.class));
+                startActivity(new Intent(getActivity(), Ac_Real_Name_Authentication_true.class));
                 break;
             case R.id.bank_card:
                 startActivity(new Intent(getActivity(), Ac_My_Bank_Card.class));
