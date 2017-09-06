@@ -57,7 +57,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.babyblue));
+            window.setStatusBarColor(getResources().getColor(R.color.c4));
         }
         initData();
         return view;

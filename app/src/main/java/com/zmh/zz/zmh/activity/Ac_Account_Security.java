@@ -40,8 +40,8 @@ public class Ac_Account_Security extends AppCompatActivity implements View.OnCli
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.phone_number:
                 startActivity(new Intent(Ac_Account_Security.this, Ac_Verify_Phone_Number_Phone.class));
                 break;

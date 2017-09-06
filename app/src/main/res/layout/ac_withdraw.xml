@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#99232323" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/title_back"
+            android:layout_width="43dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/arrow_left_gray" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title_tool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z3" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#c2c2c2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_recharge_bankcard"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:paddingLeft="15dp">
+
+        <ImageView
+            android:id="@+id/iv_recharge_bank_logo"
+            android:layout_width="17dp"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/top_up" />
+
+        <TextView
+            android:id="@+id/tv_recharge_bankcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_recharge_bank_logo"
+            android:paddingLeft="10dp"
+            android:text="中国建设银行 (2398)"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z2" />
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/arrow_right_gray" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="15dp"
+            android:text="提现金额"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="￥"
+                android:textColor="@color/absolute_black"
+                android:textSize="25sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/tv2"
+                android:background="@null"
+                android:textColor="@color/absolute_black"
+                android:textSize="28sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="15dp"
+                android:layout_toRightOf="@+id/tv2"
+                android:background="@color/light_black" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:text="可用余额123.00元"
+            android:textColor="@color/edittext_color"
+            android:textSize="@dimen/z2" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp">
+
+        <Button
+            android:id="@+id/but_next"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/nextbtn"
+            android:gravity="center"
+            android:text="确认提现"
+            android:textColor="@color/white"
+            android:textSize="@dimen/z2" />
+    </RelativeLayout>
+</LinearLayout>

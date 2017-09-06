@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#F26100">
+
+        <RelativeLayout
+            android:id="@+id/title_back"
+            android:layout_width="43dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/arrow_left_white" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title_tool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/z3" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="明细"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:background="#F26100"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:text="奖金账户  (元)"
+            android:textColor="@color/white"
+            android:textSize="@dimen/z2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text="456.90"
+            android:textColor="@color/white"
+            android:textSize="43sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/real_name_authentication"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="17dp"
+                android:layout_height="13dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/brokerage" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv1"
+                android:text="佣金"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:id="@+id/iv11"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/remaining_sum"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="17dp"
+                android:layout_height="13dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/push_money" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv2"
+                android:text="提成"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:id="@+id/iv22"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/iv3"
+                android:layout_width="17dp"
+                android:layout_height="13dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/roll_out" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv3"
+                android:text="转出"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:id="@+id/iv33"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/iv4"
+                android:layout_width="17dp"
+                android:layout_height="13dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/shift_to" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv4"
+                android:text="转入"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:id="@+id/iv44"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

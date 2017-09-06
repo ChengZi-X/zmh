@@ -49,6 +49,10 @@
         <activity android:name=".activity.Ac_Real_Name_Authentication_true" />
         <activity android:name=".activity.Ac_Notice" />
         <activity android:name=".activity.Ac_Uploading_Of_Documents" />
+        <activity android:name=".activity.Ac_Remaining_Sum" />
+        <activity android:name=".activity.Ac_Bonus" />
+        <activity android:name=".activity.Ac_Top_Up" />
+        <activity android:name=".activity.Ac_Withdraw" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#99232323" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/title_back"
+            android:layout_width="43dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/arrow_left_gray" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title_tool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50dp"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z3" />
+
+        <TextView
+            android:id="@+id/title_quota_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="限额说明"
+            android:textColor="@color/babyblue"
+            android:textSize="@dimen/z2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#c2c2c2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_recharge_bankcard"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:paddingLeft="15dp">
+
+        <ImageView
+            android:id="@+id/iv_recharge_bank_logo"
+            android:layout_width="17dp"
+            android:layout_height="13dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/top_up" />
+
+        <TextView
+            android:id="@+id/tv_recharge_bankcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_recharge_bank_logo"
+            android:paddingLeft="10dp"
+            android:text="中国建设银行 (2398)"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z2" />
+
+        <ImageView
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:src="@mipmap/arrow_right_gray" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最低充值1000元"
+            android:textColor="@color/edittext_color"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="金额"
+            android:textColor="@color/light_black"
+            android:textSize="@dimen/z2" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv1"
+            android:background="@null"
+            android:hint="请输入充值金额"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/edittext_color"
+            android:textSize="@dimen/z2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="15dp">
+
+        <Button
+            android:id="@+id/but_new_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/nextbtn"
+            android:gravity="center"
+            android:text="下一步"
+            android:textColor="@color/white"
+            android:textSize="@dimen/z2" />
+    </RelativeLayout>
+</LinearLayout>

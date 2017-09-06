@@ -27,7 +27,6 @@ public class ChangeAddressPopwindow extends PopupWindow implements View.OnClickL
     private WheelView wvProvince;
     private WheelView wvCitys;
     private WheelView wvArea;
-    private View lyChangeAddress;
     private View lyChangeAddressChild;
     private TextView btnSure;
     private TextView btnCancel;
@@ -71,7 +70,6 @@ public class ChangeAddressPopwindow extends PopupWindow implements View.OnClickL
         wvProvince = (WheelView) view.findViewById(R.id.wv_address_province);
         wvCitys = (WheelView) view.findViewById(R.id.wv_address_city);
         wvArea = (WheelView) view.findViewById(R.id.wv_address_area);
-        lyChangeAddress = view.findViewById(R.id.ly_myinfo_changeaddress);
         lyChangeAddressChild = view.findViewById(R.id.ly_myinfo_changeaddress_child);
         btnSure = (TextView) view.findViewById(R.id.btn_myinfo_sure);
         btnCancel = (TextView) view.findViewById(R.id.btn_myinfo_cancel);
@@ -88,7 +86,7 @@ public class ChangeAddressPopwindow extends PopupWindow implements View.OnClickL
         //设置SelectPicPopupWindow弹出窗体动画效果
 //		this.setAnimationStyle(R.style.AnimBottom);
         //实例化一个ColorDrawable颜色为半透明
-        ColorDrawable dw = new ColorDrawable(0xb0000000);
+        ColorDrawable dw = new ColorDrawable(99232323);
         //设置SelectPicPopupWindow弹出窗体的背景
         this.setBackgroundDrawable(dw);
 

@@ -25,7 +25,7 @@
             android:background="@drawable/addressbtn"
             android:gravity="center"
             android:text="新增快件地址"
-            android:textColor="#ffffff"
+            android:textColor="@color/white"
             android:textSize="@dimen/z2" />
     </RelativeLayout>
 </LinearLayout>

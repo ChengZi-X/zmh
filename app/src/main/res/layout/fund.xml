@@ -2,10 +2,154 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:background="#D2281D"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:text="交易记录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/z2" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总资产  (元)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/tv3"
+                android:src="@mipmap/bb" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2dp"
+            android:text="78.90"
+            android:textColor="@color/white"
+            android:textSize="38sp" />
+
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/rim_white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="含奖金1000.00元"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="3" />
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/remaining_sum"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="19dp"
+                android:layout_height="17dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/sum" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv2"
+                android:text="余额"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:id="@+id/iv22"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/bonus"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="18dp"
+                android:layout_height="13dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/bonus" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/iv1"
+                android:text="奖金"
+                android:textColor="@color/light_black"
+                android:textSize="@dimen/z2" />
+
+            <ImageView
+                android:id="@+id/iv11"
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
