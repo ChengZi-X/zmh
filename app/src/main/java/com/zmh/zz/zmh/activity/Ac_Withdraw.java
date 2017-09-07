@@ -27,7 +27,7 @@ public class Ac_Withdraw extends AppCompatActivity implements View.OnClickListen
     private PopupWindow popupWindow;
     private ListView mListView;
     private List<BankcardBean> mList;
-    private TextView mTextView, toolbartitle;
+    private TextView mTextView, toolbartitle,mTvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +101,9 @@ public class Ac_Withdraw extends AppCompatActivity implements View.OnClickListen
         //  PopupWindow返回键
         mIvBack = (RelativeLayout) popView.findViewById(R.id.iv_back);
         mIvBack.setOnClickListener(this);
+        //  PupupWindow标题
+        mTvTitle = (TextView) popView.findViewById(R.id.tv_title);
+        mTvTitle.setText("选择提现银行卡");
         //  银行卡列表的ListView
         mListView = (ListView) popView.findViewById(R.id.lv_bankcard);
         MyAdapter_Witdraw adapter = new MyAdapter_Witdraw(mList, Ac_Withdraw.this);

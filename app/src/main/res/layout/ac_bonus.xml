@@ -40,7 +40,7 @@
             android:gravity="center"
             android:text="明细"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="@dimen/z2" />
     </RelativeLayout>
 
     <LinearLayout
@@ -156,8 +156,10 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/roll_out"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/iv3"
@@ -194,8 +196,10 @@
             android:layout_marginLeft="15dp" />
 
         <RelativeLayout
+            android:id="@+id/shift_to"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/iv4"

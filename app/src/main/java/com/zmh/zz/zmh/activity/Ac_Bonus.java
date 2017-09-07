@@ -1,5 +1,6 @@
 package com.zmh.zz.zmh.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ import com.zmh.zz.zmh.R;
 
 public class Ac_Bonus extends AppCompatActivity implements View.OnClickListener {
     private TextView toolbartitle;
-    private RelativeLayout mTitle_back;
+    private RelativeLayout mTitle_back, mRoll_out, mShift_to;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,11 @@ public class Ac_Bonus extends AppCompatActivity implements View.OnClickListener 
         TextPaint tp = toolbartitle.getPaint();
         tp.setFakeBoldText(true);
         mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
+        mRoll_out = (RelativeLayout) findViewById(R.id.roll_out);
+        mShift_to = (RelativeLayout) findViewById(R.id.shift_to);
         mTitle_back.setOnClickListener(this);
+        mRoll_out.setOnClickListener(this);
+        mShift_to.setOnClickListener(this);
         InitData();
     }
 
@@ -48,6 +53,12 @@ public class Ac_Bonus extends AppCompatActivity implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.title_back:
                 finish();
+                break;
+            case R.id.roll_out:
+                startActivity(new Intent(Ac_Bonus.this, Ac_Roll_Out.class));
+                break;
+            case R.id.shift_to:
+                startActivity(new Intent(Ac_Bonus.this, Ac_Shift_To.class));
                 break;
         }
     }

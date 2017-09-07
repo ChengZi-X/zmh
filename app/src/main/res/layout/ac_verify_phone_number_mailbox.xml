@@ -15,7 +15,6 @@
 
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -47,7 +46,7 @@
             android:id="@+id/verification_code"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
+            android:paddingLeft="15dp"
             android:background="@null"
             android:hint="验证码"
             android:textColor="@color/absolute_black"

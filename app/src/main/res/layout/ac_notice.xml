@@ -17,9 +17,9 @@
             android:id="@+id/notice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:lineSpacingExtra="3dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:text="\n       公告/2017年系统需要维护,请大家相互转告,哈哈哈。是是是三大飒飒大按时打算打算打打打打大大"
             android:textColor="@color/light_black"
             android:textSize="@dimen/z2" />

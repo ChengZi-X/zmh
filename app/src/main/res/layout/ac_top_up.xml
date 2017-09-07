@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:text="最低充值1000元"
             android:textColor="@color/edittext_color"
-            android:textSize="15sp" />
+            android:textSize="@dimen/z1" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -137,7 +137,6 @@
         android:layout_margin="15dp">
 
         <Button
-            android:id="@+id/but_new_address"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/nextbtn"

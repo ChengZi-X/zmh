@@ -53,6 +53,8 @@
         <activity android:name=".activity.Ac_Bonus" />
         <activity android:name=".activity.Ac_Top_Up" />
         <activity android:name=".activity.Ac_Withdraw" />
+        <activity android:name=".activity.Ac_Roll_Out" />
+        <activity android:name=".activity.Ac_Shift_To" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

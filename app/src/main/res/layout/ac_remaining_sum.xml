@@ -40,7 +40,7 @@
             android:gravity="center"
             android:text="明细"
             android:textColor="@color/white"
-            android:textSize="15dp" />
+            android:textSize="@dimen/z2" />
     </RelativeLayout>
 
     <LinearLayout
@@ -89,7 +89,6 @@
                 android:src="@mipmap/top_up" />
 
             <TextView
-                android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -100,7 +99,6 @@
                 android:textSize="@dimen/z2" />
 
             <ImageView
-                android:id="@+id/iv11"
                 android:layout_width="13dp"
                 android:layout_height="13dp"
                 android:layout_alignParentRight="true"
@@ -117,7 +115,8 @@
         <RelativeLayout
             android:id="@+id/withdraw"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/iv2"
@@ -128,7 +127,6 @@
                 android:src="@mipmap/withdraw" />
 
             <TextView
-                android:id="@+id/tv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -139,7 +137,6 @@
                 android:textSize="@dimen/z2" />
 
             <ImageView
-                android:id="@+id/iv22"
                 android:layout_width="13dp"
                 android:layout_height="13dp"
                 android:layout_alignParentRight="true"
@@ -169,7 +166,6 @@
                 android:src="@mipmap/invest" />
 
             <TextView
-                android:id="@+id/tv3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -180,7 +176,6 @@
                 android:textSize="@dimen/z2" />
 
             <ImageView
-                android:id="@+id/iv33"
                 android:layout_width="13dp"
                 android:layout_height="13dp"
                 android:layout_alignParentRight="true"
@@ -207,7 +202,6 @@
                 android:src="@mipmap/consume" />
 
             <TextView
-                android:id="@+id/tv4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -218,7 +212,6 @@
                 android:textSize="@dimen/z2" />
 
             <ImageView
-                android:id="@+id/iv44"
                 android:layout_width="13dp"
                 android:layout_height="13dp"
                 android:layout_alignParentRight="true"
