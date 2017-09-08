@@ -10,6 +10,7 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
 
 /**
  * Created by Administrator on .
+ * 选择拍照or相册
  */
 
 public class Ac_Im_Head_Portrait extends Activity implements View.OnClickListener {

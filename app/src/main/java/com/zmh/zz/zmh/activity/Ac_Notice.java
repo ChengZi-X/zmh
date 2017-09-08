@@ -12,6 +12,7 @@ import com.zmh.zz.zmh.R;
 
 /**
  * Created by vimi8 on 2017/4/18.
+ * 公告
  */
 
 public class Ac_Notice extends AppCompatActivity implements View.OnClickListener {

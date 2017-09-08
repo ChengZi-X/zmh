@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * Created by Administrator
+ * 提现
  */
 
 public class Ac_Withdraw extends AppCompatActivity implements View.OnClickListener, OnBankcardSlected {
@@ -27,7 +28,7 @@ public class Ac_Withdraw extends AppCompatActivity implements View.OnClickListen
     private PopupWindow popupWindow;
     private ListView mListView;
     private List<BankcardBean> mList;
-    private TextView mTextView, toolbartitle,mTvTitle;
+    private TextView mTextView, toolbartitle, mTvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
