@@ -49,12 +49,16 @@
         <activity android:name=".activity.Ac_Real_Name_Authentication_true" />
         <activity android:name=".activity.Ac_Notice" />
         <activity android:name=".activity.Ac_Uploading_Of_Documents" />
-        <activity android:name=".activity.Ac_Remaining_Sum" />
+        <activity android:name=".activity.Ac_Sum" />
         <activity android:name=".activity.Ac_Bonus" />
         <activity android:name=".activity.Ac_Top_Up" />
         <activity android:name=".activity.Ac_Withdraw" />
         <activity android:name=".activity.Ac_Roll_Out" />
         <activity android:name=".activity.Ac_Shift_To" />
+        <activity android:name=".activity.Ac_Trading_Record" />
+        <activity android:name=".activity.Ac_Sum_Detail" />
+        <activity android:name=".activity.Ac_Bonus_Detail" />
+        <activity android:name=".activity.Ac_Essential_Information"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

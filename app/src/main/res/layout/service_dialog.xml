@@ -9,11 +9,11 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:text="提示"
         android:textColor="@color/light_black"
-        android:textSize="16sp" />
+        android:textSize="@dimen/z2" />
 
 
     <TextView
@@ -26,7 +26,7 @@
         android:gravity="center"
         android:text="400-600-300"
         android:textColor="@color/light_black"
-        android:textSize="16sp" />
+        android:textSize="@dimen/z2" />
 
     <View style="@style/horizontal_line" />
 

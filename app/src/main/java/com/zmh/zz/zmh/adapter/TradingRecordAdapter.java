@@ -7,27 +7,26 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.modelinfo.MyBankCardInfo;
+import com.zmh.zz.zmh.modelinfo.TradingRecordInfo;
 
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/8/10.
+ * Created by Administrator on
  */
 
-public class MyBankCardAdapter extends BaseAdapter {
-    private List<MyBankCardInfo> list;
+public class TradingRecordAdapter extends BaseAdapter {
+    private List<TradingRecordInfo> list;
     private Context mContext;
 
-    public MyBankCardAdapter(List<MyBankCardInfo> list, Context context) {
+    public TradingRecordAdapter(List<TradingRecordInfo> list, Context context) {
         this.list = list;
         this.mContext = context;
     }
 
-
     @Override
     public int getCount() {
-        return 2;
+        return 6;
     }
 
     @Override
@@ -35,15 +34,15 @@ public class MyBankCardAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.ac_item_my_bankcard, null);
-//            holder.mTv_mouledtype = (TextView) convertView.findViewById(R.id.tv_list_item_mouled);
-//            holder.mTv_mouledtype.setText("");
+            convertView = View.inflate(mContext, R.layout.ac_item_trading_record, null);
+            holder.mTv_sum = (TextView) convertView.findViewById(R.id.tv_sum);
+            holder.mTv_sum.setText("总资产余额:" + "\r\r" + "32000.00");
         }
         return convertView;
     }
 
     class ViewHolder {
-        private TextView mTv_mouledtype;
+        private TextView mTv_sum;
     }
 
     @Override

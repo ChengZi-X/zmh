@@ -18,7 +18,7 @@ import com.zmh.zz.zmh.R;
 
 public class Ac_Real_Name_Authentication_true extends AppCompatActivity implements View.OnClickListener {
     private TextView toolbartitle;
-    private RelativeLayout mCertificate_photo,mTitle_back;
+    private RelativeLayout mTitle_back, mCertificate_photo, mEssential_information;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,9 @@ public class Ac_Real_Name_Authentication_true extends AppCompatActivity implemen
         TextPaint tp = toolbartitle.getPaint();
         tp.setFakeBoldText(true);
         mCertificate_photo = (RelativeLayout) findViewById(R.id.certificate_photo);
+        mEssential_information = (RelativeLayout) findViewById(R.id.essential_information);
         mCertificate_photo.setOnClickListener(this);
+        mEssential_information.setOnClickListener(this);
     }
 
 
@@ -43,6 +45,9 @@ public class Ac_Real_Name_Authentication_true extends AppCompatActivity implemen
                 break;
             case R.id.certificate_photo:
                 startActivity(new Intent(Ac_Real_Name_Authentication_true.this, Ac_Uploading_Of_Documents.class));
+                break;
+            case R.id.essential_information:
+                startActivity(new Intent(Ac_Real_Name_Authentication_true.this, Ac_Essential_Information.class));
                 break;
         }
     }

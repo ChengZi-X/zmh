@@ -15,28 +15,30 @@ import com.zmh.zz.zmh.R;
 
 
 /**
- * Created by Administrator on 2017/8/15.
+ * Created by Administrator on
  * 余额
  */
 
-public class Ac_Remaining_Sum extends AppCompatActivity implements View.OnClickListener {
-    private TextView toolbartitle;
-    private RelativeLayout mTitle_back, mTop_up,mWithdraw;
+public class Ac_Sum extends AppCompatActivity implements View.OnClickListener {
+    private TextView toolbartitle, mSum_detail;
+    private RelativeLayout mTitle_back, mTop_up, mWithdraw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_remaining_sum);
+        setContentView(R.layout.ac_sum);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("余额");
         TextPaint tp = toolbartitle.getPaint();
         tp.setFakeBoldText(true);
         mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
+        mSum_detail = (TextView) findViewById(R.id.sum_detail);
         mTop_up = (RelativeLayout) findViewById(R.id.top_up);
         mWithdraw = (RelativeLayout) findViewById(R.id.withdraw);
         mTop_up.setOnClickListener(this);
         mWithdraw.setOnClickListener(this);
+        mSum_detail.setOnClickListener(this);
         InitData();
     }
 
@@ -52,11 +54,14 @@ public class Ac_Remaining_Sum extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.sum_detail:
+                startActivity(new Intent(Ac_Sum.this, Ac_Sum_Detail.class));
+                break;
             case R.id.top_up:
-                startActivity(new Intent(Ac_Remaining_Sum.this, Ac_Top_Up.class));
+                startActivity(new Intent(Ac_Sum.this, Ac_Top_Up.class));
                 break;
             case R.id.withdraw:
-                startActivity(new Intent(Ac_Remaining_Sum.this, Ac_Withdraw.class));
+                startActivity(new Intent(Ac_Sum.this, Ac_Withdraw.class));
                 break;
             case R.id.title_back:
                 finish();

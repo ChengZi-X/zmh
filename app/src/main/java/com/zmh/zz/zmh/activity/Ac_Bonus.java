@@ -19,7 +19,7 @@ import com.zmh.zz.zmh.R;
  */
 
 public class Ac_Bonus extends AppCompatActivity implements View.OnClickListener {
-    private TextView toolbartitle;
+    private TextView toolbartitle, mBonus_detail;
     private RelativeLayout mTitle_back, mRoll_out, mShift_to;
 
     @Override
@@ -33,6 +33,8 @@ public class Ac_Bonus extends AppCompatActivity implements View.OnClickListener 
         mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mRoll_out = (RelativeLayout) findViewById(R.id.roll_out);
         mShift_to = (RelativeLayout) findViewById(R.id.shift_to);
+        mBonus_detail = (TextView) findViewById(R.id.bonus_detail);
+        mBonus_detail.setOnClickListener(this);
         mTitle_back.setOnClickListener(this);
         mRoll_out.setOnClickListener(this);
         mShift_to.setOnClickListener(this);
@@ -51,14 +53,17 @@ public class Ac_Bonus extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_back:
-                finish();
+            case R.id.bonus_detail:
+                startActivity(new Intent(Ac_Bonus.this, Ac_Bonus_Detail.class));
                 break;
             case R.id.roll_out:
                 startActivity(new Intent(Ac_Bonus.this, Ac_Roll_Out.class));
                 break;
             case R.id.shift_to:
                 startActivity(new Intent(Ac_Bonus.this, Ac_Shift_To.class));
+                break;
+            case R.id.title_back:
+                finish();
                 break;
         }
     }

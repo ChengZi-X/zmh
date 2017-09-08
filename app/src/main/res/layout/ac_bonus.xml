@@ -34,6 +34,7 @@
             android:textSize="@dimen/z3" />
 
         <TextView
+            android:id="@+id/bonus_detail"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"

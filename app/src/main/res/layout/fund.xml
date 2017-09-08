@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/trading_record"
             android:layout_width="90dp"
             android:layout_height="45dp"
             android:layout_gravity="right"

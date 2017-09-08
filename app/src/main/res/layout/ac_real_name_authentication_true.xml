@@ -72,7 +72,7 @@
                 android:layout_marginLeft="15dp" />
 
             <RelativeLayout
-                android:id="@+id/real_name_authentication"
+                android:id="@+id/essential_information"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="?android:attr/selectableItemBackground">
@@ -82,7 +82,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="15dp"
-                    android:layout_toRightOf="@+id/iv1"
                     android:text="基本信息"
                     android:textColor="@color/light_black"
                     android:textSize="@dimen/z2" />

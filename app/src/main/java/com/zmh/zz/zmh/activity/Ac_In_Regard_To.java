@@ -25,11 +25,11 @@ public class Ac_In_Regard_To extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.ac_in_regard_to);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("关于");
-        TextPaint tp1 = toolbartitle.getPaint();
-        tp1.setFakeBoldText(true);
+        TextPaint tp = toolbartitle.getPaint();
+        tp.setFakeBoldText(true);
         Tv = (TextView) findViewById(R.id.tv2);
-        TextPaint tp2 = Tv.getPaint();
-        tp2.setFakeBoldText(true);
+        TextPaint tp1 = Tv.getPaint();
+        tp1.setFakeBoldText(true);
         mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mTitle_back.setOnClickListener(this);
     }
