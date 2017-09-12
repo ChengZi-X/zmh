@@ -14,12 +14,12 @@
         <TextView
             android:id="@+id/trading_record"
             android:layout_width="90dp"
-            android:layout_height="45dp"
+            android:layout_height="52dp"
             android:layout_gravity="right"
             android:gravity="center"
             android:text="交易记录"
             android:textColor="@color/white"
-            android:textSize="@dimen/z2" />
+            android:textSize="@dimen/z3" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

@@ -31,15 +31,15 @@ public class MyBankCardAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         final ViewHolder holder;
-        if (convertView == null) {
+        if (view == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.ac_item_my_bankcard, null);
+            view = View.inflate(mContext, R.layout.ac_item_my_bankcard, null);
 //            holder.mTv_mouledtype = (TextView) convertView.findViewById(R.id.tv_list_item_mouled);
 //            holder.mTv_mouledtype.setText("");
         }
-        return convertView;
+        return view;
     }
 
     class ViewHolder {

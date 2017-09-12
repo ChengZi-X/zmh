@@ -1,8 +1,10 @@
 package com.zmh.zz.zmh.activity;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -96,9 +98,13 @@ public class Ac_Withdraw extends AppCompatActivity implements View.OnClickListen
         //  适配PopupWindow布局文件
         View popView = View.inflate(this, R.layout.bankcard_select, null);
         //  创建PopupWindow
-        popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,true);
+        //设置SelectPicPopupWindow弹出窗体的背景
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        //点击外部区域消失
+        popupWindow.setOutsideTouchable(true);
         //  设置PopupWindow在ll_main下显示
-        popupWindow.showAsDropDown(findViewById(R.id.ll_main), 0, 0);
+        popupWindow.showAtLocation(findViewById(R.id.ll_main), Gravity.BOTTOM | Gravity.LEFT, 0, 0);
         //  PopupWindow返回键
         mIvBack = (RelativeLayout) popView.findViewById(R.id.iv_back);
         mIvBack.setOnClickListener(this);

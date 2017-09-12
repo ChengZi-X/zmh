@@ -34,6 +34,14 @@
         <activity android:name=".activity.Ac_Account_Security" />
         <activity android:name=".activity.Ac_In_Regard_To" />
         <activity android:name=".activity.Ac_My_Bank_Card" />
+        <activity android:name=".activity.Ac_My_Client" />
+        <activity android:name=".activity.Ac_Client_Data" />
+        <activity android:name=".activity.Ac_Client_Fund" />
+        <activity android:name=".activity.Ac_Client_Top_Up" />
+        <activity android:name=".activity.Ac_Client_Bonus" />
+        <activity android:name=".activity.Ac_Client_Sum" />
+        <activity android:name=".activity.Ac_Client_Business" />
+        <activity android:name=".activity.Ac_Client_Mesh" />
         <activity android:name=".activity.Ac_Add_Bank_Card" />
         <activity android:name=".activity.Ac_New_Express_Address" />
         <activity
@@ -58,7 +66,8 @@
         <activity android:name=".activity.Ac_Trading_Record" />
         <activity android:name=".activity.Ac_Sum_Detail" />
         <activity android:name=".activity.Ac_Bonus_Detail" />
-        <activity android:name=".activity.Ac_Essential_Information"/>
+        <activity android:name=".activity.Ac_Essential_Information" />
+
 
         <provider
             android:name="android.support.v4.content.FileProvider"

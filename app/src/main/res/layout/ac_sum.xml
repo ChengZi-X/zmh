@@ -41,7 +41,7 @@
             android:gravity="center"
             android:text="明细"
             android:textColor="@color/white"
-            android:textSize="@dimen/z2" />
+            android:textSize="@dimen/z3" />
     </RelativeLayout>
 
     <LinearLayout

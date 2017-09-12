@@ -30,15 +30,15 @@ public class SumDetailAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         final ViewHolder holder;
-        if (convertView == null) {
+        if (view == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.ac_item_sum_detail, null);
-            holder.mTv_sum = (TextView) convertView.findViewById(R.id.tv_sum);
+            view = View.inflate(mContext, R.layout.ac_item_sum_detail, null);
+            holder.mTv_sum = (TextView) view.findViewById(R.id.tv_sum);
             holder.mTv_sum.setText("余额:" + "\r\r" + "32000.00");
         }
-        return convertView;
+        return view;
     }
 
     class ViewHolder {

@@ -35,9 +35,9 @@ public class AddressAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup viewGroup) {
+    public View getView(final int i, View view, ViewGroup viewGroup) {
         final ViewHolder holder;
-        SwipeItemView slideView = (SwipeItemView) convertView;
+        SwipeItemView slideView = (SwipeItemView) view;
         if (slideView == null) {
             View itemView = View.inflate(mContext, R.layout.ac_item_address, null);
             slideView = new SwipeItemView(mContext);
@@ -70,7 +70,7 @@ public class AddressAdapter extends BaseAdapter {
                 dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        ToastUtils.showToast(mContext, "点击删除" + position + "");
+                        ToastUtils.showToast(mContext, "点击删除" + i + "");
                     }
                 });
                 dialog.setNegativeButton("取消", null).show();

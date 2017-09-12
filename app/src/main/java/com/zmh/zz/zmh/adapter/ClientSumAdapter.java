@@ -4,23 +4,22 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.modelinfo.BonusDetailInfo;
+import com.zmh.zz.zmh.modelinfo.ClientSumInfo;
 
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/9/8.
+ * Created by Administrator on 2017/9/12.
  */
 
-public class BonusDetailAdapter extends BaseAdapter {
+public class ClientSumAdapter extends BaseAdapter {
 
-    private List<BonusDetailInfo> list;
+    private List<ClientSumInfo> list;
     private Context mContext;
 
-    public BonusDetailAdapter(List<BonusDetailInfo> list, Context context) {
+    public ClientSumAdapter(List<ClientSumInfo> list, Context context) {
         this.list = list;
         this.mContext = context;
     }
@@ -35,15 +34,14 @@ public class BonusDetailAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
-            view = View.inflate(mContext, R.layout.ac_item_bonus_detail, null);
-            holder.mTv_sum = (TextView) view.findViewById(R.id.tv_sum);
-            holder.mTv_sum.setText("余额:" + "\r\r" + "32000.00");
+            view = View.inflate(mContext, R.layout.ac_item_client_sum, null);
+
+
         }
         return view;
     }
 
     class ViewHolder {
-        private TextView mTv_sum;
     }
 
     @Override

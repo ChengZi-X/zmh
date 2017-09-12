@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar_white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="开户时间"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="2017-10-1"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="账户类型"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="代理账户"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:id="@+id/change_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="用户ID"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="600001"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="姓名"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="张三"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="性别"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="男"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="电话"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="18337152301"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="邮箱"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="12306@qq.com"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="所在地区"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="河南郑州金水区"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:id="@+id/client_business"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="客户业务"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_gray" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:id="@+id/client_fund"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="客户资金"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@mipmap/arrow_right_gray" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/horizontal_line"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15dp" />
+
+            <RelativeLayout
+                android:id="@+id/mailbox"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?android:attr/selectableItemBackground">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="客户积分"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:text="2000"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

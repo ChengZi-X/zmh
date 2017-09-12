@@ -12,7 +12,9 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseFragment;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.activity.Ac_Client_Mesh;
 import com.zmh.zz.zmh.activity.Ac_My_Bank_Card;
+import com.zmh.zz.zmh.activity.Ac_My_Client;
 import com.zmh.zz.zmh.activity.Ac_Notice;
 import com.zmh.zz.zmh.activity.Ac_Personal_Information;
 import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_true;
@@ -26,7 +28,7 @@ import com.zmh.zz.zmh.utlis.CommomDialog;
 public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     private RelativeLayout mBut_setting;
     private View view;
-    private RelativeLayout mReal_Name_Authentication, mBank_card, mService, mNotice;
+    private RelativeLayout mReal_Name_Authentication, mBank_card, mService, mNotice, mMy_client, mClient_mesh;
     private LinearLayout mMe_integral;
     private String tel = 1833715230 + "";
     private String tel1 = 1 + "";
@@ -45,6 +47,8 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
         mBank_card = (RelativeLayout) view.findViewById(R.id.bank_card);
         mNotice = (RelativeLayout) view.findViewById(R.id.notice);
         mService = (RelativeLayout) view.findViewById(R.id.service);
+        mMy_client = (RelativeLayout) view.findViewById(R.id.my_client);
+        mClient_mesh = (RelativeLayout) view.findViewById(R.id.client_mesh);
         mBut_setting.setOnClickListener(this);
         mIm_head_portrait.setOnClickListener(this);
         mPersonal_information.setOnClickListener(this);
@@ -53,6 +57,8 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
         mBank_card.setOnClickListener(this);
         mService.setOnClickListener(this);
         mNotice.setOnClickListener(this);
+        mMy_client.setOnClickListener(this);
+        mClient_mesh.setOnClickListener(this);
         //变化通知栏颜色,4.4以下不支持
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();
@@ -83,6 +89,12 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.notice:
                 startActivity(new Intent(getActivity(), Ac_Notice.class));
+                break;
+            case R.id.my_client:
+                startActivity(new Intent(getActivity(), Ac_My_Client.class));
+                break;
+            case R.id.client_mesh:
+                startActivity(new Intent(getActivity(), Ac_Client_Mesh.class));
                 break;
 //            case R.id.im_head_portrait:
 //                startActivity(new Intent(getActivity(), Ac_Im_Head_Portrait.class));
