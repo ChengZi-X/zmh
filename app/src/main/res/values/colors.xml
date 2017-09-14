@@ -22,6 +22,7 @@
     <color name="translucence2">#66FFFFFF</color><!--登录界面按钮半透明 -->
     <color name="log_edittext_color">#E0E3E5</color><!--登录界面的输入框字体颜色 -->
     <color name="log_edittext_color2">#C4C8CA</color><!--登录界面的输入框字体颜色 -->
+    <color name="integral_color">#FB6A6D</color><!--积分签到色-->
 
     <color name="c3">#B82317</color><!--资金通知栏颜色-->
     <color name="c3_bonus">#E46007</color><!--奖金通知栏颜色-->

@@ -13,7 +13,7 @@ import com.zmh.zz.zmh.R;
 public class FragmentHomepage extends BaseFragment {
     @Override
     public View initView() {
-        View view = View.inflate(getActivity(), R.layout.homepage, null);
+        View view = View.inflate(getActivity(), R.layout.fragment_homepage, null);
         initData();
         return view;
     }

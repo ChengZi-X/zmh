@@ -34,13 +34,13 @@
             android:textColor="@color/light_black"
             android:textSize="@dimen/z3" />
 
+
         <TextView
             android:id="@+id/title_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
+            android:gravity="center"
             android:textColor="@color/light_black"
             android:textSize="@dimen/z3" />
 

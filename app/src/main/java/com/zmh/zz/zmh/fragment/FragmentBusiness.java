@@ -14,7 +14,7 @@ import com.zmh.zz.zmh.R;
 public class FragmentBusiness extends BaseFragment {
     @Override
     public View initView() {
-        View view = View.inflate(getActivity(), R.layout.business, null);
+        View view = View.inflate(getActivity(), R.layout.fragment_business, null);
         initData();
         return view;
     }

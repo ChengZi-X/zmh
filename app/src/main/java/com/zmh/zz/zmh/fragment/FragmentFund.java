@@ -24,7 +24,7 @@ public class FragmentFund extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View initView() {
-        view = View.inflate(getActivity(), R.layout.fund, null);
+        view = View.inflate(getActivity(), R.layout.fragment_fund, null);
         mTrading_record = (TextView) view.findViewById(R.id.trading_record);
         mRemaining_sum = (RelativeLayout) view.findViewById(R.id.remaining_sum);
         mBonus = (RelativeLayout) view.findViewById(R.id.bonus);

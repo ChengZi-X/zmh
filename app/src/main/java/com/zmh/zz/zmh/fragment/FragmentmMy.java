@@ -19,6 +19,7 @@ import com.zmh.zz.zmh.activity.Ac_Notice;
 import com.zmh.zz.zmh.activity.Ac_Personal_Information;
 import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_true;
 import com.zmh.zz.zmh.activity.Ac_Setting;
+import com.zmh.zz.zmh.integralfragment.Ac_Tab_Integral;
 import com.zmh.zz.zmh.utlis.CircleImageView2;
 import com.zmh.zz.zmh.utlis.CommomDialog;
 
@@ -37,7 +38,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View initView() {
-        view = View.inflate(getActivity(), R.layout.my, null);
+        view = View.inflate(getActivity(), R.layout.fragment_my, null);
         // 注册控件
         mBut_setting = (RelativeLayout) view.findViewById(R.id.but_setting);
         mIm_head_portrait = (CircleImageView2) view.findViewById(R.id.im_head_portrait);
@@ -78,9 +79,9 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
             case R.id.personal_information:
                 startActivity(new Intent(getActivity(), Ac_Personal_Information.class));
                 break;
-//            case R.id.me_integral:
-//                startActivity(new Intent(getActivity(), Ac_Me_Integral.class));
-//                break;
+            case R.id.me_integral:
+                startActivity(new Intent(getActivity(), Ac_Tab_Integral.class));
+                break;
             case R.id.real_name_authentication:
                 startActivity(new Intent(getActivity(), Ac_Real_Name_Authentication_true.class));
                 break;

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/sign"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/task_sign" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="签到"
+                    android:textColor="@color/absolute_black"
+                    android:textSize="@dimen/z2" />
+
+                <TextView
+                    android:id="@+id/tv_sign"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="100积分"
+                    android:textColor="@color/edittext_color"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right">
+
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="13dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:src="@mipmap/arrow_right_gray" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/real_name_authentication"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp">
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/task_autonym" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="实名认证"
+                        android:textColor="@color/absolute_black"
+                        android:textSize="@dimen/z2" />
+
+                    <TextView
+                        android:id="@+id/tv_real_name_authentication"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="100积分"
+                        android:textColor="@color/edittext_color"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:src="@mipmap/arrow_right_gray" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_marginLeft="15dp" />
+
+        <LinearLayout
+            android:id="@+id/add_bank_card"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp">
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/task_card" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="添加银行卡"
+                        android:textColor="@color/absolute_black"
+                        android:textSize="@dimen/z2" />
+
+                    <TextView
+                        android:id="@+id/tv_add_bank_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="100积分"
+                        android:textColor="@color/edittext_color"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:src="@mipmap/arrow_right_gray" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_marginLeft="15dp" />
+
+        <LinearLayout
+            android:id="@+id/add_address"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp">
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="40dp"
+                    android:src="@mipmap/task_address" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="添加地址"
+                        android:textColor="@color/absolute_black"
+                        android:textSize="@dimen/z2" />
+
+                    <TextView
+                        android:id="@+id/tv_add_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="100积分"
+                        android:textColor="@color/edittext_color"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right">
+
+                <ImageView
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="15dp"
+                    android:src="@mipmap/arrow_right_gray" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

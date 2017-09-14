@@ -26,7 +26,7 @@ public class CircleImageView2 extends ImageView {
     private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
     private static final int COLORDRAWABLE_DIMENSION = 2;
     private static final int DEFAULT_BORDER_WIDTH = 10;
-    private static final int DEFAULT_BORDER_COLOR = Color.parseColor("#209cfc");
+    private static final int DEFAULT_BORDER_COLOR = Color.parseColor("#209CFC");
     private static final int DEFAULT_FILL_COLOR = Color.TRANSPARENT;
     private static final boolean DEFAULT_BORDER_OVERLAY = false;
     private final RectF mDrawableRect = new RectF();
