@@ -1,18 +1,20 @@
 package com.zmh.zz.zmh.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.activity.Ac_Exchange_Data;
 import com.zmh.zz.zmh.modelinfo.ExchangeInfo;
 
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/9/14.
+ * Created by Administrator
  */
 
 public class ExchangeAdapter extends BaseAdapter {
@@ -37,14 +39,20 @@ public class ExchangeAdapter extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = View.inflate(mContext, R.layout.ac_item_exchange, null);
-//            holder.mTv_mouledtype = (TextView) convertView.findViewById(R.id.tv_list_item_mouled);
-//            holder.mTv_mouledtype.setText("");
+            holder.mExchange = (LinearLayout) view.findViewById(R.id.exchange);
+            holder.mExchange.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mContext.startActivity(new Intent(mContext, Ac_Exchange_Data.class));
+                }
+            });
         }
         return view;
+
     }
 
     class ViewHolder {
-        private TextView mTv_mouledtype;
+        private LinearLayout mExchange;
     }
 
     @Override

@@ -9,7 +9,7 @@ import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
 /**
- * Created by Administrator on .
+ * Created by Administrator
  * 选择拍照or相册
  */
 

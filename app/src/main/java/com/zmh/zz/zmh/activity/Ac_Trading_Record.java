@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on
+ * Created by Administrator
  * 交易记录
  */
 

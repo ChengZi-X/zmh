@@ -1,7 +1,7 @@
 package com.zmh.zz.zmh.splash;
 
 /**
- * Created by Administrator on 2017/7/10.
+ * Created by Administrator
  * 闪屏
  */
 

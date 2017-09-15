@@ -16,7 +16,7 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/8/11.
+ * Created by Administrator
  */
 
 public class AddressAdapter extends BaseAdapter {

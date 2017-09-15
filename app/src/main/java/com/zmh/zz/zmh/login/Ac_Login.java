@@ -24,7 +24,7 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
 
 
 /**
- * Created by Administrator on 2017/7/10.
+ * Created by Administrator
  * 登录
  */
 public class Ac_Login extends AppCompatActivity implements View.OnClickListener {

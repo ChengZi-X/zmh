@@ -1,4 +1,4 @@
-package com.zmh.zz.zmh.integralfragment;
+package com.zmh.zz.zmh.integral_fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.lhh.apst.library.AdvancedPagerSlidingTabStrip;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.activity.Ac_Check_Calendar;
+import com.zmh.zz.zmh.activity.Ac_Integral_Detail;
 import com.zmh.zz.zmh.lazyviewpager.LazyFragmentPagerAdapter;
 import com.zmh.zz.zmh.lazyviewpager.LazyViewPager;
 
@@ -30,7 +31,7 @@ public class Ac_Tab_Integral extends AppCompatActivity implements View.OnClickLi
     private FragmentTask mSecondFragment = null;
 
     private RelativeLayout mSign_number;
-    private TextView toolbartitle;
+    private TextView toolbartitle, mIntegral_detail;
     private RelativeLayout mTitle_back;
 
     @Override
@@ -42,7 +43,9 @@ public class Ac_Tab_Integral extends AppCompatActivity implements View.OnClickLi
         TextPaint tp = toolbartitle.getPaint();
         tp.setFakeBoldText(true);
         mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
+        mIntegral_detail = (TextView) findViewById(R.id.integral_detail);
         mTitle_back.setOnClickListener(this);
+        mIntegral_detail.setOnClickListener(this);
 
         mAPSTS = (AdvancedPagerSlidingTabStrip) findViewById(R.id.tabs);
         mVP = (LazyViewPager) findViewById(R.id.vp_main);
@@ -61,11 +64,15 @@ public class Ac_Tab_Integral extends AppCompatActivity implements View.OnClickLi
             case R.id.sign_number:
                 startActivity(new Intent(Ac_Tab_Integral.this, Ac_Check_Calendar.class));
                 break;
+            case R.id.integral_detail:
+                startActivity(new Intent(Ac_Tab_Integral.this, Ac_Integral_Detail.class));
+                break;
             case R.id.title_back:
                 finish();
                 break;
         }
     }
+
     public class FragmentAdapter extends LazyFragmentPagerAdapter {
         public FragmentAdapter(FragmentManager fm) {
             super(fm);

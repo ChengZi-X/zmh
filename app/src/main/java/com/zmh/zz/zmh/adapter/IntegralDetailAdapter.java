@@ -1,13 +1,14 @@
 package com.zmh.zz.zmh.adapter;
 
 import android.content.Context;
+import android.text.TextPaint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.modelinfo.BonusDetailInfo;
+import com.zmh.zz.zmh.modelinfo.IntegralDetailInfo;
 
 import java.util.List;
 
@@ -15,12 +16,12 @@ import java.util.List;
  * Created by Administrator
  */
 
-public class BonusDetailAdapter extends BaseAdapter {
+public class IntegralDetailAdapter extends BaseAdapter {
 
-    private List<BonusDetailInfo> list;
+    private List<IntegralDetailInfo> list;
     private Context mContext;
 
-    public BonusDetailAdapter(List<BonusDetailInfo> list, Context context) {
+    public IntegralDetailAdapter(List<IntegralDetailInfo> list, Context context) {
         this.list = list;
         this.mContext = context;
     }
@@ -35,15 +36,17 @@ public class BonusDetailAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
-            view = View.inflate(mContext, R.layout.ac_item_bonus_detail, null);
-            holder.mTv_sum = (TextView) view.findViewById(R.id.tv_sum);
-            holder.mTv_sum.setText("余额:" + "\r\r" + "32000.00");
+            view = View.inflate(mContext, R.layout.ac_item_integral_detail, null);
+            holder.mTv_integral = (TextView) view.findViewById(R.id.tv_integral);
+            holder.mTv_integral.setText("+" + 10);
+            TextPaint tp = holder.mTv_integral.getPaint();
+            tp.setFakeBoldText(true);
         }
         return view;
     }
 
     class ViewHolder {
-        private TextView mTv_sum;
+        private TextView mTv_integral;
     }
 
     @Override
@@ -55,4 +58,6 @@ public class BonusDetailAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
+
+
 }

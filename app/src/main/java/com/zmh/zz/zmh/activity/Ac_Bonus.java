@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.zmh.zz.zmh.R;
 
 /**
- * Created by Administrator on 2017/8/15.
+ * Created by Administrator
  * 奖金
  */
 

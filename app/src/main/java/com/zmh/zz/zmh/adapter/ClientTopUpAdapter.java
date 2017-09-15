@@ -11,7 +11,7 @@ import com.zmh.zz.zmh.modelinfo.ClientTopUpInfo;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/9/12.
+ * Created by Administrator
  */
 
 public class ClientTopUpAdapter extends BaseAdapter {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.Toast;
 
 /**
- * Created by XUE on 2017/4/26.
  * 弹吐司
  */
 

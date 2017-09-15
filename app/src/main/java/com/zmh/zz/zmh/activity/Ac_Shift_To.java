@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.zmh.zz.zmh.R;
 
 /**
- * Created by Administrator on
+ * Created by Administrator
  * 资金转入
  */
 

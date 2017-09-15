@@ -31,8 +31,12 @@
         <activity android:name=".login.Ac_Reset_Password" />
         <activity android:name=".activity.Ac_Setting" />
         <activity android:name=".activity.Ac_Personal_Information" />
-        <activity android:name=".integralfragment.Ac_Tab_Integral"/>
+        <activity android:name=".integral_fragment.Ac_Tab_Integral"/>
+        <activity android:name=".activity.Ac_Integral_Detail"/>
+        <activity android:name=".activity.Ac_Integral_Rule"/>
+        <activity android:name=".activity.Ac_Exchange_Data"/>
         <activity android:name=".activity.Ac_Check_Calendar" />
+        <activity android:name=".activity.Ac_Activity_Rule"/>
         <activity android:name=".activity.Ac_Account_Security" />
         <activity android:name=".activity.Ac_In_Regard_To" />
         <activity android:name=".activity.Ac_My_Bank_Card" />

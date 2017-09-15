@@ -12,7 +12,7 @@ import com.zmh.zz.zmh.modelinfo.SumDetailInfo;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/9/8.
+ * Created by Administrator
  */
 
 public class SumDetailAdapter extends BaseAdapter {

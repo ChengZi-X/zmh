@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.zmh.zz.zmh.R;
 
 /**
- * Created by Administrator on 2017/8/4.
+ * Created by Administrator
  * 账号与安全_手机号验证
  */
 

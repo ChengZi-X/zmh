@@ -16,7 +16,6 @@ import android.widget.Checkable;
 import com.zmh.zz.zmh.R;
 
 /**
- * Created by XUE on .
  */
 public class CheckBoxSample extends View implements Checkable {
 

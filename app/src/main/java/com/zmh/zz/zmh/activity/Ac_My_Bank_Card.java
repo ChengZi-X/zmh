@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/8/10.
+ * Created by Administrator
  * 我的银行卡列表显示
  */
 

@@ -19,7 +19,7 @@ import com.zmh.zz.zmh.activity.Ac_Notice;
 import com.zmh.zz.zmh.activity.Ac_Personal_Information;
 import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_true;
 import com.zmh.zz.zmh.activity.Ac_Setting;
-import com.zmh.zz.zmh.integralfragment.Ac_Tab_Integral;
+import com.zmh.zz.zmh.integral_fragment.Ac_Tab_Integral;
 import com.zmh.zz.zmh.utlis.CircleImageView2;
 import com.zmh.zz.zmh.utlis.CommomDialog;
 

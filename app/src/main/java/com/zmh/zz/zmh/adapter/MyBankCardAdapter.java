@@ -12,7 +12,7 @@ import com.zmh.zz.zmh.modelinfo.MyBankCardInfo;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/8/10.
+ * Created by Administrator
  */
 
 public class MyBankCardAdapter extends BaseAdapter {

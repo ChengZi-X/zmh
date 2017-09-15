@@ -14,7 +14,7 @@ import com.zmh.zz.zmh.modelinfo.MyClientInfo;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/9/12.
+ * Created by Administrator
  */
 
 public class MyClientAdapter extends BaseAdapter {

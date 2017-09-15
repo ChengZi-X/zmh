@@ -12,7 +12,7 @@ import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
 /**
- * Created by Administrator on 2017/8/31.
+ * Created by Administrator
  * 上传证件照
  */
 

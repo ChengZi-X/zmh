@@ -1,5 +1,6 @@
 package com.zmh.zz.zmh.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +36,8 @@ public class Ac_Check_Calendar extends AppCompatActivity implements View.OnClick
         toolbartitle.setText("签到日历");
         TextPaint tp = toolbartitle.getPaint();
         tp.setFakeBoldText(true);
+        mTitle_rule = (TextView) findViewById(R.id.rule);
+        mTitle_rule.setOnClickListener(this);
         mAggregate_score = (TextView) findViewById(R.id.aggregate_score);
         mAggregate_score.setText("85");
         TextPaint tp1 = toolbartitle.getPaint();
@@ -59,6 +62,9 @@ public class Ac_Check_Calendar extends AppCompatActivity implements View.OnClick
         switch (view.getId()) {
             case R.id.title_back:
                 finish();
+                break;
+            case R.id.rule:
+                startActivity(new Intent(Ac_Check_Calendar.this, Ac_Activity_Rule.class));
                 break;
         }
     }

@@ -1,4 +1,4 @@
-package com.zmh.zz.zmh.integralfragment;
+package com.zmh.zz.zmh.integral_fragment;
 
 import android.view.View;
 import android.widget.ListView;

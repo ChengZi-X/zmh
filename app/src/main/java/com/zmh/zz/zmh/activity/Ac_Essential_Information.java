@@ -22,7 +22,7 @@ import java.util.Locale;
 
 
 /**
- * Created by Administrator on
+ * Created by Administrator
  * 基本信息
  */
 

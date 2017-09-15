@@ -1,4 +1,4 @@
-package com.zmh.zz.zmh.integralfragment;
+package com.zmh.zz.zmh.integral_fragment;
 
 import android.content.Intent;
 import android.graphics.Color;

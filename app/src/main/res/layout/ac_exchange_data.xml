@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar_white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:src="@mipmap/exchange" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="兰博基尼兑换券"
+            android:textColor="@color/absolute_black"
+            android:textSize="@dimen/z1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="100积分"
+            android:textColor="@color/integral_color"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="2dp"
+                android:src="@mipmap/quanyi_name" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_toRightOf="@+id/iv1"
+                android:text="权益名称"
+                android:textColor="@color/absolute_black"
+                android:textSize="@dimen/z2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv1"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="7dp"
+                android:layout_toRightOf="@+id/iv1"
+                android:text="兰博基尼兑换券"
+                android:textColor="@color/edittext_color"
+                android:textSize="@dimen/z1" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="1dp"
+                android:src="@mipmap/quanyi_introduce" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_toRightOf="@+id/iv2"
+                android:text="权益介绍"
+                android:textColor="@color/absolute_black"
+                android:textSize="@dimen/z2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv2"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_toRightOf="@+id/iv2"
+                android:text="兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券"
+                android:textColor="@color/edittext_color"
+                android:textSize="@dimen/z1" />
+        </RelativeLayout>
+
+        <View
+            style="@style/horizontal_line"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="1dp"
+                android:src="@mipmap/quanyi_explain" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_toRightOf="@+id/iv3"
+                android:text="权益介绍"
+                android:textColor="@color/absolute_black"
+                android:textSize="@dimen/z2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv3"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_toRightOf="@+id/iv3"
+                android:text="1.兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券\n2.兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券\n3.兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券"
+                android:textColor="@color/edittext_color"
+                android:textSize="@dimen/z1" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/but_exchange"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/nextbtn"
+            android:text="立即兑换"
+            android:textColor="@color/white"
+            android:textSize="@dimen/z2" />
+    </RelativeLayout>
+</LinearLayout>

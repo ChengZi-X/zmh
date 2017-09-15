@@ -2,11 +2,6 @@ package com.zmh.zz.zmh.wheelview;
 
 import java.io.Serializable;
 
-/**
- * 
- * @author zengtao 2015年5月20日下午7:18:14
- *
- */
 public class Pickers implements Serializable {
 
 	private static final long serialVersionUID = 1L;
