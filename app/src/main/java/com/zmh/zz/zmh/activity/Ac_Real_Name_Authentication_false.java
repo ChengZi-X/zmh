@@ -4,8 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.DatePicker;
@@ -13,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.ChangeAddressPopwindow;
 import com.zmh.zz.zmh.R;
 
@@ -26,9 +25,9 @@ import java.util.Locale;
  * 实名认证_false
  */
 
-public class Ac_Real_Name_Authentication_false extends AppCompatActivity implements View.OnClickListener {
-    private RelativeLayout mSex, mCertificate, mTitle_back;
-    private TextView mMen_and_women, mChoose_address, toolbartitle, mTitle_submit;
+public class Ac_Real_Name_Authentication_false extends BaseActivity implements View.OnClickListener {
+    private RelativeLayout mSex, mCertificate;
+    private TextView mMen_and_women, mChoose_address;
     private EditText mDate;
     int which = 0;
     DateFormat fmtDate = new java.text.SimpleDateFormat("yyyy-MM-dd");
@@ -51,45 +50,46 @@ public class Ac_Real_Name_Authentication_false extends AppCompatActivity impleme
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_real_name_authentication_false);
-        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
-        mTitle_back.setOnClickListener(this);
-        toolbartitle = (TextView) findViewById(R.id.title_tool);
-        toolbartitle.setText("实名认证");
-        TextPaint tp = toolbartitle.getPaint();
-        tp.setFakeBoldText(true);
-        mTitle_submit = (TextView) findViewById(R.id.title_submit);
-        mTitle_submit.setText("提交");
-        TextPaint tp1 = mTitle_submit.getPaint();
-        tp1.setFakeBoldText(true);
-        mTitle_submit.setOnClickListener(this);
+        setTitle("实名认证");
+        setRtTitle("提交");
+        setRightBtnVisible(true);
+        FindViewById();
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.ac_real_name_authentication_false;//任意非空布局
+    }
+
+    private void FindViewById() {
+        mDate = (EditText) findViewById(R.id.date);
+        mMen_and_women = (TextView) findViewById(R.id.men_and_women);
         mSex = (RelativeLayout) findViewById(R.id.sex);
         mCertificate = (RelativeLayout) findViewById(R.id.validity_of_a_certificate);
-        mMen_and_women = (TextView) findViewById(R.id.men_and_women);
-        mDate = (EditText) findViewById(R.id.date);
         mChoose_address = (TextView) findViewById(R.id.choose_address);
         mSex.setOnClickListener(this);
         mCertificate.setOnClickListener(this);
         mChoose_address.setOnClickListener(this);
     }
-
+    //右键点击
+    @Override
+    protected void onClickRight() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(Ac_Real_Name_Authentication_false.this);
+        dialog.setTitle("提示");
+        dialog.setMessage("\r\r\r\r\r\r\r\r您的资料已提交,请耐心等待,我们将在1-2个工作日人审核完成。");
+        dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
+                dialog.dismiss();
+            }
+        });
+        dialog.setCancelable(false);
+        dialog.show();
+    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_submit:
-                AlertDialog.Builder dialog = new AlertDialog.Builder(Ac_Real_Name_Authentication_false.this);
-                dialog.setTitle("提示");
-                dialog.setMessage("\r\r\r\r\r\r\r\r您的资料已提交,请耐心等待,我们将在1-2个工作日人审核完成。");
-                dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
-                        dialog.dismiss();
-                    }
-                });
-                dialog.setCancelable(false);
-                dialog.show();
-                break;
             case R.id.sex:
                 AlertDialog.Builder dialog1 = new AlertDialog.Builder(Ac_Real_Name_Authentication_false.this);
                 dialog1.setTitle("性别");
@@ -133,9 +133,6 @@ public class Ac_Real_Name_Authentication_false extends AppCompatActivity impleme
                                 }
                             }
                         });
-                break;
-            case R.id.title_back:
-                finish();
                 break;
         }
     }

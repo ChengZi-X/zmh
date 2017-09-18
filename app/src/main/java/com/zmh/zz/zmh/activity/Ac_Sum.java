@@ -1,16 +1,15 @@
 package com.zmh.zz.zmh.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextPaint;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 
 
@@ -19,27 +18,41 @@ import com.zmh.zz.zmh.R;
  * 余额
  */
 
-public class Ac_Sum extends AppCompatActivity implements View.OnClickListener {
-    private TextView toolbartitle, mSum_detail;
-    private RelativeLayout mTitle_back, mTop_up, mWithdraw;
+public class Ac_Sum extends BaseActivity implements View.OnClickListener {
+    private RelativeLayout mTop_up, mWithdraw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_sum);
-        toolbartitle = (TextView) findViewById(R.id.title_tool);
-        toolbartitle.setText("余额");
-        TextPaint tp = toolbartitle.getPaint();
-        tp.setFakeBoldText(true);
-        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
-        mTitle_back.setOnClickListener(this);
-        mSum_detail = (TextView) findViewById(R.id.sum_detail);
+        setTitle("余额");
+        setRtTitle("明细");
+        setRightBtnVisible(true);
+        setBottomViewVisible(false);
+        setTitleBackgroundColor(Color.parseColor("#1B82D2"));
+        setLeftbtnColor(R.mipmap.arrow_left_white);
+        setTitleTvColor(Color.parseColor("#FFFFFF"));
+        setRtTitleTvColor(Color.parseColor("#FFFFFF"));
+        FindViewById();
+        InitData();
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.ac_sum;//任意非空布局
+    }
+
+    private void FindViewById() {
         mTop_up = (RelativeLayout) findViewById(R.id.top_up);
         mWithdraw = (RelativeLayout) findViewById(R.id.withdraw);
         mTop_up.setOnClickListener(this);
         mWithdraw.setOnClickListener(this);
-        mSum_detail.setOnClickListener(this);
         InitData();
+    }
+
+    //右键点击
+    @Override
+    protected void onClickRight() {
+        startActivity(new Intent(Ac_Sum.this, Ac_Sum_Detail.class));
     }
 
     private void InitData() {
@@ -54,17 +67,11 @@ public class Ac_Sum extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.sum_detail:
-                startActivity(new Intent(Ac_Sum.this, Ac_Sum_Detail.class));
-                break;
             case R.id.top_up:
                 startActivity(new Intent(Ac_Sum.this, Ac_Top_Up.class));
                 break;
             case R.id.withdraw:
                 startActivity(new Intent(Ac_Sum.this, Ac_Withdraw.class));
-                break;
-            case R.id.title_back:
-                finish();
                 break;
         }
     }

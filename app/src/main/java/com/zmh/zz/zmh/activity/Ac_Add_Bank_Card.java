@@ -1,13 +1,12 @@
 package com.zmh.zz.zmh.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextPaint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.utlis.CheckBoxSample;
 import com.zmh.zz.zmh.utlis.ToastUtils;
@@ -23,12 +22,10 @@ import java.util.List;
  * 添加银行
  */
 
-public class Ac_Add_Bank_Card extends AppCompatActivity implements View.OnClickListener {
+public class Ac_Add_Bank_Card extends BaseActivity implements View.OnClickListener {
     private Button mBut_save;
-    private TextView mOpening_bank, toolbartitle;
+    private TextView mOpening_bank;
     private CheckBoxSample mCheck;
-    private RelativeLayout mTitle_back;
-
     private PickerScrollView pickerscrlllview; // 滚动选择器
     private List<Pickers> list; // 滚动选择器数据
     private String[] id;
@@ -39,25 +36,29 @@ public class Ac_Add_Bank_Card extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_add_bank_card);
-        toolbartitle = (TextView) findViewById(R.id.title_tool);
-        toolbartitle.setText("添加银行卡");
-        TextPaint tp = toolbartitle.getPaint();
-        tp.setFakeBoldText(true);
+        setTitle("添加银行卡");
+        FindViewById();
+        initLinstener();
+        initData();
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.ac_add_bank_card;//任意非空布局
+    }
+
+    private void FindViewById() {
         mBut_save = (Button) findViewById(R.id.but_save);
-        mOpening_bank = (TextView) findViewById(R.id.opening_bank);
         mBut_save.setOnClickListener(this);
+        mOpening_bank = (TextView) findViewById(R.id.opening_bank);
         picker_rel = (RelativeLayout) findViewById(R.id.picker_rel);
         pickerscrlllview = (PickerScrollView) findViewById(R.id.pickerscrollview);
         mPicker_yes = (TextView) findViewById(R.id.picker_yes);
         mPicker_no = (TextView) findViewById(R.id.picker_no);
         mCheck = (CheckBoxSample) findViewById(R.id.check);
         mCheck.setOnClickListener(this);
-        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
-        mTitle_back.setOnClickListener(this);
-        initLinstener();
-        initData();
     }
+
 
     /**
      * 设置监听事件
@@ -118,9 +119,6 @@ public class Ac_Add_Bank_Card extends AppCompatActivity implements View.OnClickL
             case R.id.check:
                 mCheck.toggle();
                 ToastUtils.showToast(Ac_Add_Bank_Card.this, mCheck.isChecked() + "");
-                break;
-            case R.id.title_back:
-                finish();
                 break;
         }
     }

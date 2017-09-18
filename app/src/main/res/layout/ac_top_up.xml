@@ -7,51 +7,6 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
-
-        <RelativeLayout
-            android:id="@+id/title_back"
-            android:layout_width="43dp"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:layout_width="13dp"
-                android:layout_height="22dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:src="@mipmap/arrow_left_gray" />
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/title_tool"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="50dp"
-            android:textColor="@color/light_black"
-            android:textSize="@dimen/z3" />
-
-        <TextView
-            android:id="@+id/title_quota_explain"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:text="限额说明"
-            android:textColor="@color/babyblue"
-            android:textSize="@dimen/z2" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="#c2c2c2" />
-    </RelativeLayout>
-
-    <RelativeLayout
         android:id="@+id/rl_recharge_bankcard"
         android:layout_width="match_parent"
         android:layout_height="60dp"

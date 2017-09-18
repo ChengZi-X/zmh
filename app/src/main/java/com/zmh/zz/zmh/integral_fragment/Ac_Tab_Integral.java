@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextPaint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.lhh.apst.library.AdvancedPagerSlidingTabStrip;
+import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.activity.Ac_Check_Calendar;
 import com.zmh.zz.zmh.activity.Ac_Integral_Detail;
@@ -21,7 +19,7 @@ import com.zmh.zz.zmh.lazyviewpager.LazyViewPager;
 /**
  * 积分
  */
-public class Ac_Tab_Integral extends AppCompatActivity implements View.OnClickListener {
+public class Ac_Tab_Integral extends BaseActivity implements View.OnClickListener {
     public AdvancedPagerSlidingTabStrip mAPSTS;
     public LazyViewPager mVP;
     private static final int VIEW_FIRST = 0;
@@ -31,22 +29,22 @@ public class Ac_Tab_Integral extends AppCompatActivity implements View.OnClickLi
     private FragmentTask mSecondFragment = null;
 
     private RelativeLayout mSign_number;
-    private TextView toolbartitle, mIntegral_detail;
-    private RelativeLayout mTitle_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_tab_integral);
-        toolbartitle = (TextView) findViewById(R.id.title_tool);
-        toolbartitle.setText("账号与安全");
-        TextPaint tp = toolbartitle.getPaint();
-        tp.setFakeBoldText(true);
-        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
-        mIntegral_detail = (TextView) findViewById(R.id.integral_detail);
-        mTitle_back.setOnClickListener(this);
-        mIntegral_detail.setOnClickListener(this);
+        setTitle("账号与安全");
+        setRtTitle("明细");
+        setRightBtnVisible(true);
+        FindViewById();
+    }
 
+    @Override
+    protected int getContentView() {
+        return R.layout.ac_tab_integral;
+    }
+
+    private void FindViewById() {
         mAPSTS = (AdvancedPagerSlidingTabStrip) findViewById(R.id.tabs);
         mVP = (LazyViewPager) findViewById(R.id.vp_main);
         mVP.setOffscreenPageLimit(VIEW_THREE);
@@ -57,18 +55,19 @@ public class Ac_Tab_Integral extends AppCompatActivity implements View.OnClickLi
         mSign_number = (RelativeLayout) findViewById(R.id.sign_number);
         mSign_number.setOnClickListener(this);
     }
+    //右键点击
+    @Override
+    protected void onClickRight() {
+        startActivity(new Intent(Ac_Tab_Integral.this, Ac_Integral_Detail.class));
+    }
+
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.sign_number:
                 startActivity(new Intent(Ac_Tab_Integral.this, Ac_Check_Calendar.class));
-                break;
-            case R.id.integral_detail:
-                startActivity(new Intent(Ac_Tab_Integral.this, Ac_Integral_Detail.class));
-                break;
-            case R.id.title_back:
-                finish();
                 break;
         }
     }

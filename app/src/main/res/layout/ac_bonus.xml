@@ -5,45 +5,6 @@
     android:background="@color/background"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#F26100">
-
-        <RelativeLayout
-            android:id="@+id/title_back"
-            android:layout_width="43dp"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:layout_width="13dp"
-                android:layout_height="22dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:src="@mipmap/arrow_left_white" />
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/title_tool"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="50dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/z3" />
-
-        <TextView
-            android:id="@+id/bonus_detail"
-            android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:gravity="center"
-            android:text="明细"
-            android:textColor="@color/white"
-            android:textSize="@dimen/z3" />
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="168dp"

@@ -1,13 +1,9 @@
 package com.zmh.zz.zmh.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextPaint;
-import android.view.View;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.adapter.ClienBonustAdapter;
 import com.zmh.zz.zmh.modelinfo.ClientBonusInfo;
@@ -20,9 +16,7 @@ import java.util.List;
  * 客户奖金
  */
 
-public class Ac_Client_Bonus extends AppCompatActivity implements View.OnClickListener {
-    private TextView toolbartitle;
-    private RelativeLayout mTitle_back;
+public class Ac_Client_Bonus extends BaseActivity {
     private ListView mLv_client_bonust;
     private ClienBonustAdapter clienBonustAdapter;
     private List<ClientBonusInfo> clienBonustList;
@@ -30,14 +24,13 @@ public class Ac_Client_Bonus extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_client_bonus);
-        toolbartitle = (TextView) findViewById(R.id.title_tool);
-        toolbartitle.setText("客户奖金");
-        TextPaint tp = toolbartitle.getPaint();
-        tp.setFakeBoldText(true);
-        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
-        mTitle_back.setOnClickListener(this);
+        setTitle("客户奖金");
         InitData();
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.ac_client_bonus;//任意非空布局
     }
 
     private void InitData() {
@@ -46,15 +39,5 @@ public class Ac_Client_Bonus extends AppCompatActivity implements View.OnClickLi
         clienBonustAdapter = new ClienBonustAdapter(clienBonustList, Ac_Client_Bonus.this);
         mLv_client_bonust.setAdapter(clienBonustAdapter);
         clienBonustAdapter.notifyDataSetChanged();
-    }
-
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.title_back:
-                finish();
-                break;
-        }
     }
 }

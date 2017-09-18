@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/toolbar"
+        android:id="@+id/base_titlebar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/white">
+        android:layout_height="56dp">
 
         <RelativeLayout
-            android:id="@+id/title_back"
+            android:id="@+id/base_back_btn"
             android:layout_width="43dp"
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/base_back"
                 android:layout_width="13dp"
                 android:layout_height="22dp"
                 android:layout_centerVertical="true"
@@ -23,7 +28,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/title_tool"
+            android:id="@+id/base_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -31,13 +36,30 @@
             android:textColor="@color/light_black"
             android:textSize="@dimen/z3" />
 
+        <TextView
+            android:id="@+id/base_menu_btn"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textColor="@color/light_black"
+            android:textSize="18sp" />
+
         <View
+            android:id="@+id/base_bottom_view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
             android:background="#c2c2c2" />
     </RelativeLayout>
-</RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/base_contentview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"></FrameLayout>
+</LinearLayout>
 
 
 

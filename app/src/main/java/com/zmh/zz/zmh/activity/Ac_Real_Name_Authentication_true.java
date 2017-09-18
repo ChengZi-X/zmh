@@ -1,13 +1,12 @@
 package com.zmh.zz.zmh.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextPaint;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 
 
@@ -16,33 +15,36 @@ import com.zmh.zz.zmh.R;
  * 实名认证_false
  */
 
-public class Ac_Real_Name_Authentication_true extends AppCompatActivity implements View.OnClickListener {
-    private TextView toolbartitle;
-    private RelativeLayout mTitle_back, mCertificate_photo, mEssential_information;
+public class Ac_Real_Name_Authentication_true extends BaseActivity implements View.OnClickListener {
+    private RelativeLayout mCertificate_photo, mEssential_information;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_real_name_authentication_true);
-        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
-        mTitle_back.setOnClickListener(this);
-        toolbartitle = (TextView) findViewById(R.id.title_tool);
-        toolbartitle.setText("实名认证");
-        TextPaint tp = toolbartitle.getPaint();
-        tp.setFakeBoldText(true);
+        setTitle("实名认证");
+        setBottomViewVisible(false);
+        setTitleBackgroundColor(Color.parseColor("#1B82D2"));
+        setLeftbtnColor(R.mipmap.arrow_left_white);
+        setTitleTvColor(Color.parseColor("#FFFFFF"));
+        FindViewById();
+    }
+
+    @Override
+    protected int getContentView() {
+        return R.layout.ac_real_name_authentication_true;
+    }
+
+    private void FindViewById() {
         mCertificate_photo = (RelativeLayout) findViewById(R.id.certificate_photo);
         mEssential_information = (RelativeLayout) findViewById(R.id.essential_information);
         mCertificate_photo.setOnClickListener(this);
         mEssential_information.setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_back:
-                finish();
-                break;
             case R.id.certificate_photo:
                 startActivity(new Intent(Ac_Real_Name_Authentication_true.this, Ac_Uploading_Of_Documents.class));
                 break;

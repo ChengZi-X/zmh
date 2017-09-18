@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:background="@color/background">
 
-    <include layout="@layout/app_bar_white" />
     <ListView
         android:id="@+id/lv_client_mesh"
         android:layout_width="match_parent"
