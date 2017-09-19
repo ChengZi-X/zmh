@@ -25,7 +25,7 @@ public class Ac_Client_Bonus extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("客户奖金");
-        InitData();
+        ListViewInitData();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Ac_Client_Bonus extends BaseActivity {
         return R.layout.ac_client_bonus;//任意非空布局
     }
 
-    private void InitData() {
+    private void ListViewInitData() {
         mLv_client_bonust = (ListView) findViewById(R.id.lv_client_bonus);
         clienBonustList = new ArrayList<>();
         clienBonustAdapter = new ClienBonustAdapter(clienBonustList, Ac_Client_Bonus.this);

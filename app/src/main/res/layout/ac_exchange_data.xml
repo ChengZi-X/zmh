@@ -22,15 +22,15 @@
             android:layout_marginTop="16dp"
             android:text="兰博基尼兑换券"
             android:textColor="@color/absolute_black"
-            android:textSize="@dimen/z1" />
+            android:textSize="@dimen/z2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="8dp"
             android:text="100积分"
             android:textColor="@color/integral_color"
-            android:textSize="13sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout

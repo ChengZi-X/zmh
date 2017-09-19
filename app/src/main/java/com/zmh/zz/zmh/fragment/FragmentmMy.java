@@ -40,12 +40,6 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     public View initView() {
         view = View.inflate(getActivity(), R.layout.fragment_my, null);
         FindViewById();
-        //变化通知栏颜色,4.4以下不支持
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getActivity().getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.c4));
-        }
         initData();
         return view;
     }
@@ -123,6 +117,11 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     }
 
     public void initData() {
-
+        //变化通知栏颜色,4.4以下不支持
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getActivity().getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.c4));
+        }
     }
 }

@@ -18,8 +18,6 @@ import java.util.List;
  */
 
 public class ExchangeAdapter extends BaseAdapter {
-
-
     private List<ExchangeInfo> list;
     private Context mContext;
 

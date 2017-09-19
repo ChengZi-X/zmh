@@ -40,12 +40,10 @@ public abstract class BaseActivity extends AppCompatActivity {
             titlebar = findViewById(R.id.base_titlebar);
             leftBtn = findViewById(R.id.base_back_btn);
             back = (ImageView) findViewById(R.id.base_back);
-            leftBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onClickLeft();
-                }
-            });
+            titltTv = (TextView) findViewById(R.id.base_title_tv);
+            //字体加粗
+            TextPaint tp = titltTv.getPaint();
+            tp.setFakeBoldText(true);
             rightBtn = (TextView) findViewById(R.id.base_menu_btn);
             //字体加粗
             TextPaint tp1 = rightBtn.getPaint();
@@ -57,10 +55,12 @@ public abstract class BaseActivity extends AppCompatActivity {
                     onClickRight();
                 }
             });
-            titltTv = (TextView) findViewById(R.id.base_title_tv);
-            //字体加粗
-            TextPaint tp = titltTv.getPaint();
-            tp.setFakeBoldText(true);
+            leftBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onClickLeft();
+                }
+            });
         }
         contentView = (ViewGroup) findViewById(R.id.base_contentview);
         contentView.addView(View.inflate(this, getContentView(), null));

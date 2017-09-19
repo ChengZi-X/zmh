@@ -2,6 +2,8 @@ package com.zmh.zz.zmh.activity;
 
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,10 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.selectbankcard.BankcardBean;
 import com.zmh.zz.zmh.selectbankcard.MyAdapter_Top_Up;
 import com.zmh.zz.zmh.selectbankcard.OnBankcardSlected;
-import com.zmh.zz.zmh.utlis.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,39 +25,27 @@ import java.util.List;
  * 账户充值
  */
 
-public class Ac_Top_Up extends BaseActivity implements View.OnClickListener, OnBankcardSlected {
-    private RelativeLayout mRelativeLayout, mIvBack;
+public class Ac_Top_Up extends AppCompatActivity implements View.OnClickListener, OnBankcardSlected {
+    private RelativeLayout mRelativeLayout, mIvBack, mTitle_back;
     private PopupWindow popupWindow;
     private ListView mListView;
     private List<BankcardBean> mList;
-    private TextView mTextView, mTvTitle;
-
+    private TextView mTextView, toolbartitle, mTvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("账户充值");
-        setRtTitle("限额说明");
-        setRightBtnVisible(true);
-        FindViewById();
-        setData();
-    }
-
-    @Override
-    protected int getContentView() {
-        return R.layout.ac_top_up;
-    }
-
-    private void FindViewById() {
+        setContentView(R.layout.ac_top_up);
         mRelativeLayout = (RelativeLayout) findViewById(R.id.rl_recharge_bankcard);
         mTextView = (TextView) findViewById(R.id.tv_recharge_bankcard);
+        toolbartitle = (TextView) findViewById(R.id.title_tool);
+        toolbartitle.setText("账户充值");
+        TextPaint tp = toolbartitle.getPaint();
+        tp.setFakeBoldText(true);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
+        mTitle_back.setOnClickListener(this);
         mRelativeLayout.setOnClickListener(this);
-    }
-
-    //右键点击
-    @Override
-    protected void onClickRight() {
-        ToastUtils.showToast(Ac_Top_Up.this, "限额说明");
+        setData();
     }
 
     private void setData() {
@@ -99,6 +87,9 @@ public class Ac_Top_Up extends BaseActivity implements View.OnClickListener, OnB
                 break;
             case R.id.iv_back:
                 popupWindow.dismiss();
+                break;
+            case R.id.title_back:
+                finish();
                 break;
         }
     }
