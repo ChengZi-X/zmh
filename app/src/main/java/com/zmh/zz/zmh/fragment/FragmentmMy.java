@@ -12,14 +12,14 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseFragment;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.activity.Ac_Client_Mesh;
-import com.zmh.zz.zmh.activity.Ac_My_Bank_Card;
-import com.zmh.zz.zmh.activity.Ac_My_Client;
-import com.zmh.zz.zmh.activity.Ac_Notice;
-import com.zmh.zz.zmh.activity.Ac_Personal_Information;
-import com.zmh.zz.zmh.activity.Ac_Real_Name_Authentication_true;
-import com.zmh.zz.zmh.activity.Ac_Setting;
-import com.zmh.zz.zmh.integral_fragment.Ac_Tab_Integral;
+import com.zmh.zz.zmh.activity.ClientMesh;
+import com.zmh.zz.zmh.activity.MyBankCard;
+import com.zmh.zz.zmh.activity.MyClient;
+import com.zmh.zz.zmh.activity.Notice;
+import com.zmh.zz.zmh.activity.PersonalInformation;
+import com.zmh.zz.zmh.activity.RealNameAuthenticationTrue;
+import com.zmh.zz.zmh.activity.Setting;
+import com.zmh.zz.zmh.integralfragment.TabIntegral;
 import com.zmh.zz.zmh.utlis.CircleImageView2;
 import com.zmh.zz.zmh.utlis.CommomDialog;
 
@@ -29,7 +29,7 @@ import com.zmh.zz.zmh.utlis.CommomDialog;
 public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     private RelativeLayout mBut_setting;
     private View view;
-    private RelativeLayout mReal_Name_Authentication, mBank_card, mService, mNotice, mMy_client, mClient_mesh;
+    private RelativeLayout mReal_Name_Authentication, mBank_card, mService, mNotice, mMy_client, mClient_mesh,mFeedback;
     private LinearLayout mMe_integral;
     private String tel = 1833715230 + "";
     private String tel1 = 1 + "";
@@ -71,28 +71,31 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.but_setting:
-                startActivity(new Intent(getActivity(), Ac_Setting.class));
+                startActivity(new Intent(getActivity(), Setting.class));
                 break;
             case R.id.personal_information:
-                startActivity(new Intent(getActivity(), Ac_Personal_Information.class));
+                startActivity(new Intent(getActivity(), PersonalInformation.class));
                 break;
             case R.id.me_integral:
-                startActivity(new Intent(getActivity(), Ac_Tab_Integral.class));
+                startActivity(new Intent(getActivity(), TabIntegral.class));
                 break;
             case R.id.real_name_authentication:
-                startActivity(new Intent(getActivity(), Ac_Real_Name_Authentication_true.class));
+                startActivity(new Intent(getActivity(), RealNameAuthenticationTrue.class));
                 break;
             case R.id.bank_card:
-                startActivity(new Intent(getActivity(), Ac_My_Bank_Card.class));
+                startActivity(new Intent(getActivity(), MyBankCard.class));
                 break;
             case R.id.notice:
-                startActivity(new Intent(getActivity(), Ac_Notice.class));
+                startActivity(new Intent(getActivity(), Notice.class));
                 break;
+//            case R.id.feedback:
+//                startActivity(new Intent(getActivity(), Feedback.class));
+//                break;
             case R.id.my_client:
-                startActivity(new Intent(getActivity(), Ac_My_Client.class));
+                startActivity(new Intent(getActivity(), MyClient.class));
                 break;
             case R.id.client_mesh:
-                startActivity(new Intent(getActivity(), Ac_Client_Mesh.class));
+                startActivity(new Intent(getActivity(), ClientMesh.class));
                 break;
 //            case R.id.im_head_portrait:
 //                startActivity(new Intent(getActivity(), Ac_Im_Head_Portrait.class));

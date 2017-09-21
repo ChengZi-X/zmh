@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.activity.Ac_Client_Data;
+import com.zmh.zz.zmh.activity.ClientData;
 import com.zmh.zz.zmh.modelinfo.MyClientInfo;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class MyClientAdapter extends BaseAdapter {
             holder.mClient.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mContext.startActivity(new Intent(mContext, Ac_Client_Data.class));
+                    mContext.startActivity(new Intent(mContext, ClientData.class));
                 }
             });
         }

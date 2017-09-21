@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseFragment;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.activity.Ac_Bonus;
-import com.zmh.zz.zmh.activity.Ac_Sum;
-import com.zmh.zz.zmh.activity.Ac_Trading_Record;
+import com.zmh.zz.zmh.activity.Bonus;
+import com.zmh.zz.zmh.activity.Sum;
+import com.zmh.zz.zmh.activity.TradingRecord;
 
 /**
  * 资金
@@ -43,13 +43,13 @@ public class FragmentFund extends BaseFragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.trading_record:
-                startActivity(new Intent(getActivity(), Ac_Trading_Record.class));
+                startActivity(new Intent(getActivity(), TradingRecord.class));
                 break;
             case R.id.remaining_sum:
-                startActivity(new Intent(getActivity(), Ac_Sum.class));
+                startActivity(new Intent(getActivity(), Sum.class));
                 break;
             case R.id.bonus:
-                startActivity(new Intent(getActivity(), Ac_Bonus.class));
+                startActivity(new Intent(getActivity(), Bonus.class));
                 break;
         }
     }

@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.login.Ac_Login;
+import com.zmh.zz.zmh.login.Login;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mTimer.cancel();
-                startActivity(new Intent(SplashActivity.this, Ac_Login.class));
+                startActivity(new Intent(SplashActivity.this, Login.class));
                 SplashActivity.this.finish();
             }
         });
@@ -46,7 +46,7 @@ public class SplashActivity extends AppCompatActivity {
     class MyTimerTask extends TimerTask {
         @Override
         public void run() {
-            startActivity(new Intent(SplashActivity.this, Ac_Login.class));
+            startActivity(new Intent(SplashActivity.this, Login.class));
             SplashActivity.this.finish();
         }
     }

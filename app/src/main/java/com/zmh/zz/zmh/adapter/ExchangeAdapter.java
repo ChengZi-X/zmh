@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.activity.Ac_Exchange_Data;
+import com.zmh.zz.zmh.activity.ExchangeData;
 import com.zmh.zz.zmh.modelinfo.ExchangeInfo;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class ExchangeAdapter extends BaseAdapter {
             holder.mExchange.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mContext.startActivity(new Intent(mContext, Ac_Exchange_Data.class));
+                    mContext.startActivity(new Intent(mContext, ExchangeData.class));
                 }
             });
         }
