@@ -63,7 +63,7 @@
         <activity android:name=".activity.RealNameAuthenticationFalse" />
         <activity android:name=".activity.RealNameAuthenticationTrue" />
         <activity android:name=".activity.Notice" />
-       <!-- <activity android:name=".activity.Feedback"/>-->
+        <activity android:name=".activity.Feedback" />
         <activity android:name=".activity.UploadingOfDocuments" />
         <activity android:name=".activity.Sum" />
         <activity android:name=".activity.Bonus" />
