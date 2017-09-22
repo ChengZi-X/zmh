@@ -29,7 +29,7 @@ public class ShiftTo extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
 
     }
 }

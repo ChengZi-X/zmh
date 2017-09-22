@@ -43,8 +43,8 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
 
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.but_binding:
                 ToastUtils.showToast(NewPhoneNumber.this, "重新绑定成功");
                 break;

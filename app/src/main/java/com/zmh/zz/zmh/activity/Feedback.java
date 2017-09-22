@@ -53,6 +53,7 @@ public class Feedback extends BaseActivity {
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                temp = s;
             }
 
             @Override

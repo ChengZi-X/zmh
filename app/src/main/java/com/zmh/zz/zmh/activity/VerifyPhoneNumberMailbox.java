@@ -41,8 +41,8 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.but_next:
                 startActivity(new Intent(VerifyPhoneNumberMailbox.this, NewMailbox.class));
                 finish();

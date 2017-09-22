@@ -37,8 +37,8 @@ public class ClientFund extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.client_top_up:
                 startActivity(new Intent(ClientFund.this, ClientTopUp.class));
                 break;

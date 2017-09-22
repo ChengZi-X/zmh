@@ -64,8 +64,8 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
 
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.sign_number:
                 startActivity(new Intent(TabIntegral.this, CheckCalendar.class));
                 break;
@@ -106,7 +106,6 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
         public CharSequence getPageTitle(int position) {
             if (position >= 0 && position < VIEW_THREE) {
                 switch (position) {
-
                     case VIEW_FIRST:
                         return "     积分     ";
                     case VIEW_SECOND:

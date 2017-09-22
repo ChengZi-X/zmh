@@ -29,8 +29,8 @@ public class ClientMesh extends BaseActivity implements View.OnClickListener {
 
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
         }
     }
 }

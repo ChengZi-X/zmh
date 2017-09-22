@@ -29,15 +29,15 @@ public class ClienBonustAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
         final ViewHolder holder;
-        if (view == null) {
+        if (convertView == null) {
             holder = new ViewHolder();
-            view = View.inflate(mContext, R.layout.ac_item_client_bonus, null);
+            convertView = View.inflate(mContext, R.layout.ac_item_client_bonus, null);
 
 
         }
-        return view;
+        return convertView;
     }
 
     class ViewHolder {

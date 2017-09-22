@@ -40,8 +40,8 @@ public class FragmentFund extends BaseFragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.trading_record:
                 startActivity(new Intent(getActivity(), TradingRecord.class));
                 break;

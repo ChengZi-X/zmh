@@ -40,8 +40,8 @@ public class ClientData extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.client_business:
                 startActivity(new Intent(ClientData.this, ClientBusiness.class));
                 break;

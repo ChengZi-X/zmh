@@ -32,12 +32,12 @@ public class ExchangeAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
         final ViewHolder holder;
-        if (view == null) {
+        if (convertView == null) {
             holder = new ViewHolder();
-            view = View.inflate(mContext, R.layout.ac_item_exchange, null);
-            holder.mExchange = (LinearLayout) view.findViewById(R.id.exchange);
+            convertView = View.inflate(mContext, R.layout.ac_item_exchange, null);
+            holder.mExchange = (LinearLayout) convertView.findViewById(R.id.exchange);
             holder.mExchange.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -45,7 +45,7 @@ public class ExchangeAdapter extends BaseAdapter {
                 }
             });
         }
-        return view;
+        return convertView;
 
     }
 

@@ -43,8 +43,8 @@ public class RealNameAuthenticationTrue extends BaseActivity implements View.OnC
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.certificate_photo:
                 startActivity(new Intent(RealNameAuthenticationTrue.this, UploadingOfDocuments.class));
                 break;

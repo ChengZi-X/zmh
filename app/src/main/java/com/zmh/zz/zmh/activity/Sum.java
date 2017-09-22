@@ -65,8 +65,8 @@ public class Sum extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.top_up:
                 startActivity(new Intent(Sum.this, TopUp.class));
                 break;

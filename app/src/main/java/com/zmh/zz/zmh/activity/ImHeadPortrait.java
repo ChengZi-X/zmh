@@ -27,8 +27,8 @@ public class ImHeadPortrait extends Activity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.photograph:
                 ToastUtils.showToast(ImHeadPortrait.this, "拍照");
                 break;

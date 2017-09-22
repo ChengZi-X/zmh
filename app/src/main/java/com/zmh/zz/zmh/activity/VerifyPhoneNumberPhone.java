@@ -42,8 +42,8 @@ public class VerifyPhoneNumberPhone extends BaseActivity implements View.OnClick
 
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.but_next:
                 startActivity(new Intent(VerifyPhoneNumberPhone.this, NewPhoneNumber.class));
                 finish();

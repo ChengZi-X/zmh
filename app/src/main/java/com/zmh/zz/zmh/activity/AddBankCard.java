@@ -111,8 +111,8 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener {
     };
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.but_save:
                 ToastUtils.showToast(AddBankCard.this, "保存");
                 break;

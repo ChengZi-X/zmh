@@ -38,8 +38,8 @@ public class AccountSecurity extends BaseActivity implements View.OnClickListene
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.phone_number:
                 startActivity(new Intent(AccountSecurity.this, VerifyPhoneNumberPhone.class));
                 break;

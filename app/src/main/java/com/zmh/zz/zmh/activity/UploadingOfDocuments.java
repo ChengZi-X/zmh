@@ -45,8 +45,8 @@ public class UploadingOfDocuments extends BaseActivity implements View.OnClickLi
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.front:
                 startActivity(new Intent(UploadingOfDocuments.this, ImHeadPortrait.class));
                 break;

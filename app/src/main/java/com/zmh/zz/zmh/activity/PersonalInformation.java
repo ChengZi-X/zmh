@@ -37,8 +37,8 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.im_head_portrait:
                 startActivity(new Intent(PersonalInformation.this, ImHeadPortrait.class));
                 break;

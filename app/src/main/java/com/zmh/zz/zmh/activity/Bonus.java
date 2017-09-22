@@ -63,8 +63,8 @@ public class Bonus extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.roll_out:
                 startActivity(new Intent(Bonus.this, RollOut.class));
                 break;

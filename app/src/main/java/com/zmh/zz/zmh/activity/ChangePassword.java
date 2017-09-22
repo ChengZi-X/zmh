@@ -43,8 +43,8 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.but_affirm:
                 ToastUtils.showToast(ChangePassword.this, "密码修改成功");
                 break;

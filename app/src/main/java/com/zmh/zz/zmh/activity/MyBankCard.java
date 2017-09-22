@@ -53,8 +53,8 @@ public class MyBankCard extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.add_bank_card:
                 startActivity(new Intent(MyBankCard.this, AddBankCard.class));
                 break;

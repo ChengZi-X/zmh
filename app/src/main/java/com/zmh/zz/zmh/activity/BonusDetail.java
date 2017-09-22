@@ -59,8 +59,8 @@ public class BonusDetail extends AppCompatActivity implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.title_back:
                 finish();
                 break;

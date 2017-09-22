@@ -32,17 +32,17 @@ public class IntegralDetailAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
         final ViewHolder holder;
-        if (view == null) {
+        if (convertView == null) {
             holder = new ViewHolder();
-            view = View.inflate(mContext, R.layout.ac_item_integral_detail, null);
-            holder.mTv_integral = (TextView) view.findViewById(R.id.tv_integral);
+            convertView = View.inflate(mContext, R.layout.ac_item_integral_detail, null);
+            holder.mTv_integral = (TextView) convertView.findViewById(R.id.tv_integral);
             holder.mTv_integral.setText("+" + 10);
             TextPaint tp = holder.mTv_integral.getPaint();
             tp.setFakeBoldText(true);
         }
-        return view;
+        return convertView;
     }
 
     class ViewHolder {

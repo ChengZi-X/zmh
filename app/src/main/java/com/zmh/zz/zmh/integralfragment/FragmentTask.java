@@ -15,6 +15,7 @@ import com.zmh.zz.zmh.activity.AddAddress;
 import com.zmh.zz.zmh.activity.AddBankCard;
 import com.zmh.zz.zmh.activity.CheckCalendar;
 import com.zmh.zz.zmh.activity.RealNameAuthenticationFalse;
+
 /**
  * 任务
  */
@@ -63,8 +64,8 @@ public class FragmentTask extends BaseFragment implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.sign:
                 startActivity(new Intent(getActivity(), CheckCalendar.class));
                 break;

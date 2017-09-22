@@ -31,15 +31,15 @@ public class TradingRecordAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
         final ViewHolder holder;
-        if (view == null) {
+        if (convertView == null) {
             holder = new ViewHolder();
-            view = View.inflate(mContext, R.layout.ac_item_trading_record, null);
-            holder.mTv_sum = (TextView) view.findViewById(R.id.tv_sum);
+            convertView = View.inflate(mContext, R.layout.ac_item_trading_record, null);
+            holder.mTv_sum = (TextView) convertView.findViewById(R.id.tv_sum);
             holder.mTv_sum.setText("总资产余额:" + "\r\r" + "32000.00");
         }
-        return view;
+        return convertView;
     }
 
     class ViewHolder {

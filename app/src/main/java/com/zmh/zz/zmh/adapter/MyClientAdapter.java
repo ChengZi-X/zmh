@@ -32,12 +32,12 @@ public class MyClientAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
         final ViewHolder holder;
-        if (view == null) {
+        if (convertView == null) {
             holder = new ViewHolder();
-            view = View.inflate(mContext, R.layout.ac_item_my_clientinfo, null);
-            holder.mClient = (RelativeLayout) view.findViewById(R.id.client);
+            convertView = View.inflate(mContext, R.layout.ac_item_my_clientinfo, null);
+            holder.mClient = (RelativeLayout) convertView.findViewById(R.id.client);
             holder.mClient.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -45,7 +45,7 @@ public class MyClientAdapter extends BaseAdapter {
                 }
             });
         }
-        return view;
+        return convertView;
     }
 
     class ViewHolder {

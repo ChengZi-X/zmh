@@ -88,8 +88,8 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.sex:
                 AlertDialog.Builder dialog1 = new AlertDialog.Builder(RealNameAuthenticationFalse.this);
                 dialog1.setTitle("性别");

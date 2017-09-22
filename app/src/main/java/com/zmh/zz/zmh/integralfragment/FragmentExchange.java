@@ -47,8 +47,8 @@ public class FragmentExchange extends BaseFragment implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.exchange_zone:
                 startActivity(new Intent(getActivity(), ExchangeZone.class));
                 break;

@@ -90,8 +90,8 @@ public class EssentialInformation extends BaseActivity implements View.OnClickLi
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.choose_address:
                 ChangeAddressPopwindow mChangeAddressPopwindow = new ChangeAddressPopwindow(EssentialInformation.this);
                 mChangeAddressPopwindow.setAddress("河南", "郑州", "金水区");
