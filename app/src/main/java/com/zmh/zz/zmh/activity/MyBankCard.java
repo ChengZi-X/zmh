@@ -28,7 +28,7 @@ public class MyBankCard extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("我的银行卡");
+        setLtTitle("我的银行卡");
         FindViewById();
         InitData();
     }

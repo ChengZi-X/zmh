@@ -24,7 +24,7 @@ public class VerifyPhoneNumberPhone extends BaseActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("验证身份");
+        setLtTitle("验证身份");
         FindViewById();
     }
 

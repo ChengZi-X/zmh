@@ -14,7 +14,7 @@ public class RollOut extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("转出");
+        setLtTitle("转出");
         FindViewById();
     }
 

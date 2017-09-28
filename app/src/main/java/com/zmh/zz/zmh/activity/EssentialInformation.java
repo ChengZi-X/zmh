@@ -49,7 +49,7 @@ public class EssentialInformation extends BaseActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("基本信息");
+        setLtTitle("基本信息");
         setRtTitle("提交");
         setRightBtnVisible(true);
         FindViewById();

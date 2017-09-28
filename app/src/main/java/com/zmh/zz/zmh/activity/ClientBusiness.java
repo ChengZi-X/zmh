@@ -15,7 +15,7 @@ public class ClientBusiness extends BaseActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("客户业务");
+        setLtTitle("客户业务");
         FindViewById();
     }
 

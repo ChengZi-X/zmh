@@ -24,7 +24,7 @@ public class ClientBonus extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("客户奖金");
+        setLtTitle("客户奖金");
         ListViewInitData();
     }
 

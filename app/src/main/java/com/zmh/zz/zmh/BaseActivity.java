@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -25,7 +26,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_bar_white);
-        //setTranslucentStatus();
         int titlebarResId = getTitlebarResId();
         if (titlebarResId != 0) {
             LinearLayout view = (LinearLayout) findViewById(R.id.base_view);
@@ -41,13 +41,11 @@ public abstract class BaseActivity extends AppCompatActivity {
             leftBtn = findViewById(R.id.base_back_btn);
             back = (ImageView) findViewById(R.id.base_back);
             titltTv = (TextView) findViewById(R.id.base_title_tv);
-            //字体加粗
             TextPaint tp = titltTv.getPaint();
-            tp.setFakeBoldText(true);
+            tp.setFakeBoldText(true); //字体加粗
             rightBtn = (TextView) findViewById(R.id.base_menu_btn);
-            //字体加粗
             TextPaint tp1 = rightBtn.getPaint();
-            tp1.setFakeBoldText(true);
+            tp1.setFakeBoldText(true);//字体加粗
             rightBtn.setOnClickListener(new View.OnClickListener() {
 
                 @Override
@@ -75,16 +73,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 设置状态栏背景状态
      */
-    private void setTranslucentStatus() {
-        //判断当前SDK版本号，如果是4.4以上，就是支持沉浸式状态栏的
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+    public void setNotificationBar(int Color) {
+        //因为不是所有的系统都可以设置颜色的，在4.4以下就不可以。
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(Color));
         }
     }
 
     /**
-     * 设置Leftbtn颜色
+     * 设置Leftbtn箭头颜色
      *
      * @param Color
      */
@@ -176,7 +175,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @param title
      */
-    public void setTitle(String title) {
+    public void setLtTitle(String title) {
         if (titltTv != null) {
             if (titltTv != null) {
                 titltTv.setText(title);
@@ -189,10 +188,10 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @param Color
      */
-    public void setTitleTvColor(int Color) {
+    public void setLtTitleTvColor(int Color) {
         if (titltTv != null) {
             if (titltTv != null) {
-                titltTv.setTextColor(Color);
+                titltTv.setTextColor(getResources().getColor(Color));
             }
         }
     }
@@ -215,8 +214,13 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void setRtTitleTvColor(int Color) {
         if (rightBtn != null) {
-            rightBtn.setTextColor(Color);
+            rightBtn.setTextColor(getResources().getColor(Color));
         }
+    }
+
+    public View getTitleBar() {
+
+        return titlebar;
     }
 
     /**

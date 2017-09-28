@@ -95,9 +95,9 @@ public class TopUp extends AppCompatActivity implements View.OnClickListener, On
     }
 
     private void showPopWindow() {
-        //  适配PopupWindow布局文件
-        View popView = View.inflate(this, R.layout.bankcard_select, null);
-        //  创建PopupWindow
+        //适配PopupWindow布局文件
+        View popView = View.inflate(this, R.layout.layout_bankcard_select_pop, null);
+        //创建PopupWindow
         popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
         //设置SelectPicPopupWindow弹出窗体的背景
         popupWindow.setBackgroundDrawable(new BitmapDrawable());

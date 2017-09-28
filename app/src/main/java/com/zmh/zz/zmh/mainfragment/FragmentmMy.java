@@ -22,7 +22,7 @@ import com.zmh.zz.zmh.activity.RealNameAuthenticationTrue;
 import com.zmh.zz.zmh.activity.Setting;
 import com.zmh.zz.zmh.integralfragment.TabIntegral;
 import com.zmh.zz.zmh.utlis.CircleImageView2;
-import com.zmh.zz.zmh.utlis.CommomDialog;
+import com.zmh.zz.zmh.utlis.ServiceDialog;
 
 /**
  * 我的
@@ -40,6 +40,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     @Override
     public View initView() {
         view = View.inflate(getActivity(), R.layout.fragment_my, null);
+        setNotificationBar(R.color.f4);
         FindViewById();
         initData();
         return view;
@@ -54,7 +55,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
         mReal_Name_Authentication = (RelativeLayout) view.findViewById(R.id.real_name_authentication);
         mBank_card = (RelativeLayout) view.findViewById(R.id.bank_card);
         mNotice = (RelativeLayout) view.findViewById(R.id.notice);
-        mFeedback= (RelativeLayout) view.findViewById(R.id.feedback);
+        mFeedback = (RelativeLayout) view.findViewById(R.id.feedback);
         mService = (RelativeLayout) view.findViewById(R.id.service);
         mMy_client = (RelativeLayout) view.findViewById(R.id.my_client);
         mClient_mesh = (RelativeLayout) view.findViewById(R.id.client_mesh);
@@ -106,7 +107,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
 //                break;
             case R.id.service:
                 //弹出提示框
-                new CommomDialog(getActivity(), R.style.dialog, tel + tel1, new CommomDialog.OnCloseListener() {
+                new ServiceDialog(getActivity(), tel + tel1, new ServiceDialog.OnCloseListener() {
                     @Override
                     public void onClick(Dialog dialog, boolean confirm) {
                         if (confirm) {
@@ -122,13 +123,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
         }
 
     }
-
     public void initData() {
-        //变化通知栏颜色,4.4以下不支持
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getActivity().getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.c4));
-        }
+
     }
 }

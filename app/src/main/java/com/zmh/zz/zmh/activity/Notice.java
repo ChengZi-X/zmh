@@ -16,7 +16,7 @@ public class Notice extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("公告");
+        setLtTitle("公告");
         FindViewById();
     }
 

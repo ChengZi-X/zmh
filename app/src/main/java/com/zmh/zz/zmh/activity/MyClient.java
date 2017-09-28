@@ -25,7 +25,7 @@ public class MyClient extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("我的客户");
+        setLtTitle("我的客户");
         InitData();
     }
 

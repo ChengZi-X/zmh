@@ -26,7 +26,7 @@ public class IntegralDetail extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("积分明细");
+        setLtTitle("积分明细");
         setRtTitle("规则");
         setRightBtnVisible(true);
         FindViewById();

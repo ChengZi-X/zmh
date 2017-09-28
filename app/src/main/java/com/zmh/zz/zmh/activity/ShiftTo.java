@@ -16,7 +16,7 @@ public class ShiftTo extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("转入");
+        setLtTitle("转入");
         FindViewById();
     }
 

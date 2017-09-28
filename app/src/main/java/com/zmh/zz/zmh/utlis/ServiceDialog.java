@@ -11,48 +11,36 @@ import com.zmh.zz.zmh.R;
 
 
 /**
- * 自定义DiaLog
+ * 在线客服自定义DiaLog
  */
-public class CommomDialog extends Dialog implements View.OnClickListener {
+public class ServiceDialog extends Dialog implements View.OnClickListener {
     private TextView contentTxt;
     private TextView titleTxt;
     private TextView submitTxt;
     private TextView cancelTxt;
 
+    private OnCloseListener listener;
     private Context mContext;
     private String content;
-    private OnCloseListener listener;
-    private String positiveName;
-    private String negativeName;
     private String title;
 
-    public CommomDialog(Context context, int themeResId, String content, OnCloseListener listener) {
-        super(context, themeResId);
+    public ServiceDialog(Context context, String content, OnCloseListener listener) {
+        super(context, R.style.dialog);
         this.mContext = context;
         this.content = content;
         this.listener = listener;
     }
 
-    public CommomDialog setTitle(String title) {
+    public ServiceDialog setTitle(String title) {
         this.title = title;
-        return this;
-    }
-
-    public CommomDialog setPositiveButton(String name) {
-        this.positiveName = name;
-        return this;
-    }
-
-    public CommomDialog setNegativeButton(String name) {
-        this.negativeName = name;
         return this;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.service_dialog);
-        setCanceledOnTouchOutside(false);
+        setContentView(R.layout.layout_service_dialog);
+        setCanceledOnTouchOutside(true);
         initView();
     }
 
@@ -60,22 +48,11 @@ public class CommomDialog extends Dialog implements View.OnClickListener {
         contentTxt = (TextView) findViewById(R.id.content);
         titleTxt = (TextView) findViewById(R.id.title);
         submitTxt = (TextView) findViewById(R.id.submit);
-        submitTxt.setOnClickListener(this);
         cancelTxt = (TextView) findViewById(R.id.cancel);
+        submitTxt.setOnClickListener(this);
         cancelTxt.setOnClickListener(this);
-
         contentTxt.setText(content);
-        if (!TextUtils.isEmpty(positiveName)) {
-            submitTxt.setText(positiveName);
-        }
-
-        if (!TextUtils.isEmpty(negativeName)) {
-            cancelTxt.setText(negativeName);
-        }
-
-        if (!TextUtils.isEmpty(title)) {
-            titleTxt.setText(title);
-        }
+        titleTxt.setText(title);
 
     }
 

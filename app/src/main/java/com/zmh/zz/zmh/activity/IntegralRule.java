@@ -14,7 +14,7 @@ public class IntegralRule extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("积分说明");
+        setLtTitle("积分说明");
         FindViewById();
     }
 

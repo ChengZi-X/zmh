@@ -24,7 +24,7 @@ public class ClientTopUp extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("客户充值");
+        setLtTitle("客户充值");
         InitData();
     }
 

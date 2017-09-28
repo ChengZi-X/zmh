@@ -23,7 +23,7 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("改绑手机号");
+        setLtTitle("改绑手机号");
         FindViewById();
     }
 

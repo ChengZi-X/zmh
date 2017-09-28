@@ -15,7 +15,7 @@ public class ExchangeData extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("权益兑换");
+        setLtTitle("权益兑换");
         FindViewById();
     }
 

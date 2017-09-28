@@ -24,7 +24,7 @@ public class TradingRecord extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("交易记录");
+        setLtTitle("交易记录");
         FindViewById();
         InitData();
     }

@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Transparent_title_bar();
+        TransparentTitleBar();
         setContentView(R.layout.ac_login);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("登录");
@@ -110,7 +110,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //    private void LOGIN() {
 //        MyDialog = new ProgressDialog(this);
 //        //依次设置标题,内容,是否用取消按钮关闭,是否显示进度
-//        MyDialog.setTitle("登录");
+//        MyDialog.setLtTitle("登录");
 //        MyDialog.setMessage("登录中，请稍后...");
 //        MyDialog.setCancelable(false);
 //        //这里是设置进度条的风格,HORIZONTAL是水平进度条,SPINNER是圆形进度条
@@ -211,7 +211,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     /**
      * 透明标题栏
      */
-    private void Transparent_title_bar() {
+    private void TransparentTitleBar() {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

@@ -29,7 +29,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Transparent_title_bar();
+        TransparentTitleBar();
         setContentView(R.layout.ac_register);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("注册");
@@ -66,7 +66,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     /**
      * 透明标题栏
      */
-    private void Transparent_title_bar() {
+    private void TransparentTitleBar() {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.Login"/>
+        <activity android:name=".login.Login" />
         <activity android:name=".login.Register" />
         <activity android:name=".login.RegisterPassword" />
         <activity android:name=".login.ForgetPassword" />
@@ -63,7 +63,12 @@
         <activity android:name=".activity.RealNameAuthenticationFalse" />
         <activity android:name=".activity.RealNameAuthenticationTrue" />
         <activity android:name=".activity.Notice" />
-        <activity android:name=".activity.Feedback" />
+        <activity
+            android:name=".activity.Feedback"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lzy.imagepicker.ui.ImagePreviewDelActivity"
+            android:theme="@style/ImagePickerThemeFullScreen" />
         <activity android:name=".activity.UploadingOfDocuments" />
         <activity android:name=".activity.Sum" />
         <activity android:name=".activity.Bonus" />

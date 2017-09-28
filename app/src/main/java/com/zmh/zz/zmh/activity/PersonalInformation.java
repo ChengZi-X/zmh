@@ -20,7 +20,7 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("个人信息");
+        setLtTitle("个人信息");
         FindViewById();
     }
     @Override

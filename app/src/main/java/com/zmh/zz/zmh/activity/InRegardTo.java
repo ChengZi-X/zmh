@@ -20,7 +20,7 @@ public class InRegardTo extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("关于");
+        setLtTitle("关于");
         FindViewById();
     }
 

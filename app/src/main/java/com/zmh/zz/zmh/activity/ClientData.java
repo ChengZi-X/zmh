@@ -19,7 +19,7 @@ public class ClientData extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("600001 张三");
+        setLtTitle("600001 张三");
         FindViewById();
         InitData();
     }

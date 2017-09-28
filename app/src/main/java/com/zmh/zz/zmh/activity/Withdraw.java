@@ -34,7 +34,7 @@ public class Withdraw extends BaseActivity implements View.OnClickListener, OnBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("账户充值");
+        setLtTitle("账户充值");
         FindViewById();
         setData();
     }
@@ -95,7 +95,7 @@ public class Withdraw extends BaseActivity implements View.OnClickListener, OnBa
 
     private void showPopWindow() {
         //  适配PopupWindow布局文件
-        View popView = View.inflate(this, R.layout.bankcard_select, null);
+        View popView = View.inflate(this, R.layout.layout_bankcard_select_pop, null);
         //  创建PopupWindow
         popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
         //设置SelectPicPopupWindow弹出窗体的背景

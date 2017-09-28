@@ -15,7 +15,7 @@ public class ClientMesh extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("客户网络");
+        setLtTitle("客户网络");
         FindViewById();
     }
 

@@ -19,7 +19,7 @@ public class ImHeadPortrait extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_im_head_portrait);
+        setContentView(R.layout.layout_im_head_portrait_dialog);
         mPhotograph = (RelativeLayout) findViewById(R.id.photograph);
         mPhoto = (RelativeLayout) findViewById(R.id.photo);
         mPhotograph.setOnClickListener(this);

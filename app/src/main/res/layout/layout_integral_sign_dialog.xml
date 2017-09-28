@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/sign_success_pop" />
+
+
+    <TextView
+        android:id="@+id/integral_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="恭喜获得10积分"
+        android:textColor="@color/white"
+        android:textSize="@dimen/z3" />
+
+    <TextView
+        android:id="@+id/integral_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="100"
+        android:textColor="@color/white"
+        android:textSize="35sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="如未连接签到,将重新累计签到天数哦"
+        android:textColor="@color/white"
+        android:textSize="@dimen/z3" />
+</LinearLayout>

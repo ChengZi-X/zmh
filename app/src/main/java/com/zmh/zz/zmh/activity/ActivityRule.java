@@ -14,7 +14,7 @@ public class ActivityRule extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("活动规则");
+        setLtTitle("活动规则");
         FindViewById();
     }
 

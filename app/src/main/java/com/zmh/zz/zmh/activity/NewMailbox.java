@@ -24,7 +24,7 @@ public class NewMailbox extends BaseActivity implements View.OnClickListener, Te
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("改绑邮箱");
+        setLtTitle("改绑邮箱");
         FindViewById();
     }
 

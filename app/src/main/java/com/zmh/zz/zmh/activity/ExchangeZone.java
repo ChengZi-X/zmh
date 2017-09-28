@@ -24,7 +24,7 @@ public class ExchangeZone extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("兑换记录");
+        setLtTitle("兑换记录");
         ListViewInitData();
     }
 

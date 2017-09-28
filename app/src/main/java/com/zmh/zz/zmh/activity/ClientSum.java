@@ -25,7 +25,7 @@ public class ClientSum extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("客户余额");
+        setLtTitle("客户余额");
         InitData();
     }
 

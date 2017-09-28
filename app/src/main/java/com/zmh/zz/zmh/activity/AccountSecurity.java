@@ -19,7 +19,7 @@ public class AccountSecurity extends BaseActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("账号与安全");
+        setLtTitle("账号与安全");
         FindViewById();
     }
     @Override

@@ -19,7 +19,7 @@ public class ClientFund extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("客户资金");
+        setLtTitle("客户资金");
         FindViewById();
     }
     @Override

@@ -29,7 +29,7 @@ public class NewExpressAddress extends BaseActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("快件地址");
+        setLtTitle("快件地址");
         FindViewById();
         InitData();
     }

@@ -1,10 +1,7 @@
 package com.zmh.zz.zmh.mainfragment;
 
 import android.content.Intent;
-import android.os.Build;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,6 +22,7 @@ public class FragmentFund extends BaseFragment implements View.OnClickListener {
     @Override
     public View initView() {
         view = View.inflate(getActivity(), R.layout.fragment_fund, null);
+        setNotificationBar(R.color.f3);
         FindViewById();
         initData();
         return view;
@@ -55,10 +53,5 @@ public class FragmentFund extends BaseFragment implements View.OnClickListener {
     }
 
     public void initData() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getActivity().getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.c3));
-        }
     }
 }

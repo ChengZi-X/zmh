@@ -65,7 +65,7 @@ public class ChangeAddressPopwindow extends PopupWindow implements View.OnClickL
     public ChangeAddressPopwindow(final Context context) {
         super(context);
         this.context = context;
-        View view = View.inflate(context, R.layout.changeaddress_pop_layout, null);
+        View view = View.inflate(context, R.layout.layout_changeaddress_pop, null);
 
         wvProvince = (WheelView) view.findViewById(R.id.wv_address_province);
         wvCitys = (WheelView) view.findViewById(R.id.wv_address_city);
@@ -73,7 +73,6 @@ public class ChangeAddressPopwindow extends PopupWindow implements View.OnClickL
         lyChangeAddressChild = view.findViewById(R.id.ly_myinfo_changeaddress_child);
         btnSure = (TextView) view.findViewById(R.id.btn_myinfo_sure);
         btnCancel = (TextView) view.findViewById(R.id.btn_myinfo_cancel);
-
 
         //设置SelectPicPopupWindow的View
         this.setContentView(view);
@@ -354,7 +353,7 @@ public class ChangeAddressPopwindow extends PopupWindow implements View.OnClickL
                     JSONArray jsonAreas = null;
                     try {
                         jsonAreas = jsonCity.getJSONArray("a");
-                    } catch (Exception e) {
+                    } catch (Exception ignored) {
                         continue;
                     }
 

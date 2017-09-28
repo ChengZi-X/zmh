@@ -22,7 +22,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("修改密码");
+        setLtTitle("修改密码");
         FindViewById();
     }
 

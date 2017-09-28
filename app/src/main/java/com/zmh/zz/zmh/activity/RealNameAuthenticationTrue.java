@@ -22,11 +22,11 @@ public class RealNameAuthenticationTrue extends BaseActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("实名认证");
+        setLtTitle("实名认证");
         setBottomViewVisible(false);
         setTitleBackgroundColor(Color.parseColor("#1B82D2"));
         setLeftbtnColor(R.mipmap.arrow_left_white);
-        setTitleTvColor(Color.parseColor("#FFFFFF"));
+        setLtTitleTvColor(R.color.white);
         FindViewById();
     }
 

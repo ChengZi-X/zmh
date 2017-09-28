@@ -31,7 +31,7 @@ public class Setting extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("设置");
+        setLtTitle("设置");
         FindViewById();
         Init();
     }

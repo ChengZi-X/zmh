@@ -1,6 +1,8 @@
 package com.zmh.zz.zmh.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextPaint;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -19,35 +21,41 @@ import java.util.List;
 
 /**
  * Created by Administrator
- * 添加银行
+ * 添加银行卡
  */
 
-public class AddBankCard extends BaseActivity implements View.OnClickListener {
+public class AddBankCard extends AppCompatActivity implements View.OnClickListener {
+    private TextView toolbartitle;
+    private RelativeLayout mTitle_back;
+
     private Button mBut_save;
     private TextView mOpening_bank;
     private CheckBoxSample mCheck;
     private PickerScrollView pickerscrlllview; // 滚动选择器
-    private List<Pickers> list; // 滚动选择器数据
+    private List<Pickers> mList; // 滚动选择器数据
     private String[] id;
     private String[] name;
-    private TextView mPicker_yes, mPicker_no; // 确定按钮
+    private TextView mPicker_yes, mPicker_no;
     private RelativeLayout picker_rel; // 选择器布局
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("添加银行卡");
+        setContentView(R.layout.ac_add_bank_card);
         FindViewById();
         initLinstener();
         initData();
     }
 
-    @Override
-    protected int getContentView() {
-        return R.layout.ac_add_bank_card;//任意非空布局
-    }
-
     private void FindViewById() {
+        toolbartitle = (TextView) findViewById(R.id.title_tool);
+        toolbartitle.setText("添加银行卡");
+        TextPaint tp = toolbartitle.getPaint();
+        tp.setFakeBoldText(true);
+        mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
+        mTitle_back.setOnClickListener(this);
+
         mBut_save = (Button) findViewById(R.id.but_save);
         mBut_save.setOnClickListener(this);
         mOpening_bank = (TextView) findViewById(R.id.opening_bank);
@@ -74,14 +82,14 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener {
      * 初始化数据
      */
     private void initData() {
-        list = new ArrayList<Pickers>();
+        mList = new ArrayList<>();
         id = new String[]{"1", "2", "3", "4", "5", "6"};
         name = new String[]{"中国银行", "中国农业银行", "中国招商银行", "中国工商银行", "中国建设银行", "中国民生银行"};
         for (int i = 0; i < name.length; i++) {
-            list.add(new Pickers(name[i], id[i]));
+            mList.add(new Pickers(name[i], id[i]));
         }
         // 设置数据，默认选择第一条
-        pickerscrlllview.setData(list);
+        pickerscrlllview.setData(mList);
         pickerscrlllview.setSelected(0);
     }
 
@@ -120,6 +128,10 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener {
                 mCheck.toggle();
                 ToastUtils.showToast(AddBankCard.this, mCheck.isChecked() + "");
                 break;
+            case R.id.title_back:
+                finish();
+                break;
+
         }
     }
 }

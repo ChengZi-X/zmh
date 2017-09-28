@@ -23,7 +23,7 @@ public class AddAddress extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("新增快件地址");
+        setLtTitle("新增快件地址");
         setRtTitle("保存");
         setRightBtnVisible(true);
         FindViewById();

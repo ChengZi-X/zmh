@@ -20,7 +20,7 @@ public class UploadingOfDocuments extends BaseActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("证件照片");
+        setLtTitle("证件照片");
         setRtTitle("提交");
         setRightBtnVisible(true);
         FindViewById();

@@ -30,7 +30,7 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Transparent_title_bar();
+        TransparentTitleBar();
         setContentView(R.layout.ac_registe_password);
         toolbartitle = (TextView) findViewById(R.id.title_tool);
         toolbartitle.setText("设置登录密码");
@@ -66,7 +66,7 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
     /**
      * 透明标题栏
      */
-    private void Transparent_title_bar() {
+    private void TransparentTitleBar() {
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();

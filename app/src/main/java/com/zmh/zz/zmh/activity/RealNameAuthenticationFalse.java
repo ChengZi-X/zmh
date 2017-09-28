@@ -50,7 +50,7 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("实名认证");
+        setLtTitle("实名认证");
         setRtTitle("提交");
         setRightBtnVisible(true);
         FindViewById();
