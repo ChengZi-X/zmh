@@ -33,7 +33,7 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLtTitle("账号与安全");
+        setLtTitle("积分");
         setRtTitle("明细");
         setRightBtnVisible(true);
         FindViewById();
