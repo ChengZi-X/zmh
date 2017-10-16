@@ -30,7 +30,7 @@ public class ExchangeZone extends BaseActivity {
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_exchange_zone;
+        return R.layout.ac_exchange_history;
     }
 
     private void ListViewInitData() {

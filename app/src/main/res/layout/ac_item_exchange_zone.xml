@@ -75,7 +75,5 @@
         </LinearLayout>
     </LinearLayout>
 
-    <View
-        style="@style/horizontal_line"
-        android:layout_marginLeft="15dp" />
+    <View style="@style/horizontal_line" />
 </LinearLayout>

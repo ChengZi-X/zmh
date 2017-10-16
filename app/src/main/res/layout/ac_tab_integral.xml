@@ -115,7 +115,7 @@
         app:apTabIndicatorHeight="2dp"
         app:apTabShouldExpand="true" />
 
-    <com.zmh.zz.zmh.lazyviewpager.LazyViewPager
+    <com.zmh.zz.zmh.viewpager.ViewPagerMain
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

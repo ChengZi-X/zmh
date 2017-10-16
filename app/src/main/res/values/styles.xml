@@ -18,11 +18,25 @@
         <item name="colorAccent">@color/babyblue</item>
     </style>
 
+    <!--ImageView arrow-->
+    <style name="arrow_right_gray">
+        <item name="android:layout_width">13dp</item>
+        <item name="android:layout_height">13dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:src">@mipmap/arrow_right_gray</item>
+    </style>
+
+    <!--view-->
     <style name="horizontal_line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.8dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
         <item name="android:background">@color/view_wire</item>
     </style>
+
     <!--pager tab-->
     <style name="pagertab_style">
         <item name="android:background">@drawable/tab_bg_normal</item>
@@ -38,6 +52,7 @@
         <item name="apTabDrawMode">text</item>
         <item name="apTabTextSelectColor">@color/babyblue</item>
     </style>
+
     <style name="CustomTabPageIndicator.Text" parent="android:TextAppearance.Medium">
         <item name="android:typeface">monospace</item>
     </style>

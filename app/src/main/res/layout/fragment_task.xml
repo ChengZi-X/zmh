@@ -68,12 +68,10 @@
                 android:layout_weight="1"
                 android:gravity="right">
 
+
                 <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="15dp"
-                    android:src="@mipmap/arrow_right_gray" />
+                    style="@style/arrow_right_gray"
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -142,17 +140,12 @@
                 android:gravity="right">
 
                 <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="15dp"
-                    android:src="@mipmap/arrow_right_gray" />
+                    style="@style/arrow_right_gray"
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
         </LinearLayout>
 
-        <View
-            style="@style/horizontal_line"
-            android:layout_marginLeft="15dp" />
+        <View style="@style/horizontal_line" />
 
         <LinearLayout
             android:id="@+id/add_bank_card"
@@ -211,17 +204,12 @@
                 android:gravity="right">
 
                 <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="15dp"
-                    android:src="@mipmap/arrow_right_gray" />
+                    style="@style/arrow_right_gray"
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
         </LinearLayout>
 
-        <View
-            style="@style/horizontal_line"
-            android:layout_marginLeft="15dp" />
+        <View style="@style/horizontal_line" />
 
         <LinearLayout
             android:id="@+id/add_address"
@@ -280,11 +268,8 @@
                 android:gravity="right">
 
                 <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="15dp"
-                    android:src="@mipmap/arrow_right_gray" />
+                    style="@style/arrow_right_gray"
+                    android:layout_gravity="center_vertical" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

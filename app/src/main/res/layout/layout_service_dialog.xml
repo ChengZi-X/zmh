@@ -28,7 +28,9 @@
         android:textColor="@color/light_black"
         android:textSize="@dimen/z2" />
 
-    <View style="@style/horizontal_line" />
+    <View
+        style="@style/horizontal_line"
+        android:layout_marginLeft="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

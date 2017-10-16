@@ -40,10 +40,7 @@
                 android:textColorHint="@color/edittext_color"
                 android:textSize="@dimen/z2" />
 
-            <View
-                style="@style/horizontal_line"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp" />
+            <View style="@style/horizontal_line" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -73,10 +70,7 @@
                 android:textColorHint="@color/edittext_color"
                 android:textSize="@dimen/z2" />
 
-            <View
-                style="@style/horizontal_line"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp" />
+            <View style="@style/horizontal_line" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -105,18 +99,9 @@
                 android:textColor="@color/edittext_color"
                 android:textSize="@dimen/z2" />
 
-            <ImageView
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@mipmap/arrow_right_gray" />
+            <ImageView style="@style/arrow_right_gray" />
 
-            <View
-                style="@style/horizontal_line"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp" />
+            <View style="@style/horizontal_line" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -146,10 +131,7 @@
                 android:textColorHint="@color/edittext_color"
                 android:textSize="@dimen/z2" />
 
-            <View
-                style="@style/horizontal_line"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp" />
+            <View style="@style/horizontal_line" />
         </RelativeLayout>
 
         <RelativeLayout

@@ -183,29 +183,19 @@
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/z2" />
 
-                    <ImageView
-                        android:id="@+id/iv11"
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/arrow_right_gray" />
+                    <ImageView style="@style/arrow_right_gray" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:layout_toLeftOf="@+id/iv11"
+                        android:layout_marginRight="32dp"
                         android:text="未完善"
                         android:textColor="@color/edittext_color"
                         android:textSize="@dimen/z2" />
 
-                    <View
-                        style="@style/horizontal_line"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="15dp" />
+                    <View style="@style/horizontal_line" />
 
                 </RelativeLayout>
 
@@ -237,21 +227,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:layout_toLeftOf="@+id/iv22"
+                        android:layout_marginRight="32dp"
                         android:text="未绑定"
                         android:textColor="@color/edittext_color"
                         android:textSize="@dimen/z2" />
 
-                    <ImageView
-                        android:id="@+id/iv22"
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/arrow_right_gray" />
+                    <ImageView style="@style/arrow_right_gray" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -287,18 +270,9 @@
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/z2" />
 
-                    <ImageView
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/arrow_right_gray" />
+                    <ImageView style="@style/arrow_right_gray" />
 
-                    <View
-                        style="@style/horizontal_line"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="15dp" />
+                    <View style="@style/horizontal_line" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -325,18 +299,9 @@
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/z2" />
 
-                    <ImageView
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/arrow_right_gray" />
+                    <ImageView style="@style/arrow_right_gray" />
 
-                    <View
-                        style="@style/horizontal_line"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="15dp" />
+                    <View style="@style/horizontal_line" />
                 </RelativeLayout>
 
 
@@ -364,13 +329,7 @@
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/z2" />
 
-                    <ImageView
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/arrow_right_gray" />
+                    <ImageView style="@style/arrow_right_gray" />
                 </RelativeLayout>
             </LinearLayout>
 
@@ -405,18 +364,9 @@
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/z2" />
 
-                    <ImageView
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/arrow_right_gray" />
+                    <ImageView style="@style/arrow_right_gray" />
 
-                    <View
-                        style="@style/horizontal_line"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="15dp" />
+                    <View style="@style/horizontal_line" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -443,18 +393,9 @@
                         android:textColor="@color/light_black"
                         android:textSize="@dimen/z2" />
 
-                    <ImageView
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="15dp"
-                        android:src="@mipmap/arrow_right_gray" />
+                    <ImageView style="@style/arrow_right_gray" />
 
-                    <View
-                        style="@style/horizontal_line"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="15dp" />
+                    <View style="@style/horizontal_line" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

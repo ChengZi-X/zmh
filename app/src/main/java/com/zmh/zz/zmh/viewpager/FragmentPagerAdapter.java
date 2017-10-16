@@ -1,4 +1,4 @@
-package com.zmh.zz.zmh.lazyviewpager;
+package com.zmh.zz.zmh.viewpager;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class LazyFragmentPagerAdapter extends LazyPagerAdapter<Fragment> {
+public abstract class FragmentPagerAdapter extends PagerAdapter<Fragment> {
 
 	private static final String TAG = "LazyFragmentPagerAdapter";
 	private static final boolean DEBUG = false;
@@ -15,7 +15,7 @@ public abstract class LazyFragmentPagerAdapter extends LazyPagerAdapter<Fragment
 	private final FragmentManager mFragmentManager;
 	private FragmentTransaction mCurTransaction = null;
 
-	public LazyFragmentPagerAdapter(FragmentManager fm) {
+	public FragmentPagerAdapter(FragmentManager fm) {
 		mFragmentManager = fm;
 	}
 

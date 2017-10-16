@@ -36,9 +36,10 @@
                 android:textColor="@color/babyblue"
                 android:textSize="@dimen/z1" />
 
+
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0.8dp"
                 android:layout_below="@+id/picker_yes"
                 android:layout_marginTop="8dp"
                 android:background="#e6e6e6" />

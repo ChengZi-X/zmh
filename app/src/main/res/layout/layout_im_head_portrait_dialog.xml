@@ -12,7 +12,7 @@
             android:id="@+id/photograph"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/top_selector">
+            android:background="@drawable/photo_top_selector">
 
             <ImageView
                 android:id="@+id/iv1"
@@ -33,15 +33,13 @@
                 android:textSize="16sp" />
         </RelativeLayout>
 
-        <View
-            style="@style/horizontal_line"
-            android:layout_alignParentBottom="true" />
+        <View style="@style/horizontal_line" />
 
         <RelativeLayout
             android:id="@+id/photo"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/bottom_selector">
+            android:background="@drawable/photo_bottom_selector">
 
             <ImageView
                 android:id="@+id/iv2"

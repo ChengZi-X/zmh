@@ -1,9 +1,9 @@
-package com.zmh.zz.zmh.lazyviewpager;
+package com.zmh.zz.zmh.viewpager;
 
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class LazyViewPagerAdapter extends LazyPagerAdapter<View> {
+public abstract class ViewPagerAdapter extends PagerAdapter<View> {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {

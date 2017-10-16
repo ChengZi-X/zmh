@@ -43,9 +43,7 @@
                 android:textSize="18dp" />
 
         </RelativeLayout>
-        <View
-            style="@style/horizontal_line"
-            android:layout_alignParentBottom="true" />
+        <View style="@style/horizontal_line" />
 
         <ListView
             android:id="@+id/lv_bankcard"

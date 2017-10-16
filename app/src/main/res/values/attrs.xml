@@ -12,7 +12,7 @@
         <attr name="color_border" format="color" />
         <attr name="color_background" format="color" />
     </declare-styleable>
-    <declare-styleable name="LazyViewPager">
-        <attr name="init_lazy_item_offset" format="float" />
+    <declare-styleable name="ViewPagerMain">
+        <attr name="init_item_offset" format="float" />
     </declare-styleable>
 </resources>

@@ -31,25 +31,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/iv1"
+                android:layout_marginRight="32dp"
+                android:layout_alignParentRight="true"
                 android:text="未完善"
                 android:textColor="@color/edittext_color"
                 android:textSize="@dimen/z2" />
 
-            <ImageView
-                android:id="@+id/iv1"
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@mipmap/arrow_right_gray" />
+            <ImageView style="@style/arrow_right_gray" />
 
-            <View
-                style="@style/horizontal_line"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="15dp" />
+            <View style="@style/horizontal_line" />
 
         </RelativeLayout>
 
@@ -73,20 +63,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/iv2"
+                android:layout_marginRight="32dp"
+                android:layout_alignParentRight="true"
                 android:text="未完善"
                 android:textColor="@color/edittext_color"
                 android:textSize="@dimen/z2" />
 
-            <ImageView
-                android:id="@+id/iv2"
-                android:layout_width="13dp"
-                android:layout_height="13dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:src="@mipmap/arrow_right_gray" />
+            <ImageView style="@style/arrow_right_gray" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
