@@ -24,6 +24,7 @@
         </RelativeLayout>
 
         <com.zmh.zz.zmh.utlis.CircleImageView2
+            android:id="@+id/im_head_portrait"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_centerHorizontal="true"

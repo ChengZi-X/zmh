@@ -16,11 +16,10 @@ import android.widget.Checkable;
 import com.zmh.zz.zmh.R;
 
 /**
+ * 单项选择
  */
 public class CheckBoxSample extends View implements Checkable {
-
     private final static float BOUNCE_VALUE = 0.2f;
-
     private Drawable checkDrawable;
 
     private Paint bitmapPaint;

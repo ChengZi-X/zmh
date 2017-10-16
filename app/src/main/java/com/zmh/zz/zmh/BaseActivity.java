@@ -81,16 +81,16 @@ public abstract class BaseActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(Color));
         }
     }
-
     /**
-     * 设置Leftbtn箭头颜色
+     * 获取自定义标题栏
+     * 如果子类复写并返回不等于0的布局文件，将会覆盖默认标题
+     * 返回0 将会采用默认标题
      *
-     * @param Color
+     * @return
      */
-    public void setLeftbtnColor(int Color) {
-        back.setImageDrawable(getResources().getDrawable((Color)));
+    protected int getTitlebarResId() {
+        return 0;
     }
-
     /**
      * 点击左侧按钮
      */
@@ -103,6 +103,15 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 默认什么都不做
      */
     protected void onClickRight() {
+    }
+
+    /**
+     * 设置左侧按钮箭头颜色
+     *
+     * @param Color
+     */
+    public void setLeftbtnColor(int Color) {
+        back.setImageDrawable(getResources().getDrawable((Color)));
     }
 
     /**
@@ -157,17 +166,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     public void setTitleBackgroundColor(int Color) {
         titlebar.setBackgroundColor(Color);
-    }
-
-    /**
-     * 获取自定义标题栏
-     * 如果子类复写并返回不等于0的布局文件，将会覆盖默认标题
-     * 返回0 将会采用默认标题
-     *
-     * @return
-     */
-    protected int getTitlebarResId() {
-        return 0;
     }
 
     /**

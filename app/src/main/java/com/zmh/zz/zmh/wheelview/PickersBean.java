@@ -2,7 +2,7 @@ package com.zmh.zz.zmh.wheelview;
 
 import java.io.Serializable;
 
-public class Pickers implements Serializable {
+public class PickersBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -17,14 +17,9 @@ public class Pickers implements Serializable {
 		return showId;
 	}
 
-	public Pickers(String showConetnt, String showId) {
+	public PickersBean(String showConetnt, String showId) {
 		super();
 		this.showConetnt = showConetnt;
 		this.showId = showId;
 	}
-
-	public Pickers() {
-		super();
-	}
-
 }

@@ -85,7 +85,7 @@ public class BonusDetail extends AppCompatActivity implements View.OnClickListen
 
     private void showPopWindow() {
         //  适配PopupWindow布局文件
-        View popView = View.inflate(this, R.layout.layout_select_pop, null);
+        View popView = View.inflate(this, R.layout.layout_select_detail_pop, null);
         //  创建PopupWindow
         popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //设置SelectPicPopupWindow弹出窗体的背景

@@ -35,7 +35,7 @@ public class PickerScrollView extends View {
      */
     public static final float SPEED = 2;
 
-    private List<Pickers> mDataList;
+    private List<PickersBean> mDataList;
     /**
      * 选中的位置，这个位置是mDataList的中心位置，一直不变
      */
@@ -101,7 +101,7 @@ public class PickerScrollView extends View {
             mSelectListener.onSelect(mDataList.get(mCurrentSelected));
     }
 
-    public void setData(List<Pickers> datas) {
+    public void setData(List<PickersBean> datas) {
         mDataList = datas;
         mCurrentSelected = datas.size() / 2;
         invalidate();
@@ -142,13 +142,13 @@ public class PickerScrollView extends View {
     }
 
     private void moveHeadToTail() {
-        Pickers head = mDataList.get(0);
+        PickersBean head = mDataList.get(0);
         mDataList.remove(0);
         mDataList.add(head);
     }
 
     private void moveTailToHead() {
-        Pickers tail = mDataList.get(mDataList.size() - 1);
+        PickersBean tail = mDataList.get(mDataList.size() - 1);
         mDataList.remove(mDataList.size() - 1);
         mDataList.add(0, tail);
     }
@@ -167,7 +167,7 @@ public class PickerScrollView extends View {
 
     private void init() {
         timer = new Timer();
-        mDataList = new ArrayList<Pickers>();
+        mDataList = new ArrayList<PickersBean>();
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Style.FILL);
         mPaint.setTextAlign(Align.CENTER);
@@ -312,6 +312,6 @@ public class PickerScrollView extends View {
     }
 
     public interface onSelectListener {
-        void onSelect(Pickers pickers);
+        void onSelect(PickersBean pickers);
     }
 }

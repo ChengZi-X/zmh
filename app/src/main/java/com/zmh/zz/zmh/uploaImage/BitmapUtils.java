@@ -1,4 +1,4 @@
-package com.zmh.zz.zmh.uploadingphoto;
+package com.zmh.zz.zmh.uploaImage;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

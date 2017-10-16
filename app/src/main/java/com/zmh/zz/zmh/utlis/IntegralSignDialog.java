@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.zmh.zz.zmh.R;
 
 /**
- * Created by Administrator on 2017/9/27.
+ * 签到成功Dialog
  */
 
 public class IntegralSignDialog extends Dialog {

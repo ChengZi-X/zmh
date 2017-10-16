@@ -4,7 +4,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -86,7 +85,7 @@ public class SumDetail extends AppCompatActivity implements View.OnClickListener
 
     private void showPopWindow() {
         //  适配PopupWindow布局文件
-        View popView = View.inflate(this, R.layout.layout_select_pop, null);
+        View popView = View.inflate(this, R.layout.layout_select_detail_pop, null);
         //  创建PopupWindow
         popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         //设置SelectPicPopupWindow弹出窗体的背景

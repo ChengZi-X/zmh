@@ -17,11 +17,11 @@ import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
 import com.lzy.imagepicker.view.CropImageView;
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.uploadingphoto.GlideImageLoader;
-import com.zmh.zz.zmh.uploadingphoto.HttpUtil;
-import com.zmh.zz.zmh.uploadingphoto.ImagePickerAdapter;
-import com.zmh.zz.zmh.uploadingphoto.MyStringCallBack;
-import com.zmh.zz.zmh.uploadingphoto.SelectDialog;
+import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
+import com.zmh.zz.zmh.uploaImage.HttpUtil;
+import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
+import com.zmh.zz.zmh.uploaImage.MyStringCallBack;
+import com.zmh.zz.zmh.uploaImage.SelectDialog;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
 import java.util.ArrayList;
@@ -152,6 +152,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
                         startActivityForResult(intent, REQUEST_CODE_SELECT);
                         selectDialog.dismiss();
                     }
+
                     @Override
                     public void photo() {
                         //相册
@@ -211,8 +212,6 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
             @Override
             public void onResponse(String response, int id) {
                 super.onResponse(response, id);
-
-
                 //返回图片的地址
             }
         });

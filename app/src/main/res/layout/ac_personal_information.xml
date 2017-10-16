@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/im_head_portrait"
+            android:id="@+id/rl_head_portrait"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="?android:attr/selectableItemBackground">
@@ -27,7 +27,7 @@
                 android:textSize="@dimen/z2" />
 
             <com.zmh.zz.zmh.utlis.CircleImageView1
-                android:id="@+id/iv1"
+                android:id="@+id/im_head_portrait"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_alignParentRight="true"

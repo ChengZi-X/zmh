@@ -8,16 +8,17 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.utlis.CircleImageView2;
 
 
 /**
  * Created by Administrator
- * 实名认证_false
+ * 实名认证_true
  */
 
 public class RealNameAuthenticationTrue extends BaseActivity implements View.OnClickListener {
     private RelativeLayout mCertificate_photo, mEssential_information;
-
+    private CircleImageView2 mIm_head_portrait;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class RealNameAuthenticationTrue extends BaseActivity implements View.OnC
     }
 
     private void FindViewById() {
+        mIm_head_portrait = (CircleImageView2) findViewById(R.id.im_head_portrait);
         mCertificate_photo = (RelativeLayout) findViewById(R.id.certificate_photo);
         mEssential_information = (RelativeLayout) findViewById(R.id.essential_information);
         mCertificate_photo.setOnClickListener(this);

@@ -98,9 +98,9 @@ public class Withdraw extends BaseActivity implements View.OnClickListener, OnBa
         View popView = View.inflate(this, R.layout.layout_bankcard_select_pop, null);
         //  创建PopupWindow
         popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
-        //设置SelectPicPopupWindow弹出窗体的背景
+        //  设置SelectPicPopupWindow弹出窗体的背景
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        //点击外部区域消失
+        //  点击外部区域消失
         popupWindow.setOutsideTouchable(true);
         //  设置PopupWindow在ll_main下显示
         popupWindow.showAtLocation(findViewById(R.id.ll_main), Gravity.BOTTOM | Gravity.LEFT, 0, 0);
