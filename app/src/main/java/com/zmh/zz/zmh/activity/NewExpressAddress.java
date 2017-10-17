@@ -41,9 +41,8 @@ public class NewExpressAddress extends BaseActivity implements View.OnClickListe
 
     private void FindViewById() {
         mBut_new_address = (Button) findViewById(R.id.but_new_address);
-        //字体加粗
         TextPaint tp = mBut_new_address.getPaint();
-        tp.setFakeBoldText(true);
+        tp.setFakeBoldText(true);//字体加粗
         mBut_new_address.setOnClickListener(this);
     }
 

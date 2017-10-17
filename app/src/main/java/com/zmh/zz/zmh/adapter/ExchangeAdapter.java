@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by Administrator
+ * 兑换专区
  */
 
 public class ExchangeAdapter extends BaseAdapter {

@@ -71,6 +71,7 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
         mCertificate.setOnClickListener(this);
         mChoose_address.setOnClickListener(this);
     }
+
     //右键点击
     @Override
     protected void onClickRight() {
@@ -82,23 +83,21 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
             public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
                 dialog.dismiss();
             }
-        });
-        dialog.setCancelable(false);
-        dialog.show();
+        }).setCancelable(false).show();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sex:
-                AlertDialog.Builder dialog1 = new AlertDialog.Builder(RealNameAuthenticationFalse.this);
-                dialog1.setTitle("性别");
+                AlertDialog.Builder dialog = new AlertDialog.Builder(RealNameAuthenticationFalse.this);
+                dialog.setTitle("性别");
                 if (mMen_and_women.getText().toString().equals("男")) {
                     which = 0;
                 } else if (mMen_and_women.getText().toString().equals("女")) {
                     which = 1;
                 }
-                dialog1.setSingleChoiceItems(new String[]{"男", "女"}, which, new DialogInterface.OnClickListener() {
+                dialog.setSingleChoiceItems(new String[]{"男", "女"}, which, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0) {
                             mMen_and_women.setText("男");

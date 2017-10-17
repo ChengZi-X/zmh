@@ -12,7 +12,9 @@ import com.zmh.zz.zmh.activity.TopUp;
 
 import java.util.List;
 
-
+/**
+ * 选择银行卡_账户充值
+ */
 public class MyAdapterTopUp extends BaseAdapter {
     private List<BankcardBean> mBankcards;
     private TopUp mContext;

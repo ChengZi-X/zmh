@@ -12,7 +12,9 @@ import com.zmh.zz.zmh.activity.Withdraw;
 
 import java.util.List;
 
-
+/**
+ * 账户提现
+ */
 public class MyAdapterWitdraw extends BaseAdapter {
     private List<BankcardBean> mBankcards;
     private Withdraw mContext;

@@ -29,9 +29,9 @@ import java.net.URL;
 public class UpdateManager {
     HttpUtils http = new HttpUtils();
     private Context mContext;
-    //模拟服务器中的版本号
+    // 模拟服务器中的版本号
     private int serviceCode = 2;
-    /* 更新进度条 */
+    // 更新进度条
     private ProgressDialog mDownloadDialog;
     // 准备安装新版本应用标记
     private static final int INSTALL_TOKEN = 1;
@@ -39,7 +39,7 @@ public class UpdateManager {
     private static final String FILE_PATH = Environment.getExternalStorageDirectory() + "/" + "Zmh" + "/";
     // 下载应用存放全路径
     private static final String FILE_NAME = FILE_PATH + "Zmh.apk";
-    //Log日志打印标签
+    // Log日志打印标签
     private static final String TAG = "Update_log";
 
     public UpdateManager(Context context) {

@@ -6,19 +6,20 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.modelinfo.ExchangeZoneInfo;
+import com.zmh.zz.zmh.modelinfo.ExchangeRecordInfo;
 
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/9/18.
+ * Created by Administrator
+ * 兑换记录
  */
 
-public class ExchangeZoneAdapter extends BaseAdapter {
-    private List<ExchangeZoneInfo> list;
+public class ExchangeRecordAdapter extends BaseAdapter {
+    private List<ExchangeRecordInfo> list;
     private Context mContext;
 
-    public ExchangeZoneAdapter(List<ExchangeZoneInfo> list, Context context) {
+    public ExchangeRecordAdapter(List<ExchangeRecordInfo> list, Context context) {
         this.list = list;
         this.mContext = context;
     }
@@ -33,7 +34,7 @@ public class ExchangeZoneAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.ac_item_exchange_zone, null);
+            convertView = View.inflate(mContext, R.layout.ac_item_exchange_record, null);
         }
         return convertView;
     }

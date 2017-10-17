@@ -20,7 +20,6 @@
 
 
             <RelativeLayout
-                android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="?android:attr/selectableItemBackground">
@@ -43,7 +42,6 @@
                     android:text="2017-10-1"
                     android:textColor="@color/absolute_black"
                     android:textSize="@dimen/z2" />
-
             </RelativeLayout>
 
             <View style="@style/horizontal_line" />
@@ -71,13 +69,11 @@
                     android:text="代理账户"
                     android:textColor="@color/absolute_black"
                     android:textSize="@dimen/z2" />
-
             </RelativeLayout>
 
             <View style="@style/horizontal_line" />
 
             <RelativeLayout
-                android:id="@+id/change_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="?android:attr/selectableItemBackground">
@@ -127,7 +123,6 @@
                     android:text="张三"
                     android:textColor="@color/absolute_black"
                     android:textSize="@dimen/z2" />
-
             </RelativeLayout>
 
             <View style="@style/horizontal_line" />
@@ -155,7 +150,6 @@
                     android:text="男"
                     android:textColor="@color/absolute_black"
                     android:textSize="@dimen/z2" />
-
             </RelativeLayout>
 
             <View style="@style/horizontal_line" />
@@ -183,7 +177,6 @@
                     android:text="18337152301"
                     android:textColor="@color/absolute_black"
                     android:textSize="@dimen/z2" />
-
             </RelativeLayout>
 
             <View style="@style/horizontal_line" />
@@ -211,7 +204,6 @@
                     android:text="12306@qq.com"
                     android:textColor="@color/absolute_black"
                     android:textSize="@dimen/z2" />
-
             </RelativeLayout>
 
             <View style="@style/horizontal_line" />
@@ -286,7 +278,6 @@
             <View style="@style/horizontal_line" />
 
             <RelativeLayout
-                android:id="@+id/mailbox"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="?android:attr/selectableItemBackground">

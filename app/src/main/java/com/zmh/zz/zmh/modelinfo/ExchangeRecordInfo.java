@@ -2,8 +2,8 @@ package com.zmh.zz.zmh.modelinfo;
 
 /**
  * Created by Administrator
- * 兑换专区
+ * 兑换记录
  */
 
-public class ExchangeInfo {
+public class ExchangeRecordInfo {
 }

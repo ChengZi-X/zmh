@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseFragment;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.activity.ExchangeZone;
+import com.zmh.zz.zmh.activity.ExchangerRecord;
 import com.zmh.zz.zmh.adapter.ExchangeAdapter;
 import com.zmh.zz.zmh.modelinfo.ExchangeInfo;
 
@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 兑换
+ * 兑换专区
  */
 public class FragmentExchange extends BaseFragment implements View.OnClickListener {
     private View view;
     private ListView mLv_exchange;
     private ExchangeAdapter exchangeAdapter;
     private List<ExchangeInfo> exchangeList;
-    private TextView mExchange_zone;
+    private TextView mExchange_record;
 
     @Override
     public View initView() {
@@ -33,8 +33,8 @@ public class FragmentExchange extends BaseFragment implements View.OnClickListen
     }
 
     private void FindViewById() {
-        mExchange_zone = (TextView) view.findViewById(R.id.exchange_zone);
-        mExchange_zone.setOnClickListener(this);
+        mExchange_record = (TextView) view.findViewById(R.id.exchange_record);
+        mExchange_record.setOnClickListener(this);
     }
 
     private void LsitViewData() {
@@ -49,8 +49,8 @@ public class FragmentExchange extends BaseFragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.exchange_zone:
-                startActivity(new Intent(getActivity(), ExchangeZone.class));
+            case R.id.exchange_record:
+                startActivity(new Intent(getActivity(), ExchangerRecord.class));
                 break;
         }
 

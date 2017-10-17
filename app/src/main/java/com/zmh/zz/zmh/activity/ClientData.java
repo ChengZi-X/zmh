@@ -31,8 +31,8 @@ public class ClientData extends BaseActivity implements View.OnClickListener {
 
     private void FindViewById() {
         mClient_business = (RelativeLayout) findViewById(R.id.client_business);
-        mClient_business.setOnClickListener(this);
         mClient_fund = (RelativeLayout) findViewById(R.id.client_fund);
+        mClient_business.setOnClickListener(this);
         mClient_fund.setOnClickListener(this);
     }
 

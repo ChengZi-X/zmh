@@ -61,8 +61,6 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
         startActivity(new Intent(TabIntegral.this, IntegralDetail.class));
     }
 
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -95,8 +93,6 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
             }
             return null;
         }
-
-
         @Override
         public int getCount() {
             return VIEW_THREE;
@@ -107,7 +103,7 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
             if (position >= 0 && position < VIEW_THREE) {
                 switch (position) {
                     case VIEW_FIRST:
-                        return "     积分     ";
+                        return "     兑换     ";
                     case VIEW_SECOND:
                         return "     任务     ";
                     default:

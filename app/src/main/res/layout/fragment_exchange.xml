@@ -21,13 +21,13 @@
             android:textSize="@dimen/z2" />
 
         <TextView
-            android:id="@+id/exchange_zone"
+            android:id="@+id/exchange_record"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15dp"
             android:gravity="center_vertical"
-            android:text="兑换专区"
+            android:text="兑换记录"
             android:textColor="@color/babyblue"
             android:textSize="@dimen/z2" />
 

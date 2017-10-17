@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * Created by Administrator
- * 提现
+ * 账户提现
  */
 
 public class Withdraw extends BaseActivity implements View.OnClickListener, OnBankcardSlected {

@@ -20,7 +20,9 @@ import android.widget.ImageView;
 
 import com.zmh.zz.zmh.R;
 
-
+/**
+ * 圆形图片
+ */
 public class CircleImageView1 extends ImageView {
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
     private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;

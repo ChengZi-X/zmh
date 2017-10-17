@@ -88,9 +88,9 @@ public class SumDetail extends AppCompatActivity implements View.OnClickListener
         View popView = View.inflate(this, R.layout.layout_select_detail_pop, null);
         //  创建PopupWindow
         popupWindow = new PopupWindow(popView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        //设置SelectPicPopupWindow弹出窗体的背景
+        //  设置SelectPicPopupWindow弹出窗体的背景
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        //点击外部区域消失
+        //  点击外部区域消失
         popupWindow.setOutsideTouchable(true);
         //  设置PopupWindow在ll_view下显示
         popupWindow.showAsDropDown(findViewById(R.id.ll_view), 0, 0);

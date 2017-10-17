@@ -34,7 +34,7 @@
         <activity android:name=".integralfragment.TabIntegral" />
         <activity android:name=".activity.IntegralDetail" />
         <activity android:name=".activity.IntegralRule" />
-        <activity android:name=".activity.ExchangeZone" />
+        <activity android:name=".activity.ExchangerRecord" />
         <activity android:name=".activity.ExchangeData" />
         <activity android:name=".activity.CheckCalendar" />
         <activity android:name=".activity.ActivityRule" />

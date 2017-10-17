@@ -33,7 +33,9 @@
                 android:textSize="16sp" />
         </RelativeLayout>
 
-        <View style="@style/horizontal_line" />
+        <View
+            style="@style/horizontal_line"
+            android:layout_marginLeft="0dp" />
 
         <RelativeLayout
             android:id="@+id/photo"
