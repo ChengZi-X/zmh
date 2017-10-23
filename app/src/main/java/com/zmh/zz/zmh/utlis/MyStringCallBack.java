@@ -1,4 +1,4 @@
-package com.zmh.zz.zmh.uploaImage;
+package com.zmh.zz.zmh.utlis;
 
 import com.zhy.http.okhttp.callback.StringCallback;
 

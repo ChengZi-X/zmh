@@ -18,13 +18,17 @@ import com.lzy.imagepicker.view.CropImageView;
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
-import com.zmh.zz.zmh.uploaImage.HttpUtil;
+import com.zmh.zz.zmh.utlis.OkHttpUtil;
 import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
-import com.zmh.zz.zmh.uploaImage.MyStringCallBack;
+import com.zmh.zz.zmh.utlis.MyStringCallBack;
 import com.zmh.zz.zmh.uploaImage.SelectDialog;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import okhttp3.Call;
 
@@ -42,7 +46,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     private ArrayList<ImageItem> selImageList; //当前选择的所有图片
     private int maxImgCount = 3;               //允许选择图片最大数
 
-    private HttpUtil httpUtil;
+    private OkHttpUtil okHttpUtil;
 
 
     private EditText mEt_content;
@@ -201,18 +205,19 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
 
     private String url = "http...";
 
-    private void uploadImage(ArrayList<ImageItem> pathList) {
-        httpUtil.postFileRequest(url, null, pathList, new MyStringCallBack() {
 
-            @Override
-            public void onError(Call call, Exception e, int id) {
-                super.onError(call, e, id);
-            }
+    private void uploadImage(ArrayList<ImageItem> pathList) {
+        okHttpUtil.postFileRequest(url, null, pathList, new MyStringCallBack() {
 
             @Override
             public void onResponse(String response, int id) {
                 super.onResponse(response, id);
                 //返回图片的地址
+            }
+
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                super.onError(call, e, id);
             }
         });
     }

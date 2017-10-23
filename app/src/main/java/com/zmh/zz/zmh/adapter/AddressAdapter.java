@@ -72,8 +72,7 @@ public class AddressAdapter extends BaseAdapter {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         ToastUtils.showToast(mContext, "点击删除" + position + "");
                     }
-                });
-                dialog.setNegativeButton("取消", null).show();
+                }).setNegativeButton("取消", null).show();
                 notifyDataSetChanged();
             }
         });
