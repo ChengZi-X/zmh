@@ -12,14 +12,14 @@ import com.zmh.zz.zmh.R;
  * 签到成功Dialog
  */
 
-public class IntegralSignDialog extends Dialog {
+public class IntegralSignDialogUtil extends Dialog {
     private TextView mIntegral_one;
     private TextView mIntegral_two;
     private Context mContext;
     private String integral_one;
     private String integral_two;
 
-    public IntegralSignDialog(Context context, String integral_one, String integral_two) {
+    public IntegralSignDialogUtil(Context context, String integral_one, String integral_two) {
         super(context, R.style.dialog);
         this.mContext = context;
         this.integral_one = integral_one;

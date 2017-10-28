@@ -7,14 +7,13 @@ import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.CheckBoxSample;
+import com.zmh.zz.zmh.utlis.CheckBoxSampleUtil;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 import com.zmh.zz.zmh.wheelview.PickerScrollView;
 import com.zmh.zz.zmh.wheelview.PickersBean;
@@ -34,7 +33,7 @@ public class AddBankCard extends AppCompatActivity implements View.OnClickListen
 
     private Button mBut_save;
     private TextView mOpening_bank;
-    private CheckBoxSample mCheck;
+    private CheckBoxSampleUtil mCheck;
     private PickerScrollView pickerscrlllview; // 滚动选择器
     private List<PickersBean> mList; // 滚动选择器数据
     private String[] id;
@@ -57,7 +56,7 @@ public class AddBankCard extends AppCompatActivity implements View.OnClickListen
         mTitle_back = (RelativeLayout) findViewById(R.id.title_back);
         mBut_save = (Button) findViewById(R.id.but_save);
         mOpening_bank = (TextView) findViewById(R.id.opening_bank);
-        mCheck = (CheckBoxSample) findViewById(R.id.check);
+        mCheck = (CheckBoxSampleUtil) findViewById(R.id.check);
         mTitle_back.setOnClickListener(this);
         mCheck.setOnClickListener(this);
         mBut_save.setOnClickListener(this);

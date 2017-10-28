@@ -7,13 +7,12 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/transparent">
 
         <TextView
-            android:id="@+id/title_tool"
+            android:id="@+id/tv_title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -63,10 +62,10 @@
                     android:id="@+id/et_username"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="15dp"
                     android:layout_toRightOf="@+id/view1"
                     android:background="@null"
                     android:hint="手机号/邮箱/ID"
+                    android:paddingLeft="15dp"
                     android:textColor="@color/log_edittext_color"
                     android:textColorHint="@color/log_edittext_color2"
                     android:textCursorDrawable="@drawable/cursor_color"
@@ -106,11 +105,11 @@
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="15dp"
                     android:layout_toRightOf="@+id/view2"
                     android:background="@null"
                     android:hint="请输入您的密码"
                     android:inputType="textPassword"
+                    android:paddingLeft="15dp"
                     android:textColor="@color/log_edittext_color"
                     android:textColorHint="@color/log_edittext_color2"
                     android:textCursorDrawable="@drawable/cursor_color"
@@ -118,13 +117,13 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="25dp">
 
-            <TextView
-                android:id="@+id/but_log"
+            <Button
+                android:id="@+id/but_login"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_round_translucence2"
@@ -132,39 +131,39 @@
                 android:text="登录"
                 android:textColor="@color/white"
                 android:textSize="@dimen/z3" />
-
-        </LinearLayout>
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_marginBottom="45dp">
 
             <RelativeLayout
-                android:id="@+id/tv_forget_password"
                 android:layout_width="70dp"
-                android:layout_height="45dp"
-                android:gravity="center_vertical">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Button
+                    android:id="@+id/but_forget_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:gravity="center_vertical"
                     android:text="忘记密码"
                     android:textColor="@color/white"
                     android:textSize="@dimen/z1" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/tv_register"
                 android:layout_width="70dp"
-                android:layout_height="45dp"
-                android:layout_alignParentRight="true"
-                android:gravity="center_vertical">
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
+                <Button
+                    android:id="@+id/but_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent"
+                    android:gravity="right|center_vertical"
                     android:text="注册"
                     android:textColor="@color/white"
                     android:textSize="@dimen/z1" />

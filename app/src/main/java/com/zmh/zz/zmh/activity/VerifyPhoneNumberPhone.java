@@ -58,7 +58,6 @@ public class VerifyPhoneNumberPhone extends BaseActivity implements View.OnClick
         } else {
             mBut_next.setEnabled(false);
         }
-
     }
 
     @Override

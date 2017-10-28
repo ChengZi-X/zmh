@@ -23,12 +23,12 @@ import com.zmh.zz.zmh.R;
 /**
  * 圆形图片
  */
-public class CircleImageView1 extends ImageView {
+public class CircleImageView2Util extends ImageView {
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
     private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;
     private static final int COLORDRAWABLE_DIMENSION = 2;
-    private static final int DEFAULT_BORDER_WIDTH = 0;
-    private static final int DEFAULT_BORDER_COLOR = Color.WHITE;
+    private static final int DEFAULT_BORDER_WIDTH = 10;
+    private static final int DEFAULT_BORDER_COLOR = Color.parseColor("#209CFC");
     private static final int DEFAULT_FILL_COLOR = Color.TRANSPARENT;
     private static final boolean DEFAULT_BORDER_OVERLAY = false;
     private final RectF mDrawableRect = new RectF();
@@ -51,18 +51,18 @@ public class CircleImageView1 extends ImageView {
     private boolean mSetupPending;
     private boolean mBorderOverlay;
 
-    public CircleImageView1(Context context) {
+    public CircleImageView2Util(Context context) {
         super(context);
         if (!isInEditMode()) {
             init();
         }
     }
 
-    public CircleImageView1(Context context, AttributeSet attrs) {
+    public CircleImageView2Util(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CircleImageView1(Context context, AttributeSet attrs, int defStyle) {
+    public CircleImageView2Util(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleImageView, defStyle, 0);
         mBorderWidth = a.getDimensionPixelSize(R.styleable.CircleImageView_civ_border_width, DEFAULT_BORDER_WIDTH);

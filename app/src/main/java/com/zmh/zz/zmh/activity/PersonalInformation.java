@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.CircleImageView1;
+import com.zmh.zz.zmh.utlis.CircleImageView1Util;
 
 /**
  * Created by Administrator
@@ -16,7 +16,7 @@ import com.zmh.zz.zmh.utlis.CircleImageView1;
 
 public class PersonalInformation extends BaseActivity implements View.OnClickListener {
     private RelativeLayout mExpress_address, mRl_head_portrait;
-    private CircleImageView1 mIm_head_portrait;
+    private CircleImageView1Util mIm_head_portrait;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
 
 
     private void FindViewById() {
-        mIm_head_portrait = (CircleImageView1) findViewById(R.id.im_head_portrait);
+        mIm_head_portrait = (CircleImageView1Util) findViewById(R.id.im_head_portrait);
         mRl_head_portrait = (RelativeLayout) findViewById(R.id.rl_head_portrait);
         mExpress_address = (RelativeLayout) findViewById(R.id.express_address);
         mRl_head_portrait.setOnClickListener(this);

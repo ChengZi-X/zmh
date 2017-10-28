@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.modelinfo.AddressInfo;
-import com.zmh.zz.zmh.utlis.CustomSwipeListView;
+import com.zmh.zz.zmh.utlis.CustomSwipeListViewUtil;
 import com.zmh.zz.zmh.utlis.SwipeItemView;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
@@ -59,8 +59,8 @@ public class AddressAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) slideView.getTag();
         }
-        if (CustomSwipeListView.mFocusedItemView != null) {
-            CustomSwipeListView.mFocusedItemView.shrink();
+        if (CustomSwipeListViewUtil.mFocusedItemView != null) {
+            CustomSwipeListViewUtil.mFocusedItemView.shrink();
         }
         holder.deleteHolder.setOnClickListener(new View.OnClickListener() {
             @Override

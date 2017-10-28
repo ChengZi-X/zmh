@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.login.Login;
-import com.zmh.zz.zmh.utlis.ClearAll;
+import com.zmh.zz.zmh.utlis.ClearAllUtil;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
 /**
@@ -23,7 +23,7 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
 
 public class Setting extends BaseActivity implements View.OnClickListener {
     private RelativeLayout mPersonal_information, mAccount_security, mClear_cache, mIn_regard_to;
-    ClearAll clearAll;
+    ClearAllUtil clearAll;
     private String size;
     private TextView mCache, mLog_out;
 
@@ -59,7 +59,7 @@ public class Setting extends BaseActivity implements View.OnClickListener {
 
     private void Init() {
         try {
-            size = ClearAll.getTotalCacheSize(Setting.this);
+            size = ClearAllUtil.getTotalCacheSize(Setting.this);
         } catch (Exception e) {
             e.printStackTrace();
         }

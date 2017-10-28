@@ -26,7 +26,7 @@
                 android:textColor="@color/light_black"
                 android:textSize="@dimen/z2" />
 
-            <com.zmh.zz.zmh.utlis.CircleImageView1
+            <com.zmh.zz.zmh.utlis.CircleImageView1Util
                 android:id="@+id/im_head_portrait"
                 android:layout_width="38dp"
                 android:layout_height="38dp"

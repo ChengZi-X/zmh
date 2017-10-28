@@ -10,17 +10,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
+import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.MainActivity;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.httpurls.HttpURLs;
+import com.zmh.zz.zmh.modeljson.LoginJson;
+import com.zmh.zz.zmh.utlis.CheckoutUtil;
+import com.zmh.zz.zmh.utlis.MD5Util;
+import com.zmh.zz.zmh.utlis.MyStringCallBack;
+import com.zmh.zz.zmh.utlis.OkHttpUtil;
+import com.zmh.zz.zmh.utlis.SharedPreferencesUtils;
 import com.zmh.zz.zmh.utlis.ToastUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
 
 
 /**
@@ -28,39 +44,39 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
  * 登录
  */
 public class Login extends AppCompatActivity implements View.OnClickListener {
-    private long m_exitTime = 1;// 连点两次退出程序
+    private long mExitTime = 1;// 连点两次退出程序
     private SharedPreferences sp;
-    private String userNameValue, passwordValue;
-    private ProgressDialog MyDialog = null;
-    private RelativeLayout mTv_register, tv_forget_password;//注册,忘记密码
-    private EditText mEt_UserName, mEt_Password;// 账号,密码
-    private TextView mBut_login, toolbartitle; // 登录,
+    private OkHttpUtil okHttp = new OkHttpUtil();
+    private String mUserNameValue, mPasswordValue;
+    private TextView Tv_TitleName;
+    private EditText Et_UserName, Et_Password;// 账号,密码
+    private Button But_Login, But_ForgetPassword, But_Register;//登录,忘记密码,注册
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TransparentTitleBar();
         setContentView(R.layout.ac_login);
-        toolbartitle = (TextView) findViewById(R.id.title_tool);
-        toolbartitle.setText("登录");
-        TextPaint tp = toolbartitle.getPaint();
+        Tv_TitleName = (TextView) findViewById(R.id.tv_title_name);
+        Tv_TitleName.setText("登录");
+        TextPaint tp = Tv_TitleName.getPaint();
         tp.setFakeBoldText(true);
-        mEt_UserName = (EditText) findViewById(R.id.et_username);
-        mEt_UserName.setFilters(new InputFilter[]{filter});
-        mEt_Password = (EditText) findViewById(R.id.et_password);
-        mEt_Password.setFilters(new InputFilter[]{filter});
-        mBut_login = (TextView) findViewById(R.id.but_log);
-        mTv_register = (RelativeLayout) findViewById(R.id.tv_register);
-        tv_forget_password = (RelativeLayout) findViewById(R.id.tv_forget_password);
-        tv_forget_password.setOnClickListener(this);
-        mBut_login.setOnClickListener(this);
-        mTv_register.setOnClickListener(this);
+        Et_UserName = (EditText) findViewById(R.id.et_username);
+        Et_Password = (EditText) findViewById(R.id.et_password);
+        But_Login = (Button) findViewById(R.id.but_login);
+        But_ForgetPassword = (Button) findViewById(R.id.but_forget_password);
+        But_Register = (Button) findViewById(R.id.but_register);
+        Et_UserName.setFilters(new InputFilter[]{CheckoutUtil.filter});
+        Et_Password.setFilters(new InputFilter[]{CheckoutUtil.filter});
+        But_Login.setOnClickListener(this);
+        But_ForgetPassword.setOnClickListener(this);
+        But_Register.setOnClickListener(this);
         //第二次无需输入账号和密码直接登录
         sp = getSharedPreferences("userInfo", 0);
         String name = sp.getString("USER_NAME", "");
         String pass = sp.getString("PASSWORD", "");
-        mEt_UserName.setText(name);
-        mEt_Password.setText(pass);
+        Et_UserName.setText(name);
+        Et_Password.setText(pass);
         if (!name.equals("") && !pass.equals("")) {
             startActivity(new Intent(Login.this, MainActivity.class));
             finish();
@@ -69,15 +85,25 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        mUserNameValue = Et_UserName.getText().toString();
+        mPasswordValue = Et_Password.getText().toString();
         switch (v.getId()) {
-            case R.id.but_log:
-                LOGIN();// 登录
+            case R.id.but_login:
+                if (mUserNameValue.equals("")) {
+                    ToastUtils.showToast(Login.this, "手机号不能为空");
+                } else if (!CheckoutUtil.isMobileNO(mUserNameValue)) {
+                    ToastUtils.showToast(Login.this, "手机号格式不正确");
+                } else if (mPasswordValue.equals("")) {
+                    ToastUtils.showToast(Login.this, "密码不能为空");
+                } else {
+                    LOGIN();// 登录
+                }
                 break;
-            case R.id.tv_register:
-                startActivity(new Intent(Login.this, Register.class));//注册
-                break;
-            case R.id.tv_forget_password:
+            case R.id.but_forget_password:
                 startActivity(new Intent(Login.this, ForgetPassword.class));//忘记密码
+                break;
+            case R.id.but_register:
+                startActivity(new Intent(Login.this, Register.class));//注册
                 break;
         }
     }
@@ -86,23 +112,95 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
      * 登录
      */
     private void LOGIN() {
-        // 默认可登录帐号123,密码123
-        userNameValue = mEt_UserName.getText().toString();
-        passwordValue = mEt_Password.getText().toString();
-        SharedPreferences.Editor editor = sp.edit();
-        if (userNameValue.equals("123") && passwordValue.equals("123")) {
-            ToastUtils.showToast(Login.this, "登录成功");
-            //保存用户名和密码
-            editor.putString("USER_NAME", userNameValue);
-            editor.putString("PASSWORD", passwordValue);
-            editor.commit();
-            //跳转
-            startActivity(new Intent(Login.this, MainActivity.class));
-            finish();
-        } else {
-            ToastUtils.showToast(Login.this, "用户名或密码错误，请重新输入");
-        }
+        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Login.this);
+        shapeLoadingDialog.setCancelable(false);
+        shapeLoadingDialog.setLoadingText("登录中,请稍等...");
+        shapeLoadingDialog.show();
+        mUserNameValue = Et_UserName.getText().toString();
+        mPasswordValue = Et_Password.getText().toString();
+        SharedPreferencesUtils.setParam(Login.this, "password", mPasswordValue);
+        final SharedPreferences.Editor editor = sp.edit();
+        String url = HttpURLs.LOGIN;
+        Map<String, String> params = new HashMap<>();
+        params.put("loginname", mUserNameValue);
+        params.put("password", MD5Util.MD5(mPasswordValue, 16));
+        okHttp.postRequest(url, params, new MyStringCallBack() {
+            @Override
+            public void onResponse(String response, int id) {
+                Log.e("sssss>>>", response);
+                LoginJson login = JSONObject.parseObject(response, LoginJson.class);
+                String code = login.getCode();
+                String dosc = login.getDesc();
+                switch (code) {
+                    case "200":
+                        shapeLoadingDialog.dismiss();
+                        ToastUtils.showToast(Login.this, "登录成功");
+                        SharedPreferencesUtils.setParam(Login.this, "UserName", mUserNameValue);
+                        //保存用户名和密码
+                        editor.putString("USER_NAME", mUserNameValue);
+                        editor.putString("PASSWORD", mPasswordValue);
+                        editor.commit();
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                        finish();
+                        break;
+                    case "400":
+                        shapeLoadingDialog.dismiss();
+                        ToastUtils.showToast(Login.this, dosc);
+                        break;
+                }
+            }
+
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                shapeLoadingDialog.dismiss();
+                Toast.makeText(Login.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
+
+//    private void LOGIN() {
+//        //POST请求
+//        String url = HttpIp.BASE_URL + "/api/getDieCircle.api.php";
+//        Map<String, String> params = new HashMap<>();
+//        params.put("page", 1 + "");
+////        params.put("account", mUserNameValue);
+////        params.put("password", MD5Util.MD5(mPasswordValue, 16));
+//        okHttp.postRequest(url, params, new MyStringCallBack() {
+//            @Override
+//            public void onResponse(String response, int id) {
+//                Log.e("sssss>>>", response);
+//
+//            }
+//
+//            @Override
+//            public void onError(Call call, Exception e, int id) {
+//            }
+//        });
+//    }
+
+    /**
+     * 登录
+     */
+//    private void LOGIN() {
+//        // 默认可登录帐号123,密码123
+//        userNameValue = mEt_UserName.getText().toString();
+//        passwordValue = mEt_Password.getText().toString();
+//        SharedPreferences.Editor editor = sp.edit();
+//        if (userNameValue.equals("123") && passwordValue.equals("123")) {
+//            ToastUtils.showToast(Login.this, "登录成功");
+//            //保存用户名和密码
+//            editor.putString("USER_NAME", userNameValue);
+//            editor.putString("PASSWORD", passwordValue);
+//            editor.commit();
+//            //跳转
+//            startActivity(new Intent(Login.this, MainActivity.class));
+//            finish();
+//        } else {
+//            ToastUtils.showToast(Login.this, "用户名或密码错误，请重新输入");
+//        }
+//    }
+
 
     /**
      * 登录
@@ -110,7 +208,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //    private void LOGIN() {
 //        MyDialog = new ProgressDialog(this);
 //        //依次设置标题,内容,是否用取消按钮关闭,是否显示进度
-//        MyDialog.setLtTitle("登录");
+//        MyDialog.setTitle("登录");
 //        MyDialog.setMessage("登录中，请稍后...");
 //        MyDialog.setCancelable(false);
 //        //这里是设置进度条的风格,HORIZONTAL是水平进度条,SPINNER是圆形进度条
@@ -179,15 +277,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //        });
 //    }
 
-    //禁止输入空格和换行
-    private InputFilter filter = new InputFilter() {
-        @Override
-        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-            if (source.equals(" ") || source.toString().contentEquals("\n")) return "";
-            else return null;
-        }
-    };
-
     /**
      * 再按一次退出程序
      */
@@ -196,9 +285,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         int keyCode = event.getKeyCode();
         if (keyCode == KeyEvent.KEYCODE_BACK
                 && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if ((System.currentTimeMillis() - m_exitTime) > 2000) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
                 ToastUtils.showToast(Login.this, "再按一次退出程序");
-                m_exitTime = System.currentTimeMillis();
+                mExitTime = System.currentTimeMillis();
             } else {
                 finish();
                 System.exit(0);

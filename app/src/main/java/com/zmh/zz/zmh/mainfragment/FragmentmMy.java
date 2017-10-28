@@ -3,10 +3,7 @@ package com.zmh.zz.zmh.mainfragment;
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -21,8 +18,8 @@ import com.zmh.zz.zmh.activity.PersonalInformation;
 import com.zmh.zz.zmh.activity.RealNameAuthenticationTrue;
 import com.zmh.zz.zmh.activity.Setting;
 import com.zmh.zz.zmh.integralfragment.TabIntegral;
-import com.zmh.zz.zmh.utlis.CircleImageView2;
-import com.zmh.zz.zmh.utlis.ServiceDialog;
+import com.zmh.zz.zmh.utlis.CircleImageView2Util;
+import com.zmh.zz.zmh.utlis.ServiceDialogUtil;
 
 /**
  * 我的
@@ -32,9 +29,8 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     private View view;
     private RelativeLayout mReal_Name_Authentication, mBank_card, mService, mNotice, mMy_client, mClient_mesh, mFeedback;
     private LinearLayout mMe_integral;
-    private String tel = 1833715230 + "";
-    private String tel1 = 1 + "";
-    private CircleImageView2 mIm_head_portrait;//头像
+    private String tel = "18337152301";
+    private CircleImageView2Util mIm_head_portrait;//头像
     private LinearLayout mPersonal_information;
 
     @Override
@@ -49,7 +45,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
     private void FindViewById() {
         // 注册控件
         mBut_setting = (RelativeLayout) view.findViewById(R.id.but_setting);
-        mIm_head_portrait = (CircleImageView2) view.findViewById(R.id.im_head_portrait);
+        mIm_head_portrait = (CircleImageView2Util) view.findViewById(R.id.im_head_portrait);
         mPersonal_information = (LinearLayout) view.findViewById(R.id.personal_information);
         mMe_integral = (LinearLayout) view.findViewById(R.id.me_integral);
         mReal_Name_Authentication = (RelativeLayout) view.findViewById(R.id.real_name_authentication);
@@ -107,12 +103,12 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
 //                break;
             case R.id.service:
                 //弹出提示框
-                new ServiceDialog(getActivity(), tel + tel1, new ServiceDialog.OnCloseListener() {
+                new ServiceDialogUtil(getActivity(), tel, new ServiceDialogUtil.OnCloseListener() {
                     @Override
                     public void onClick(Dialog dialog, boolean confirm) {
                         if (confirm) {
                             Intent intent = new Intent(Intent.ACTION_DIAL);
-                            Uri data = Uri.parse("tel:" + tel + tel1);
+                            Uri data = Uri.parse("tel:" + tel);
                             intent.setData(data);
                             startActivity(intent);
                             dialog.dismiss();
@@ -123,6 +119,7 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
         }
 
     }
+
     public void initData() {
 
     }

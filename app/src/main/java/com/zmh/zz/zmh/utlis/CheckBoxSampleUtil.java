@@ -18,7 +18,7 @@ import com.zmh.zz.zmh.R;
 /**
  * 单项选择
  */
-public class CheckBoxSample extends View implements Checkable {
+public class CheckBoxSampleUtil extends View implements Checkable {
     private final static float BOUNCE_VALUE = 0.2f;
     private Drawable checkDrawable;
 
@@ -42,15 +42,15 @@ public class CheckBoxSample extends View implements Checkable {
     private int bitmapColor = 0xFF3F51B5;
     private int borderColor = 0xFFFFFFFF;
 
-    public CheckBoxSample(Context context) {
+    public CheckBoxSampleUtil(Context context) {
         this(context, null);
     }
 
-    public CheckBoxSample(Context context, AttributeSet attrs) {
+    public CheckBoxSampleUtil(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CheckBoxSample(Context context, AttributeSet attrs, int defStyle) {
+    public CheckBoxSampleUtil(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
     }

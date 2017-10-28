@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.ChangeAddressPopwindow;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.CheckBoxSample;
+import com.zmh.zz.zmh.utlis.CheckBoxSampleUtil;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
 /**
@@ -18,7 +18,7 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
 
 public class AddAddress extends BaseActivity implements View.OnClickListener {
     private TextView mChoose_address;
-    private CheckBoxSample mCheck;
+    private CheckBoxSampleUtil mCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class AddAddress extends BaseActivity implements View.OnClickListener {
     private void FindViewById() {
         mChoose_address = (TextView) findViewById(R.id.choose_address);
         mChoose_address.setOnClickListener(this);
-        mCheck = (CheckBoxSample) findViewById(R.id.check);
+        mCheck = (CheckBoxSampleUtil) findViewById(R.id.check);
         mCheck.setOnClickListener(this);
     }
 

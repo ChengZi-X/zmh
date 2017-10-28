@@ -4,4 +4,7 @@
     <string name="tab_Business">业务</string>
     <string name="tab_Fund">资金</string>
     <string name="tab_My">我的</string>
+
+
+    <string name="ConnectionError">网络连接异常,请检查网络</string>
 </resources>

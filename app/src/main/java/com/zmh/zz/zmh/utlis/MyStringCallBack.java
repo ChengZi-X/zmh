@@ -4,6 +4,9 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
 
+/**
+ * 返回状态
+ */
 public class MyStringCallBack extends StringCallback {
 
     public MyStringCallBack(){

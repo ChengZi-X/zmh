@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 /**
  * 清除缓存
  */
-public class ClearAll {
+public class ClearAllUtil {
     public static String getTotalCacheSize(Context context) throws Exception {
         long cacheSize = getFolderSize(context.getCacheDir());
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {

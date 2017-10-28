@@ -31,7 +31,7 @@
             android:layout_height="125dp"
             android:orientation="vertical">
 
-            <com.zmh.zz.zmh.utlis.CircleImageView2
+            <com.zmh.zz.zmh.utlis.CircleImageView2Util
                 android:id="@+id/im_head_portrait"
                 android:layout_width="75dp"
                 android:layout_height="75dp"

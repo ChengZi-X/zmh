@@ -14,7 +14,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/phone_number"
+            android:id="@+id/rl_phonenumber"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="?android:attr/selectableItemBackground">
@@ -44,7 +44,7 @@
         <View style="@style/horizontal_line" />
 
         <RelativeLayout
-            android:id="@+id/mailbox"
+            android:id="@+id/rl_mailbox"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="?android:attr/selectableItemBackground">
@@ -74,7 +74,7 @@
         <View style="@style/horizontal_line" />
 
         <RelativeLayout
-            android:id="@+id/change_password"
+            android:id="@+id/rl_changepassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="?android:attr/selectableItemBackground">

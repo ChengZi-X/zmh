@@ -57,7 +57,6 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
         } else {
             mBut_next.setEnabled(false);
         }
-
     }
 
     @Override

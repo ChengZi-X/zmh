@@ -3,7 +3,6 @@ package com.zmh.zz.zmh.utlis;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,7 +12,7 @@ import com.zmh.zz.zmh.R;
 /**
  * 在线客服自定义DiaLog
  */
-public class ServiceDialog extends Dialog implements View.OnClickListener {
+public class ServiceDialogUtil extends Dialog implements View.OnClickListener {
     private TextView contentTxt;
     private TextView titleTxt;
     private TextView submitTxt;
@@ -24,14 +23,14 @@ public class ServiceDialog extends Dialog implements View.OnClickListener {
     private String content;
     private String title;
 
-    public ServiceDialog(Context context, String content, OnCloseListener listener) {
+    public ServiceDialogUtil(Context context, String content, OnCloseListener listener) {
         super(context, R.style.dialog);
         this.mContext = context;
         this.content = content;
         this.listener = listener;
     }
 
-    public ServiceDialog setTitle(String title) {
+    public ServiceDialogUtil setTitle(String title) {
         this.title = title;
         return this;
     }

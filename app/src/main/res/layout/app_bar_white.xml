@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/base_titlebar"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="?attr/actionBarSize">
 
         <RelativeLayout
             android:id="@+id/base_back_btn"

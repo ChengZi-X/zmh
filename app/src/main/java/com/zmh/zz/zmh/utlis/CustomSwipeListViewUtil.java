@@ -9,19 +9,19 @@ import android.widget.ListView;
 /**
  * 侧滑删除listview
  */
-public class CustomSwipeListView extends ListView {
+public class CustomSwipeListViewUtil extends ListView {
     private static final String TAG = "ListViewCompat";
     public static SwipeItemView mFocusedItemView;
 
-    public CustomSwipeListView(Context context) {
+    public CustomSwipeListViewUtil(Context context) {
         super(context);
     }
 
-    public CustomSwipeListView(Context context, AttributeSet attrs) {
+    public CustomSwipeListViewUtil(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomSwipeListView(Context context, AttributeSet attrs, int defStyle) {
+    public CustomSwipeListViewUtil(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

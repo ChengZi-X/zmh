@@ -10,7 +10,7 @@ import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.adapter.AddressAdapter;
 import com.zmh.zz.zmh.modelinfo.AddressInfo;
-import com.zmh.zz.zmh.utlis.CustomSwipeListView;
+import com.zmh.zz.zmh.utlis.CustomSwipeListViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class NewExpressAddress extends BaseActivity implements View.OnClickListener {
     private Button mBut_new_address;
-    private CustomSwipeListView mLv_address;
+    private CustomSwipeListViewUtil mLv_address;
     private AddressAdapter addressAdapter;
     private List<AddressInfo> addressList;
 
@@ -47,7 +47,7 @@ public class NewExpressAddress extends BaseActivity implements View.OnClickListe
     }
 
     private void InitData() {
-        mLv_address = (CustomSwipeListView) findViewById(R.id.lv_address);
+        mLv_address = (CustomSwipeListViewUtil) findViewById(R.id.lv_address);
         addressList = new ArrayList<>();
         addressAdapter = new AddressAdapter(addressList, NewExpressAddress.this);
         mLv_address.setAdapter(addressAdapter);

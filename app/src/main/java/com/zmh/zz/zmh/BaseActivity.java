@@ -47,7 +47,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             TextPaint tp1 = rightBtn.getPaint();
             tp1.setFakeBoldText(true);//字体加粗
             rightBtn.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(View v) {
                     onClickRight();
@@ -160,7 +159,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置Titlt背景颜色
+     * 设置Title背景颜色
      *
      * @param Color
      */

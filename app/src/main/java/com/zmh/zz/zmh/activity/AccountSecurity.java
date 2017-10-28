@@ -15,38 +15,40 @@ import com.zmh.zz.zmh.R;
  */
 
 public class AccountSecurity extends BaseActivity implements View.OnClickListener {
-    private RelativeLayout mPhone_number, mMailbox, mChange_password;
+    private RelativeLayout Rl_PhoneNumber, Rl_Mailbox, Rl_ChangePassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLtTitle("账号与安全");
         FindViewById();
     }
+
     @Override
     protected int getContentView() {
         return R.layout.ac_account_security;//任意非空布局
     }
 
     private void FindViewById() {
-        mPhone_number = (RelativeLayout) findViewById(R.id.phone_number);
-        mMailbox = (RelativeLayout) findViewById(R.id.mailbox);
-        mChange_password = (RelativeLayout) findViewById(R.id.change_password);
-        mPhone_number.setOnClickListener(this);
-        mMailbox.setOnClickListener(this);
-        mChange_password.setOnClickListener(this);
+        Rl_PhoneNumber = (RelativeLayout) findViewById(R.id.rl_phonenumber);
+        Rl_Mailbox = (RelativeLayout) findViewById(R.id.rl_mailbox);
+        Rl_ChangePassword = (RelativeLayout) findViewById(R.id.rl_changepassword);
+        Rl_PhoneNumber.setOnClickListener(this);
+        Rl_Mailbox.setOnClickListener(this);
+        Rl_ChangePassword.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.phone_number:
+            case R.id.rl_phonenumber:
                 startActivity(new Intent(AccountSecurity.this, VerifyPhoneNumberPhone.class));
                 break;
-            case R.id.mailbox:
+            case R.id.rl_mailbox:
                 startActivity(new Intent(AccountSecurity.this, VerifyPhoneNumberMailbox.class));
                 break;
-            case R.id.change_password:
+            case R.id.rl_changepassword:
                 startActivity(new Intent(AccountSecurity.this, ChangePassword.class));
                 break;
         }

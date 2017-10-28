@@ -9,12 +9,11 @@ import android.text.TextPaint;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.IntegralSignDialog;
+import com.zmh.zz.zmh.utlis.IntegralSignDialogUtil;
 
 /**
  * Created by Administrator
@@ -68,7 +67,7 @@ public class CheckCalendar extends BaseActivity {
     }
     private void showDialog() {
         //弹出提示框
-        new IntegralSignDialog(CheckCalendar.this, "恭喜获得10积分", "85").show();
+        new IntegralSignDialogUtil(CheckCalendar.this, "恭喜获得10积分", "85").show();
 
 
     }

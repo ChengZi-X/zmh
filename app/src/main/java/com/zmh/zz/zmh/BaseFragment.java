@@ -16,12 +16,10 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
-    /**
-     * 初始化界面：让子类重写
-     */
+    //初始化界面：让子类重写
     public abstract View initView();
 
-
+    //通知栏颜色
     public void setNotificationBar(int Color) {
         //变化通知栏颜色,4.4以下不支持
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
