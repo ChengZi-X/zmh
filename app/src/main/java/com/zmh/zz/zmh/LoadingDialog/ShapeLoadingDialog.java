@@ -10,7 +10,7 @@ import com.zmh.zz.zmh.R;
 
 
 /**
- * Created by zzz40500 on 15/6/15.
+ * Created by
  */
 public class ShapeLoadingDialog {
     private Context mContext;

@@ -9,7 +9,7 @@ import android.text.TextUtils;
  * 规则
  */
 
-public class CheckoutUtil {
+public class RegularUtil {
     // 禁止输入空格和换行
     public static InputFilter filter = new InputFilter() {
         @Override
@@ -21,8 +21,8 @@ public class CheckoutUtil {
 
     // 验证手机格式
     public static boolean isMobileNO(String mobiles) {
-        /*
-         * * 移动：134、135、136、137、138、139、150、151、157(TD)、158、159、187、188
+        /**
+         * 移动：134、135、136、137、138、139、150、151、157(TD)、158、159、187、188
 		 * 联通：130、131、132、152、155、156、185、186 电信：133、153、180、189、177（1349卫通）
 		 * 总结起来就是第一位必定为1，第二位必定为3或5或8或7，其他位置的可以为0-9
 		 */
@@ -56,6 +56,15 @@ public class CheckoutUtil {
             return false;
         else
             return Mailbox.matches(telRegex);
+    }
+
+    // 身份证号验证
+    public static boolean isIDCard(String IDCard) {
+        String telRegex = "^(\\d{15}$|^\\d{18}$|^\\d{17}(\\d|X|x))$";
+        if (TextUtils.isEmpty(IDCard))
+            return false;
+        else
+            return IDCard.matches(telRegex);
     }
 
 

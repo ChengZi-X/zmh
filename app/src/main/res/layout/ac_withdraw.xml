@@ -22,7 +22,7 @@
             android:src="@mipmap/top_up" />
 
         <TextView
-            android:id="@+id/tv_recharge_bankcard"
+            android:id="@+id/tv_bankcard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -67,6 +67,7 @@
                 android:textSize="25sp" />
 
             <EditText
+                android:id="@+id/et_money"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/tv2"
@@ -89,7 +90,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:text="可用余额123.00元"
-            android:textColor="@color/edittext_color"
+            android:textColor="@color/hint_color"
             android:textSize="@dimen/z1" />
 
     </LinearLayout>
@@ -100,7 +101,7 @@
         android:layout_margin="15dp">
 
         <Button
-            android:id="@+id/but_next"
+            android:id="@+id/but_withdraw"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/nextbtn"

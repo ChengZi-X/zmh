@@ -3,13 +3,10 @@ package com.zmh.zz.zmh.utlis;
 import java.security.MessageDigest;
 
 /**
- * Created by Administrator
+ * MD5加密
  */
 
 public class MD5Util {
-    /**
-     * @version 2017年10月1日
-     */
     public static String MD5(String plainText, int pos) {
         String value = null;
         try {

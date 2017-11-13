@@ -14,15 +14,15 @@
 
         <RelativeLayout
             android:id="@+id/but_setting"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="right">
 
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:src="@mipmap/setting" />
         </RelativeLayout>
 
@@ -192,7 +192,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="32dp"
                         android:text="未完善"
-                        android:textColor="@color/edittext_color"
+                        android:textColor="@color/hint_color"
                         android:textSize="@dimen/z2" />
 
                     <View style="@style/horizontal_line" />
@@ -231,7 +231,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="32dp"
                         android:text="未绑定"
-                        android:textColor="@color/edittext_color"
+                        android:textColor="@color/hint_color"
                         android:textSize="@dimen/z2" />
 
                     <ImageView style="@style/arrow_right_gray" />

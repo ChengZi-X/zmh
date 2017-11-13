@@ -15,7 +15,7 @@
     <color name="white">#FFFFFF</color><!--白色 -->
     <color name="babyblue">#1B82D2</color><!--浅蓝色 -->
     <color name="service_dialog">#A1A1A1</color><!--电话-->
-    <color name="edittext_color">#999999</color><!--edittext颜色 -->
+    <color name="hint_color">#999999</color><!--edittext颜色 -->
     <color name="background">#F2F2F2</color><!-- 背景色 -->
     <color name="transparent">#00000000</color><!--透明 -->
     <color name="translucence">#4DFFFFFF</color><!--登录界面半透明 -->
@@ -29,7 +29,7 @@
     <color name="f3_sum">#14619D</color><!--奖金通知栏颜色-->
     <color name="f4">#14619D</color><!--我的通知栏颜色-->
 
-    <!--加载框颜色-->
+    <!--加载窗颜色-->
     <color name="triangle">#aa72d572</color>
     <color name="circle">#aa738ffe</color>
     <color name="rect">#aae84e40</color>

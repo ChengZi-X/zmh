@@ -11,7 +11,7 @@ import com.zmh.zz.zmh.R;
 
 
 /**
- * Created by zzz40500 on 15/4/4.
+ * Created by
  */
 public class ShapeLoadingView extends View {
     private static final float genhao3 = 1.7320508075689f;

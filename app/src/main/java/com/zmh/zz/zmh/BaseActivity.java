@@ -1,13 +1,16 @@
 package com.zmh.zz.zmh;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextPaint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -70,6 +73,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * 隐藏软件盘方法的其中一种
+     */
+    public void hideSoftInput(View view) {
+        if (view != null) {
+            InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            im.hideSoftInputFromWindow(view.getWindowToken(), 0); //强制隐藏键盘
+        }
+    }
+
+    /**
      * 设置状态栏背景状态
      */
     public void setNotificationBar(int Color) {
@@ -80,6 +93,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(Color));
         }
     }
+
     /**
      * 获取自定义标题栏
      * 如果子类复写并返回不等于0的布局文件，将会覆盖默认标题
@@ -90,6 +104,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected int getTitlebarResId() {
         return 0;
     }
+
     /**
      * 点击左侧按钮
      */

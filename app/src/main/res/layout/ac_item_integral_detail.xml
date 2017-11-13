@@ -31,7 +31,7 @@
                 android:layout_weight="1"
                 android:paddingLeft="15dp"
                 android:text="2017-10-1 18:00:00"
-                android:textColor="@color/edittext_color"
+                android:textColor="@color/hint_color"
                 android:textSize="@dimen/z1" />
         </LinearLayout>
 

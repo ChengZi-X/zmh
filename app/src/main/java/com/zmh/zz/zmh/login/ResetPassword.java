@@ -1,7 +1,6 @@
 package com.zmh.zz.zmh.login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,7 +22,7 @@ import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.CheckoutUtil;
+import com.zmh.zz.zmh.utlis.RegularUtil;
 import com.zmh.zz.zmh.utlis.MD5Util;
 import com.zmh.zz.zmh.utlis.MyStringCallBack;
 import com.zmh.zz.zmh.utlis.OkHttpUtil;
@@ -61,8 +60,8 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
         Et_Password = (EditText) findViewById(R.id.et_password);
         Et_Password1 = (EditText) findViewById(R.id.et_password1);
         But_Affirm = (Button) findViewById(R.id.but_affirm);
-        Et_Password.setFilters(new InputFilter[]{CheckoutUtil.filter});
-        Et_Password1.setFilters(new InputFilter[]{CheckoutUtil.filter});
+        Et_Password.setFilters(new InputFilter[]{RegularUtil.filter});
+        Et_Password1.setFilters(new InputFilter[]{RegularUtil.filter});
         Rl_TitleBack.setOnClickListener(this);
         But_Affirm.setOnClickListener(this);
     }
@@ -77,7 +76,7 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
                     ToastUtils.showToast(ResetPassword.this, "密码不能为空");
                 } else if (mPasswordValue.length() < 6) {
                     ToastUtils.showToast(ResetPassword.this, "密码不能少于六位数");
-                } else if (!CheckoutUtil.isLetterDigit(mPasswordValue)) {
+                } else if (!RegularUtil.isLetterDigit(mPasswordValue)) {
                     ToastUtils.showToast(ResetPassword.this, "至少包含大小写字母及数字中的两种");
                 } else if (!mPasswordValue.equals(mPassword1Value)) {
                     ToastUtils.showToast(ResetPassword.this, "两次输入的密码不一致");
@@ -92,25 +91,25 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
     }
 
     private void Affirm() {
+        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
+        mPasswordValue = Et_Password.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(ResetPassword.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("重置中,请稍等...");
         shapeLoadingDialog.show();
         String url = HttpURLs.FORGET;
-        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
-        mPasswordValue = Et_Password.getText().toString();
         Map<String, String> params = new HashMap<>();
         params.put("loginname", mPhoneValue);
-        params.put("passdword", MD5Util.MD5(mPasswordValue, 16));
+        params.put("password", MD5Util.MD5(mPasswordValue, 32));
         okHttp.postRequest(url, params, new MyStringCallBack() {
             @Override
             public void onResponse(String response, int id) {
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
-                String code = login.getCode();
+                int code = login.getCode();
                 String dosc = login.getDesc();
                 switch (code) {
-                    case "200":
+                    case 200:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(ResetPassword.this, "密码重置成功,请登录");
                         Intent intent = new Intent(ResetPassword.this, Login.class);
@@ -118,11 +117,7 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
                         startActivity(intent);
                         finish();
                         break;
-                    case "400":
-                        shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(ResetPassword.this, dosc);
-                        break;
-                    case "500":
+                    case 400:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(ResetPassword.this, dosc);
                         break;

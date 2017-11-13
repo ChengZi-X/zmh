@@ -13,18 +13,20 @@
 
 
         <EditText
-            android:id="@+id/phone_number"
+            android:id="@+id/et_new_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:background="@null"
             android:hint="手机号"
+            android:numeric="integer"
             android:paddingLeft="15dp"
             android:textColor="@color/absolute_black"
-            android:textColorHint="@color/edittext_color"
+            android:textColorHint="@color/hint_color"
             android:textSize="@dimen/z2" />
 
-        <TextView
+        <Button
+            android:id="@+id/but_get_code"
             android:layout_width="90dp"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
@@ -33,7 +35,8 @@
             android:background="@drawable/rim_babyblue"
             android:gravity="center"
             android:text="获取验证码"
-            android:textColor="@color/babyblue" />
+            android:textColor="@color/babyblue"
+            android:textSize="@dimen/z1" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -43,15 +46,16 @@
         android:background="@color/white">
 
         <EditText
-            android:id="@+id/verification_code"
+            android:id="@+id/et_code"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:background="@null"
             android:hint="验证码"
+            android:numeric="integer"
             android:paddingLeft="15dp"
             android:textColor="@color/absolute_black"
-            android:textColorHint="@color/edittext_color"
+            android:textColorHint="@color/hint_color"
             android:textSize="@dimen/z2" />
     </RelativeLayout>
 
@@ -66,7 +70,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="13dp">
@@ -74,7 +78,7 @@
         <Button
             android:id="@+id/but_binding"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
             android:background="@drawable/nextbtn"
             android:enabled="false"
             android:text="立即绑定"

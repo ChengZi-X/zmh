@@ -74,7 +74,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@+id/iv1"
                 android:text="兰博基尼兑换券"
-                android:textColor="@color/edittext_color"
+                android:textColor="@color/hint_color"
                 android:textSize="@dimen/z1" />
 
         </RelativeLayout>
@@ -114,7 +114,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@+id/iv2"
                 android:text="兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券"
-                android:textColor="@color/edittext_color"
+                android:textColor="@color/hint_color"
                 android:textSize="@dimen/z1" />
         </RelativeLayout>
 
@@ -153,7 +153,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_toRightOf="@+id/iv3"
                 android:text="1.兰博基尼兑换券兰博基尼兑换券\n2.兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券\n3.兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券兰博基尼兑换券"
-                android:textColor="@color/edittext_color"
+                android:textColor="@color/hint_color"
                 android:textSize="@dimen/z1" />
         </RelativeLayout>
     </LinearLayout>

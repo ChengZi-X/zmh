@@ -18,7 +18,6 @@ public class SharedPreferencesUtils {
         String type = object.getClass().getSimpleName();
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-
         if ("String".equals(type)) {
             editor.putString(key, (String) object);
         } else if ("Integer".equals(type)) {
@@ -36,7 +35,6 @@ public class SharedPreferencesUtils {
     public static Object getParam(Context context, String key, Object defaultObject) {
         String type = defaultObject.getClass().getSimpleName();
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-
         if ("String".equals(type)) {
             return sp.getString(key, (String) defaultObject);
         } else if ("Integer".equals(type)) {

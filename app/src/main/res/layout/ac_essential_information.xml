@@ -130,7 +130,6 @@
         <View style="@style/horizontal_line" />
 
         <RelativeLayout
-            android:id="@+id/validity_of_a_certificate"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
@@ -144,34 +143,19 @@
                 android:textColor="@color/light_black"
                 android:textSize="@dimen/z2" />
 
-            <EditText
+            <TextView
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="100dp"
-                android:layout_marginRight="32dp"
-                android:layout_toLeftOf="@+id/iv2"
-                android:layout_toRightOf="@id/tv1"
                 android:background="@null"
                 android:gravity="right"
+                android:paddingRight="15dp"
                 android:text="2020-01-01"
                 android:textColor="@color/absolute_black"
                 android:textSize="@dimen/z2" />
 
-            <ImageView style="@style/arrow_right_gray" />
         </RelativeLayout>
-
-        <View style="@style/horizontal_line" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
-            android:text="如果您的证件有效期为长期请直接输入'长期'"
-            android:textSize="12dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -200,14 +184,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="32dp"
+                android:layout_marginRight="15dp"
                 android:layout_toLeftOf="@+id/iv3"
                 android:gravity="right"
                 android:text="河南 郑州 金水区"
                 android:textColor="@color/absolute_black"
                 android:textSize="@dimen/z2" />
 
-            <ImageView style="@style/arrow_right_gray" />
         </RelativeLayout>
 
         <View style="@style/horizontal_line" />
@@ -225,10 +208,9 @@
                 android:textColor="@color/light_black"
                 android:textSize="@dimen/z2" />
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:background="@null"
                 android:gravity="right"

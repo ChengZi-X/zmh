@@ -1,14 +1,12 @@
 package com.zmh.zz.zmh.login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.TextPaint;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -24,7 +22,7 @@ import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.CheckoutUtil;
+import com.zmh.zz.zmh.utlis.RegularUtil;
 import com.zmh.zz.zmh.utlis.MD5Util;
 import com.zmh.zz.zmh.utlis.MyStringCallBack;
 import com.zmh.zz.zmh.utlis.OkHttpUtil;
@@ -64,9 +62,9 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
         Et_Mailbox = (EditText) findViewById(R.id.et_mailbox);
         But_Register = (Button) findViewById(R.id.but_register);
         But_RegisterProtocol = (Button) findViewById(R.id.but_register_protocol);
-        Et_Password.setFilters(new InputFilter[]{CheckoutUtil.filter});
-        Et_Password1.setFilters(new InputFilter[]{CheckoutUtil.filter});
-        Et_Mailbox.setFilters(new InputFilter[]{CheckoutUtil.filter});
+        Et_Password.setFilters(new InputFilter[]{RegularUtil.filter});
+        Et_Password1.setFilters(new InputFilter[]{RegularUtil.filter});
+        Et_Mailbox.setFilters(new InputFilter[]{RegularUtil.filter});
         rl_TitleBack.setOnClickListener(this);
         But_Register.setOnClickListener(this);
         But_RegisterProtocol.setOnClickListener(this);
@@ -83,13 +81,13 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
                     ToastUtils.showToast(RegisterPassword.this, "密码不能为空");
                 } else if (mPasswordValue.length() < 6) {
                     ToastUtils.showToast(RegisterPassword.this, "密码不能少于六位数");
-                } else if (!CheckoutUtil.isLetterDigit(mPasswordValue)) {
+                } else if (!RegularUtil.isLetterDigit(mPasswordValue)) {
                     ToastUtils.showToast(RegisterPassword.this, "至少包含大小写字母及数字中的两种");
                 } else if (!mPasswordValue.equals(mPassword1Value)) {
                     ToastUtils.showToast(RegisterPassword.this, "两次输入的密码不一致");
                 } else if (mMailboxValue.equals("")) {
                     ToastUtils.showToast(RegisterPassword.this, "邮箱不能为空");
-                } else if (!CheckoutUtil.isQQMailbox(mMailboxValue)) {
+                } else if (!RegularUtil.isQQMailbox(mMailboxValue)) {
                     ToastUtils.showToast(RegisterPassword.this, "邮箱格式不正确");
                 } else {
                     Register();//确定注册
@@ -106,27 +104,27 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
     }
 
     private void Register() {
+        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
+        mPasswordValue = Et_Password.getText().toString();
+        mMailboxValue = Et_Mailbox.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(RegisterPassword.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("注册中,请稍等...");
         shapeLoadingDialog.show();
         String url = HttpURLs.REGISTER;
-        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
-        mPasswordValue = Et_Password.getText().toString();
-        mMailboxValue = Et_Mailbox.getText().toString();
         Map<String, String> params = new HashMap<>();
         params.put("mobile", mPhoneValue);
-        params.put("loginPwd", MD5Util.MD5(mPasswordValue, 16));
+        params.put("loginPwd", MD5Util.MD5(mPasswordValue, 32));
         params.put("email", mMailboxValue);
         okHttp.postRequest(url, params, new MyStringCallBack() {
             @Override
             public void onResponse(String response, int id) {
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
-                String code = login.getCode();
+                int code = login.getCode();
                 String dosc = login.getDesc();
                 switch (code) {
-                    case "200":
+                    case 200:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(RegisterPassword.this, "注册成功,请登录");
                         Intent intent = new Intent(RegisterPassword.this, Login.class);
@@ -134,7 +132,7 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
                         startActivity(intent);
                         finish();
                         break;
-                    case "400":
+                    case 400:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(RegisterPassword.this, dosc);
                         break;

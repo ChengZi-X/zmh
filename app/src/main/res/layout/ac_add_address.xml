@@ -37,7 +37,7 @@
                 android:background="@null"
                 android:hint="最少2个,最多15个字"
                 android:textColor="@color/absolute_black"
-                android:textColorHint="@color/edittext_color"
+                android:textColorHint="@color/hint_color"
                 android:textSize="@dimen/z2" />
 
             <View style="@style/horizontal_line" />
@@ -67,7 +67,7 @@
                 android:background="@null"
                 android:hint="11位"
                 android:textColor="@color/absolute_black"
-                android:textColorHint="@color/edittext_color"
+                android:textColorHint="@color/hint_color"
                 android:textSize="@dimen/z2" />
 
             <View style="@style/horizontal_line" />
@@ -96,7 +96,7 @@
                 android:layout_toRightOf="@+id/tv3"
                 android:gravity="center_vertical"
                 android:text="省份 城市 县城"
-                android:textColor="@color/edittext_color"
+                android:textColor="@color/hint_color"
                 android:textSize="@dimen/z2" />
 
             <ImageView style="@style/arrow_right_gray" />
@@ -128,7 +128,7 @@
                 android:background="@null"
                 android:hint="最少5个,最多60个字"
                 android:textColor="@color/absolute_black"
-                android:textColorHint="@color/edittext_color"
+                android:textColorHint="@color/hint_color"
                 android:textSize="@dimen/z2" />
 
             <View style="@style/horizontal_line" />
@@ -158,7 +158,7 @@
                 android:background="@null"
                 android:hint="6位邮政编码"
                 android:textColor="@color/absolute_black"
-                android:textColorHint="@color/edittext_color"
+                android:textColorHint="@color/hint_color"
                 android:textSize="@dimen/z2" />
         </RelativeLayout>
     </LinearLayout>

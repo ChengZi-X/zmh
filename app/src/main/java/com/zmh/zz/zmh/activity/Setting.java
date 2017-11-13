@@ -94,7 +94,7 @@ public class Setting extends BaseActivity implements View.OnClickListener {
         dialog.setPositiveButton("是", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
-                SharedPreferences spout = Setting.this.getSharedPreferences("userInfo", 0);
+                SharedPreferences spout = Setting.this.getSharedPreferences("UserInfo", 0);
                 SharedPreferences.Editor ed = spout.edit();
                 ed.remove("PASSWORD").commit();//清除账号缓存
                 Intent intent = new Intent(Setting.this, Login.class);

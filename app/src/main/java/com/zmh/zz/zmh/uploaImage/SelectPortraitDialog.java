@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.R;
 
-public class SelectDialog extends Dialog implements View.OnClickListener {
+public class SelectPortraitDialog extends Dialog implements View.OnClickListener {
 
     private Context context;
     private ClickListenerInterface clickListenerInterface;
@@ -22,7 +22,7 @@ public class SelectDialog extends Dialog implements View.OnClickListener {
         void photo();
     }
 
-    public SelectDialog(Context context) {
+    public SelectPortraitDialog(Context context) {
         super(context, R.style.dialog);
         this.context = context;
     }

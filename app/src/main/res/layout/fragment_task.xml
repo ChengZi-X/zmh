@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="100积分"
-                        android:textColor="@color/edittext_color"
+                        android:textColor="@color/hint_color"
                         android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -128,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="100积分"
-                        android:textColor="@color/edittext_color"
+                        android:textColor="@color/hint_color"
                         android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -192,7 +192,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="100积分"
-                        android:textColor="@color/edittext_color"
+                        android:textColor="@color/hint_color"
                         android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -256,7 +256,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="100积分"
-                        android:textColor="@color/edittext_color"
+                        android:textColor="@color/hint_color"
                         android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>

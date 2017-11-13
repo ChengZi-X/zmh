@@ -78,7 +78,7 @@
                     android:layout_marginLeft="7dp"
                     android:gravity="center_vertical"
                     android:text="河南省 郑州市 金水区 21世纪"
-                    android:textColor="@color/edittext_color"
+                    android:textColor="@color/hint_color"
                     android:textSize="15dp" />
             </RelativeLayout>
         </LinearLayout>

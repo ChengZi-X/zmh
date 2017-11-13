@@ -59,6 +59,7 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:hint="请输入11位手机号"
+                    android:numeric="integer"
                     android:paddingLeft="15dp"
                     android:textColor="@color/log_edittext_color"
                     android:textColorHint="@color/log_edittext_color2"

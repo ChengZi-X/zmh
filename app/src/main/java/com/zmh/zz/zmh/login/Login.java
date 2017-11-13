@@ -1,6 +1,5 @@
 package com.zmh.zz.zmh.login;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -8,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
-import android.text.Spanned;
 import android.text.TextPaint;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -26,7 +24,7 @@ import com.zmh.zz.zmh.MainActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.CheckoutUtil;
+import com.zmh.zz.zmh.utlis.RegularUtil;
 import com.zmh.zz.zmh.utlis.MD5Util;
 import com.zmh.zz.zmh.utlis.MyStringCallBack;
 import com.zmh.zz.zmh.utlis.OkHttpUtil;
@@ -44,7 +42,7 @@ import okhttp3.Call;
  * 登录
  */
 public class Login extends AppCompatActivity implements View.OnClickListener {
-    private long mExitTime = 1;// 连点两次退出程序
+    private long mExitTime = 0;// 连点两次退出程序
     private SharedPreferences sp;
     private OkHttpUtil okHttp = new OkHttpUtil();
     private String mUserNameValue, mPasswordValue;
@@ -66,14 +64,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         But_Login = (Button) findViewById(R.id.but_login);
         But_ForgetPassword = (Button) findViewById(R.id.but_forget_password);
         But_Register = (Button) findViewById(R.id.but_register);
-        Et_UserName.setFilters(new InputFilter[]{CheckoutUtil.filter});
-        Et_Password.setFilters(new InputFilter[]{CheckoutUtil.filter});
+        Et_UserName.setFilters(new InputFilter[]{RegularUtil.filter});
+        Et_Password.setFilters(new InputFilter[]{RegularUtil.filter});
         But_Login.setOnClickListener(this);
         But_ForgetPassword.setOnClickListener(this);
         But_Register.setOnClickListener(this);
         //第二次无需输入账号和密码直接登录
-        sp = getSharedPreferences("userInfo", 0);
-        String name = sp.getString("USER_NAME", "");
+        sp = getSharedPreferences("UserInfo", 0);
+        String name = sp.getString("USERNAME", "");
         String pass = sp.getString("PASSWORD", "");
         Et_UserName.setText(name);
         Et_Password.setText(pass);
@@ -89,15 +87,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         mPasswordValue = Et_Password.getText().toString();
         switch (v.getId()) {
             case R.id.but_login:
-                if (mUserNameValue.equals("")) {
-                    ToastUtils.showToast(Login.this, "手机号不能为空");
-                } else if (!CheckoutUtil.isMobileNO(mUserNameValue)) {
-                    ToastUtils.showToast(Login.this, "手机号格式不正确");
-                } else if (mPasswordValue.equals("")) {
-                    ToastUtils.showToast(Login.this, "密码不能为空");
-                } else {
-                    LOGIN();// 登录
-                }
+                startActivity(new Intent(Login.this, MainActivity.class));
+                finish();
+//                if (mUserNameValue.equals("")) {
+//                    ToastUtils.showToast(Login.this, "手机号不能为空");
+//                } else if (!RegularUtil.isMobileNO(mUserNameValue)) {
+//                    ToastUtils.showToast(Login.this, "手机号格式不正确");
+//                } else if (mPasswordValue.equals("")) {
+//                    ToastUtils.showToast(Login.this, "密码不能为空");
+//                } else {
+//                    LOGIN();// 登录
+//                }
                 break;
             case R.id.but_forget_password:
                 startActivity(new Intent(Login.this, ForgetPassword.class));//忘记密码
@@ -112,38 +112,43 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
      * 登录
      */
     private void LOGIN() {
+        mUserNameValue = Et_UserName.getText().toString();
+        mPasswordValue = Et_Password.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Login.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("登录中,请稍等...");
         shapeLoadingDialog.show();
-        mUserNameValue = Et_UserName.getText().toString();
-        mPasswordValue = Et_Password.getText().toString();
-        SharedPreferencesUtils.setParam(Login.this, "password", mPasswordValue);
         final SharedPreferences.Editor editor = sp.edit();
         String url = HttpURLs.LOGIN;
         Map<String, String> params = new HashMap<>();
         params.put("loginname", mUserNameValue);
-        params.put("password", MD5Util.MD5(mPasswordValue, 16));
+        params.put("password", MD5Util.MD5(mPasswordValue, 32));
         okHttp.postRequest(url, params, new MyStringCallBack() {
             @Override
             public void onResponse(String response, int id) {
                 Log.e("sssss>>>", response);
+//              JsonResult<JSONObject> jsonRet = new JsonResult<>();
+//              JSONObject Result = jsonRet.getData();
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
-                String code = login.getCode();
+                int code = login.getCode();
                 String dosc = login.getDesc();
                 switch (code) {
-                    case "200":
+                    case 200:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(Login.this, "登录成功");
+                        String UserId = login.getData().getId();//ID
+                        String UserEmail = login.getData().getEmail();//邮箱
+                        SharedPreferencesUtils.setParam(Login.this, "UserID", UserId);
+                        SharedPreferencesUtils.setParam(Login.this, "UserEmail", UserEmail);
                         SharedPreferencesUtils.setParam(Login.this, "UserName", mUserNameValue);
                         //保存用户名和密码
-                        editor.putString("USER_NAME", mUserNameValue);
+                        editor.putString("USERNAME", mUserNameValue);
                         editor.putString("PASSWORD", mPasswordValue);
                         editor.commit();
                         startActivity(new Intent(Login.this, MainActivity.class));
                         finish();
                         break;
-                    case "400":
+                    case 400:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(Login.this, dosc);
                         break;
@@ -157,27 +162,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
         });
     }
-
-
-//    private void LOGIN() {
-//        //POST请求
-//        String url = HttpIp.BASE_URL + "/api/getDieCircle.api.php";
-//        Map<String, String> params = new HashMap<>();
-//        params.put("page", 1 + "");
-////        params.put("account", mUserNameValue);
-////        params.put("password", MD5Util.MD5(mPasswordValue, 16));
-//        okHttp.postRequest(url, params, new MyStringCallBack() {
-//            @Override
-//            public void onResponse(String response, int id) {
-//                Log.e("sssss>>>", response);
-//
-//            }
-//
-//            @Override
-//            public void onError(Call call, Exception e, int id) {
-//            }
-//        });
-//    }
 
     /**
      * 登录

@@ -26,7 +26,7 @@ public class AccountSecurity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_account_security;//任意非空布局
+        return R.layout.ac_account_security;
     }
 
     private void FindViewById() {

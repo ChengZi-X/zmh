@@ -21,7 +21,7 @@ import com.zmh.zz.zmh.R;
 
 
 /**
- * Created by zzz40500 on 15/4/6.
+ * Created by
  */
 public class LoadingView extends FrameLayout {
     private static final int ANIMATION_DURATION = 500;
@@ -31,14 +31,17 @@ public class LoadingView extends FrameLayout {
     private TextView mLoadTextView;
     private int mTextAppearance;
     private String mLoadText;
+
     public LoadingView(Context context) {
         super(context);
     }
+
     public LoadingView(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
         init(context, attrs);
 
     }
+
     private void init(Context context, AttributeSet attrs) {
         TypedArray typedArray = context
                 .obtainStyledAttributes(attrs, R.styleable.LoadingView);
@@ -46,6 +49,7 @@ public class LoadingView extends FrameLayout {
         mTextAppearance = typedArray.getResourceId(R.styleable.LoadingView_loadingTextAppearance, -1);
         typedArray.recycle();
     }
+
     public LoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);

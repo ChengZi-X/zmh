@@ -34,7 +34,7 @@ public class Withdraw extends BaseActivity implements View.OnClickListener, OnBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setLtTitle("账户充值");
+        setLtTitle("账户提现");
         FindViewById();
         setData();
     }
@@ -46,38 +46,17 @@ public class Withdraw extends BaseActivity implements View.OnClickListener, OnBa
 
     private void FindViewById() {
         mRelativeLayout = (RelativeLayout) findViewById(R.id.rl_recharge_bankcard);
-        mTextView = (TextView) findViewById(R.id.tv_recharge_bankcard);
+        mTextView = (TextView) findViewById(R.id.tv_bankcard);
         mRelativeLayout.setOnClickListener(this);
     }
 
     private void setData() {
         mList = new ArrayList<>();
         BankcardBean bankcard1 = new BankcardBean();
-        BankcardBean bankcard2 = new BankcardBean();
-        BankcardBean bankcard3 = new BankcardBean();
-        BankcardBean bankcard4 = new BankcardBean();
-        BankcardBean bankcard5 = new BankcardBean();
-        bankcard1.setBankName("中国农业银行");
+        bankcard1.setBankName("中国建设银行");
         bankcard1.setCardId("8281");
-        bankcard2.setBankName("中国工商银行");
-        bankcard2.setCardId("8282");
-        bankcard3.setBankName("中国银行");
-        bankcard3.setCardId("8283");
-        bankcard4.setBankName("中国建设银行");
-        bankcard4.setCardId("8284");
-        bankcard5.setBankName("中国交通银行");
-        bankcard5.setCardId("8285");
         mList.add(bankcard1);
-        mList.add(bankcard2);
-        mList.add(bankcard3);
-        mList.add(bankcard4);
-        mList.add(bankcard5);
         mTextView.setText(mList.get(0).getBankName() + "(" + mList.get(0).getCardId() + ")");
-        /**
-         *  实体类中加入了一个boolean属性，当实体类中这个属性为true时表示在Activity中选中
-         *  当点开PopupWindow时该属性也可以作为银行卡被勾选的标志
-         *  这里默认选中第一个
-         */
         mList.get(0).setChecked(true);
     }
 
@@ -87,7 +66,7 @@ public class Withdraw extends BaseActivity implements View.OnClickListener, OnBa
             case R.id.rl_recharge_bankcard:
                 showPopWindow();
                 break;
-            case R.id.iv_back:
+            case R.id.pop_back:
                 popupWindow.dismiss();
                 break;
         }
@@ -105,10 +84,10 @@ public class Withdraw extends BaseActivity implements View.OnClickListener, OnBa
         //  设置PopupWindow在ll_main下显示
         popupWindow.showAtLocation(findViewById(R.id.ll_main), Gravity.BOTTOM | Gravity.LEFT, 0, 0);
         //  PopupWindow返回键
-        mIvBack = (RelativeLayout) popView.findViewById(R.id.iv_back);
+        mIvBack = (RelativeLayout) popView.findViewById(R.id.pop_back);
         mIvBack.setOnClickListener(this);
         //  PupupWindow标题
-        mTvTitle = (TextView) popView.findViewById(R.id.tv_title);
+        mTvTitle = (TextView) popView.findViewById(R.id.pop_title);
         mTvTitle.setText("选择提现银行卡");
         //  银行卡列表的ListView
         mListView = (ListView) popView.findViewById(R.id.lv_bankcard);

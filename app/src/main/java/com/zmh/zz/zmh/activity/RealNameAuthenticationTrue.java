@@ -17,7 +17,7 @@ import com.zmh.zz.zmh.utlis.CircleImageView2Util;
  */
 
 public class RealNameAuthenticationTrue extends BaseActivity implements View.OnClickListener {
-    private RelativeLayout mCertificate_photo, mEssential_information;
+    private RelativeLayout mEssential_information;
     private CircleImageView2Util mIm_head_portrait;
 
     @Override
@@ -38,18 +38,13 @@ public class RealNameAuthenticationTrue extends BaseActivity implements View.OnC
 
     private void FindViewById() {
         mIm_head_portrait = (CircleImageView2Util) findViewById(R.id.im_head_portrait);
-        mCertificate_photo = (RelativeLayout) findViewById(R.id.certificate_photo);
         mEssential_information = (RelativeLayout) findViewById(R.id.essential_information);
-        mCertificate_photo.setOnClickListener(this);
         mEssential_information.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.certificate_photo:
-                startActivity(new Intent(RealNameAuthenticationTrue.this, UploadingOfDocuments.class));
-                break;
             case R.id.essential_information:
                 startActivity(new Intent(RealNameAuthenticationTrue.this, EssentialInformation.class));
                 break;

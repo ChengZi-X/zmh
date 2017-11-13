@@ -1,15 +1,10 @@
 package com.zmh.zz.zmh.utlis;
 
 
-import com.lzy.imagepicker.bean.ImageItem;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.builder.GetBuilder;
 import com.zhy.http.okhttp.builder.PostFormBuilder;
-import com.zmh.zz.zmh.uploaImage.BitmapUtils;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -67,15 +62,5 @@ public class OkHttpUtil {
     //封装请求POST
     public void postRequest(String url, Map<String, String> params, MyStringCallBack callback) {
         mPost.url(url).params(params).build().execute(callback);
-    }
-
-    //上传文件
-    public void postFileRequest(String url, Map<String, String> params, ArrayList<ImageItem> pathList, MyStringCallBack callback) {
-        Map<String, File> files = new HashMap<>();
-        for (int i = 0; i < pathList.size(); i++) {
-            String newPath = BitmapUtils.compressImageUpload(pathList.get(i).path);
-            files.put(pathList.get(i).name + i, new File(newPath));
-        }
-        mPost.url(url).params(params).files("files", files).build().execute(callback);
     }
 }

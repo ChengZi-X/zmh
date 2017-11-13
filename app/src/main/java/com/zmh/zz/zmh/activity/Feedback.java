@@ -6,31 +6,37 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
 import com.lzy.imagepicker.view.CropImageView;
 import com.zmh.zz.zmh.BaseActivity;
+import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.httpurls.HttpURLs;
+import com.zmh.zz.zmh.modeljson.LoginJson;
 import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
-import com.zmh.zz.zmh.utlis.OkHttpUtil;
 import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
+import com.zmh.zz.zmh.uploaImage.SelectPortraitDialog;
+import com.zmh.zz.zmh.utlis.Base64Util;
 import com.zmh.zz.zmh.utlis.MyStringCallBack;
-import com.zmh.zz.zmh.uploaImage.SelectDialog;
+import com.zmh.zz.zmh.utlis.OkHttpUtil;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
+
 
 /**
  * Created by Administrator
@@ -45,13 +51,11 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     private ImagePickerAdapter adapter;
     private ArrayList<ImageItem> selImageList; //当前选择的所有图片
     private int maxImgCount = 3;               //允许选择图片最大数
-
-    private OkHttpUtil okHttpUtil;
-
-
-    private EditText mEt_content;
+    private OkHttpUtil okHttp = new OkHttpUtil();
+    private EditText Et_Content;
+    private TextView Tv_Num, Tv_Phone;
     private int num = 200;//限制的最大字数
-    private TextView mTv_num;
+    private String mContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,17 +77,68 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     //右键点击
     @Override
     protected void onClickRight() {
-        ToastUtils.showToast(Feedback.this, "提交");
+        mContent = Et_Content.getText().toString();
+        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Feedback.this);
+        shapeLoadingDialog.setCancelable(false);
+        shapeLoadingDialog.setLoadingText("上传中,请稍等...");
+        shapeLoadingDialog.show();
+        String Base64 = "";
+        String Name = "";
+        for (int i = 0; i < selImageList.size(); i++) {
+            String bimpName = selImageList.get(i).name;
+            String bimpBase64 = Base64Util.imageToBase64(selImageList.get(i).path);
+            if (selImageList.size() - 1 == i) {
+                Base64 += bimpBase64;
+                Name += bimpName;
+            } else {
+                Base64 += bimpBase64 + "@";
+                Name += bimpName + "@";
+            }
+        }
+        Base64 = Base64 + "#" + Name;
+        Log.e("s>>>", Base64);
+        String url = HttpURLs.UPDATEBASE64;
+        Map<String, String> params = new HashMap<>();
+        params.put("imgStr", Base64);
+        //params.put("Content", mContent);
+        okHttp.postRequest(url, params, new MyStringCallBack() {
+            @Override
+            public void onResponse(String response, int id) {
+                Log.e("sssss>>>", response);
+                LoginJson login = JSONObject.parseObject(response, LoginJson.class);
+                int code = login.getCode();
+                String dosc = login.getDesc();
+                switch (code) {
+                    case 200:
+                        shapeLoadingDialog.dismiss();
+                        ToastUtils.showToast(Feedback.this, "上传成功");
+                        break;
+                    case 400:
+                        shapeLoadingDialog.dismiss();
+                        ToastUtils.showToast(Feedback.this, dosc);
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                shapeLoadingDialog.dismiss();
+                Toast.makeText(Feedback.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void FindViewById() {
-        mEt_content = (EditText) findViewById(R.id.et_content);
-        mTv_num = (TextView) findViewById(R.id.tv_num);
+        Et_Content = (EditText) findViewById(R.id.et_content);
+        Tv_Num = (TextView) findViewById(R.id.tv_num);
+        Tv_Phone = (TextView) findViewById(R.id.tv_phone);
     }
 
     //监听EditText输入的文字数
     private void Init() {
-        mEt_content.addTextChangedListener(new TextWatcher() {
+        Et_Content.addTextChangedListener(new TextWatcher() {
             private CharSequence temp;
             private int selectionStart;
             private int selectionEnd;
@@ -101,14 +156,14 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
             @Override
             public void afterTextChanged(Editable s) {
                 int number = s.length();
-                mTv_num.setText(number + "");
-                selectionStart = mEt_content.getSelectionStart();
-                selectionEnd = mEt_content.getSelectionEnd();
+                Tv_Num.setText(number + "");
+                selectionStart = Et_Content.getSelectionStart();
+                selectionEnd = Et_Content.getSelectionEnd();
                 if (temp.length() > num) {
                     s.delete(selectionStart - 1, selectionEnd);
                     int tempSelection = selectionStart;
-                    mEt_content.setText(s);
-                    mEt_content.setSelection(tempSelection);//设置光标在最后
+                    Et_Content.setText(s);
+                    Et_Content.setSelection(tempSelection);//设置光标在最后
                 }
             }
         });
@@ -118,7 +173,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
         ImagePicker imagePicker = ImagePicker.getInstance();
         imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
         imagePicker.setShowCamera(true);                      //显示拍照按钮
-        imagePicker.setCrop(false);                            //允许裁剪（单选才有效）
+        imagePicker.setCrop(false);                           //允许裁剪（单选才有效）
         imagePicker.setSaveRectangle(true);                   //是否按矩形区域保存
         imagePicker.setSelectLimit(maxImgCount);              //选中数量限制
         imagePicker.setMultiMode(true);                       //多选
@@ -130,7 +185,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     }
 
     private void initWidget() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_add_photo);
         selImageList = new ArrayList<>();
         adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
         adapter.setOnItemClickListener(this);
@@ -144,9 +199,9 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     public void onItemClick(View view, int position) {
         switch (position) {
             case IMAGE_ITEM_ADD:
-                final SelectDialog selectDialog = new SelectDialog(this);
+                final SelectPortraitDialog selectDialog = new SelectPortraitDialog(this);
                 selectDialog.show();
-                selectDialog.setClicklistener(new SelectDialog.ClickListenerInterface() {
+                selectDialog.setClicklistener(new SelectPortraitDialog.ClickListenerInterface() {
                     @Override
                     public void photograph() {
                         //相机
@@ -203,22 +258,4 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
         }
     }
 
-    private String url = "http...";
-
-
-    private void uploadImage(ArrayList<ImageItem> pathList) {
-        okHttpUtil.postFileRequest(url, null, pathList, new MyStringCallBack() {
-
-            @Override
-            public void onResponse(String response, int id) {
-                super.onResponse(response, id);
-                //返回图片的地址
-            }
-
-            @Override
-            public void onError(Call call, Exception e, int id) {
-                super.onError(call, e, id);
-            }
-        });
-    }
 }

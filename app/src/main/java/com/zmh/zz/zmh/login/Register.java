@@ -1,14 +1,12 @@
 package com.zmh.zz.zmh.login;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.TextPaint;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -21,11 +19,10 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
-import com.zmh.zz.zmh.MainActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.CheckoutUtil;
+import com.zmh.zz.zmh.utlis.RegularUtil;
 import com.zmh.zz.zmh.utlis.MyStringCallBack;
 import com.zmh.zz.zmh.utlis.OkHttpUtil;
 import com.zmh.zz.zmh.utlis.ToastUtils;
@@ -66,8 +63,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         But_Login = (Button) findViewById(R.id.but_login);
         TextPaint tp1 = But_Login.getPaint();
         tp1.setFakeBoldText(true);
-        Et_Phone.setFilters(new InputFilter[]{CheckoutUtil.filter});
-        Et_Code.setFilters(new InputFilter[]{CheckoutUtil.filter});
+        Et_Phone.setFilters(new InputFilter[]{RegularUtil.filter});
+        Et_Code.setFilters(new InputFilter[]{RegularUtil.filter});
         Rl_TitleBack.setOnClickListener(this);
         But_GetCode.setOnClickListener(this);
         But_Next.setOnClickListener(this);
@@ -82,7 +79,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             case R.id.but_get_code:
                 if (mPhoneValue.equals("")) {
                     ToastUtils.showToast(Register.this, "手机号不能为空");
-                } else if (!CheckoutUtil.isMobileNO(mPhoneValue)) {
+                } else if (!RegularUtil.isMobileNO(mPhoneValue)) {
                     ToastUtils.showToast(Register.this, "手机号格式不正确");
                 } else {
                     GetCode();//获取验证码
@@ -91,7 +88,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             case R.id.but_next:
                 if (mPhoneValue.equals("")) {
                     ToastUtils.showToast(Register.this, "手机号不能为空");
-                } else if (!CheckoutUtil.isMobileNO(mPhoneValue)) {
+                } else if (!RegularUtil.isMobileNO(mPhoneValue)) {
                     ToastUtils.showToast(Register.this, "手机号格式不正确");
                 } else if (mCodeValue.equals("")) {
                     ToastUtils.showToast(Register.this, "验证码不能为空");
@@ -109,12 +106,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void GetCode() {
+        mPhoneValue = Et_Phone.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Register.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("获取中,请稍等...");
         shapeLoadingDialog.show();
         String url = HttpURLs.GETCODE;
-        mPhoneValue = Et_Phone.getText().toString();
         Map<String, String> params = new HashMap<>();
         params.put("mobile", mPhoneValue);
         okHttp.postRequest(url, params, new MyStringCallBack() {
@@ -122,17 +119,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             public void onResponse(String response, int id) {
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
-                String code = login.getCode();
+                int code = login.getCode();
                 String dosc = login.getDesc();
                 switch (code) {
-                    case "200":
+                    case 200:
                         shapeLoadingDialog.dismiss();
                         break;
-                    case "400":
-                        shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(Register.this, dosc);
-                        break;
-                    case "500":
+                    case 400:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(Register.this, dosc);
                         break;
@@ -148,13 +141,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void Next() {
+        mPhoneValue = Et_Phone.getText().toString();
+        mCodeValue = Et_Code.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Register.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("校验中,请稍等...");
         shapeLoadingDialog.show();
         String url = HttpURLs.VEFTCODE;
-        mPhoneValue = Et_Phone.getText().toString();
-        mCodeValue = Et_Code.getText().toString();
         Map<String, String> params = new HashMap<>();
         params.put("mobile", mPhoneValue);
         params.put("code", mCodeValue);
@@ -163,17 +156,17 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             public void onResponse(String response, int id) {
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
-                String code = login.getCode();
+                int code = login.getCode();
                 String dosc = login.getDesc();
                 switch (code) {
-                    case "200":
+                    case 200:
                         shapeLoadingDialog.dismiss();
                         Intent intent = new Intent(new Intent(Register.this, RegisterPassword.class));
                         intent.putExtra("mPhoneValue", mPhoneValue);
                         startActivity(intent);
                         finish();
                         break;
-                    case "400":
+                    case 400:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(Register.this, dosc);
                         break;
