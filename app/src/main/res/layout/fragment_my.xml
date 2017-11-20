@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/but_setting"
+            android:id="@+id/rl_but_setting"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="right">
@@ -65,7 +65,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/personal_information"
+                android:id="@+id/ll_personal_information"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
@@ -106,7 +106,7 @@
                 android:background="@color/white" />
 
             <LinearLayout
-                android:id="@+id/me_integral"
+                android:id="@+id/ll_me_integral"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
@@ -160,7 +160,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/real_name_authentication"
+                    android:id="@+id/rl_real_name_authentication"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="?android:attr/selectableItemBackground">
@@ -201,7 +201,7 @@
 
 
                 <RelativeLayout
-                    android:id="@+id/bank_card"
+                    android:id="@+id/rl_bank_card"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="?android:attr/selectableItemBackground">
@@ -247,7 +247,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/notice"
+                    android:id="@+id/rl_notice"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="?android:attr/selectableItemBackground">
@@ -276,7 +276,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/feedback"
+                    android:id="@+id/rl_feedback"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="?android:attr/selectableItemBackground">
@@ -306,7 +306,7 @@
 
 
                 <RelativeLayout
-                    android:id="@+id/service"
+                    android:id="@+id/rl_service"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="?android:attr/selectableItemBackground">
@@ -341,7 +341,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:id="@+id/my_client"
+                    android:id="@+id/rl_my_client"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="?android:attr/selectableItemBackground">
@@ -370,7 +370,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/client_mesh"
+                    android:id="@+id/rl_client_mesh"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="?android:attr/selectableItemBackground">

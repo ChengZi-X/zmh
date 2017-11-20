@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -40,7 +40,6 @@
         <activity android:name=".activity.ActivityRule" />
         <activity android:name=".activity.AccountSecurity" />
         <activity android:name=".activity.InRegardTo" />
-        <activity android:name=".activity.MyBankCard" />
         <activity android:name=".activity.MyClient" />
         <activity android:name=".activity.ClientData" />
         <activity android:name=".activity.ClientFund" />

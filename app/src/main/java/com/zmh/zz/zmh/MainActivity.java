@@ -1,7 +1,9 @@
 package com.zmh.zz.zmh;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
@@ -15,7 +17,6 @@ import com.zmh.zz.zmh.mainfragment.FragmentmMy;
 import com.zmh.zz.zmh.utlis.ToastUtils;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
-    private long m_exitTime = 1;// 连点两次退出程序
     private UpdateManager updateManager;
     private BottomNavigationBar mBottomNavigationBar;
     private FragmentHomepage mFragmentHomepage;
@@ -85,26 +86,38 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     }
 
     @Override
-    public void onTabUnselected(int position) {}
+    public void onTabUnselected(int position) {
+    }
+
     @Override
-    public void onTabReselected(int position) {}
+    public void onTabReselected(int position) {
+    }
+
     /**
-     * 再按一次退出程序
+     * 退出程序
      */
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        int keyCode = event.getKeyCode();
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if ((System.currentTimeMillis() - m_exitTime) > 2000) {
-                ToastUtils.showToast(MainActivity.this, "再按一次退出程序");
-                m_exitTime = System.currentTimeMillis();
-            } else {
-                finish();
-                System.exit(0);
-            }
-            return true;
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("提示！")
+                        .setMessage("确认退出程序？")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                                System.exit(0);
+                            }
+                        })
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+                break;
         }
-        return super.dispatchKeyEvent(event);
+        return false;
     }
 }

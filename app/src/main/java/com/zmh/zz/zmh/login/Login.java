@@ -1,10 +1,12 @@
 package com.zmh.zz.zmh.login;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.TextPaint;
@@ -42,7 +44,6 @@ import okhttp3.Call;
  * 登录
  */
 public class Login extends AppCompatActivity implements View.OnClickListener {
-    private long mExitTime = 0;// 连点两次退出程序
     private SharedPreferences sp;
     private OkHttpUtil okHttp = new OkHttpUtil();
     private String mUserNameValue, mPasswordValue;
@@ -262,23 +263,31 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //    }
 
     /**
-     * 再按一次退出程序
+     * 退出程序
      */
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        int keyCode = event.getKeyCode();
-        if (keyCode == KeyEvent.KEYCODE_BACK
-                && event.getAction() == KeyEvent.ACTION_DOWN) {
-            if ((System.currentTimeMillis() - mExitTime) > 2000) {
-                ToastUtils.showToast(Login.this, "再按一次退出程序");
-                mExitTime = System.currentTimeMillis();
-            } else {
-                finish();
-                System.exit(0);
-            }
-            return true;
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("提示！")
+                        .setMessage("确认退出程序？")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                                System.exit(0);
+                            }
+                        })
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+                break;
         }
-        return super.dispatchKeyEvent(event);
+        return false;
     }
 
     /**

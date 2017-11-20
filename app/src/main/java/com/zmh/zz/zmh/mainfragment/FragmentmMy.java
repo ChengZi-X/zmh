@@ -9,9 +9,9 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseFragment;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.activity.AddBankCard;
 import com.zmh.zz.zmh.activity.ClientMesh;
 import com.zmh.zz.zmh.activity.Feedback;
-import com.zmh.zz.zmh.activity.MyBankCard;
 import com.zmh.zz.zmh.activity.MyClient;
 import com.zmh.zz.zmh.activity.Notice;
 import com.zmh.zz.zmh.activity.PersonalInformation;
@@ -25,13 +25,13 @@ import com.zmh.zz.zmh.utlis.ServiceDialogUtil;
  * 我的
  */
 public class FragmentmMy extends BaseFragment implements View.OnClickListener {
-    private RelativeLayout mBut_setting;
+    private RelativeLayout Rl_But_setting;
     private View view;
-    private RelativeLayout mReal_Name_Authentication, mBank_card, mService, mNotice, mMy_client, mClient_mesh, mFeedback;
-    private LinearLayout mMe_integral;
+    private RelativeLayout Rl_Real_Name_Authentication, Rl_Bank_card, Rl_Service, Rl_Notice, Rl_My_client, Rl_Client_mesh, Rl_Feedback;
+    private LinearLayout Ll_Me_integral;
     private String tel = "18337152301";
-    private CircleImageView2Util mIm_head_portrait;//头像
-    private LinearLayout mPersonal_information;
+    private CircleImageView2Util Im_head_portrait;//头像
+    private LinearLayout Ll_Personal_information;
 
     @Override
     public View initView() {
@@ -44,64 +44,64 @@ public class FragmentmMy extends BaseFragment implements View.OnClickListener {
 
     private void FindViewById() {
         // 注册控件
-        mBut_setting = (RelativeLayout) view.findViewById(R.id.but_setting);
-        mIm_head_portrait = (CircleImageView2Util) view.findViewById(R.id.im_head_portrait);
-        mPersonal_information = (LinearLayout) view.findViewById(R.id.personal_information);
-        mMe_integral = (LinearLayout) view.findViewById(R.id.me_integral);
-        mReal_Name_Authentication = (RelativeLayout) view.findViewById(R.id.real_name_authentication);
-        mBank_card = (RelativeLayout) view.findViewById(R.id.bank_card);
-        mNotice = (RelativeLayout) view.findViewById(R.id.notice);
-        mFeedback = (RelativeLayout) view.findViewById(R.id.feedback);
-        mService = (RelativeLayout) view.findViewById(R.id.service);
-        mMy_client = (RelativeLayout) view.findViewById(R.id.my_client);
-        mClient_mesh = (RelativeLayout) view.findViewById(R.id.client_mesh);
-        mBut_setting.setOnClickListener(this);
-        mIm_head_portrait.setOnClickListener(this);
-        mPersonal_information.setOnClickListener(this);
-        mMe_integral.setOnClickListener(this);
-        mReal_Name_Authentication.setOnClickListener(this);
-        mBank_card.setOnClickListener(this);
-        mService.setOnClickListener(this);
-        mNotice.setOnClickListener(this);
-        mFeedback.setOnClickListener(this);
-        mMy_client.setOnClickListener(this);
-        mClient_mesh.setOnClickListener(this);
+        Rl_But_setting = (RelativeLayout) view.findViewById(R.id.rl_but_setting);
+        Im_head_portrait = (CircleImageView2Util) view.findViewById(R.id.im_head_portrait);
+        Ll_Personal_information = (LinearLayout) view.findViewById(R.id.ll_personal_information);
+        Ll_Me_integral = (LinearLayout) view.findViewById(R.id.ll_me_integral);
+        Rl_Real_Name_Authentication = (RelativeLayout) view.findViewById(R.id.rl_real_name_authentication);
+        Rl_Bank_card = (RelativeLayout) view.findViewById(R.id.rl_bank_card);
+        Rl_Notice = (RelativeLayout) view.findViewById(R.id.rl_notice);
+        Rl_Feedback = (RelativeLayout) view.findViewById(R.id.rl_feedback);
+        Rl_Service = (RelativeLayout) view.findViewById(R.id.rl_service);
+        Rl_My_client = (RelativeLayout) view.findViewById(R.id.rl_my_client);
+        Rl_Client_mesh = (RelativeLayout) view.findViewById(R.id.rl_client_mesh);
+        Rl_But_setting.setOnClickListener(this);
+        Im_head_portrait.setOnClickListener(this);
+        Ll_Personal_information.setOnClickListener(this);
+        Ll_Me_integral.setOnClickListener(this);
+        Rl_Real_Name_Authentication.setOnClickListener(this);
+        Rl_Bank_card.setOnClickListener(this);
+        Rl_Service.setOnClickListener(this);
+        Rl_Notice.setOnClickListener(this);
+        Rl_Feedback.setOnClickListener(this);
+        Rl_My_client.setOnClickListener(this);
+        Rl_Client_mesh.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.but_setting:
+            case R.id.rl_but_setting:
                 startActivity(new Intent(getActivity(), Setting.class));
                 break;
-            case R.id.personal_information:
+            case R.id.ll_personal_information:
                 startActivity(new Intent(getActivity(), PersonalInformation.class));
                 break;
-            case R.id.me_integral:
+            case R.id.ll_me_integral:
                 startActivity(new Intent(getActivity(), TabIntegral.class));
                 break;
-            case R.id.real_name_authentication:
+            case R.id.rl_real_name_authentication:
                 startActivity(new Intent(getActivity(), RealNameAuthenticationTrue.class));
                 break;
-            case R.id.bank_card:
-                startActivity(new Intent(getActivity(), MyBankCard.class));
+            case R.id.rl_bank_card:
+                startActivity(new Intent(getActivity(), AddBankCard.class));
                 break;
-            case R.id.notice:
+            case R.id.rl_notice:
                 startActivity(new Intent(getActivity(), Notice.class));
                 break;
-            case R.id.feedback:
+            case R.id.rl_feedback:
                 startActivity(new Intent(getActivity(), Feedback.class));
                 break;
-            case R.id.my_client:
+            case R.id.rl_my_client:
                 startActivity(new Intent(getActivity(), MyClient.class));
                 break;
-            case R.id.client_mesh:
+            case R.id.rl_client_mesh:
                 startActivity(new Intent(getActivity(), ClientMesh.class));
                 break;
 //            case R.id.im_head_portrait:
 //                startActivity(new Intent(getActivity(), Ac_Im_Head_Portrait.class));
 //                break;
-            case R.id.service:
+            case R.id.rl_service:
                 //弹出提示框
                 new ServiceDialogUtil(getActivity(), tel, new ServiceDialogUtil.OnCloseListener() {
                     @Override

@@ -6,10 +6,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by Administrator
- */
-
 public class Base64Util {
     public static String imageToBase64(String path) {
         if (TextUtils.isEmpty(path)) {

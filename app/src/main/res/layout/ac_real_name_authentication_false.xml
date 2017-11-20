@@ -186,73 +186,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:background="@color/white"
-        android:orientation="vertical">
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="所在地区"
-                android:textColor="@color/light_black"
-                android:textSize="@dimen/z2" />
-
-            <TextView
-                android:id="@+id/tv_choose_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="right"
-                android:hint="请选择"
-                android:paddingRight="32dp"
-                android:textColor="@color/hint_color"
-                android:textColorHint="@color/hint_color"
-                android:textSize="@dimen/z2" />
-
-            <ImageView style="@style/arrow_right_gray" />
-        </RelativeLayout>
-
-        <View style="@style/horizontal_line" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:text="详情地址"
-                android:textColor="@color/light_black"
-                android:textSize="@dimen/z2" />
-
-            <EditText
-                android:id="@+id/et_detailed_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@null"
-                android:gravity="right"
-                android:hint="请输入您的详细地址"
-                android:paddingRight="15dp"
-                android:textColor="@color/absolute_black"
-                android:textColorHint="@color/hint_color"
-                android:textSize="@dimen/z2" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_marginTop="13dp"
         android:background="@color/white"
@@ -261,8 +194,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:paddingLeft="15dp"
-            android:text="上传身份证正反面(不超过两张)"
+            android:text="上传照片 (身份证正反面以及手持身份证正面)"
             android:textColor="@color/light_black"
             android:textSize="@dimen/z2" />
 

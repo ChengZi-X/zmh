@@ -16,7 +16,6 @@ import com.zmh.zz.zmh.utlis.ToastUtils;
  */
 
 public class TopUp extends BaseActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
-
     private RadioGroup Rg_Pay;
     private RadioButton Rb_Alipay, Rb_Wechat;
     private Button But_Next;
@@ -59,11 +58,19 @@ public class TopUp extends BaseActivity implements View.OnClickListener, RadioGr
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.but_next:
-                if (mPay.equals("1")) {
-                    ToastUtils.showToast(TopUp.this, "支付宝");
-                } else if (mPay.equals("2")) {
-                    ToastUtils.showToast(TopUp.this, "微信");
+                switch (mPay) {
+                    case "1":
+                        ToastUtils.showToast(TopUp.this, "支付宝");
+                        break;
+                    case "2":
+                        ToastUtils.showToast(TopUp.this, "微信");
+                        break;
                 }
+//                if (mPay.equals("1")) {
+//                    ToastUtils.showToast(TopUp.this, "支付宝");
+//                } else if (mPay.equals("2")) {
+//                    ToastUtils.showToast(TopUp.this, "微信");
+//                }
                 break;
         }
     }

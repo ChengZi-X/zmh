@@ -61,14 +61,14 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
     public static final int REQUEST_CODE_PREVIEW = 101;
     private ImagePickerAdapter adapter;
     private ArrayList<ImageItem> selImageList; //当前选择的所有图片
-    private int maxImgCount = 2;               //允许选择图片最大数
+    private int maxImgCount = 3;               //允许选择图片最大数
 
     private RelativeLayout Rl_CertificateEffective;
-    private TextView Tv_MenAndWmen, Tv_ChooseAddress;
-    private EditText Et_Name, Et_IdNumber, Et_DetailedAddress, Et_Date;
+    private TextView Tv_MenAndWmen;
+    private EditText Et_Name, Et_IdNumber, Et_Date;
     private int which = 0;
     private OkHttpUtil okHttp = new OkHttpUtil();
-    private String mNameValue, mMenAndWmenValue, mIdNumberValue, mDateValue, mChooseAddressValue, mDetailedAddressValue, UserName, UserID;
+    private String mNameValue, mMenAndWmenValue, mIdNumberValue, mDateValue, UserName, UserID;
     DateFormat fmtDate = new java.text.SimpleDateFormat("yyyy-MM-dd");
     //获取一个日历对象
     Calendar dateAndTime = Calendar.getInstance(Locale.CHINA);
@@ -86,7 +86,6 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
         }
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,7 +100,7 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_real_name_authentication_false;//任意非空布局
+        return R.layout.ac_real_name_authentication_false;
     }
 
     private void FindViewById() {
@@ -109,15 +108,11 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
         Et_Name = (EditText) findViewById(R.id.et_name);
         Et_IdNumber = (EditText) findViewById(R.id.et_id_number);
         Et_Date = (EditText) findViewById(R.id.et_date);
-        Et_DetailedAddress = (EditText) findViewById(R.id.et_detailed_address);
         Tv_MenAndWmen = (TextView) findViewById(R.id.tv_men_and_women);
-        Tv_ChooseAddress = (TextView) findViewById(R.id.tv_choose_address);
         Et_Name.setFilters(new InputFilter[]{RegularUtil.filter});
         Et_IdNumber.setFilters(new InputFilter[]{RegularUtil.filter});
-        Et_DetailedAddress.setFilters(new InputFilter[]{RegularUtil.filter});
         Tv_MenAndWmen.setOnClickListener(this);
         Rl_CertificateEffective.setOnClickListener(this);
-        Tv_ChooseAddress.setOnClickListener(this);
     }
 
     //右键点击
@@ -127,8 +122,6 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
         mMenAndWmenValue = Tv_MenAndWmen.getText().toString();
         mIdNumberValue = Et_IdNumber.getText().toString();
         mDateValue = Et_Date.getText().toString();
-        mChooseAddressValue = Tv_ChooseAddress.getText().toString();
-        mDetailedAddressValue = Et_DetailedAddress.getText().toString();
         if (mNameValue.equals("")) {
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "姓名不能为空");
         } else if (mMenAndWmenValue.equals("")) {
@@ -139,10 +132,6 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "身份证号格式不正确");
         } else if (mDateValue.equals("")) {
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "证件有效期不能为空");
-        } else if (mChooseAddressValue.equals("")) {
-            ToastUtils.showToast(RealNameAuthenticationFalse.this, "所在地区不能为空");
-        } else if (mDetailedAddressValue.equals("")) {
-            ToastUtils.showToast(RealNameAuthenticationFalse.this, "详情地址不能为空");
         } else {
             Submit();//提交
         }
@@ -153,8 +142,6 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
         mMenAndWmenValue = Tv_MenAndWmen.getText().toString();
         mIdNumberValue = Et_IdNumber.getText().toString();
         mDateValue = Et_Date.getText().toString();
-        mChooseAddressValue = Tv_ChooseAddress.getText().toString();
-        mDetailedAddressValue = Et_DetailedAddress.getText().toString();
         UserName = (String) SharedPreferencesUtils.getParam(RealNameAuthenticationFalse.this, "UserName", "");
         UserID = (String) SharedPreferencesUtils.getParam(RealNameAuthenticationFalse.this, "UserID", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(RealNameAuthenticationFalse.this);
@@ -171,11 +158,6 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
             which = 2;
         }
         params.put("gender", which + "");
-        params.put("address", mChooseAddressValue);
-        String[] aa = mChooseAddressValue.split(" ");
-        params.put("province", aa[0]);
-        params.put("city", aa[1]);
-        params.put("area", aa[2]);
         params.put("userId", UserID);
         params.put("cardValidTime", mDateValue);
         params.put("cardNo", mIdNumberValue);
@@ -213,6 +195,41 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
                 Toast.makeText(RealNameAuthenticationFalse.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_men_and_women:
+                AlertDialog.Builder dialog = new AlertDialog.Builder(RealNameAuthenticationFalse.this);
+                dialog.setTitle("性别");
+                if (Tv_MenAndWmen.getText().toString().equals("男")) {
+                    which = 0;
+                } else if (Tv_MenAndWmen.getText().toString().equals("女")) {
+                    which = 1;
+                }
+                dialog.setSingleChoiceItems(new String[]{"男", "女"}, which, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            Tv_MenAndWmen.setText("男");
+                        } else if (which == 1) {
+                            Tv_MenAndWmen.setText("女");
+                        }
+                        if (!Tv_MenAndWmen.getText().toString().equals("请选择")) {
+                            Tv_MenAndWmen.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
+                        }
+                        dialog.dismiss();
+                    }
+                }).show();
+                break;
+            case R.id.rl_certificate_effective:
+                DatePickerDialog dateDlg = new DatePickerDialog(RealNameAuthenticationFalse.this, date,
+                        dateAndTime.get(Calendar.YEAR),
+                        dateAndTime.get(Calendar.MONTH),
+                        dateAndTime.get(Calendar.DAY_OF_MONTH));
+                dateDlg.show();
+                break;
+        }
     }
 
     private void initImagePicker() {
@@ -300,58 +317,6 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
                     adapter.setImages(selImageList);
                 }
             }
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv_men_and_women:
-                AlertDialog.Builder dialog = new AlertDialog.Builder(RealNameAuthenticationFalse.this);
-                dialog.setTitle("性别");
-                if (Tv_MenAndWmen.getText().toString().equals("男")) {
-                    which = 0;
-                } else if (Tv_MenAndWmen.getText().toString().equals("女")) {
-                    which = 1;
-                }
-                dialog.setSingleChoiceItems(new String[]{"男", "女"}, which, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (which == 0) {
-                            Tv_MenAndWmen.setText("男");
-                        } else if (which == 1) {
-                            Tv_MenAndWmen.setText("女");
-                        }
-                        if (!Tv_MenAndWmen.getText().toString().equals("请选择")) {
-                            Tv_MenAndWmen.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
-                        }
-                        dialog.dismiss();
-                    }
-                }).show();
-                break;
-            case R.id.rl_certificate_effective:
-                DatePickerDialog dateDlg = new DatePickerDialog(RealNameAuthenticationFalse.this, date,
-                        dateAndTime.get(Calendar.YEAR),
-                        dateAndTime.get(Calendar.MONTH),
-                        dateAndTime.get(Calendar.DAY_OF_MONTH));
-                dateDlg.show();
-                break;
-            case R.id.tv_choose_address:
-                hideSoftInput(Tv_ChooseAddress);
-                ChangeAddressPopwindow mChangeAddressPopwindow = new ChangeAddressPopwindow(RealNameAuthenticationFalse.this);
-                mChangeAddressPopwindow.setAddress("河南", "郑州", "金水区");
-                mChangeAddressPopwindow.showAtLocation(Tv_ChooseAddress, Gravity.BOTTOM, 0, 0);
-                mChangeAddressPopwindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
-                mChangeAddressPopwindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-                mChangeAddressPopwindow.setAddresskListener(new ChangeAddressPopwindow.OnAddressCListener() {
-                    @Override
-                    public void onClick(String province, String city, String area) {
-                        Tv_ChooseAddress.setText(province + " " + city + " " + area);
-                        if (!Tv_ChooseAddress.getText().toString().equals("请选择")) {
-                            Tv_ChooseAddress.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
-                        }
-                    }
-                });
-                break;
         }
     }
 }

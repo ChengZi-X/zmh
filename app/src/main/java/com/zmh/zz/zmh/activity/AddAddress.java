@@ -3,6 +3,8 @@ package com.zmh.zz.zmh.activity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseActivity;
@@ -52,6 +54,9 @@ public class AddAddress extends BaseActivity implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.choose_address:
                 ChangeAddressPopwindow mChangeAddressPopwindow = new ChangeAddressPopwindow(AddAddress.this);
+                //  隐藏输入法
+                mChangeAddressPopwindow.setSoftInputMode(PopupWindow.INPUT_METHOD_NEEDED);
+                mChangeAddressPopwindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST);
                 mChangeAddressPopwindow.setAddress("河南", "郑州", "金水区");
                 mChangeAddressPopwindow.showAtLocation(mChoose_address, Gravity.BOTTOM, 0, 0);
                 mChangeAddressPopwindow
@@ -60,7 +65,7 @@ public class AddAddress extends BaseActivity implements View.OnClickListener {
                             public void onClick(String province, String city, String area) {
                                 mChoose_address.setText(province + " " + city + " " + area);
                                 if (!mChoose_address.getText().toString().equals("省份 城市 县城")) {
-                                    mChoose_address.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
+                                    mChoose_address.setTextColor(getResources().getColor(R.color.absolute_black));
                                 }
                             }
                         });
