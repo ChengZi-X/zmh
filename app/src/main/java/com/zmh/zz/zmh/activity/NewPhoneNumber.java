@@ -3,7 +3,6 @@ package com.zmh.zz.zmh.activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,11 +15,11 @@ import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.RegularUtil;
-import com.zmh.zz.zmh.utlis.MyStringCallBack;
-import com.zmh.zz.zmh.utlis.OkHttpUtil;
-import com.zmh.zz.zmh.utlis.SharedPreferencesUtils;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.RegularUtil;
+import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +31,7 @@ import okhttp3.Call;
  * 账号与安全_改绑新手机
  */
 
-public class NewPhoneNumber extends BaseActivity implements View.OnClickListener, TextWatcher {
+public class NewPhoneNumber extends BaseActivity implements View.OnClickListener {
     private EditText Et_NewPhone, Et_Code;
     private Button But_Binding, But_GetCode;
     private OkHttpUtil okHttp = new OkHttpUtil();
@@ -87,7 +86,7 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
     }
 
     private void GetCode() {
-        UserName = (String) SharedPreferencesUtils.getParam(NewPhoneNumber.this, "UserName", "");
+        UserName = (String) SharedPreferencesUtil.getParam(NewPhoneNumber.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(NewPhoneNumber.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("获取中,请稍等...");
@@ -101,14 +100,14 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(NewPhoneNumber.this, dosc);
+                        ToastUtils.showToast(NewPhoneNumber.this, desc);
                         break;
                 }
             }
@@ -126,7 +125,7 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
     private void BinDing() {
         mNewPhoneValue = Et_NewPhone.getText().toString();
         mCodeValue = Et_Code.getText().toString();
-        UserName = (String) SharedPreferencesUtils.getParam(NewPhoneNumber.this, "UserName", "");
+        UserName = (String) SharedPreferencesUtil.getParam(NewPhoneNumber.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(NewPhoneNumber.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("绑定中,请稍等...");
@@ -142,7 +141,7 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
@@ -150,7 +149,7 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(NewPhoneNumber.this, dosc);
+                        ToastUtils.showToast(NewPhoneNumber.this, desc);
                         break;
                 }
             }
@@ -173,13 +172,4 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
             But_Binding.setEnabled(true);
         }
     }
-
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-    }
-
 }

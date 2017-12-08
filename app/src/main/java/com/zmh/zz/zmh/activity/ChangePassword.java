@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,12 +18,12 @@ import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.login.Login;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.RegularUtil;
-import com.zmh.zz.zmh.utlis.MD5Util;
-import com.zmh.zz.zmh.utlis.MyStringCallBack;
-import com.zmh.zz.zmh.utlis.OkHttpUtil;
-import com.zmh.zz.zmh.utlis.SharedPreferencesUtils;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.MD5Util;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.RegularUtil;
+import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +35,7 @@ import okhttp3.Call;
  * 账号与安全_密码修改
  */
 
-public class ChangePassword extends BaseActivity implements View.OnClickListener, TextWatcher {
+public class ChangePassword extends BaseActivity implements View.OnClickListener {
     private EditText Et_OldPassword, Et_NewPassword, Et_ConfirmNewPassword;
     private Button But_affirm;
     private OkHttpUtil okHttp = new OkHttpUtil();
@@ -51,7 +50,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_change_password;//任意非空布局
+        return R.layout.ac_change_password;
     }
 
     private void FindViewById() {
@@ -93,7 +92,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
     private void Affirm() {
         mOldPasswordValue = Et_OldPassword.getText().toString();
         mNewPasswordValue = Et_NewPassword.getText().toString();
-        UserName = (String) SharedPreferencesUtils.getParam(ChangePassword.this, "UserName", "");
+        UserName = (String) SharedPreferencesUtil.getParam(ChangePassword.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(ChangePassword.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("修改中,请稍等...");
@@ -109,7 +108,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
@@ -124,7 +123,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(ChangePassword.this, dosc);
+                        ToastUtils.showToast(ChangePassword.this, desc);
                         break;
                 }
             }
@@ -147,13 +146,5 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
         } else {
             But_affirm.setEnabled(true);
         }
-    }
-
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
     }
 }

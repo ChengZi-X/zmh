@@ -35,7 +35,7 @@ public class Bonus extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_bonus;//任意非空布局
+        return R.layout.ac_bonus;
     }
 
     //右键点击
@@ -58,10 +58,10 @@ public class Bonus extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.roll_out:
-                startActivity(new Intent(Bonus.this, RollOut.class));
+                startActivity(new Intent(Bonus.this, BonusOut.class));
                 break;
             case R.id.shift_to:
-                startActivity(new Intent(Bonus.this, ShiftTo.class));
+                startActivity(new Intent(Bonus.this, BonusPut.class));
                 break;
         }
     }

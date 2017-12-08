@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.CircleImageView1Util;
+import com.zmh.zz.zmh.utils.CircleImageView1Util;
 
 /**
  * Created by Administrator
@@ -27,7 +27,7 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_personal_information;//任意非空布局
+        return R.layout.ac_personal_information;
     }
 
 

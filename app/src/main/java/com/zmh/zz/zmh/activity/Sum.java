@@ -60,10 +60,11 @@ public class Sum extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.top_up:
-                startActivity(new Intent(Sum.this, TopUp.class));
+                Intent intent =new Intent(Sum.this,AccountPut.class);
+                startActivity(intent);
                 break;
             case R.id.withdraw:
-                startActivity(new Intent(Sum.this, Withdraw.class));
+                startActivity(new Intent(Sum.this, AccountOut.class));
                 break;
         }
     }

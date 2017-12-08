@@ -27,7 +27,6 @@
                 android:textSize="@dimen/z2" />
 
             <TextView
-                android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -55,7 +54,6 @@
                 android:textSize="@dimen/z2" />
 
             <TextView
-                android:id="@+id/men_and_women"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

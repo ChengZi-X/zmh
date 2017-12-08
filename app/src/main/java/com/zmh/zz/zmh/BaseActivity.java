@@ -3,9 +3,10 @@ package com.zmh.zz.zmh;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextPaint;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -19,7 +20,7 @@ import android.widget.TextView;
  * Created by Administrator on 2017/9/15.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements TextWatcher {
     public ViewGroup contentView;
     private TextView titltTv, rightBtn;
     private View leftBtn, titlebar, bottom_view;
@@ -241,4 +242,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return
      */
     protected abstract int getContentView();
+    @Override
+    public void afterTextChanged(Editable s) {}
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
 }

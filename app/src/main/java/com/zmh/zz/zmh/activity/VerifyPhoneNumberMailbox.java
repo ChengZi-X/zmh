@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,11 +17,11 @@ import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.RegularUtil;
-import com.zmh.zz.zmh.utlis.MyStringCallBack;
-import com.zmh.zz.zmh.utlis.OkHttpUtil;
-import com.zmh.zz.zmh.utlis.SharedPreferencesUtils;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.RegularUtil;
+import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +34,7 @@ import okhttp3.Call;
  * 账号与安全_手机号验证
  */
 
-public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnClickListener, TextWatcher {
+public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnClickListener {
     private EditText Et_Code;
     private Button But_GetCode, But_next;
     private OkHttpUtil okHttp = new OkHttpUtil();
@@ -55,7 +54,7 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
     }
 
     private void FindViewById() {
-        UserName = (String) SharedPreferencesUtils.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
         String maskUserName = UserName.substring(0, 3) + "****" + UserName.substring(7, UserName.length());
         Tv_Phone = (TextView) findViewById(R.id.tv_phone);
         But_GetCode = (Button) findViewById(R.id.but_get_code);
@@ -82,7 +81,7 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
     }
 
     private void GetCode() {
-        UserName = (String) SharedPreferencesUtils.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberMailbox.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("获取中,请稍等...");
@@ -96,14 +95,14 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(VerifyPhoneNumberMailbox.this, dosc);
+                        ToastUtils.showToast(VerifyPhoneNumberMailbox.this, desc);
                         break;
                 }
             }
@@ -118,7 +117,7 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
 
     private void Next() {
         mCodeValue = Et_Code.getText().toString();
-        UserName = (String) SharedPreferencesUtils.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberMailbox.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("验证中,请稍等...");
@@ -133,7 +132,7 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
@@ -142,7 +141,7 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(VerifyPhoneNumberMailbox.this, dosc);
+                        ToastUtils.showToast(VerifyPhoneNumberMailbox.this, desc);
                         break;
                 }
             }
@@ -164,13 +163,4 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
             But_next.setEnabled(true);
         }
     }
-
-    @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-    }
-
-    @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-    }
-
 }

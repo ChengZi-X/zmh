@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- xListView刷新 -->
-    <string name="xlistview_header_hint_normal">下拉刷新</string>
-    <string name="xlistview_header_hint_ready">松开刷新</string>
-    <string name="xlistview_header_hint_loading">正在刷新...</string>
-    <string name="xlistview_header_last_time">上次更新：</string>
-    <string name="xlistview_footer_hint_normal">点击加载更多</string>
-    <string name="xlistview_footer_hint_ready">松开加载</string>
-    <string name="xlistview_footer_hint_loading">正在加载...</string>
-    <string name="xlistview_footer_hint_on_earth">已经到底了</string>
 </resources>

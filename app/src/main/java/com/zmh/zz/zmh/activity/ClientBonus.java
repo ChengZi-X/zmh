@@ -30,7 +30,7 @@ public class ClientBonus extends BaseActivity {
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_client_bonus;//任意非空布局
+        return R.layout.ac_client_bonus;
     }
 
     private void ListViewInitData() {

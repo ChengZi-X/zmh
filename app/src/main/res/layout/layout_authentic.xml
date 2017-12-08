@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/R1"
+            android:id="@+id/r1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -46,10 +46,9 @@
             android:src="@mipmap/authentication" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/R1"
+            android:layout_below="@+id/r1"
             android:layout_marginTop="25dp"
             android:gravity="center"
             android:text="**************1231"

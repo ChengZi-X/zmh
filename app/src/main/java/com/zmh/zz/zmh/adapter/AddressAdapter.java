@@ -9,9 +9,9 @@ import android.widget.BaseAdapter;
 
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.modelinfo.AddressInfo;
-import com.zmh.zz.zmh.utlis.CustomSwipeListViewUtil;
-import com.zmh.zz.zmh.utlis.SwipeItemView;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.CustomSwipeListViewUtil;
+import com.zmh.zz.zmh.utils.SwipeItemView;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.List;
 

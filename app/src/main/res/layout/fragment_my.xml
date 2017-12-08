@@ -31,15 +31,14 @@
             android:layout_height="125dp"
             android:orientation="vertical">
 
-            <com.zmh.zz.zmh.utlis.CircleImageView2Util
+            <com.zmh.zz.zmh.utils.CircleImageView2Util
                 android:id="@+id/im_head_portrait"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@mipmap/portrait" />
+                android:src="@mipmap/logo" />
 
             <TextView
-                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

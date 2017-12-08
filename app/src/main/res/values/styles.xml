@@ -8,17 +8,13 @@
         <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/babyblue</item>
     </style>
 
-    <!--ImageView arrow-->
+    <!--ImageView 箭头-->
     <style name="arrow_right_gray">
         <item name="android:layout_width">13dp</item>
         <item name="android:layout_height">13dp</item>
@@ -28,7 +24,7 @@
         <item name="android:src">@mipmap/arrow_right_gray</item>
     </style>
 
-    <!--view-->
+    <!--view线-->
     <style name="horizontal_line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">0.8dp</item>
@@ -56,19 +52,25 @@
     <style name="CustomTabPageIndicator.Text" parent="android:TextAppearance.Medium">
         <item name="android:typeface">monospace</item>
     </style>
-
+    <!--dialog-->
     <style name="dialog" parent="@android:style/Theme.Dialog">
-        <!--边框-->
         <item name="android:windowFrame">@null</item>
-        <!--是否浮现在activity之上-->
         <item name="android:windowIsFloating">true</item>
-        <!--半透明-->
         <item name="android:windowIsTranslucent">false</item>
-        <!--无标题-->
         <item name="android:windowNoTitle">true</item>
-        <!--背景透明-->
         <item name="android:windowBackground">@android:color/transparent</item>
-        <!--模糊-->
         <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <!--支付密码-->
+    <style name="AppTheme.NoActionBarDialog" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowAnimationStyle">@style/keyboard_anim_style</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>

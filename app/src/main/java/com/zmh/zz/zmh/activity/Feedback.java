@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -26,10 +25,10 @@ import com.zmh.zz.zmh.modeljson.LoginJson;
 import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
 import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
 import com.zmh.zz.zmh.uploaImage.SelectPortraitDialog;
-import com.zmh.zz.zmh.utlis.Base64Util;
-import com.zmh.zz.zmh.utlis.MyStringCallBack;
-import com.zmh.zz.zmh.utlis.OkHttpUtil;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.Base64Util;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,7 +63,6 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
         setRtTitle("提交");
         setRightBtnVisible(true);
         FindViewById();
-        Init();
         initImagePicker();
         initWidget();
     }
@@ -134,39 +132,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
         Et_Content = (EditText) findViewById(R.id.et_content);
         Tv_Num = (TextView) findViewById(R.id.tv_num);
         Tv_Phone = (TextView) findViewById(R.id.tv_phone);
-    }
-
-    //监听EditText输入的文字数
-    private void Init() {
-        Et_Content.addTextChangedListener(new TextWatcher() {
-            private CharSequence temp;
-            private int selectionStart;
-            private int selectionEnd;
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                temp = s;
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                temp = s;
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                int number = s.length();
-                Tv_Num.setText(number + "");
-                selectionStart = Et_Content.getSelectionStart();
-                selectionEnd = Et_Content.getSelectionEnd();
-                if (temp.length() > num) {
-                    s.delete(selectionStart - 1, selectionEnd);
-                    int tempSelection = selectionStart;
-                    Et_Content.setText(s);
-                    Et_Content.setSelection(tempSelection);//设置光标在最后
-                }
-            }
-        });
+        Et_Content.addTextChangedListener(this);
     }
 
     private void initImagePicker() {
@@ -258,4 +224,21 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
         }
     }
 
+    //监听Editable输入字数
+    private int selectionStart;
+    private int selectionEnd;
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        int number = s.length();
+        Tv_Num.setText(number + "");
+        selectionStart = Et_Content.getSelectionStart();
+        selectionEnd = Et_Content.getSelectionEnd();
+        if (s.length() > num) {
+            s.delete(selectionStart - 1, selectionEnd);
+            int tempSelection = selectionStart;
+            Et_Content.setText(s);
+            Et_Content.setSelection(tempSelection);//设置光标在最后
+        }
+    }
 }

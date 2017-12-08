@@ -5,17 +5,13 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lzy.imagepicker.ImagePicker;
@@ -28,9 +24,6 @@ import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
 import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
 import com.zmh.zz.zmh.uploaImage.SelectPortraitDialog;
-import com.zmh.zz.zmh.utlis.CheckBoxSampleUtil;
-import com.zmh.zz.zmh.utlis.RegularUtil;
-import com.zmh.zz.zmh.utlis.ToastUtils;
 import com.zmh.zz.zmh.wheelview.PickerScrollView;
 import com.zmh.zz.zmh.wheelview.PickersBean;
 
@@ -49,8 +42,8 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
     public static final int REQUEST_CODE_PREVIEW = 101;
 
     private ImagePickerAdapter adapter;
-    private ArrayList<ImageItem> selImageList; //当前选择的所有图片
-    private int maxImgCount = 2;               //允许选择图片最大数
+    private ArrayList<ImageItem> selImageList; // 当前选择的所有图片
+    private int maxImgCount = 2;               // 允许选择图片最大数
     private TextView Tv_Opening_bank;
     private PickerScrollView pickerscrlllview; // 滚动选择器
     private List<PickersBean> mList;           // 滚动选择器数据
@@ -115,7 +108,7 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
         public void onSelect(PickersBean pickers) {
             Tv_Opening_bank.setText(pickers.getShowConetnt());
             if (!Tv_Opening_bank.getText().toString().equals("请选择")) {
-                Tv_Opening_bank.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
+                Tv_Opening_bank.setTextColor(getResources().getColor(R.color.absolute_black));
             }
         }
     };

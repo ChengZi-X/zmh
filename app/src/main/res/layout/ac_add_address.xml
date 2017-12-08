@@ -171,7 +171,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp">
 
-        <com.zmh.zz.zmh.utlis.CheckBoxSampleUtil
+        <com.zmh.zz.zmh.utils.CheckBoxSampleUtil
             android:id="@+id/check"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

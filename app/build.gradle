@@ -18,7 +18,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    signingConfigs {
+        debug {
+            keyAlias 'zmh'
+            keyPassword 'cnjinrong'
+            storeFile file('E:\\zmhkey.jks')
+            storePassword 'cnjinrong'
+        }
+    }
 }
+
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -27,6 +38,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile files('libs/xUtils-2.6.14.jar')
     compile files('libs/fastjson-1.2.2.jar')
+    compile files('libs/libammsdk.jar')
+    compile files('libs/alipaySdk-20170922.jar')
     compile files('libs/universal-image-loader-1.9.4-with-sources.jar')
     compile 'com.android.support:design:25.3.1'
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.3.1'

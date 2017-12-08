@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.IntegralSignDialogUtil;
+import com.zmh.zz.zmh.utils.IntegralSignDialogUtil;
 
 /**
  * Created by Administrator
@@ -37,7 +37,7 @@ public class CheckCalendar extends BaseActivity {
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_check_calendar;//任意非空布局
+        return R.layout.ac_check_calendar;
     }
 
     //右键点击
@@ -52,7 +52,7 @@ public class CheckCalendar extends BaseActivity {
         TextPaint tp = mAggregate_score.getPaint();
         tp.setFakeBoldText(true);
         mContinuous_sign_in = (TextView) findViewById(R.id.continuous_sign_in);
-        SpannableString spanText = new SpannableString("已连续签到 2 天");
+        SpannableString spanText = new SpannableString("已连续签到 2 天") ;
         spanText.setSpan(new ForegroundColorSpan(Color.parseColor("#FB6A6D")), 6, 7, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
         mContinuous_sign_in.setText(spanText);
         Im_sign_one = (ImageView) findViewById(R.id.sign_one);

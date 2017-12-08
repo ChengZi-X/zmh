@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.login.Login;
-import com.zmh.zz.zmh.utlis.ClearAllUtil;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.ClearAllUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 /**
  * Created by Administrator
@@ -79,7 +79,7 @@ public class Setting extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(Setting.this, InRegardTo.class));
                 break;
             case R.id.clear_cache:
-                clear();//清除缓存
+                Clear();//清除缓存
                 break;
             case R.id.log_out:
                 Log_Out();//退出登录
@@ -106,7 +106,7 @@ public class Setting extends BaseActivity implements View.OnClickListener {
         dialog.setNegativeButton("否", null).show();
     }
 
-    private void clear() {
+    private void Clear() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(Setting.this);
         dialog.setTitle("提示");
         dialog.setMessage("是否清除缓存？");

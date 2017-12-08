@@ -15,7 +15,7 @@
             android:background="@color/babyblue"></RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/R1"
+            android:id="@+id/r1"
             android:layout_width="match_parent"
             android:layout_height="167dp"
             android:layout_marginTop="75dp">
@@ -23,19 +23,19 @@
             <include layout="@layout/layout_authentic" />
         </RelativeLayout>
 
-        <com.zmh.zz.zmh.utlis.CircleImageView2Util
+        <com.zmh.zz.zmh.utils.CircleImageView2Util
             android:id="@+id/im_head_portrait"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
-            android:src="@mipmap/portrait" />
+            android:src="@mipmap/logo" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/R1"
+            android:layout_below="@+id/r1"
             android:background="@color/white"
             android:orientation="vertical">
 

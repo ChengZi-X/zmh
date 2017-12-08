@@ -26,14 +26,14 @@
                 android:textColor="@color/light_black"
                 android:textSize="@dimen/z2" />
 
-            <com.zmh.zz.zmh.utlis.CircleImageView1Util
+            <com.zmh.zz.zmh.utils.CircleImageView1Util
                 android:id="@+id/im_head_portrait"
                 android:layout_width="38dp"
                 android:layout_height="38dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="35dp"
-                android:src="@mipmap/portrait" />
+                android:src="@mipmap/logo" />
 
             <ImageView style="@style/arrow_right_gray" />
         </RelativeLayout>

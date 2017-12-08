@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.CircleImageView2Util;
+import com.zmh.zz.zmh.utils.CircleImageView2Util;
 
 
 /**

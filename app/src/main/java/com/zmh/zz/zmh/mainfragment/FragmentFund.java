@@ -54,4 +54,10 @@ public class FragmentFund extends BaseFragment implements View.OnClickListener {
 
     public void initData() {
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initData();
+    }
 }

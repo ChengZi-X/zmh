@@ -14,7 +14,7 @@ import android.support.v4.content.FileProvider;
 import android.util.Log;
 
 import com.lidroid.xutils.HttpUtils;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -72,7 +72,7 @@ public class UpdateManager {
         } else {
             ToastUtils.showToast(mContext, "已经是最新版本了");
         }
-//        String url = "http://" + SharedPreferencesUtils.getParam(mContext, "IP", "") + ":" + SharedPreferencesUtils.getParam(mContext, "PORT", "") + "/mes-service/SystemManageServer/AppUpdate/appBate";
+//        String url = "http://" + SharedPreferencesUtil.getParam(mContext, "IP", "") + ":" + SharedPreferencesUtil.getParam(mContext, "PORT", "") + "/mes-service/SystemManageServer/AppUpdate/appBate";
 //        http.configCurrentHttpCacheExpiry(1000);
 //        http.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
 //            @Override

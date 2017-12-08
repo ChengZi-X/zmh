@@ -26,12 +26,12 @@ import com.zmh.zz.zmh.MainActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.RegularUtil;
-import com.zmh.zz.zmh.utlis.MD5Util;
-import com.zmh.zz.zmh.utlis.MyStringCallBack;
-import com.zmh.zz.zmh.utlis.OkHttpUtil;
-import com.zmh.zz.zmh.utlis.SharedPreferencesUtils;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.RegularUtil;
+import com.zmh.zz.zmh.utils.MD5Util;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -132,16 +132,16 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //              JSONObject Result = jsonRet.getData();
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(Login.this, "登录成功");
                         String UserId = login.getData().getId();//ID
                         String UserEmail = login.getData().getEmail();//邮箱
-                        SharedPreferencesUtils.setParam(Login.this, "UserID", UserId);
-                        SharedPreferencesUtils.setParam(Login.this, "UserEmail", UserEmail);
-                        SharedPreferencesUtils.setParam(Login.this, "UserName", mUserNameValue);
+                        SharedPreferencesUtil.setParam(Login.this, "UserID", UserId);
+                        SharedPreferencesUtil.setParam(Login.this, "UserEmail", UserEmail);
+                        SharedPreferencesUtil.setParam(Login.this, "UserName", mUserNameValue);
                         //保存用户名和密码
                         editor.putString("USERNAME", mUserNameValue);
                         editor.putString("PASSWORD", mPasswordValue);
@@ -151,7 +151,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(Login.this, dosc);
+                        ToastUtils.showToast(Login.this, desc);
                         break;
                 }
             }
@@ -203,7 +203,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //        MyDialog.show();
 //        userNameValue = mEt_zhanghao.getText().toString();
 //        passwordValue = mEt_mima.getText().toString();
-//        String url = "http://" + SharedPreferencesUtils.getParam(Ac_Login.this, "IP", "") + ":" + SharedPreferencesUtils.getParam(Ac_Login.this, "PORT", "") + "/mes-service/SystemManageServer/User/loginApp";
+//        String url = "http://" + SharedPreferencesUtil.getParam(Ac_Login.this, "IP", "") + ":" + SharedPreferencesUtil.getParam(Ac_Login.this, "PORT", "") + "/mes-service/SystemManageServer/User/loginApp";
 //        HttpUtils http = new HttpUtils();
 //        http.configCurrentHttpCacheExpiry(1000);
 //        RequestParams params = new RequestParams();
@@ -217,8 +217,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //                LoginJson li = JSONObject.parseObject(s, LoginJson.class);
 //                String role = li.getRole();
 //                String userId = li.getUserId();
-//                SharedPreferencesUtils.setParam(Ac_Login.this, "role", role + "");
-//                SharedPreferencesUtils.setParam(Ac_Login.this, "userId", userId + "");
+//                SharedPreferencesUtil.setParam(Ac_Login.this, "role", role + "");
+//                SharedPreferencesUtil.setParam(Ac_Login.this, "userId", userId + "");
 //                Log.e("ssssss", role + "");
 //                switch (li.getResult()) {
 //                    case "success":
@@ -269,9 +269,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("提示！")
-                        .setMessage("确认退出程序？")
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle("提示！")
+                        .setMessage("确定退出程序？")
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -294,7 +294,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
      * 透明标题栏
      */
     private void TransparentTitleBar() {
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS

@@ -167,7 +167,6 @@
         android:layout_marginTop="12dp">
 
         <Button
-            android:id="@+id/but_exchange"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/nextbtn"

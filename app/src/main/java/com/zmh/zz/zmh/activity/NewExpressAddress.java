@@ -10,7 +10,7 @@ import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.adapter.AddressAdapter;
 import com.zmh.zz.zmh.modelinfo.AddressInfo;
-import com.zmh.zz.zmh.utlis.CustomSwipeListViewUtil;
+import com.zmh.zz.zmh.utils.CustomSwipeListViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;

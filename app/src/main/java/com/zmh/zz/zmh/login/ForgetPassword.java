@@ -22,10 +22,10 @@ import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utlis.RegularUtil;
-import com.zmh.zz.zmh.utlis.MyStringCallBack;
-import com.zmh.zz.zmh.utlis.OkHttpUtil;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.RegularUtil;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -120,14 +120,14 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(ForgetPassword.this, dosc);
+                        ToastUtils.showToast(ForgetPassword.this, desc);
                         break;
                 }
             }
@@ -157,7 +157,7 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
@@ -168,7 +168,7 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(ForgetPassword.this, dosc);
+                        ToastUtils.showToast(ForgetPassword.this, desc);
                         break;
                 }
             }
@@ -187,7 +187,6 @@ public class ForgetPassword extends AppCompatActivity implements View.OnClickLis
      * 透明标题栏
      */
     private void TransparentTitleBar() {
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS

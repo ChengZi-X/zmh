@@ -12,9 +12,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.zmh.zz.zmh.mainfragment.FragmentBusiness;
 import com.zmh.zz.zmh.mainfragment.FragmentFund;
 import com.zmh.zz.zmh.mainfragment.FragmentHomepage;
-import com.zmh.zz.zmh.mainfragment.FragmentmMy;
-
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.mainfragment.FragmentMy;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
     private UpdateManager updateManager;
@@ -22,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FragmentHomepage mFragmentHomepage;
     private FragmentBusiness mFragmentBusiness;
     private FragmentFund mFragmentFund;
-    private FragmentmMy mFragmentMy;
+    private FragmentMy mFragmentMy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 transaction.replace(R.id.ll_content, mFragmentFund);
                 break;
             case 3:
-                mFragmentMy = new FragmentmMy();
+                mFragmentMy = new FragmentMy();
                 transaction.replace(R.id.ll_content, mFragmentMy);
                 break;
             default:
@@ -100,9 +98,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
             case KeyEvent.KEYCODE_BACK:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("提示！")
-                        .setMessage("确认退出程序？")
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setTitle("提示！")
+                        .setMessage("确定退出程序？")
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

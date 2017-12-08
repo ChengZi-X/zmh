@@ -8,10 +8,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseActivity;
-import com.zmh.zz.zmh.ChangeAddressPopwindow;
+import com.zmh.zz.zmh.utils.ChangeAddressPopUtil;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.utlis.CheckBoxSampleUtil;
-import com.zmh.zz.zmh.utlis.ToastUtils;
+import com.zmh.zz.zmh.utils.CheckBoxSampleUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 /**
  * Created by Administrator
@@ -33,7 +33,7 @@ public class AddAddress extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_add_address;//任意非空布局
+        return R.layout.ac_add_address;
     }
 
     private void FindViewById() {
@@ -53,14 +53,14 @@ public class AddAddress extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.choose_address:
-                ChangeAddressPopwindow mChangeAddressPopwindow = new ChangeAddressPopwindow(AddAddress.this);
+                ChangeAddressPopUtil mChangeAddressPopwindow = new ChangeAddressPopUtil(AddAddress.this);
                 //  隐藏输入法
                 mChangeAddressPopwindow.setSoftInputMode(PopupWindow.INPUT_METHOD_NEEDED);
                 mChangeAddressPopwindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST);
                 mChangeAddressPopwindow.setAddress("河南", "郑州", "金水区");
                 mChangeAddressPopwindow.showAtLocation(mChoose_address, Gravity.BOTTOM, 0, 0);
                 mChangeAddressPopwindow
-                        .setAddresskListener(new ChangeAddressPopwindow.OnAddressCListener() {
+                        .setAddresskListener(new ChangeAddressPopUtil.OnAddressCListener() {
                             @Override
                             public void onClick(String province, String city, String area) {
                                 mChoose_address.setText(province + " " + city + " " + area);
