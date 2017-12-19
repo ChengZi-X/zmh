@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.alipay.sdk.app.PayTask;
 import com.zmh.zz.zmh.BaseActivity;
@@ -43,6 +44,7 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
     private Button But_Next;
     private String mPay, mMoneyValue;
     private EditText Et_Money;
+    private TextView Tv_Money;
     /**
      * 支付宝支付业务：入参app_id
      */
@@ -77,9 +79,10 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
         Rb_Wechat = (RadioButton) findViewById(R.id.rb_wechat);
         But_Next = (Button) findViewById(R.id.but_next);
         Et_Money = (EditText) findViewById(R.id.et_money);
+        Tv_Money = (TextView) findViewById(R.id.tv_money);
         Et_Money.addTextChangedListener(this);
-        InputFilter[] filter = {new CashierInputFilter()};
-        Et_Money.setFilters(filter);
+//        InputFilter[] filter = {new CashierInputFilter()};
+//        Et_Money.setFilters(filter);
         Rg_Pay.setOnCheckedChangeListener(this);
         But_Next.setOnClickListener(this);
         Rb_Alipay.setChecked(true);
@@ -141,6 +144,7 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
                     // 判断resultStatus 为9000则代表支付成功
                     if (TextUtils.equals(resultStatus, "9000")) {
                         ToastUtils.showToast(AccountPut.this, "充值成功");
+                        Log.e("sssss", OrderInfoUtil2_0.OutTradeNo);
                         Intent intent = new Intent(AccountPut.this, Sum.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
@@ -191,11 +195,20 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
 
     @Override
     public void afterTextChanged(Editable s) {
+        if (mMoneyValue.equals("")) {
+            Tv_Money.setText("0.00");//实时变化的金额
+        } else {
+            Tv_Money.setText(s + ".00");
+        }
         mMoneyValue = Et_Money.getText().toString();
-        if (mMoneyValue.equals("") || Double.parseDouble(mMoneyValue) < 0.01) {
+        if (mMoneyValue.equals("") || Double.parseDouble(mMoneyValue) < 1) {
             But_Next.setEnabled(false);
         } else {
             But_Next.setEnabled(true);
+        }
+        //第一位数字不能为0
+        if (mMoneyValue.startsWith("0")) {
+            s.clear();
         }
     }
 }

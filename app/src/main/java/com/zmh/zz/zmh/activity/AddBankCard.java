@@ -198,8 +198,8 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
                     public void photo() {
                         //相册
                         ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                        Intent intent1 = new Intent(AddBankCard.this, ImageGridActivity.class);
-                        startActivityForResult(intent1, REQUEST_CODE_SELECT);
+                        Intent intent = new Intent(AddBankCard.this, ImageGridActivity.class);
+                        startActivityForResult(intent, REQUEST_CODE_SELECT);
                         selectDialog.dismiss();
                     }
                 });

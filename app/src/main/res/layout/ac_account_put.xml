@@ -78,11 +78,37 @@
             android:layout_toRightOf="@+id/tv1"
             android:background="@null"
             android:gravity="center_vertical"
-            android:hint="请输入充值金额"
-            android:inputType="numberDecimal"
+            android:hint="请输入充值金额   (金额必须为整数类型)"
+            android:inputType="number"
             android:paddingLeft="10dp"
             android:textColorHint="@color/hint_color"
             android:textSize="@dimen/z2" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="9dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="￥"
+            android:textColor="@color/absolute_black"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv2"
+            android:background="@null"
+            android:text="0.00"
+            android:textColor="@color/absolute_black"
+            android:textSize="40sp" />
     </RelativeLayout>
 
     <RelativeLayout

@@ -274,8 +274,8 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
                     public void photo() {
                         //相册
                         ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                        Intent intent1 = new Intent(RealNameAuthenticationFalse.this, ImageGridActivity.class);
-                        startActivityForResult(intent1, REQUEST_CODE_SELECT);
+                        Intent intent = new Intent(RealNameAuthenticationFalse.this, ImageGridActivity.class);
+                        startActivityForResult(intent, REQUEST_CODE_SELECT);
                         selectDialog.dismiss();
                     }
                 });

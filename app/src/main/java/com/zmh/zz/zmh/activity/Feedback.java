@@ -105,7 +105,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
                 Log.e("sssss>>>", response);
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String dosc = login.getDesc();
+                String desc = login.getDesc();
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
@@ -113,7 +113,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(Feedback.this, dosc);
+                        ToastUtils.showToast(Feedback.this, desc);
                         break;
                 }
 
@@ -182,8 +182,8 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
                     public void photo() {
                         //相册
                         ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                        Intent intent1 = new Intent(Feedback.this, ImageGridActivity.class);
-                        startActivityForResult(intent1, REQUEST_CODE_SELECT);
+                        Intent intent = new Intent(Feedback.this, ImageGridActivity.class);
+                        startActivityForResult(intent, REQUEST_CODE_SELECT);
                         selectDialog.dismiss();
                     }
                 });

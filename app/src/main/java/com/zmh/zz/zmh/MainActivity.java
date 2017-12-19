@@ -1,20 +1,26 @@
 package com.zmh.zz.zmh;
 
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.zmh.zz.zmh.activity.PersonalInformation;
 import com.zmh.zz.zmh.mainfragment.FragmentBusiness;
 import com.zmh.zz.zmh.mainfragment.FragmentFund;
 import com.zmh.zz.zmh.mainfragment.FragmentHomepage;
 import com.zmh.zz.zmh.mainfragment.FragmentMy;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
+    private static final int CAMERA_OK = 200;
     private UpdateManager updateManager;
     private BottomNavigationBar mBottomNavigationBar;
     private FragmentHomepage mFragmentHomepage;
@@ -26,6 +32,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //先判断拍照和读取SD卡的权限是否已经申请过权限;
+        if (ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            //先判断有没有权限 ，没有就在这里进行权限的申请
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, CAMERA_OK);
+        }
         mBottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         mBottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
 //      mBottomNavigationBar.setMode(BottomNavigationBar.MODE_SHIFTING);
@@ -91,6 +103,19 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     public void onTabReselected(int position) {
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case CAMERA_OK:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else {
+                    //这里是拒绝给APP摄像头权限，给个提示什么的说明一下都可以。
+                    ToastUtils.showToast(MainActivity.this, "权限被禁止,无法打开相机");
+                }
+                break;
+        }
+    }
+
     /**
      * 退出程序
      */
@@ -118,4 +143,5 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         }
         return false;
     }
+
 }
