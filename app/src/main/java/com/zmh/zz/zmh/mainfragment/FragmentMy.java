@@ -41,7 +41,6 @@ public class FragmentMy extends BaseFragment implements View.OnClickListener {
         initData();
         return view;
     }
-
     private void FindViewById() {
         // 注册控件
         Rl_But_setting = (RelativeLayout) view.findViewById(R.id.rl_but_setting);

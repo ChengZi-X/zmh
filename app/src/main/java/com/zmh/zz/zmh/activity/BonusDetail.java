@@ -46,10 +46,10 @@ public class BonusDetail extends AppCompatActivity implements View.OnClickListen
         mRll_title = (RelativeLayout) findViewById(R.id.rll_title);
         mRll_title.setOnClickListener(this);
         mTitle_back.setOnClickListener(this);
-        InitData();
+        initData();
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_bonus_detail = (ListView) findViewById(R.id.lv_bonus_detail);
         bonusDetailList = new ArrayList<>();
         bonusDetailAdapter = new BonusDetailAdapter(bonusDetailList, BonusDetail.this);

@@ -30,7 +30,7 @@ public class Bonus extends BaseActivity implements View.OnClickListener {
         setLtTitleTvColor(R.color.white);
         setRtTitleTvColor(R.color.white);
         FindViewById();
-        InitData();
+        initData();
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Bonus extends BaseActivity implements View.OnClickListener {
         mShift_to.setOnClickListener(this);
     }
 
-    private void InitData() {
+    private void initData() {
     }
 
     @Override

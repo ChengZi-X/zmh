@@ -13,15 +13,15 @@ import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.activity.CheckCalendar;
 import com.zmh.zz.zmh.activity.IntegralDetail;
-import com.zmh.zz.zmh.viewpager.FragmentPagerAdapter;
-import com.zmh.zz.zmh.viewpager.ViewPagerMain;
+import com.zmh.zz.zmh.viewpager.LazyFragmentPagerAdapter;
+import com.zmh.zz.zmh.viewpager.LazyViewPagerMain;
 
 /**
  * 积分
  */
 public class TabIntegral extends BaseActivity implements View.OnClickListener {
     public AdvancedPagerSlidingTabStrip mAPSTS;
-    public ViewPagerMain mVP;
+    public LazyViewPagerMain mVP;
     private static final int VIEW_FIRST = 0;
     private static final int VIEW_SECOND = 1;
     private static final int VIEW_THREE = 2;
@@ -46,7 +46,7 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
 
     private void FindViewById() {
         mAPSTS = (AdvancedPagerSlidingTabStrip) findViewById(R.id.tabs);
-        mVP = (ViewPagerMain) findViewById(R.id.vp_main);
+        mVP = (LazyViewPagerMain) findViewById(R.id.vp_main);
         mVP.setOffscreenPageLimit(VIEW_THREE);
         FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager());
         mVP.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
@@ -70,7 +70,7 @@ public class TabIntegral extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    public class FragmentAdapter extends FragmentPagerAdapter {
+    public class FragmentAdapter extends LazyFragmentPagerAdapter {
         public FragmentAdapter(FragmentManager fm) {
             super(fm);
         }

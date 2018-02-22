@@ -30,7 +30,7 @@ public class IntegralDetail extends BaseActivity {
         setRtTitle("规则");
         setRightBtnVisible(true);
         FindViewById();
-        InitData();
+        initData();
     }
 
     @Override
@@ -47,7 +47,7 @@ public class IntegralDetail extends BaseActivity {
         startActivity(new Intent(IntegralDetail.this, IntegralRule.class));
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_integral_detail = (ListView) findViewById(R.id.lv_integral_detail);
         integralDetailList = new ArrayList<>();
         integralDetailAdapter = new IntegralDetailAdapter(integralDetailList, IntegralDetail.this);

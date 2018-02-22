@@ -31,7 +31,7 @@ public class NewExpressAddress extends BaseActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setLtTitle("快件地址");
         FindViewById();
-        InitData();
+        initData();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class NewExpressAddress extends BaseActivity implements View.OnClickListe
         mBut_new_address.setOnClickListener(this);
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_address = (CustomSwipeListViewUtil) findViewById(R.id.lv_address);
         addressList = new ArrayList<>();
         addressAdapter = new AddressAdapter(addressList, NewExpressAddress.this);

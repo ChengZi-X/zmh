@@ -2,10 +2,6 @@ package com.zmh.zz.zmh.modeljson;
 
 import java.io.Serializable;
 
-/**
- * Description:
- * Author:ATU
- */
 public class LoginJson implements Serializable {
 
     /**

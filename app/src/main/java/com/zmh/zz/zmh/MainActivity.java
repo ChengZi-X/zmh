@@ -109,8 +109,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
             case CAMERA_OK:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 } else {
-                    //这里是拒绝给APP摄像头权限，给个提示什么的说明一下都可以。
-                    ToastUtils.showToast(MainActivity.this, "权限被禁止,无法打开相机");
+                    //这里是拒绝给APP摄像头权限，给个提示什么的说明一下就可以。
+                    ToastUtils.showToast(MainActivity.this, "权限被禁止,将无法打开相机");
                 }
                 break;
         }
@@ -143,5 +143,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
         }
         return false;
     }
+
+
+
 
 }

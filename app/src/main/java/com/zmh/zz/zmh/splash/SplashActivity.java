@@ -67,9 +67,6 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * 再按一次退出程序
-     */
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         int keyCode = event.getKeyCode();

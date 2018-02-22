@@ -238,10 +238,11 @@ public abstract class BaseActivity extends AppCompatActivity implements TextWatc
 
     /**
      * 获取中间内容显示区
-     *
-     * @return
      */
     protected abstract int getContentView();
+    /**
+     * Editable监听
+     */
     @Override
     public void afterTextChanged(Editable s) {}
     @Override

@@ -26,7 +26,7 @@ public class MyClient extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLtTitle("我的客户");
-        InitData();
+        initData();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class MyClient extends BaseActivity {
         return R.layout.ac_my_client;
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_my_client = (ListView) findViewById(R.id.lv_my_client);
         myClientList = new ArrayList<>();
         myClientAdapter = new MyClientAdapter(myClientList, MyClient.this);

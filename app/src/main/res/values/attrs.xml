@@ -11,8 +11,8 @@
         <attr name="color_border" format="color" />
         <attr name="color_background" format="color" />
     </declare-styleable>
-    <declare-styleable name="ViewPagerMain">
-        <attr name="init_item_offset" format="float" />
+    <declare-styleable name="LazyViewPager">
+        <attr name="init_lazy_item_offset" format="float" />
     </declare-styleable>
     <declare-styleable name="LoadingView">
         <attr name="loadingText" format="string" />

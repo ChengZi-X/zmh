@@ -31,7 +31,7 @@ public class Sum extends BaseActivity implements View.OnClickListener {
         setLtTitleTvColor(R.color.white);
         setRtTitleTvColor(R.color.white);
         FindViewById();
-        InitData();
+        initData();
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Sum extends BaseActivity implements View.OnClickListener {
         mWithdraw = (RelativeLayout) findViewById(R.id.withdraw);
         mTop_up.setOnClickListener(this);
         mWithdraw.setOnClickListener(this);
-        InitData();
+        initData();
     }
 
     //右键点击
@@ -53,7 +53,7 @@ public class Sum extends BaseActivity implements View.OnClickListener {
         startActivity(new Intent(Sum.this, SumDetail.class));
     }
 
-    private void InitData() {
+    private void initData() {
     }
 
     @Override

@@ -68,7 +68,7 @@ public class WheelScroller {
     private ScrollingListener listener;
     
     // Context
-    private Context context;
+    private Context mContext;
     
     // Scrolling
     private GestureDetector gestureDetector;
@@ -79,7 +79,7 @@ public class WheelScroller {
 
     /**
      * Constructor
-     * @param context the current context
+     * @param context the current mContext
      * @param listener the scrolling listener
      */
     public WheelScroller(Context context, ScrollingListener listener) {
@@ -89,7 +89,7 @@ public class WheelScroller {
         scroller = new Scroller(context);
 
         this.listener = listener;
-        this.context = context;
+        this.mContext = context;
     }
     
     /**
@@ -98,7 +98,7 @@ public class WheelScroller {
      */
     public void setInterpolator(Interpolator interpolator) {
         scroller.forceFinished(true);
-        scroller = new Scroller(context, interpolator);
+        scroller = new Scroller(mContext, interpolator);
     }
     
     /**

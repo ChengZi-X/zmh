@@ -46,10 +46,10 @@ public class SumDetail extends AppCompatActivity implements View.OnClickListener
         mRll_title = (RelativeLayout) findViewById(R.id.rll_title);
         mRll_title.setOnClickListener(this);
         mTitle_back.setOnClickListener(this);
-        InitData();
+        initData();
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_sum_detail = (ListView) findViewById(R.id.lv_sum_detail);
         sumDetailList = new ArrayList<>();
         sumDetailAdapter = new SumDetailAdapter(sumDetailList, SumDetail.this);

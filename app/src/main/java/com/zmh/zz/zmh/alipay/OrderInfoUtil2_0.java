@@ -11,7 +11,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
@@ -123,7 +122,7 @@ public class OrderInfoUtil2_0 {
         return "sign=" + encodedSign;
     }
 
-    //生成时间戳传给支付后台
+    //生成时间传给支付后台
     private static String timeStampText() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -141,7 +140,7 @@ public class OrderInfoUtil2_0 {
         return String.valueOf(random.nextInt(10000));
     }
 
-    //生成时间戳
+    //生成时间
     private static String getTimes() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");

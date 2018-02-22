@@ -26,7 +26,7 @@ public class TradingRecord extends BaseActivity {
         super.onCreate(savedInstanceState);
         setLtTitle("交易记录");
         FindViewById();
-        InitData();
+        initData();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class TradingRecord extends BaseActivity {
     private void FindViewById() {
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_trading_record = (ListView) findViewById(R.id.lv_trading_record);
         tradingrecordList = new ArrayList<>();
         tradingRecordAdapter = new TradingRecordAdapter(tradingrecordList, TradingRecord.this);

@@ -1,5 +1,6 @@
 package com.zmh.zz.zmh.viewpager;
 
+import android.support.v4.view.PagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
@@ -7,14 +8,14 @@ import android.view.ViewGroup;
  * PagerAdapter that items added lazily
  * @param <T>
  */
-public abstract class PagerAdapter<T> extends android.support.v4.view.PagerAdapter {
+public abstract class LazyPagerAdapter<T> extends PagerAdapter {
 
     protected SparseArray<T> mLazyItems = new SparseArray<T>();
     private T mCurrentItem;
 
     /**
      * add lazy item to container
-     * @param container {@link ViewPagerMain}
+     * @param container {@link LazyViewPagerMain}
      * @param position the position that the item added to
      * @return the item added
      */
@@ -22,7 +23,7 @@ public abstract class PagerAdapter<T> extends android.support.v4.view.PagerAdapt
 
     /**
      * get the lazy item
-     * @param container {@link ViewPagerMain}
+     * @param container {@link LazyViewPagerMain}
      * @param position the position of lazy item
      * @return the lazy item
      */
@@ -46,8 +47,8 @@ public abstract class PagerAdapter<T> extends android.support.v4.view.PagerAdapt
     }
 
     /**
-     * call {@link PagerAdapter#addLazyItem(ViewGroup, int)}
-     * to prevent {@link ViewPagerMain#onPageScrolled(int, float, int)} not working when the offset of {@link ViewPagerMain} is too big
+     * call {@link LazyPagerAdapter#addLazyItem(ViewGroup, int)}
+     * to prevent {@link LazyViewPagerMain#onPageScrolled(int, float, int)} not working when the offset of {@link LazyViewPagerMain} is too big
      */
     @Override
     public void setPrimaryItem(ViewGroup container, int position, Object object) {

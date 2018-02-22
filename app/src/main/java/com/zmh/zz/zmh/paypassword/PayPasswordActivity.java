@@ -21,13 +21,13 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.utils.ToastUtils;
 
 import static android.view.View.GONE;
 
-public class PasswordActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class PayPasswordActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private final static int NUMBER_BUTTON_DELETE = 11;
     private final static int NUMBER_BUTTON_ZERO = 10;//0号按键
@@ -46,8 +46,7 @@ public class PasswordActivity extends AppCompatActivity implements AdapterView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_password);
-
+        setContentView(R.layout.ac_pay_password);
         WindowManager m = getWindowManager();
         Display d = m.getDefaultDisplay(); // 为获取屏幕宽、高
         android.view.WindowManager.LayoutParams p = getWindow().getAttributes();
@@ -61,7 +60,7 @@ public class PasswordActivity extends AppCompatActivity implements AdapterView.O
         Tv_Forget_Pwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PasswordActivity.this, "忘记密码?", Toast.LENGTH_SHORT).show();
+                ToastUtils.showToast(PayPasswordActivity.this, "忘记密码?");
             }
         });
         backBtn = (ImageView) findViewById(R.id.dialog_back);
@@ -98,7 +97,7 @@ public class PasswordActivity extends AppCompatActivity implements AdapterView.O
                             tickView.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    AlertDialog.Builder dialog = new AlertDialog.Builder(PasswordActivity.this);
+                                    AlertDialog.Builder dialog = new AlertDialog.Builder(PayPasswordActivity.this);
                                     dialog.setMessage("您的提现申请已经发出,我们将会在后台进行审核,审核通过后自动到你账户");
                                     dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                         @Override
@@ -119,7 +118,7 @@ public class PasswordActivity extends AppCompatActivity implements AdapterView.O
                             tickView.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    AlertDialog.Builder dialog = new AlertDialog.Builder(PasswordActivity.this);
+                                    AlertDialog.Builder dialog = new AlertDialog.Builder(PayPasswordActivity.this);
                                     dialog.setMessage("密码错误,请重新输入");
                                     dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                         @Override

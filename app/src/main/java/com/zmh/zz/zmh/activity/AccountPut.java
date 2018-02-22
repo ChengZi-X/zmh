@@ -117,7 +117,7 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
         }
     }
 
-    //生成时间戳
+    //生成时间
     public static String getTimes() {
         Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
@@ -195,12 +195,12 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
 
     @Override
     public void afterTextChanged(Editable s) {
+        mMoneyValue = Et_Money.getText().toString();
         if (mMoneyValue.equals("")) {
             Tv_Money.setText("0.00");//实时变化的金额
         } else {
             Tv_Money.setText(s + ".00");
         }
-        mMoneyValue = Et_Money.getText().toString();
         if (mMoneyValue.equals("") || Double.parseDouble(mMoneyValue) < 1) {
             But_Next.setEnabled(false);
         } else {

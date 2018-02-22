@@ -26,7 +26,7 @@ public class ClientSum extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLtTitle("客户余额");
-        InitData();
+        initData();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ClientSum extends BaseActivity {
         return R.layout.ac_client_sum;
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_client_sum = (ListView) findViewById(R.id.lv_client_sum);
         clientSumtList = new ArrayList<>();
         clientSumAdapter = new ClientSumAdapter(clientSumtList, ClientSum.this);

@@ -20,7 +20,7 @@ public class EssentialInformation extends BaseActivity {
         super.onCreate(savedInstanceState);
         setLtTitle("基本信息");
         FindViewById();
-        InitData();
+        initData();
     }
 
 
@@ -34,6 +34,6 @@ public class EssentialInformation extends BaseActivity {
         mChoose_address = (TextView) findViewById(R.id.choose_address);
     }
 
-    private void InitData() {
+    private void initData() {
     }
 }

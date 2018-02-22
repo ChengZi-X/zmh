@@ -182,7 +182,7 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
         startActivityForResult(intent, CROP_SMALL_PICTURE);
     }
 
-    //将tempUri转换成真实的图片路径
+    //将tempUri转换成真实的图片路径,只针对于4.4以上;
     public static String getRealFilePath(final Context context, final Uri uri) {
         if (null == uri) return null;
         final String scheme = uri.getScheme();
@@ -220,7 +220,7 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
             String ImgName = path.replace("/", "");
             Log.e("sssss>>", ImgName);
             ToastUtils.showToast(PersonalInformation.this, "上传图片需要的>>>" + "图片的名字>>>" + ImgName + "图片的路径>>>" + path);
-            //在这个地方可以写上上传该图片到服务器的代码，后期将单独写一篇这方面的博客，敬请期待...
+            //在这个地方可以写上上传该图片到服务器的代码
 
         }
     }

@@ -25,7 +25,7 @@ public class ClientTopUp extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLtTitle("客户充值");
-        InitData();
+        initData();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ClientTopUp extends BaseActivity {
         return R.layout.ac_client_top_up;
     }
 
-    private void InitData() {
+    private void initData() {
         mLv_client_top_up = (ListView) findViewById(R.id.lv_client_top_up);
         clientTopUptList = new ArrayList<>();
         clientTopUpAdapter = new ClientTopUpAdapter(clientTopUptList, ClientTopUp.this);

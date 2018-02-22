@@ -26,10 +26,10 @@ import com.zmh.zz.zmh.MainActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.httpurls.HttpURLs;
 import com.zmh.zz.zmh.modeljson.LoginJson;
-import com.zmh.zz.zmh.utils.RegularUtil;
 import com.zmh.zz.zmh.utils.MD5Util;
 import com.zmh.zz.zmh.utils.MyStringCallBack;
 import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.RegularUtil;
 import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
 import com.zmh.zz.zmh.utils.ToastUtils;
 
@@ -80,6 +80,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             startActivity(new Intent(Login.this, MainActivity.class));
             finish();
         }
+        //闪屏
+        //SplashView.showSplashView(this, 3, R.mipmap.splash, null);
     }
 
     @Override
@@ -130,6 +132,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 Log.e("sssss>>>", response);
 //              JsonResult<JSONObject> jsonRet = new JsonResult<>();
 //              JSONObject Result = jsonRet.getData();
+//              String email = Result.getString("email");
+    //              JSONObject jsonObject = new JSONObject(response);
+    //              String resultCode = jsonObject.getString("resultCode");
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
                 String desc = login.getDesc();
@@ -163,104 +168,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
         });
     }
-
-    /**
-     * 登录
-     */
-//    private void LOGIN() {
-//        // 默认可登录帐号123,密码123
-//        userNameValue = mEt_UserName.getText().toString();
-//        passwordValue = mEt_Password.getText().toString();
-//        SharedPreferences.Editor editor = sp.edit();
-//        if (userNameValue.equals("123") && passwordValue.equals("123")) {
-//            ToastUtils.showToast(Login.this, "登录成功");
-//            //保存用户名和密码
-//            editor.putString("USER_NAME", userNameValue);
-//            editor.putString("PASSWORD", passwordValue);
-//            editor.commit();
-//            //跳转
-//            startActivity(new Intent(Login.this, MainActivity.class));
-//            finish();
-//        } else {
-//            ToastUtils.showToast(Login.this, "用户名或密码错误，请重新输入");
-//        }
-//    }
-
-
-    /**
-     * 登录
-     */
-//    private void LOGIN() {
-//        MyDialog = new ProgressDialog(this);
-//        //依次设置标题,内容,是否用取消按钮关闭,是否显示进度
-//        MyDialog.setTitle("登录");
-//        MyDialog.setMessage("登录中，请稍后...");
-//        MyDialog.setCancelable(false);
-//        //这里是设置进度条的风格,HORIZONTAL是水平进度条,SPINNER是圆形进度条
-//        MyDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//        MyDialog.setIndeterminate(true);
-//        //调用show()方法将ProgressDialog显示出来
-//        MyDialog.show();
-//        userNameValue = mEt_zhanghao.getText().toString();
-//        passwordValue = mEt_mima.getText().toString();
-//        String url = "http://" + SharedPreferencesUtil.getParam(Ac_Login.this, "IP", "") + ":" + SharedPreferencesUtil.getParam(Ac_Login.this, "PORT", "") + "/mes-service/SystemManageServer/User/loginApp";
-//        HttpUtils http = new HttpUtils();
-//        http.configCurrentHttpCacheExpiry(1000);
-//        RequestParams params = new RequestParams();
-//        params.addBodyParameter("account", userNameValue);
-//        params.addBodyParameter("password", MD5Utils.MD5(passwordValue, 32));
-//        http.send(HttpRequest.HttpMethod.POST, url, params, new RequestCallBack<String>() {
-//            @Override
-//            public void onSuccess(ResponseInfo<String> responseInfo) {
-//                String s = responseInfo.result;
-//                Log.e("---sssssssssssss", s);
-//                LoginJson li = JSONObject.parseObject(s, LoginJson.class);
-//                String role = li.getRole();
-//                String userId = li.getUserId();
-//                SharedPreferencesUtil.setParam(Ac_Login.this, "role", role + "");
-//                SharedPreferencesUtil.setParam(Ac_Login.this, "userId", userId + "");
-//                Log.e("ssssss", role + "");
-//                switch (li.getResult()) {
-//                    case "success":
-//                        MyDialog.dismiss();
-//                        SharedPreferences.Editor editor = sp.edit();
-//                        // 保存用户名和密码
-//                        editor.putString("USER_NAME", userNameValue);
-//                        editor.putString("PASSWORD", passwordValue);
-//
-//                        // 是否记住密码
-//                        if (mCb_jizhumima.isChecked()) {
-//                            editor.putBoolean("remember", true);
-//                        } else {
-//                            editor.putBoolean("remember", false);
-//                        }
-//                        // 是否自动登录
-//                        if (mCb_zidongdenglu.isChecked()) {
-//                            editor.putBoolean("autologin", true);
-//                            mCb_jizhumima.setChecked(true);
-//                        } else {
-//                            editor.putBoolean("autologin", false);
-//                        }
-//                        editor.commit();
-//                        // 跳转
-//                        Intent intent = new Intent(Ac_Login.this, MainActivity.class);
-//                        startActivity(intent);
-//                        finish();
-//                        break;
-//                    default:
-//                        ToastUtils.showToast(Ac_Login.this, "账号或密码错误");
-//                        MyDialog.dismiss();
-//                        break;
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(HttpException e, String s) {
-//                MyDialog.dismiss();
-//                Toast.makeText(Ac_Login.this, "网络连接失败，请查询网络", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
 
     /**
      * 退出程序

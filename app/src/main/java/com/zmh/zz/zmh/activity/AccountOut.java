@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.paypassword.PasswordActivity;
+import com.zmh.zz.zmh.paypassword.PayPasswordActivity;
 
 /**
  * Created by Administrator
@@ -42,7 +42,7 @@ public class AccountOut extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.but_withdraw:
-                Intent intent = new Intent(AccountOut.this, PasswordActivity.class);
+                Intent intent = new Intent(AccountOut.this, PayPasswordActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.keyboard_show, R.anim.keyboard_hide);
                 //ToastUtils.showToast(AccountOut.this, "确认提现");

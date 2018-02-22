@@ -34,7 +34,7 @@ public class ChangeAddressPopUtil extends PopupWindow implements View.OnClickLis
     private TextView btnSure;
     private TextView btnCancel;
 
-    private Context context;
+    private Context mContext;
     private JSONObject mJsonObj;
     /**
      * 所有省
@@ -67,7 +67,7 @@ public class ChangeAddressPopUtil extends PopupWindow implements View.OnClickLis
 
     public ChangeAddressPopUtil(final Context context) {
         super(context);
-        this.context = context;
+        this.mContext = context;
         View view = View.inflate(context, R.layout.layout_changeaddress_pop, null);
 
         wvProvince = (WheelView) view.findViewById(R.id.wv_address_province);
@@ -314,7 +314,7 @@ public class ChangeAddressPopUtil extends PopupWindow implements View.OnClickLis
     private void initJsonData() {
         try {
             StringBuffer sb = new StringBuffer();
-            InputStream is = context.getClass().getClassLoader().getResourceAsStream("assets/" + "city.json");
+            InputStream is = mContext.getClass().getClassLoader().getResourceAsStream("assets/" + "city.json");
             int len = -1;
             byte[] buf = new byte[1024];
             while ((len = is.read(buf)) != -1) {

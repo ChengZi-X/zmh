@@ -21,7 +21,7 @@ public class ClientData extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setLtTitle("600001 张三");
         FindViewById();
-        InitData();
+        initData();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class ClientData extends BaseActivity implements View.OnClickListener {
         mClient_fund.setOnClickListener(this);
     }
 
-    private void InitData() {
+    private void initData() {
     }
 
     @Override

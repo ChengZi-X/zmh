@@ -75,56 +75,63 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     //右键点击
     @Override
     protected void onClickRight() {
-        mContent = Et_Content.getText().toString();
-        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Feedback.this);
-        shapeLoadingDialog.setCancelable(false);
-        shapeLoadingDialog.setLoadingText("上传中,请稍等...");
-        shapeLoadingDialog.show();
-        String Base64 = "";
-        String Name = "";
         for (int i = 0; i < selImageList.size(); i++) {
-            String bimpName = selImageList.get(i).name;
-            String bimpBase64 = Base64Util.imageToBase64(selImageList.get(i).path);
-            if (selImageList.size() - 1 == i) {
-                Base64 += bimpBase64;
-                Name += bimpName;
-            } else {
-                Base64 += bimpBase64 + "@";
-                Name += bimpName + "@";
-            }
+            String bimpBase64 = selImageList.get(i).path;
+            String bimpName = bimpBase64.replace("/", "");
+            Log.e("ssss>>", bimpBase64 + "");
+            Log.e("ssss>>", bimpName + "");
         }
-        Base64 = Base64 + "#" + Name;
-        Log.e("s>>>", Base64);
-        String url = HttpURLs.UPDATEBASE64;
-        Map<String, String> params = new HashMap<>();
-        params.put("imgStr", Base64);
-        //params.put("Content", mContent);
-        okHttp.postRequest(url, params, new MyStringCallBack() {
-            @Override
-            public void onResponse(String response, int id) {
-                Log.e("sssss>>>", response);
-                LoginJson login = JSONObject.parseObject(response, LoginJson.class);
-                int code = login.getCode();
-                String desc = login.getDesc();
-                switch (code) {
-                    case 200:
-                        shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(Feedback.this, "上传成功");
-                        break;
-                    case 400:
-                        shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(Feedback.this, desc);
-                        break;
-                }
 
-            }
-
-            @Override
-            public void onError(Call call, Exception e, int id) {
-                shapeLoadingDialog.dismiss();
-                Toast.makeText(Feedback.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
-            }
-        });
+//        mContent = Et_Content.getText().toString();
+//        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Feedback.this);
+//        shapeLoadingDialog.setCancelable(false);
+//        shapeLoadingDialog.setLoadingText("上传中,请稍等...");
+//        shapeLoadingDialog.show();
+//        String Base64 = "";
+//        String Name = "";
+//        for (int i = 0; i < selImageList.size(); i++) {
+//            String bimpName = selImageList.get(i).name;
+//            String bimpBase64 = Base64Util.imageToBase64(selImageList.get(i).path);
+//            if (selImageList.size() - 1 == i) {
+//                Base64 += bimpBase64;
+//                Name += bimpName;
+//            } else {
+//                Base64 += bimpBase64 + "@";
+//                Name += bimpName + "@";
+//            }
+//        }
+//        Base64 = Base64 + "#" + Name;
+//        Log.e("s>>>", Base64);
+//        String url = HttpURLs.UPDATEBASE64;
+//        Map<String, String> params = new HashMap<>();
+//        params.put("imgStr", Base64);
+//        //params.put("Content", mContent);
+//        okHttp.postRequest(url, params, new MyStringCallBack() {
+//            @Override
+//            public void onResponse(String response, int id) {
+//                Log.e("sssss>>>", response);
+//                LoginJson login = JSONObject.parseObject(response, LoginJson.class);
+//                int code = login.getCode();
+//                String desc = login.getDesc();
+//                switch (code) {
+//                    case 200:
+//                        shapeLoadingDialog.dismiss();
+//                        ToastUtils.showToast(Feedback.this, "上传成功");
+//                        break;
+//                    case 400:
+//                        shapeLoadingDialog.dismiss();
+//                        ToastUtils.showToast(Feedback.this, desc);
+//                        break;
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onError(Call call, Exception e, int id) {
+//                shapeLoadingDialog.dismiss();
+//                Toast.makeText(Feedback.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 

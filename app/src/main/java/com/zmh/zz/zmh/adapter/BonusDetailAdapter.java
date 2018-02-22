@@ -16,7 +16,6 @@ import java.util.List;
  */
 
 public class BonusDetailAdapter extends BaseAdapter {
-
     private List<BonusDetailInfo> list;
     private Context mContext;
 

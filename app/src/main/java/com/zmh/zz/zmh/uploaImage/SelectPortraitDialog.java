@@ -13,7 +13,7 @@ import com.zmh.zz.zmh.R;
 
 public class SelectPortraitDialog extends Dialog implements View.OnClickListener {
 
-    private Context context;
+    private Context mContext;
     private ClickListenerInterface clickListenerInterface;
 
     public interface ClickListenerInterface {
@@ -24,7 +24,7 @@ public class SelectPortraitDialog extends Dialog implements View.OnClickListener
 
     public SelectPortraitDialog(Context context) {
         super(context, R.style.dialog);
-        this.context = context;
+        this.mContext = context;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class SelectPortraitDialog extends Dialog implements View.OnClickListener
         tvPhoto.setOnClickListener(this);
         Window dialogWindow = getWindow();
         WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-        DisplayMetrics d = context.getResources().getDisplayMetrics(); // 获取屏幕宽、高用
+        DisplayMetrics d = mContext.getResources().getDisplayMetrics(); // 获取屏幕宽、高用
         lp.width = (int) (d.widthPixels * 0.8); // 高度设置为屏幕的0.8
         dialogWindow.setAttributes(lp);
     }
