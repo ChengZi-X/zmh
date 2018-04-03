@@ -50,12 +50,12 @@ public class RegularUtil {
     }
 
     // QQ邮箱验证
-    public static boolean isQQMailbox(String Mailbox) {
+    public static boolean isQQEmail(String Email) {
         String telRegex = "^[1-9]\\d+@[qQ]{2}\\.com";
-        if (TextUtils.isEmpty(Mailbox))
+        if (TextUtils.isEmpty(Email))
             return false;
         else
-            return Mailbox.matches(telRegex);
+            return Email.matches(telRegex);
     }
 
     // 身份证号验证

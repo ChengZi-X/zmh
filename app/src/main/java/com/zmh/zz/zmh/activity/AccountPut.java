@@ -161,15 +161,15 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
      * 支付宝支付业务
      */
     public void pay() {
-        if (TextUtils.isEmpty(APPID) || (TextUtils.isEmpty(RSA2_PRIVATE) && TextUtils.isEmpty(RSA_PRIVATE))) {
-            new AlertDialog.Builder(this).setTitle("警告").setMessage("需要配置APPID | RSA_PRIVATE")
-                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialoginterface, int i) {
-                            finish();
-                        }
-                    }).show();
-            return;
-        }
+//        if (TextUtils.isEmpty(APPID) || (TextUtils.isEmpty(RSA2_PRIVATE) && TextUtils.isEmpty(RSA_PRIVATE))) {
+//            new AlertDialog.Builder(this).setTitle("警告").setMessage("需要配置APPID | RSA_PRIVATE")
+//                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialoginterface, int i) {
+//                            finish();
+//                        }
+//                    }).show();
+//            return;
+//        }
         boolean rsa2 = (RSA2_PRIVATE.length() > 0);
         Map<String, String> params = OrderInfoUtil2_0.buildOrderParamMap(APPID, rsa2, Float.parseFloat(Et_Money.getText().toString()));
         String orderParam = OrderInfoUtil2_0.buildOrderParam(params);

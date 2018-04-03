@@ -15,7 +15,7 @@ import com.zmh.zz.zmh.R;
  */
 
 public class AccountSecurity extends BaseActivity implements View.OnClickListener {
-    private RelativeLayout Rl_PhoneNumber, Rl_Mailbox, Rl_ChangePassword;
+    private RelativeLayout Rl_PhoneNumber, Rl_Email, Rl_ChangePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +31,10 @@ public class AccountSecurity extends BaseActivity implements View.OnClickListene
 
     private void FindViewById() {
         Rl_PhoneNumber = (RelativeLayout) findViewById(R.id.rl_phonenumber);
-        Rl_Mailbox = (RelativeLayout) findViewById(R.id.rl_mailbox);
+        Rl_Email = (RelativeLayout) findViewById(R.id.rl_email);
         Rl_ChangePassword = (RelativeLayout) findViewById(R.id.rl_changepassword);
         Rl_PhoneNumber.setOnClickListener(this);
-        Rl_Mailbox.setOnClickListener(this);
+        Rl_Email.setOnClickListener(this);
         Rl_ChangePassword.setOnClickListener(this);
 
     }
@@ -45,8 +45,8 @@ public class AccountSecurity extends BaseActivity implements View.OnClickListene
             case R.id.rl_phonenumber:
                 startActivity(new Intent(AccountSecurity.this, VerifyPhoneNumberPhone.class));
                 break;
-            case R.id.rl_mailbox:
-                startActivity(new Intent(AccountSecurity.this, VerifyPhoneNumberMailbox.class));
+            case R.id.rl_email:
+                startActivity(new Intent(AccountSecurity.this, VerifyPhoneNumberEmail.class));
                 break;
             case R.id.rl_changepassword:
                 startActivity(new Intent(AccountSecurity.this, ChangePassword.class));

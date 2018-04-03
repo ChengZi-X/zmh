@@ -19,14 +19,14 @@ android {
         }
     }
 
-    signingConfigs {
-        debug {
-            keyAlias 'zmh'
-            keyPassword 'cnjinrong'
-            storeFile file('E:\\zmhkey.jks')
-            storePassword 'cnjinrong'
-        }
-    }
+//    signingConfigs {
+//        debug {
+//            keyAlias 'zmh'
+//            keyPassword 'cnjinrong'
+//            storeFile file('E:\\zmhkey.jks')
+//            storePassword 'cnjinrong'
+//        }
+//    }
 }
 
 

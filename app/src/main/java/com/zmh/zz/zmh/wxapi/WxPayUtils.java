@@ -121,7 +121,6 @@ public class WxPayUtils {
         @Override
         protected void onPostExecute(Map<String, String> result) {
             sb.append("prepay_id\n" + result.get("prepay_id") + "\n\n");
-
             resultunifiedorder = result;
             getPayReq();
             setdPayReq();

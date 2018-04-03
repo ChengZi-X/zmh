@@ -66,10 +66,10 @@
             android:theme="@style/dialog" />
         <activity android:name=".activity.AddAddress" />
         <activity android:name=".activity.VerifyPhoneNumberPhone" />
-        <activity android:name=".activity.VerifyPhoneNumberMailbox" />
+        <activity android:name=".activity.VerifyPhoneNumberEmail" />
         <activity android:name=".activity.ChangePassword" />
         <activity android:name=".activity.NewPhoneNumber" />
-        <activity android:name=".activity.NewMailbox" />
+        <activity android:name=".activity.NewEmail" />
         <activity android:name=".activity.RealNameAuthenticationFalse" />
         <activity android:name=".activity.RealNameAuthenticationTrue" />
         <activity android:name=".activity.Notice" />

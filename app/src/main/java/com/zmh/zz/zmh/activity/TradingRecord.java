@@ -1,6 +1,8 @@
 package com.zmh.zz.zmh.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 
 import com.zmh.zz.zmh.BaseActivity;
@@ -17,7 +19,7 @@ import java.util.List;
  */
 
 public class TradingRecord extends BaseActivity {
-    private ListView mLv_trading_record;
+    private RecyclerView mRv_trading_record;
     private TradingRecordAdapter tradingRecordAdapter;
     private List<TradingRecordInfo> tradingrecordList;
 
@@ -38,10 +40,11 @@ public class TradingRecord extends BaseActivity {
     }
 
     private void initData() {
-        mLv_trading_record = (ListView) findViewById(R.id.lv_trading_record);
+        mRv_trading_record = (RecyclerView) findViewById(R.id.rv_trading_record);
         tradingrecordList = new ArrayList<>();
         tradingRecordAdapter = new TradingRecordAdapter(tradingrecordList, TradingRecord.this);
-        mLv_trading_record.setAdapter(tradingRecordAdapter);
+        mRv_trading_record.setLayoutManager(new LinearLayoutManager(this));
+        mRv_trading_record.setAdapter(tradingRecordAdapter);
         tradingRecordAdapter.notifyDataSetChanged();
     }
 

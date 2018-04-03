@@ -41,7 +41,7 @@ public class PayPasswordActivity extends AppCompatActivity implements AdapterVie
     private TextView tipView;
     private String password;
     private String password1 = 123456 + "";
-    private TextView Tv_Forget_Pwd;
+    private TextView Tv_ForgetPwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +56,8 @@ public class PayPasswordActivity extends AppCompatActivity implements AdapterVie
         p.width = point.x;
         getWindow().setGravity(Gravity.LEFT | Gravity.BOTTOM);
         getWindow().setAttributes(p);
-        Tv_Forget_Pwd = (TextView) findViewById(R.id.tv_forget_pwd);
-        Tv_Forget_Pwd.setOnClickListener(new View.OnClickListener() {
+        Tv_ForgetPwd = (TextView) findViewById(R.id.tv_forget_pwd);
+        Tv_ForgetPwd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ToastUtils.showToast(PayPasswordActivity.this, "忘记密码?");
@@ -74,7 +74,7 @@ public class PayPasswordActivity extends AppCompatActivity implements AdapterVie
         passwordView.setOnCompleteLinstener(new PayPasswordView.OnCompleteLinstener() {
             @Override
             public void onComplete() {
-                Tv_Forget_Pwd.setVisibility(GONE);
+                Tv_ForgetPwd.setVisibility(GONE);
                 passwordView.setVisibility(GONE);
                 gridView.setVisibility(GONE);
                 tipView.setVisibility(View.VISIBLE);
@@ -90,7 +90,7 @@ public class PayPasswordActivity extends AppCompatActivity implements AdapterVie
                     public void run() {
                         if (password.equals(password1)) {
                             imageView.clearAnimation();
-                            Tv_Forget_Pwd.setVisibility(GONE);
+                            Tv_ForgetPwd.setVisibility(GONE);
                             imageView.setVisibility(GONE);
                             tipView.setVisibility(GONE);
                             tickView.setVisibility(View.VISIBLE);
@@ -110,7 +110,7 @@ public class PayPasswordActivity extends AppCompatActivity implements AdapterVie
                             }, 1200);
                         } else {
                             imageView.clearAnimation();
-                            Tv_Forget_Pwd.setVisibility(GONE);
+                            Tv_ForgetPwd.setVisibility(GONE);
                             imageView.setVisibility(GONE);
                             tipView.setVisibility(GONE);
                             tickView.setSuccess(false);

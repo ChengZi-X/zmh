@@ -3,6 +3,8 @@ package com.zmh.zz.zmh.activity;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextPaint;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +29,7 @@ import java.util.List;
 public class BonusDetail extends AppCompatActivity implements View.OnClickListener {
     private TextView toolbartitle;
     private RelativeLayout mTitle_back, mRll_title;
-    private ListView mLv_bonus_detail;
+    private RecyclerView mRv_bonus_detail;
     private BonusDetailAdapter bonusDetailAdapter;
     private List<BonusDetailInfo> bonusDetailList;
     private TextView mTv_all, mTv_expend, mTv_income;
@@ -50,12 +52,12 @@ public class BonusDetail extends AppCompatActivity implements View.OnClickListen
     }
 
     private void initData() {
-        mLv_bonus_detail = (ListView) findViewById(R.id.lv_bonus_detail);
         bonusDetailList = new ArrayList<>();
+        mRv_bonus_detail = (RecyclerView) findViewById(R.id.rv_bonus_detail);
         bonusDetailAdapter = new BonusDetailAdapter(bonusDetailList, BonusDetail.this);
-        mLv_bonus_detail.setAdapter(bonusDetailAdapter);
+        mRv_bonus_detail.setLayoutManager(new LinearLayoutManager(this));
+        mRv_bonus_detail.setAdapter(bonusDetailAdapter);
         bonusDetailAdapter.notifyDataSetChanged();
-
     }
 
     @Override

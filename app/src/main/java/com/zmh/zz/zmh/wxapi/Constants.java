@@ -7,5 +7,4 @@ public class Constants {
     public static final String MCH_ID = "1493245652";
     //  API密钥，在商户平台设置
     public static final String API_KEY = "cnjin565eruhij0098kijuollok97876";
-
 }

@@ -2,6 +2,8 @@ package com.zmh.zz.zmh.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 
 import com.zmh.zz.zmh.BaseActivity;
@@ -18,7 +20,7 @@ import java.util.List;
  */
 
 public class IntegralDetail extends BaseActivity {
-    private ListView mLv_integral_detail;
+    private RecyclerView mRv_integral_detail;
     private IntegralDetailAdapter integralDetailAdapter;
     private List<IntegralDetailInfo> integralDetailList;
 
@@ -48,10 +50,11 @@ public class IntegralDetail extends BaseActivity {
     }
 
     private void initData() {
-        mLv_integral_detail = (ListView) findViewById(R.id.lv_integral_detail);
+        mRv_integral_detail = (RecyclerView) findViewById(R.id.rv_integral_detail);
         integralDetailList = new ArrayList<>();
         integralDetailAdapter = new IntegralDetailAdapter(integralDetailList, IntegralDetail.this);
-        mLv_integral_detail.setAdapter(integralDetailAdapter);
+        mRv_integral_detail.setLayoutManager(new LinearLayoutManager(this));
+        mRv_integral_detail.setAdapter(integralDetailAdapter);
         integralDetailAdapter.notifyDataSetChanged();
 
     }

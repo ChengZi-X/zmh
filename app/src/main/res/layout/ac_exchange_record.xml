@@ -5,8 +5,8 @@
     android:background="@color/background"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_exchange_record"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_exchange_record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"

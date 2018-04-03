@@ -3,6 +3,8 @@ package com.zmh.zz.zmh.activity;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextPaint;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +29,7 @@ import java.util.List;
 public class SumDetail extends AppCompatActivity implements View.OnClickListener {
     private TextView toolbartitle;
     private RelativeLayout mTitle_back, mRll_title;
-    private ListView mLv_sum_detail;
+    private RecyclerView mRv_sum_detail;
     private SumDetailAdapter sumDetailAdapter;
     private List<SumDetailInfo> sumDetailList;
     private TextView mTv_all, mTv_expend, mTv_income;
@@ -50,10 +52,11 @@ public class SumDetail extends AppCompatActivity implements View.OnClickListener
     }
 
     private void initData() {
-        mLv_sum_detail = (ListView) findViewById(R.id.lv_sum_detail);
+        mRv_sum_detail = (RecyclerView) findViewById(R.id.rv_sum_detail);
         sumDetailList = new ArrayList<>();
         sumDetailAdapter = new SumDetailAdapter(sumDetailList, SumDetail.this);
-        mLv_sum_detail.setAdapter(sumDetailAdapter);
+        mRv_sum_detail.setAdapter(sumDetailAdapter);
+        mRv_sum_detail.setLayoutManager(new LinearLayoutManager(this));
         sumDetailAdapter.notifyDataSetChanged();
 
     }

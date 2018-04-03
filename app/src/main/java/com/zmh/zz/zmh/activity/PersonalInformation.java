@@ -50,8 +50,6 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
     private String midPath;
     private File filePath;
     private static String path;
-    private SelectPortraitDialog selectDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +74,7 @@ public class PersonalInformation extends BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.rl_head_portrait:
-                selectDialog = new SelectPortraitDialog(this);
+                final SelectPortraitDialog selectDialog = new SelectPortraitDialog(this);
                 selectDialog.show();
                 selectDialog.setClicklistener(new SelectPortraitDialog.ClickListenerInterface() {
                     @Override

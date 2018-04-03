@@ -2,17 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_client_sum"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_client_sum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:background="@color/white"
         android:divider="@null"
         android:overScrollMode="never"
-        android:scrollbars="none"/>
+        android:scrollbars="none" />
 
 </LinearLayout>

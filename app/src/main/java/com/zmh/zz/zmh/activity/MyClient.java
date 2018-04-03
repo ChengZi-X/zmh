@@ -1,6 +1,8 @@
 package com.zmh.zz.zmh.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 
 import com.zmh.zz.zmh.BaseActivity;
@@ -17,7 +19,7 @@ import java.util.List;
  */
 
 public class MyClient extends BaseActivity {
-    private ListView mLv_my_client;
+    private RecyclerView mRv_my_client;
     private MyClientAdapter myClientAdapter;
     private List<MyClientInfo> myClientList;
 
@@ -35,10 +37,11 @@ public class MyClient extends BaseActivity {
     }
 
     private void initData() {
-        mLv_my_client = (ListView) findViewById(R.id.lv_my_client);
+        mRv_my_client = (RecyclerView) findViewById(R.id.rv_my_client);
         myClientList = new ArrayList<>();
         myClientAdapter = new MyClientAdapter(myClientList, MyClient.this);
-        mLv_my_client.setAdapter(myClientAdapter);
+        mRv_my_client.setLayoutManager(new LinearLayoutManager(this));
+        mRv_my_client.setAdapter(myClientAdapter);
         myClientAdapter.notifyDataSetChanged();
     }
 

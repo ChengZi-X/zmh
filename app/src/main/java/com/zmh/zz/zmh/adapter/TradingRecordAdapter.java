@@ -1,12 +1,16 @@
 package com.zmh.zz.zmh.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.modelinfo.ClientBonusInfo;
 import com.zmh.zz.zmh.modelinfo.TradingRecordInfo;
 
 import java.util.List;
@@ -16,44 +20,103 @@ import java.util.List;
  * 交易记录
  */
 
-public class TradingRecordAdapter extends BaseAdapter {
-    private List<TradingRecordInfo> list;
+public class TradingRecordAdapter extends RecyclerView.Adapter<TradingRecordAdapter.MyViewHolder> {
+    private final int TYPE_HEAD = 1;
+    private final int TYPE_NOMAL = 2;
+    private int currentType;
     private Context mContext;
+    private List<TradingRecordInfo> list;
 
     public TradingRecordAdapter(List<TradingRecordInfo> list, Context context) {
-        this.list = list;
         this.mContext = context;
+        this.list = list;
     }
 
     @Override
-    public int getCount() {
-        return 6;
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.ac_item_trading_record, parent, false);
+        MyViewHolder myViewHolder = new MyViewHolder(view);
+        return myViewHolder;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
-        final ViewHolder holder;
-        if (convertView == null) {
-            holder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.ac_item_trading_record, null);
-            holder.mTv_sum = (TextView) convertView.findViewById(R.id.tv_sum);
-            holder.mTv_sum.setText("总资产余额:" + "\r\r" + "32000.00");
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        holder.mTv_sum.setText("总资产余额:" + "\r\r" + "32000.00");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 5;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0) {
+            currentType = TYPE_HEAD;
+        } else {
+            currentType = TYPE_NOMAL;
         }
-        return convertView;
+        return currentType;
     }
 
-    class ViewHolder {
+
+    class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView mTv_sum;
-    }
 
-    @Override
-    public Object getItem(int position) {
-        return list.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            mTv_sum = (TextView) itemView.findViewById(R.id.tv_sum);
+        }
     }
 
 }
+
+
+//public class TradingRecordAdapter extends BaseAdapter {
+//    private List<TradingRecordInfo> list;
+//    private Context mContext;
+//
+//    public TradingRecordAdapter(List<TradingRecordInfo> list, Context context) {
+//        this.list = list;
+//        this.mContext = context;
+//    }
+//
+//    @Override
+//    public int getCount() {
+//        return 6;
+//    }
+//
+//    @Override
+//    public View getView(int position, View convertView, ViewGroup viewGroup) {
+//        final ViewHolder holder;
+//        if (convertView == null) {
+//            holder = new ViewHolder();
+//            convertView = View.inflate(mContext, R.layout.ac_item_trading_record, null);
+//            holder.mTv_sum = (TextView) convertView.findViewById(R.id.tv_sum);
+//            holder.mTv_sum.setText("总资产余额:" + "\r\r" + "32000.00");
+//        }
+//        return convertView;
+//    }
+//
+//    class ViewHolder {
+//        private TextView mTv_sum;
+//    }
+//
+//    @Override
+//    public Object getItem(int position) {
+//        return list.get(position);
+//    }
+//
+//    @Override
+//    public long getItemId(int position) {
+//        return position;
+//    }
+//
+//}

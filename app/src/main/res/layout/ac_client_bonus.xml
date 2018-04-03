@@ -5,8 +5,8 @@
     android:background="@color/background"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_client_bonus"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_client_bonus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"

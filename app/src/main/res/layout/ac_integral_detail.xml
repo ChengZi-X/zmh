@@ -5,13 +5,13 @@
     android:background="@color/background"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_integral_detail"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_integral_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:background="@color/white"
         android:divider="@null"
         android:overScrollMode="never"
-        android:scrollbars="none"/>
+        android:scrollbars="none" />
 </LinearLayout>

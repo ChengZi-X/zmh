@@ -36,7 +36,7 @@ public class Sum extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_sum;//任意非空布局
+        return R.layout.ac_sum;
     }
 
     private void FindViewById() {

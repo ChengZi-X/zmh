@@ -103,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     public void onTabReselected(int position) {
     }
 
+    //二维码扫描需要的权限
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
@@ -136,15 +137,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                         .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-
                             }
                         }).show();
                 break;
         }
         return false;
     }
-
-
-
-
 }

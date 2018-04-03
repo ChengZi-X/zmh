@@ -76,12 +76,13 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     @Override
     protected void onClickRight() {
         for (int i = 0; i < selImageList.size(); i++) {
-            String bimpBase64 = selImageList.get(i).path;
-            String bimpName = bimpBase64.replace("/", "");
-            Log.e("ssss>>", bimpBase64 + "");
+            String Name = selImageList.get(i).path;
+            String bimpName = Name.replace("/", "");
+            String bimpBase64 = Base64Util.imageToBase64(selImageList.get(i).path);
+            Log.e("ssss>>", Name + "");
             Log.e("ssss>>", bimpName + "");
+            Log.e("bimpBase64>>", bimpBase64 + "");
         }
-
 //        mContent = Et_Content.getText().toString();
 //        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Feedback.this);
 //        shapeLoadingDialog.setCancelable(false);

@@ -80,8 +80,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             startActivity(new Intent(Login.this, MainActivity.class));
             finish();
         }
-        //闪屏
-        //SplashView.showSplashView(this, 3, R.mipmap.splash, null);
     }
 
     @Override
@@ -133,8 +131,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //              JsonResult<JSONObject> jsonRet = new JsonResult<>();
 //              JSONObject Result = jsonRet.getData();
 //              String email = Result.getString("email");
-    //              JSONObject jsonObject = new JSONObject(response);
-    //              String resultCode = jsonObject.getString("resultCode");
+//              JSONObject jsonObject = new JSONObject(response);
+//              String resultCode = jsonObject.getString("resultCode");
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
                 String desc = login.getDesc();

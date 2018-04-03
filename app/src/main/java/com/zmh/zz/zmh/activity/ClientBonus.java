@@ -1,7 +1,8 @@
 package com.zmh.zz.zmh.activity;
 
 import android.os.Bundle;
-import android.widget.ListView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 
 public class ClientBonus extends BaseActivity {
-    private ListView mLv_client_bonust;
+    private RecyclerView mRv_client_bonust;
     private ClienBonustAdapter clienBonustAdapter;
     private List<ClientBonusInfo> clienBonustList;
 
@@ -25,7 +26,7 @@ public class ClientBonus extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLtTitle("客户奖金");
-        ListViewInitData();
+        initData();
     }
 
     @Override
@@ -33,11 +34,12 @@ public class ClientBonus extends BaseActivity {
         return R.layout.ac_client_bonus;
     }
 
-    private void ListViewInitData() {
-        mLv_client_bonust = (ListView) findViewById(R.id.lv_client_bonus);
+    private void initData() {
         clienBonustList = new ArrayList<>();
+        mRv_client_bonust = (RecyclerView) findViewById(R.id.rv_client_bonus);
         clienBonustAdapter = new ClienBonustAdapter(clienBonustList, ClientBonus.this);
-        mLv_client_bonust.setAdapter(clienBonustAdapter);
+        mRv_client_bonust.setLayoutManager(new LinearLayoutManager(this));
+        mRv_client_bonust.setAdapter(clienBonustAdapter);
         clienBonustAdapter.notifyDataSetChanged();
     }
 }

@@ -34,7 +34,7 @@ import okhttp3.Call;
  * 账号与安全_手机号验证
  */
 
-public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnClickListener {
+public class VerifyPhoneNumberEmail extends BaseActivity implements View.OnClickListener {
     private EditText Et_Code;
     private Button But_GetCode, But_next;
     private OkHttpUtil okHttp = new OkHttpUtil();
@@ -50,11 +50,11 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_verify_phone_number_mailbox;
+        return R.layout.ac_verify_phone_number_email;
     }
 
     private void FindViewById() {
-        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberEmail.this, "UserName", "");
         String maskUserName = UserName.substring(0, 3) + "****" + UserName.substring(7, UserName.length());
         Tv_Phone = (TextView) findViewById(R.id.tv_phone);
         But_GetCode = (Button) findViewById(R.id.but_get_code);
@@ -81,8 +81,8 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
     }
 
     private void GetCode() {
-        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
-        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberMailbox.this);
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberEmail.this, "UserName", "");
+        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberEmail.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("获取中,请稍等...");
         shapeLoadingDialog.show();
@@ -102,7 +102,7 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(VerifyPhoneNumberMailbox.this, desc);
+                        ToastUtils.showToast(VerifyPhoneNumberEmail.this, desc);
                         break;
                 }
             }
@@ -110,15 +110,15 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
             @Override
             public void onError(Call call, Exception e, int id) {
                 shapeLoadingDialog.dismiss();
-                Toast.makeText(VerifyPhoneNumberMailbox.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+                Toast.makeText(VerifyPhoneNumberEmail.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void Next() {
         mCodeValue = Et_Code.getText().toString();
-        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberMailbox.this, "UserName", "");
-        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberMailbox.this);
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberEmail.this, "UserName", "");
+        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberEmail.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("验证中,请稍等...");
         shapeLoadingDialog.show();
@@ -136,12 +136,12 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
-                        startActivity(new Intent(VerifyPhoneNumberMailbox.this, NewMailbox.class));
+                        startActivity(new Intent(VerifyPhoneNumberEmail.this, NewEmail.class));
                         finish();
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(VerifyPhoneNumberMailbox.this, desc);
+                        ToastUtils.showToast(VerifyPhoneNumberEmail.this, desc);
                         break;
                 }
             }
@@ -149,7 +149,7 @@ public class VerifyPhoneNumberMailbox extends BaseActivity implements View.OnCli
             @Override
             public void onError(Call call, Exception e, int id) {
                 shapeLoadingDialog.dismiss();
-                Toast.makeText(VerifyPhoneNumberMailbox.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+                Toast.makeText(VerifyPhoneNumberEmail.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
             }
         });
     }

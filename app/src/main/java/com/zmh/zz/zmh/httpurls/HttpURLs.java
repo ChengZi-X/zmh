@@ -1,10 +1,10 @@
 package com.zmh.zz.zmh.httpurls;
 
 public class HttpURLs {
-    //正式域名
-    //public static String IP = "http://";
     //内部测试域名
-    public static final String IP = "http://192.168.1.105/";
+    //public static String IP = "http://";
+    //正式域名
+    public static final String IP = "http://a.unionpro.zhongmenghui.com/";
     public static final String HOSTUSER = IP + "user/";
     public static final String LOGIN = HOSTUSER + "login.shtml";//登录
     public static final String GETCODE = HOSTUSER + "getCode.shtml";//注册->获得验证码

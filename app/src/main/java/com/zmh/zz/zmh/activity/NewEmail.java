@@ -32,11 +32,11 @@ import okhttp3.Call;
  * 账号与安全_改绑新邮箱
  */
 
-public class NewMailbox extends BaseActivity implements View.OnClickListener {
+public class NewEmail extends BaseActivity implements View.OnClickListener {
     private Button But_binding;
-    private EditText Et_Mailbox;
+    private EditText Et_Email;
     private OkHttpUtil okHttp = new OkHttpUtil();
-    private String mMailboxValue, UserName;
+    private String mEmailValue, UserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +47,23 @@ public class NewMailbox extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected int getContentView() {
-        return R.layout.ac_new_mailbox;
+        return R.layout.ac_new_email;
     }
 
     private void FindViewById() {
-        Et_Mailbox = (EditText) findViewById(R.id.et_mailbox);
+        Et_Email = (EditText) findViewById(R.id.et_email);
         But_binding = (Button) findViewById(R.id.but_binding);
-        Et_Mailbox.setFilters(new InputFilter[]{RegularUtil.filter});
+        Et_Email.setFilters(new InputFilter[]{RegularUtil.filter});
         But_binding.setOnClickListener(this);
-        Et_Mailbox.addTextChangedListener(this);
+        Et_Email.addTextChangedListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.but_binding:
-                if (!RegularUtil.isQQMailbox(mMailboxValue)) {
-                    ToastUtils.showToast(NewMailbox.this, "QQ邮箱格式不正确");
+                if (!RegularUtil.isQQEmail(mEmailValue)) {
+                    ToastUtils.showToast(NewEmail.this, "QQ邮箱格式不正确");
                 } else {
                     BinDing();//绑定
                 }
@@ -72,16 +72,16 @@ public class NewMailbox extends BaseActivity implements View.OnClickListener {
     }
 
     private void BinDing() {
-        mMailboxValue = Et_Mailbox.getText().toString();
-        UserName = (String) SharedPreferencesUtil.getParam(NewMailbox.this, "UserName", "");
-        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(NewMailbox.this);
+        mEmailValue = Et_Email.getText().toString();
+        UserName = (String) SharedPreferencesUtil.getParam(NewEmail.this, "UserName", "");
+        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(NewEmail.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("绑定中,请稍等...");
         shapeLoadingDialog.show();
         String url = HttpURLs.MODIFYEMAIL;
         Map<String, String> params = new HashMap<>();
         params.put("loginname", UserName);
-        params.put("newEmail", mMailboxValue);
+        params.put("newEmail", mEmailValue);
         okHttp.postRequest(url, params, new MyStringCallBack() {
             @Override
             public void onResponse(String response, int id) {
@@ -92,11 +92,11 @@ public class NewMailbox extends BaseActivity implements View.OnClickListener {
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(NewMailbox.this, "重新绑定成功");
+                        ToastUtils.showToast(NewEmail.this, "重新绑定成功");
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
-                        ToastUtils.showToast(NewMailbox.this, desc);
+                        ToastUtils.showToast(NewEmail.this, desc);
                         break;
                 }
             }
@@ -104,15 +104,15 @@ public class NewMailbox extends BaseActivity implements View.OnClickListener {
             @Override
             public void onError(Call call, Exception e, int id) {
                 shapeLoadingDialog.dismiss();
-                Toast.makeText(NewMailbox.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+                Toast.makeText(NewEmail.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public void afterTextChanged(Editable editable) {
-        mMailboxValue = Et_Mailbox.getText().toString();
-        if (mMailboxValue.equals("")) {
+        mEmailValue = Et_Email.getText().toString();
+        if (mEmailValue.equals("")) {
             But_binding.setEnabled(false);
         } else {
             But_binding.setEnabled(true);
