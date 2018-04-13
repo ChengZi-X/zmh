@@ -37,7 +37,7 @@ import okhttp3.Call;
 
 public class ChangePassword extends BaseActivity implements View.OnClickListener {
     private EditText Et_OldPassword, Et_NewPassword, Et_ConfirmNewPassword;
-    private Button But_affirm;
+    private Button But_Confirm ;
     private OkHttpUtil okHttp = new OkHttpUtil();
     private String mOldPasswordValue, mNewPasswordValue, mConfirmNewPasswordValue, UserName;
 
@@ -57,14 +57,14 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
         Et_OldPassword = (EditText) findViewById(R.id.et_old_password);
         Et_NewPassword = (EditText) findViewById(R.id.et_new_password);
         Et_ConfirmNewPassword = (EditText) findViewById(R.id.et_confirm_new_password);
-        But_affirm = (Button) findViewById(R.id.but_affirm);
+        But_Confirm = (Button) findViewById(R.id.but_confirm);
         Et_OldPassword.setFilters(new InputFilter[]{RegularUtil.filter});
         Et_NewPassword.setFilters(new InputFilter[]{RegularUtil.filter});
         Et_ConfirmNewPassword.setFilters(new InputFilter[]{RegularUtil.filter});
         Et_OldPassword.addTextChangedListener(this);
         Et_NewPassword.addTextChangedListener(this);
         Et_ConfirmNewPassword.addTextChangedListener(this);
-        But_affirm.setOnClickListener(this);
+        But_Confirm.setOnClickListener(this);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
         mNewPasswordValue = Et_NewPassword.getText().toString();
         mConfirmNewPasswordValue = Et_ConfirmNewPassword.getText().toString();
         switch (v.getId()) {
-            case R.id.but_affirm:
+            case R.id.but_confirm:
                 if (mNewPasswordValue.length() < 6) {
                     ToastUtils.showToast(ChangePassword.this, "密码不能少于六位数");
                 } else if (!RegularUtil.isLetterDigit(mNewPasswordValue)) {
@@ -83,20 +83,20 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
                 } else if (mNewPasswordValue.equals(mOldPasswordValue)) {
                     ToastUtils.showToast(ChangePassword.this, "新密码不能和当前密码一样");
                 } else {
-                    Affirm();//确定修改密码
+                    Confirm();//确定修改密码
                 }
                 break;
         }
     }
 
-    private void Affirm() {
-        mOldPasswordValue = Et_OldPassword.getText().toString();
-        mNewPasswordValue = Et_NewPassword.getText().toString();
-        UserName = (String) SharedPreferencesUtil.getParam(ChangePassword.this, "UserName", "");
+    private void Confirm() {
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(ChangePassword.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("修改中,请稍等...");
         shapeLoadingDialog.show();
+        mOldPasswordValue = Et_OldPassword.getText().toString();
+        mNewPasswordValue = Et_NewPassword.getText().toString();
+        UserName = (String) SharedPreferencesUtil.getParam(ChangePassword.this, "UserName", "");
         String url = HttpURLs.MODIFYPASSWORD;
         Map<String, String> params = new HashMap<>();
         params.put("loginname", UserName);
@@ -142,9 +142,9 @@ public class ChangePassword extends BaseActivity implements View.OnClickListener
         mNewPasswordValue = Et_NewPassword.getText().toString();
         mConfirmNewPasswordValue = Et_ConfirmNewPassword.getText().toString();
         if (mOldPasswordValue.equals("") || mNewPasswordValue.equals("") || mConfirmNewPasswordValue.equals("")) {
-            But_affirm.setEnabled(false);
+            But_Confirm.setEnabled(false);
         } else {
-            But_affirm.setEnabled(true);
+            But_Confirm.setEnabled(true);
         }
     }
 }

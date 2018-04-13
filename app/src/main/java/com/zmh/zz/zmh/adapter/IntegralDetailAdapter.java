@@ -6,12 +6,10 @@ import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.modelinfo.ExchangeRecordInfo;
 import com.zmh.zz.zmh.modelinfo.IntegralDetailInfo;
 
 import java.util.List;
@@ -20,9 +18,6 @@ import java.util.List;
  * Created by Administrator
  */
 public class IntegralDetailAdapter extends RecyclerView.Adapter<IntegralDetailAdapter.MyViewHolder> {
-    private final int TYPE_HEAD = 1;
-    private final int TYPE_NOMAL = 2;
-    private int currentType;
     private Context mContext;
     private List<IntegralDetailInfo> list;
 
@@ -56,17 +51,6 @@ public class IntegralDetailAdapter extends RecyclerView.Adapter<IntegralDetailAd
     public int getItemCount() {
         return 5;
     }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-            currentType = TYPE_HEAD;
-        } else {
-            currentType = TYPE_NOMAL;
-        }
-        return currentType;
-    }
-
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView mTv_integral;

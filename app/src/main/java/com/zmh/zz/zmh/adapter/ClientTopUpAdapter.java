@@ -19,9 +19,6 @@ import java.util.List;
  */
 
 public class ClientTopUpAdapter extends RecyclerView.Adapter<ClientTopUpAdapter.MyViewHolder> {
-    private final int TYPE_HEAD = 1;
-    private final int TYPE_NOMAL = 2;
-    private int currentType;
     private Context mContext;
     private List<ClientTopUpInfo> list;
 
@@ -52,17 +49,6 @@ public class ClientTopUpAdapter extends RecyclerView.Adapter<ClientTopUpAdapter.
     public int getItemCount() {
         return 5;
     }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-            currentType = TYPE_HEAD;
-        } else {
-            currentType = TYPE_NOMAL;
-        }
-        return currentType;
-    }
-
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 

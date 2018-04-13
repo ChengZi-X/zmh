@@ -88,17 +88,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         mPasswordValue = Et_Password.getText().toString();
         switch (v.getId()) {
             case R.id.but_login:
-                startActivity(new Intent(Login.this, MainActivity.class));
-                finish();
-//                if (mUserNameValue.equals("")) {
-//                    ToastUtils.showToast(Login.this, "手机号不能为空");
-//                } else if (!RegularUtil.isMobileNO(mUserNameValue)) {
-//                    ToastUtils.showToast(Login.this, "手机号格式不正确");
-//                } else if (mPasswordValue.equals("")) {
-//                    ToastUtils.showToast(Login.this, "密码不能为空");
-//                } else {
-//                    LOGIN();// 登录
-//                }
+//                startActivity(new Intent(Login.this, MainActivity.class));
+//                finish();
+                if (mUserNameValue.equals("")) {
+                    ToastUtils.showToast(Login.this, "账号不能为空");
+                } else if (mPasswordValue.equals("")) {
+                    ToastUtils.showToast(Login.this, "密码不能为空");
+                } else {
+                    Login();// 登录
+                }
                 break;
             case R.id.but_forget_password:
                 startActivity(new Intent(Login.this, ForgetPassword.class));//忘记密码
@@ -112,13 +110,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     /**
      * 登录
      */
-    private void LOGIN() {
-        mUserNameValue = Et_UserName.getText().toString();
-        mPasswordValue = Et_Password.getText().toString();
+    private void Login() {
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Login.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("登录中,请稍等...");
         shapeLoadingDialog.show();
+        mUserNameValue = Et_UserName.getText().toString();
+        mPasswordValue = Et_Password.getText().toString();
         final SharedPreferences.Editor editor = sp.edit();
         String url = HttpURLs.LOGIN;
         Map<String, String> params = new HashMap<>();
@@ -135,16 +133,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //              String resultCode = jsonObject.getString("resultCode");
                 LoginJson login = JSONObject.parseObject(response, LoginJson.class);
                 int code = login.getCode();
-                String desc = login.getDesc();
+                String desc = login.getDesc();//Token值
                 switch (code) {
                     case 200:
                         shapeLoadingDialog.dismiss();
                         ToastUtils.showToast(Login.this, "登录成功");
-                        String UserId = login.getData().getId();//ID
-                        String UserEmail = login.getData().getEmail();//邮箱
-                        SharedPreferencesUtil.setParam(Login.this, "UserID", UserId);
-                        SharedPreferencesUtil.setParam(Login.this, "UserEmail", UserEmail);
-                        SharedPreferencesUtil.setParam(Login.this, "UserName", mUserNameValue);
+                        SharedPreferencesUtil.setParam(Login.this, "Token", desc);
                         //保存用户名和密码
                         editor.putString("USERNAME", mUserNameValue);
                         editor.putString("PASSWORD", mPasswordValue);

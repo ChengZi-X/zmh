@@ -45,7 +45,8 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
     private RelativeLayout rl_TitleBack;
     private Button But_Register, But_RegisterProtocol;
     private OkHttpUtil okHttp = new OkHttpUtil();
-    private String mPhoneValue, mPasswordValue, mPassword1Value, mEmailValue;
+    private String mPhoneValue, mPasswordValue, mPassword1Value;
+    //private String mEmailValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +60,12 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
         rl_TitleBack = (RelativeLayout) findViewById(R.id.rl_title_back);
         Et_Password = (EditText) findViewById(R.id.et_password);
         Et_Password1 = (EditText) findViewById(R.id.et_password1);
-        Et_Email = (EditText) findViewById(R.id.et_email);
+        //Et_Email = (EditText) findViewById(R.id.et_email);
         But_Register = (Button) findViewById(R.id.but_register);
         But_RegisterProtocol = (Button) findViewById(R.id.but_register_protocol);
         Et_Password.setFilters(new InputFilter[]{RegularUtil.filter});
         Et_Password1.setFilters(new InputFilter[]{RegularUtil.filter});
-        Et_Email.setFilters(new InputFilter[]{RegularUtil.filter});
+        //Et_Email.setFilters(new InputFilter[]{RegularUtil.filter});
         rl_TitleBack.setOnClickListener(this);
         But_Register.setOnClickListener(this);
         But_RegisterProtocol.setOnClickListener(this);
@@ -74,7 +75,7 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         mPasswordValue = Et_Password.getText().toString();
         mPassword1Value = Et_Password1.getText().toString();
-        mEmailValue = Et_Email.getText().toString();
+        //mEmailValue = Et_Email.getText().toString();
         switch (v.getId()) {
             case R.id.but_register:
                 if (mPasswordValue.equals("")) {
@@ -85,10 +86,10 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
                     ToastUtils.showToast(RegisterPassword.this, "至少包含大小写字母及数字中的两种");
                 } else if (!mPasswordValue.equals(mPassword1Value)) {
                     ToastUtils.showToast(RegisterPassword.this, "两次输入的密码不一致");
-                } else if (mEmailValue.equals("")) {
-                    ToastUtils.showToast(RegisterPassword.this, "邮箱不能为空");
-                } else if (!RegularUtil.isQQEmail(mEmailValue)) {
-                    ToastUtils.showToast(RegisterPassword.this, "邮箱格式不正确");
+//                } else if (mEmailValue.equals("")) {
+//                    ToastUtils.showToast(RegisterPassword.this, "邮箱不能为空");
+//                } else if (!RegularUtil.isQQEmail(mEmailValue)) {
+//                    ToastUtils.showToast(RegisterPassword.this, "邮箱格式不正确");
                 } else {
                     Register();//确定注册
                 }
@@ -104,18 +105,18 @@ public class RegisterPassword extends AppCompatActivity implements View.OnClickL
     }
 
     private void Register() {
-        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
-        mPasswordValue = Et_Password.getText().toString();
-        mEmailValue = Et_Email.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(RegisterPassword.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("注册中,请稍等...");
         shapeLoadingDialog.show();
+        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
+        mPasswordValue = Et_Password.getText().toString();
+        //mEmailValue = Et_Email.getText().toString();
         String url = HttpURLs.REGISTER;
         Map<String, String> params = new HashMap<>();
         params.put("mobile", mPhoneValue);
         params.put("loginPwd", MD5Util.MD5(mPasswordValue, 32));
-        params.put("email", mEmailValue);
+        //params.put("email", mEmailValue);
         okHttp.postRequest(url, params, new MyStringCallBack() {
             @Override
             public void onResponse(String response, int id) {

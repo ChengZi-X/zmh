@@ -67,6 +67,8 @@
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/tv2"
                 android:background="@null"
+                android:inputType="number"
+                android:maxLength="7"
                 android:textColor="@color/absolute_black"
                 android:textSize="28sp" />
 
@@ -100,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/nextbtn"
-            android:gravity="center"
+            android:enabled="false"
             android:text="确认提现"
             android:textColor="@color/white"
             android:textSize="@dimen/z2" />

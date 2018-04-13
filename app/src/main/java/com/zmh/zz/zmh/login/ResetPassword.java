@@ -43,7 +43,7 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
     private EditText Et_Password, Et_Password1;
     private TextView Tv_TitleName;
     private RelativeLayout Rl_TitleBack;
-    private Button But_Affirm;
+    private Button But_Confirm ;
     private OkHttpUtil okHttp = new OkHttpUtil();
     private String mPhoneValue, mPasswordValue, mPassword1Value;
 
@@ -59,11 +59,11 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
         Rl_TitleBack = (RelativeLayout) findViewById(R.id.rl_title_back);
         Et_Password = (EditText) findViewById(R.id.et_password);
         Et_Password1 = (EditText) findViewById(R.id.et_password1);
-        But_Affirm = (Button) findViewById(R.id.but_affirm);
+        But_Confirm  = (Button) findViewById(R.id.but_confirm);
         Et_Password.setFilters(new InputFilter[]{RegularUtil.filter});
         Et_Password1.setFilters(new InputFilter[]{RegularUtil.filter});
         Rl_TitleBack.setOnClickListener(this);
-        But_Affirm.setOnClickListener(this);
+        But_Confirm.setOnClickListener(this);
     }
 
     @Override
@@ -71,7 +71,7 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
         mPasswordValue = Et_Password.getText().toString();
         mPassword1Value = Et_Password1.getText().toString();
         switch (v.getId()) {
-            case R.id.but_affirm:
+            case R.id.but_confirm:
                 if (mPasswordValue.equals("")) {
                     ToastUtils.showToast(ResetPassword.this, "密码不能为空");
                 } else if (mPasswordValue.length() < 6) {
@@ -81,7 +81,7 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
                 } else if (!mPasswordValue.equals(mPassword1Value)) {
                     ToastUtils.showToast(ResetPassword.this, "两次输入的密码不一致");
                 } else {
-                    Affirm();//确定修改
+                    Confirm ();//确定修改
                 }
                 break;
             case R.id.rl_title_back:
@@ -90,13 +90,13 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void Affirm() {
-        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
-        mPasswordValue = Et_Password.getText().toString();
+    private void Confirm () {
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(ResetPassword.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("重置中,请稍等...");
         shapeLoadingDialog.show();
+        mPhoneValue = getIntent().getStringExtra("mPhoneValue");
+        mPasswordValue = Et_Password.getText().toString();
         String url = HttpURLs.FORGET;
         Map<String, String> params = new HashMap<>();
         params.put("loginname", mPhoneValue);

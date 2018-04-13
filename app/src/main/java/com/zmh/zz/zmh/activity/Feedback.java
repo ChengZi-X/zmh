@@ -9,32 +9,21 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.alibaba.fastjson.JSONObject;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
 import com.lzy.imagepicker.view.CropImageView;
 import com.zmh.zz.zmh.BaseActivity;
-import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.httpurls.HttpURLs;
-import com.zmh.zz.zmh.modeljson.LoginJson;
 import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
 import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
 import com.zmh.zz.zmh.uploaImage.SelectPortraitDialog;
 import com.zmh.zz.zmh.utils.Base64Util;
-import com.zmh.zz.zmh.utils.MyStringCallBack;
 import com.zmh.zz.zmh.utils.OkHttpUtil;
-import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import okhttp3.Call;
 
 
 /**
@@ -75,37 +64,46 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
     //右键点击
     @Override
     protected void onClickRight() {
+        String TypeBase64 = "";
         for (int i = 0; i < selImageList.size(); i++) {
-            String Name = selImageList.get(i).path;
-            String bimpName = Name.replace("/", "");
-            String bimpBase64 = Base64Util.imageToBase64(selImageList.get(i).path);
-            Log.e("ssss>>", Name + "");
-            Log.e("ssss>>", bimpName + "");
-            Log.e("bimpBase64>>", bimpBase64 + "");
+            String Path = selImageList.get(i).path;
+            String imgBase64 = Base64Util.imageToBase64(Path);
+            String imgType = Path.substring(Path.length() - 3);
+            if (selImageList.size() - 1 == i) {
+                TypeBase64 += imgType + "," + imgBase64;
+            } else {
+                TypeBase64 += imgType + "," + imgBase64 + "#";
+            }
         }
+        Log.e("s>>>", TypeBase64);
+//        Log.e("ssss>>", Path + "");
+//        Log.e("imgType>>", imgType + "");
+//        Log.e("imgBase64>>", imgBase64 + "");
+    }
 //        mContent = Et_Content.getText().toString();
 //        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Feedback.this);
 //        shapeLoadingDialog.setCancelable(false);
 //        shapeLoadingDialog.setLoadingText("上传中,请稍等...");
 //        shapeLoadingDialog.show();
 //        String Base64 = "";
-//        String Name = "";
+//        String Type = "";
 //        for (int i = 0; i < selImageList.size(); i++) {
-//            String bimpName = selImageList.get(i).name;
-//            String bimpBase64 = Base64Util.imageToBase64(selImageList.get(i).path);
+//            String Path = selImageList.get(i).path;
+//            String imgBase64 = Base64Util.imageToBase64(Path);
+//            String imgType = Path.substring(Path.length() - 3);
 //            if (selImageList.size() - 1 == i) {
-//                Base64 += bimpBase64;
-//                Name += bimpName;
+//                Base64 += imgBase64;
+//                Type += imgType;
 //            } else {
-//                Base64 += bimpBase64 + "@";
-//                Name += bimpName + "@";
+//                Base64 += imgBase64 + "#";
+//                Type += imgType + "#";
 //            }
 //        }
-//        Base64 = Base64 + "#" + Name;
+//        Base64 = Type + "," + Base64;
 //        Log.e("s>>>", Base64);
 //        String url = HttpURLs.UPDATEBASE64;
 //        Map<String, String> params = new HashMap<>();
-//        params.put("imgStr", Base64);
+//        params.put("imgStr1", Base64);
 //        //params.put("Content", mContent);
 //        okHttp.postRequest(url, params, new MyStringCallBack() {
 //            @Override
@@ -133,8 +131,7 @@ public class Feedback extends BaseActivity implements ImagePickerAdapter.OnRecyc
 //                Toast.makeText(Feedback.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
 //            }
 //        });
-
-    }
+//}
 
     private void FindViewById() {
         Et_Content = (EditText) findViewById(R.id.et_content);

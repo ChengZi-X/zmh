@@ -9,10 +9,10 @@ import android.text.TextPaint;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.adapter.BonusDetailAdapter;
@@ -57,6 +57,13 @@ public class BonusDetail extends AppCompatActivity implements View.OnClickListen
         bonusDetailAdapter = new BonusDetailAdapter(bonusDetailList, BonusDetail.this);
         mRv_bonus_detail.setLayoutManager(new LinearLayoutManager(this));
         mRv_bonus_detail.setAdapter(bonusDetailAdapter);
+        bonusDetailAdapter.setOnItemClickListener(new BonusDetailAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(BonusDetail.this, "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         bonusDetailAdapter.notifyDataSetChanged();
     }
 

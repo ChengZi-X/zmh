@@ -3,9 +3,11 @@ package com.zmh.zz.zmh.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.adapter.BaseViewHolder;
 import com.zmh.zz.zmh.adapter.ClienBonustAdapter;
 import com.zmh.zz.zmh.modelinfo.ClientBonusInfo;
 
@@ -17,7 +19,7 @@ import java.util.List;
  * 客户奖金
  */
 
-public class ClientBonus extends BaseActivity {
+public class ClientBonus extends BaseActivity implements BaseViewHolder.onItemCommonClickListener {
     private RecyclerView mRv_client_bonust;
     private ClienBonustAdapter clienBonustAdapter;
     private List<ClientBonusInfo> clienBonustList;
@@ -36,10 +38,19 @@ public class ClientBonus extends BaseActivity {
 
     private void initData() {
         clienBonustList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            ClientBonusInfo data = new ClientBonusInfo();
+            clienBonustList.add(data);
+        }
         mRv_client_bonust = (RecyclerView) findViewById(R.id.rv_client_bonus);
-        clienBonustAdapter = new ClienBonustAdapter(clienBonustList, ClientBonus.this);
+        clienBonustAdapter = new ClienBonustAdapter(ClientBonus.this, clienBonustList, this);
         mRv_client_bonust.setLayoutManager(new LinearLayoutManager(this));
         mRv_client_bonust.setAdapter(clienBonustAdapter);
         clienBonustAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClickListener(int position) {
+        Toast.makeText(this, "点击了第:" + position + "条", Toast.LENGTH_SHORT).show();
     }
 }

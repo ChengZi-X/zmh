@@ -12,11 +12,11 @@ import android.view.KeyEvent;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.zmh.zz.zmh.activity.PersonalInformation;
 import com.zmh.zz.zmh.mainfragment.FragmentBusiness;
 import com.zmh.zz.zmh.mainfragment.FragmentFund;
 import com.zmh.zz.zmh.mainfragment.FragmentHomepage;
 import com.zmh.zz.zmh.mainfragment.FragmentMy;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
 import com.zmh.zz.zmh.utils.ToastUtils;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private FragmentBusiness mFragmentBusiness;
     private FragmentFund mFragmentFund;
     private FragmentMy mFragmentMy;
+    private OkHttpUtil okHttp = new OkHttpUtil();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +54,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                 .initialise();
         mBottomNavigationBar.setTabSelectedListener(this);
         setDefaultFragment();
-//        updateManager = new UpdateManager(MainActivity.this);
-//        //检查更新
-//        updateManager.checkUpdate();
+        updateManager = new UpdateManager(MainActivity.this);
+        //检查更新
+//      updateManager.CheckUpdate();
+        //用户信息
+        updateManager.UserInfo();
     }
 
     /**

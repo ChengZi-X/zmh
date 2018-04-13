@@ -2,11 +2,14 @@ package com.zmh.zz.zmh.httpurls;
 
 public class HttpURLs {
     //内部测试域名
-    //public static String IP = "http://";
+    public static String IP = "http://192.168.0.140/";
     //正式域名
-    public static final String IP = "http://a.unionpro.zhongmenghui.com/";
+    //public static final String IP = "http://a.unionpro.zhongmenghui.com/";
     public static final String HOSTUSER = IP + "user/";
+    public static final String TOUSERINFO = HOSTUSER + "toUserInfo.shtml";//用户信息
     public static final String LOGIN = HOSTUSER + "login.shtml";//登录
+    public static final String GETEMAILUPDATECODE = HOSTUSER + "getEmailUpdateCode.shtml";//获取邮箱验证码
+    public static final String ADDEMIAL = HOSTUSER + "addEmial.shtml";//绑定邮箱
     public static final String GETCODE = HOSTUSER + "getCode.shtml";//注册->获得验证码
     public static final String VEFTCODE = HOSTUSER + "veFtCode.shtml";//注册-校验手机号->校验验证码
     public static final String REGISTER = HOSTUSER + "register.shtml";//注册-确定注册
@@ -18,6 +21,8 @@ public class HttpURLs {
     public static final String MODIFYNEWMOBILE = HOSTUSER + "modifyNewMobile.shtml";//修改绑定手机号
     public static final String MODIFYEMAILCODE = HOSTUSER + "modifyEmailCode.shtml";//修改邮箱->校验验证码
     public static final String MODIFYEMAIL = HOSTUSER + "modifyEmail.shtml";//修改绑定邮箱
-    public static final String USERIDENTITY = HOSTUSER + "userIdentity.shtml ";//实名认证
     public static final String UPDATEBASE64 = HOSTUSER + "updateBase64.shtml ";//意见反馈
+
+    public static final String USERIDENTITY = IP + "userIdentity/submitVerified.shtml";//实名认证
+    public static final String BANK = IP + "bank/submitBankCertification.shtml";//银行卡绑定
 }

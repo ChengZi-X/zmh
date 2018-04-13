@@ -44,7 +44,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:textColor="@color/light_black"
-            android:textSize="18sp" />
+            android:textSize="@dimen/z3" />
 
         <View
             android:id="@+id/base_bottom_view"

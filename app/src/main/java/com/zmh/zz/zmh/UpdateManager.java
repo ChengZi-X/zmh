@@ -11,9 +11,19 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.support.v4.content.FileProvider;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lidroid.xutils.HttpUtils;
+import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
+import com.zmh.zz.zmh.activity.BindEmail;
+import com.zmh.zz.zmh.httpurls.HttpURLs;
+import com.zmh.zz.zmh.modeljson.UserJson;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
 import com.zmh.zz.zmh.utils.ToastUtils;
 
 import java.io.File;
@@ -22,6 +32,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
 
 /**
  * 版本升级的代码
@@ -41,6 +55,7 @@ public class UpdateManager {
     private static final String FILE_NAME = FILE_PATH + "Zmh.apk";
     // Log日志打印标签
     private static final String TAG = "Update_log";
+    private OkHttpUtil okHttp = new OkHttpUtil();
 
     public UpdateManager(Context context) {
         this.mContext = context;
@@ -65,7 +80,7 @@ public class UpdateManager {
     /**
      * 检测软件更新
      */
-    public void checkUpdate() {
+    public void CheckUpdate() {
         int versionCode = getVersionCode(mContext);
         if (serviceCode >= versionCode) {
             showNoticeDialog();
@@ -94,6 +109,57 @@ public class UpdateManager {
 //            }
 //        });
     }
+
+    /**
+     * 用户信息
+     */
+    public void UserInfo() {
+        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(mContext);
+        shapeLoadingDialog.setCancelable(false);
+        shapeLoadingDialog.setLoadingText("加载中,请稍等...");
+        shapeLoadingDialog.show();
+        String Token = (String) SharedPreferencesUtil.getParam(mContext, "Token", "");
+        String url = HttpURLs.TOUSERINFO;
+        Map<String, String> params = new HashMap<>();
+        params.put("token", Token);
+        okHttp.postRequest(url, params, new MyStringCallBack() {
+            @Override
+            public void onResponse(String response, int id) {
+                shapeLoadingDialog.dismiss();
+                Log.e("sssss>>>", response);
+                UserJson user = JSONObject.parseObject(response, UserJson.class);
+                int code = user.getCode();
+                switch (code) {
+                    case 200:
+                        shapeLoadingDialog.dismiss();
+                        SharedPreferencesUtil.setParam(mContext, "accountNum", user.getData().getAccountNum());//用户数字ID
+                        SharedPreferencesUtil.setParam(mContext, "verifiedStatus", user.getData().getVerifiedStatus());//实名认证
+                        SharedPreferencesUtil.setParam(mContext, "bankStatus", user.getData().getBankStatus());//银行卡认证
+                        SharedPreferencesUtil.setParam(mContext, "name", user.getData().getName());//实名认证过以后的户名
+                        if (TextUtils.isEmpty(user.getData().getEmail())) {
+                            mContext.startActivity(new Intent(mContext, BindEmail.class));
+                            finish();
+                        }
+                        break;
+                    case 400:
+                        shapeLoadingDialog.dismiss();
+                        ToastUtils.showToast(mContext, "系统异常");
+                        break;
+                }
+            }
+
+            private void finish() {
+                finish();
+            }
+
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                shapeLoadingDialog.dismiss();
+                Toast.makeText(mContext, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     /**
      * 显示提示更新对话框

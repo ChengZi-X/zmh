@@ -92,7 +92,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/nextbtn"
-            android:gravity="center"
             android:text="下一步"
             android:textColor="@color/white"
             android:textSize="@dimen/z2" />

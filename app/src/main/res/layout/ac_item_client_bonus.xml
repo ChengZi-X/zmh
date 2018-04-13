@@ -42,6 +42,7 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tv_sum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -56,4 +57,10 @@
     </LinearLayout>
 
     <View style="@style/horizontal_line" />
+
+    <ImageView
+        android:id="@+id/im_ss"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@color/red" />
 </LinearLayout>

@@ -21,9 +21,6 @@ import java.util.List;
  */
 
 public class TradingRecordAdapter extends RecyclerView.Adapter<TradingRecordAdapter.MyViewHolder> {
-    private final int TYPE_HEAD = 1;
-    private final int TYPE_NOMAL = 2;
-    private int currentType;
     private Context mContext;
     private List<TradingRecordInfo> list;
 
@@ -56,17 +53,6 @@ public class TradingRecordAdapter extends RecyclerView.Adapter<TradingRecordAdap
         return 5;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-            currentType = TYPE_HEAD;
-        } else {
-            currentType = TYPE_NOMAL;
-        }
-        return currentType;
-    }
-
-
     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView mTv_sum;
 
@@ -75,48 +61,4 @@ public class TradingRecordAdapter extends RecyclerView.Adapter<TradingRecordAdap
             mTv_sum = (TextView) itemView.findViewById(R.id.tv_sum);
         }
     }
-
 }
-
-
-//public class TradingRecordAdapter extends BaseAdapter {
-//    private List<TradingRecordInfo> list;
-//    private Context mContext;
-//
-//    public TradingRecordAdapter(List<TradingRecordInfo> list, Context context) {
-//        this.list = list;
-//        this.mContext = context;
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return 6;
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup viewGroup) {
-//        final ViewHolder holder;
-//        if (convertView == null) {
-//            holder = new ViewHolder();
-//            convertView = View.inflate(mContext, R.layout.ac_item_trading_record, null);
-//            holder.mTv_sum = (TextView) convertView.findViewById(R.id.tv_sum);
-//            holder.mTv_sum.setText("总资产余额:" + "\r\r" + "32000.00");
-//        }
-//        return convertView;
-//    }
-//
-//    class ViewHolder {
-//        private TextView mTv_sum;
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return list.get(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return position;
-//    }
-//
-//}

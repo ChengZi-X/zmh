@@ -1,8 +1,9 @@
 package com.zmh.zz.zmh.integralfragment;
 
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.zmh.zz.zmh.BaseFragment;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public class FragmentExchange extends BaseFragment implements View.OnClickListener {
     private View view;
-    private ListView mLv_exchange;
+    private RecyclerView mRv_exchange;
     private ExchangeAdapter exchangeAdapter;
     private List<ExchangeInfo> exchangeList;
     private TextView mExchange_record;
@@ -28,7 +29,7 @@ public class FragmentExchange extends BaseFragment implements View.OnClickListen
     public View initView() {
         view = View.inflate(getActivity(), R.layout.fragment_exchange, null);
         FindViewById();
-        LsitViewData();
+        initData();
         return view;
     }
 
@@ -37,11 +38,12 @@ public class FragmentExchange extends BaseFragment implements View.OnClickListen
         mExchange_record.setOnClickListener(this);
     }
 
-    private void LsitViewData() {
-        mLv_exchange = (ListView) view.findViewById(R.id.lv_exchange);
+    private void initData() {
         exchangeList = new ArrayList<>();
+        mRv_exchange = (RecyclerView) view.findViewById(R.id.rv_exchange);
         exchangeAdapter = new ExchangeAdapter(exchangeList, getActivity());
-        mLv_exchange.setAdapter(exchangeAdapter);
+        mRv_exchange.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRv_exchange.setAdapter(exchangeAdapter);
         exchangeAdapter.notifyDataSetChanged();
 
     }

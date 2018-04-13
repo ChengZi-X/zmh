@@ -80,11 +80,11 @@ public class VerifyPhoneNumberPhone extends BaseActivity implements View.OnClick
     }
 
     private void GetCode() {
-        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberPhone.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberPhone.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("获取中,请稍等...");
         shapeLoadingDialog.show();
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberPhone.this, "UserName", "");
         String url = HttpURLs.GETFCODE;
         Map<String, String> params = new HashMap<>();
         params.put("mobile", UserName);
@@ -115,12 +115,12 @@ public class VerifyPhoneNumberPhone extends BaseActivity implements View.OnClick
     }
 
     private void Next() {
-        mCodeValue = Et_Code.getText().toString();
-        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberPhone.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(VerifyPhoneNumberPhone.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("验证中,请稍等...");
         shapeLoadingDialog.show();
+        mCodeValue = Et_Code.getText().toString();
+        UserName = (String) SharedPreferencesUtil.getParam(VerifyPhoneNumberPhone.this, "UserName", "");
         String url = HttpURLs.MODIFYMOBILECODE;
         Map<String, String> params = new HashMap<>();
         params.put("mobile", UserName);

@@ -30,6 +30,7 @@ import com.zmh.zz.zmh.modeljson.LoginJson;
 import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
 import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
 import com.zmh.zz.zmh.uploaImage.SelectPortraitDialog;
+import com.zmh.zz.zmh.utils.Base64Util;
 import com.zmh.zz.zmh.utils.MyStringCallBack;
 import com.zmh.zz.zmh.utils.OkHttpUtil;
 import com.zmh.zz.zmh.utils.RegularUtil;
@@ -60,11 +61,11 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
     private int maxImgCount = 3;               //允许选择图片最大数
 
     private RelativeLayout Rl_CertificateEffective;
-    private TextView Tv_MenAndWmen;
+    private TextView Tv_MenAndWomen;
     private EditText Et_Name, Et_IdNumber, Et_Date;
     private int which = 0;
     private OkHttpUtil okHttp = new OkHttpUtil();
-    private String mNameValue, mMenAndWmenValue, mIdNumberValue, mDateValue, UserName, UserID;
+    private String mNameValue, mMenAndWomenValue, mIdNumberValue, mDateValue, UserName, UserID;
     DateFormat fmtDate = new java.text.SimpleDateFormat("yyyy-MM-dd");
     //获取一个日历对象
     Calendar dateAndTime = Calendar.getInstance(Locale.CHINA);
@@ -104,10 +105,10 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
         Et_Name = (EditText) findViewById(R.id.et_name);
         Et_IdNumber = (EditText) findViewById(R.id.et_id_number);
         Et_Date = (EditText) findViewById(R.id.et_date);
-        Tv_MenAndWmen = (TextView) findViewById(R.id.tv_men_and_women);
+        Tv_MenAndWomen = (TextView) findViewById(R.id.tv_men_and_women);
         Et_Name.setFilters(new InputFilter[]{RegularUtil.filter});
         Et_IdNumber.setFilters(new InputFilter[]{RegularUtil.filter});
-        Tv_MenAndWmen.setOnClickListener(this);
+        Tv_MenAndWomen.setOnClickListener(this);
         Rl_CertificateEffective.setOnClickListener(this);
     }
 
@@ -115,12 +116,12 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
     @Override
     protected void onClickRight() {
         mNameValue = Et_Name.getText().toString();
-        mMenAndWmenValue = Tv_MenAndWmen.getText().toString();
+        mMenAndWomenValue = Tv_MenAndWomen.getText().toString();
         mIdNumberValue = Et_IdNumber.getText().toString();
         mDateValue = Et_Date.getText().toString();
         if (mNameValue.equals("")) {
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "姓名不能为空");
-        } else if (mMenAndWmenValue.equals("")) {
+        } else if (mMenAndWomenValue.equals("")) {
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "性别不能为空");
         } else if (mIdNumberValue.equals("")) {
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "身份证号不能为空");
@@ -128,35 +129,48 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "身份证号格式不正确");
         } else if (mDateValue.equals("")) {
             ToastUtils.showToast(RealNameAuthenticationFalse.this, "证件有效期不能为空");
+        } else if (selImageList.size() < maxImgCount) {
+            ToastUtils.showToast(RealNameAuthenticationFalse.this, "照片不能少于3张");
         } else {
             Submit();//提交
         }
     }
 
     private void Submit() {
-        mNameValue = Et_Name.getText().toString();
-        mMenAndWmenValue = Tv_MenAndWmen.getText().toString();
-        mIdNumberValue = Et_IdNumber.getText().toString();
-        mDateValue = Et_Date.getText().toString();
-        UserName = (String) SharedPreferencesUtil.getParam(RealNameAuthenticationFalse.this, "UserName", "");
-        UserID = (String) SharedPreferencesUtil.getParam(RealNameAuthenticationFalse.this, "UserID", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(RealNameAuthenticationFalse.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("提交中,请稍等...");
         shapeLoadingDialog.show();
+        String Token = (String) SharedPreferencesUtil.getParam(RealNameAuthenticationFalse.this, "Token", "");
+        mNameValue = Et_Name.getText().toString();
+        mMenAndWomenValue = Tv_MenAndWomen.getText().toString();
+        mIdNumberValue = Et_IdNumber.getText().toString();
+        mDateValue = Et_Date.getText().toString();
+        String TypeBase64 = "";
+        for (int i = 0; i < selImageList.size(); i++) {
+            String Path = selImageList.get(i).path;
+            String imgBase64 = Base64Util.imageToBase64(Path);
+            String imgType = Path.substring(Path.length() - 3);
+            if (selImageList.size() - 1 == i) {
+                TypeBase64 += imgType + " " + imgBase64;
+            } else {
+                TypeBase64 += imgType + " " + imgBase64 + "#";
+            }
+        }
+        Log.e("s>>>", TypeBase64);
         String url = HttpURLs.USERIDENTITY;
         Map<String, String> params = new HashMap<>();
-        params.put("loginname", UserName);
+        params.put("token", Token);
         params.put("name", mNameValue);
-        if (mMenAndWmenValue.equals("男")) {
+        if (mMenAndWomenValue.equals("男")) {
             which = 1;
-        } else if (mMenAndWmenValue.equals("女")) {
+        } else if (mMenAndWomenValue.equals("女")) {
             which = 2;
         }
         params.put("gender", which + "");
-        params.put("userId", UserID);
         params.put("cardValidTime", mDateValue);
         params.put("cardNo", mIdNumberValue);
+        params.put("imgStr", TypeBase64);
         okHttp.postRequest(url, params, new MyStringCallBack() {
             @Override
             public void onResponse(String response, int id) {
@@ -175,8 +189,10 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
                                     @Override
                                     public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
                                         dialog.dismiss();
+                                        finish();
                                     }
                                 }).setCancelable(false).show();
+
                         break;
                     case 400:
                         shapeLoadingDialog.dismiss();
@@ -199,20 +215,20 @@ public class RealNameAuthenticationFalse extends BaseActivity implements View.On
             case R.id.tv_men_and_women:
                 AlertDialog.Builder dialog = new AlertDialog.Builder(RealNameAuthenticationFalse.this);
                 dialog.setTitle("性别");
-                if (Tv_MenAndWmen.getText().toString().equals("男")) {
+                if (Tv_MenAndWomen.getText().toString().equals("男")) {
                     which = 0;
-                } else if (Tv_MenAndWmen.getText().toString().equals("女")) {
+                } else if (Tv_MenAndWomen.getText().toString().equals("女")) {
                     which = 1;
                 }
                 dialog.setSingleChoiceItems(new String[]{"男", "女"}, which, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0) {
-                            Tv_MenAndWmen.setText("男");
+                            Tv_MenAndWomen.setText("男");
                         } else if (which == 1) {
-                            Tv_MenAndWmen.setText("女");
+                            Tv_MenAndWomen.setText("女");
                         }
-                        if (!Tv_MenAndWmen.getText().toString().equals("请选择")) {
-                            Tv_MenAndWmen.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
+                        if (!Tv_MenAndWomen.getText().toString().equals("请选择")) {
+                            Tv_MenAndWomen.setTextColor(getResources().getColor(R.color.absolute_black));//通过获得资源文件进行设置。
                         }
                         dialog.dismiss();
                     }

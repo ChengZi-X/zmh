@@ -72,12 +72,12 @@ public class NewEmail extends BaseActivity implements View.OnClickListener {
     }
 
     private void BinDing() {
-        mEmailValue = Et_Email.getText().toString();
-        UserName = (String) SharedPreferencesUtil.getParam(NewEmail.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(NewEmail.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("绑定中,请稍等...");
         shapeLoadingDialog.show();
+        mEmailValue = Et_Email.getText().toString();
+        UserName = (String) SharedPreferencesUtil.getParam(NewEmail.this, "UserName", "");
         String url = HttpURLs.MODIFYEMAIL;
         Map<String, String> params = new HashMap<>();
         params.put("loginname", UserName);

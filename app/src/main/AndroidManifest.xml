@@ -39,6 +39,7 @@
         <activity android:name=".login.RegisterPassword" />
         <activity android:name=".login.ForgetPassword" />
         <activity android:name=".login.ResetPassword" />
+        <activity android:name=".activity.BindEmail" />
         <activity android:name=".MainActivity" />
         <activity android:name=".activity.Setting" />
         <activity android:name=".activity.PersonalInformation" />

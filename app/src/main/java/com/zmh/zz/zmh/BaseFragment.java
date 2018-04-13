@@ -28,6 +28,4 @@ public abstract class BaseFragment extends Fragment {
             window.setStatusBarColor(getResources().getColor(Color));
         }
     }
-
-
 }

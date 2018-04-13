@@ -30,6 +30,7 @@
                 android:textSize="@dimen/z2" />
 
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -63,7 +64,7 @@
                 android:layout_centerVertical="true"
                 android:gravity="right"
                 android:paddingRight="35dp"
-                android:text="请选择"
+                android:hint="请选择"
                 android:textColor="@color/hint_color"
                 android:textSize="@dimen/z2" />
 
@@ -88,6 +89,7 @@
                 android:textSize="@dimen/z2" />
 
             <EditText
+                android:id="@+id/et_card_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -117,6 +119,7 @@
                 android:textSize="@dimen/z2" />
 
             <EditText
+                android:id="@+id/et_subbranch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -146,6 +149,15 @@
             android:text="上传照片 (银行卡正面以及手持银行卡正面照片)"
             android:textColor="@color/light_black"
             android:textSize="@dimen/z2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="15dp"
+            android:text="* 第一张正面，第二张手持银行卡正面。"
+            android:textColor="@color/red"
+            android:textSize="12sp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_add_photo"

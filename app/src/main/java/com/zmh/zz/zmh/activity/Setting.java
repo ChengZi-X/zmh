@@ -82,12 +82,12 @@ public class Setting extends BaseActivity implements View.OnClickListener {
                 Clear();//清除缓存
                 break;
             case R.id.log_out:
-                Log_Out();//退出登录
+                LogOut();//退出登录
                 break;
         }
     }
 
-    private void Log_Out() {
+    private void LogOut() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(Setting.this);
         dialog.setTitle("提示");
         dialog.setMessage("是否要切换账号吗？");

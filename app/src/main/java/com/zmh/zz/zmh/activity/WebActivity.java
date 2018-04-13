@@ -1,14 +1,12 @@
 package com.zmh.zz.zmh.activity;
 
 /**
- * Created by Sun-PC on 2018/2/2.
+ * Created by Sun-PC
  */
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -27,8 +25,7 @@ public class WebActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webactivity);
-        Intent intent = getIntent();
-        webUrl = intent.getStringExtra("webUrl");
+        webUrl = new Intent().getStringExtra("webUrl");
         init();
     }
 

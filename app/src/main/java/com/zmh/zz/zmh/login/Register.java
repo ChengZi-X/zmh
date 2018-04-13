@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.text.TextPaint;
@@ -45,12 +46,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     private Button But_Next, But_Login, But_GetCode;
     private OkHttpUtil okHttp = new OkHttpUtil();
     private String mPhoneValue, mCodeValue;
+    private TimeCount time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TransparentTitleBar();
         setContentView(R.layout.ac_register);
+        time = new TimeCount(60000, 1000);// 构造CountDownTimer对象
         Tv_TitleName = (TextView) findViewById(R.id.tv_title_name);
         Tv_TitleName.setText("注册");
         TextPaint tp = Tv_TitleName.getPaint();
@@ -79,11 +82,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             case R.id.but_get_code:
                 if (mPhoneValue.equals("")) {
                     ToastUtils.showToast(Register.this, "手机号不能为空");
+                    return;
                 } else if (!RegularUtil.isMobileNO(mPhoneValue)) {
                     ToastUtils.showToast(Register.this, "手机号格式不正确");
+                    return;
                 } else {
-                    GetCode();//获取验证码
+                    time.start();// 开始计时
                 }
+                GetCode();//获取验证码
                 break;
             case R.id.but_next:
                 if (mPhoneValue.equals("")) {
@@ -106,11 +112,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void GetCode() {
-        mPhoneValue = Et_Phone.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Register.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("获取中,请稍等...");
         shapeLoadingDialog.show();
+        mPhoneValue = Et_Phone.getText().toString();
         String url = HttpURLs.GETCODE;
         Map<String, String> params = new HashMap<>();
         params.put("mobile", mPhoneValue);
@@ -141,12 +147,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void Next() {
-        mPhoneValue = Et_Phone.getText().toString();
-        mCodeValue = Et_Code.getText().toString();
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(Register.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("校验中,请稍等...");
         shapeLoadingDialog.show();
+        mPhoneValue = Et_Phone.getText().toString();
+        mCodeValue = Et_Code.getText().toString();
         String url = HttpURLs.VEFTCODE;
         Map<String, String> params = new HashMap<>();
         params.put("mobile", mPhoneValue);
@@ -180,6 +186,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             }
         });
     }
+
     /**
      * 透明标题栏
      */
@@ -197,4 +204,24 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
+    /**
+     * 定义一个倒计时的内部类
+     */
+    class TimeCount extends CountDownTimer {
+        public TimeCount(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);// 参数依次为总时长,和计时的时间间隔
+        }
+
+        @Override
+        public void onFinish() {// 计时完毕时触发
+            But_GetCode.setText("重新验证");
+            But_GetCode.setClickable(true);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {// 计时过程显示
+            But_GetCode.setClickable(false);
+            But_GetCode.setText(millisUntilFinished / 1000 + "秒");
+        }
+    }
 }

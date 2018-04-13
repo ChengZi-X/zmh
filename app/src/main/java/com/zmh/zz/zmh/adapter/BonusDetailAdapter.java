@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.modelinfo.BonusDetailInfo;
@@ -19,11 +18,9 @@ import java.util.List;
 
 
 public class BonusDetailAdapter extends RecyclerView.Adapter<BonusDetailAdapter.MyViewHolder> {
-    private final int TYPE_HEAD = 1;
-    private final int TYPE_NOMAL = 2;
-    private int currentType;
     private Context mContext;
     private List<BonusDetailInfo> list;
+    private OnItemClickListener mClickListener;
 
     public BonusDetailAdapter(List<BonusDetailInfo> list, Context context) {
         this.mContext = context;
@@ -33,20 +30,17 @@ public class BonusDetailAdapter extends RecyclerView.Adapter<BonusDetailAdapter.
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.ac_item_bonus_detail, parent, false);
-        MyViewHolder myViewHolder = new MyViewHolder(view);
+        MyViewHolder myViewHolder = new MyViewHolder(view, mClickListener);
         return myViewHolder;
+    }
+
+    public interface OnItemClickListener {
+        public void onItemClick(View view, int position);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.mTv_sum.setText("余额:" + "\r\r" + "32000.00");
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(mContext, "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
 
     @Override
@@ -54,66 +48,25 @@ public class BonusDetailAdapter extends RecyclerView.Adapter<BonusDetailAdapter.
         return 5;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-            currentType = TYPE_HEAD;
-        } else {
-            currentType = TYPE_NOMAL;
-        }
-        return currentType;
-    }
-
-
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTv_sum;
+        private OnItemClickListener mListener;// 声明自定义的接口
 
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView, OnItemClickListener listener) {
             super(itemView);
             mTv_sum = (TextView) itemView.findViewById(R.id.tv_sum);
+            mListener = listener;
+            // 为ItemView添加点击事件
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            mListener.onItemClick(view, getPosition());
         }
     }
 
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mClickListener = listener;
+    }
 }
-
-
-//public class BonusDetailAdapter extends BaseAdapter {
-//    private List<BonusDetailInfo> list;
-//    private Context mContext;
-//
-//    public BonusDetailAdapter(List<BonusDetailInfo> list, Context context) {
-//        this.list = list;
-//        this.mContext = context;
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return 6;
-//    }
-//
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup viewGroup) {
-//        final ViewHolder holder;
-//        if (convertView == null) {
-//            holder = new ViewHolder();
-//            convertView = View.inflate(mContext, R.layout.ac_item_bonus_detail, null);
-//            holder.mTv_sum = (TextView) convertView.findViewById(R.id.tv_sum);
-//            holder.mTv_sum.setText("余额:" + "\r\r" + "32000.00");
-//        }
-//        return convertView;
-//    }
-//
-//    class ViewHolder {
-//        private TextView mTv_sum;
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return list.get(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return position;
-//    }
-//}

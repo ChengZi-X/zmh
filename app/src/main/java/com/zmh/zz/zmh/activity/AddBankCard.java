@@ -7,28 +7,44 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.bean.ImageItem;
 import com.lzy.imagepicker.ui.ImageGridActivity;
 import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
 import com.lzy.imagepicker.view.CropImageView;
 import com.zmh.zz.zmh.BaseActivity;
+import com.zmh.zz.zmh.LoadingDialog.ShapeLoadingDialog;
 import com.zmh.zz.zmh.R;
+import com.zmh.zz.zmh.httpurls.HttpURLs;
+import com.zmh.zz.zmh.modeljson.LoginJson;
 import com.zmh.zz.zmh.uploaImage.GlideImageLoader;
 import com.zmh.zz.zmh.uploaImage.ImagePickerAdapter;
 import com.zmh.zz.zmh.uploaImage.SelectPortraitDialog;
+import com.zmh.zz.zmh.utils.Base64Util;
+import com.zmh.zz.zmh.utils.MyStringCallBack;
+import com.zmh.zz.zmh.utils.OkHttpUtil;
+import com.zmh.zz.zmh.utils.RegularUtil;
+import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
+import com.zmh.zz.zmh.utils.ToastUtils;
 import com.zmh.zz.zmh.wheelview.PickerScrollView;
 import com.zmh.zz.zmh.wheelview.PickersBean;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.Call;
 
 
 /**
@@ -44,13 +60,16 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
     private ImagePickerAdapter adapter;
     private ArrayList<ImageItem> selImageList; // 当前选择的所有图片
     private int maxImgCount = 2;               // 允许选择图片最大数
-    private TextView Tv_Opening_bank;
     private PickerScrollView pickerscrlllview; // 滚动选择器
     private List<PickersBean> mList;           // 滚动选择器数据
-    private String[] id;
-    private String[] name;
+    private String[] id, name;
     private TextView mPicker_yes, mPicker_no;
     private PopupWindow popupWindow;
+
+    private TextView Tv_Name, Tv_Opening_Bank, Et_Card_Number, Et_Subbranch;
+    private String mCardNumberVale, mSubbranchVale, mOpeningBankVale;
+    private OkHttpUtil okHttp = new OkHttpUtil();
+    private String NameVale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +80,8 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
         FindViewById();
         initImagePicker();
         initWidget();
+        NameVale = (String) SharedPreferencesUtil.getParam(AddBankCard.this, "name", "");
+        Tv_Name.setText(NameVale);
     }
 
     @Override
@@ -69,22 +90,99 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
     }
 
     private void FindViewById() {
-        Tv_Opening_bank = (TextView) findViewById(R.id.tv_opening_bank);
-        Tv_Opening_bank.setOnClickListener(this);
+        Tv_Name = (TextView) findViewById(R.id.tv_name);
+        Tv_Opening_Bank = (TextView) findViewById(R.id.tv_opening_bank);
+        Et_Card_Number = (TextView) findViewById(R.id.et_card_number);
+        Et_Subbranch = (TextView) findViewById(R.id.et_subbranch);
+        Tv_Opening_Bank.setOnClickListener(this);
     }
 
     //右键点击
     @Override
     protected void onClickRight() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(AddBankCard.this);
-        dialog.setTitle("提示");
-        dialog.setMessage("\r\r\r\r\r\r\r\r您的资料已提交,请耐心等待,我们将在1-2个工作日人审核完成。");
-        dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
-                dialog.dismiss();
+        mOpeningBankVale = Tv_Opening_Bank.getText().toString();
+        mCardNumberVale = Et_Card_Number.getText().toString();
+        mSubbranchVale = Et_Subbranch.getText().toString();
+        if (mOpeningBankVale.equals("")) {
+            ToastUtils.showToast(AddBankCard.this, "开户行不能为空");
+        } else if (mCardNumberVale.equals("")) {
+            ToastUtils.showToast(AddBankCard.this, "卡号不能为空");
+        } else if (!RegularUtil.isBankCard(mCardNumberVale)) {
+            ToastUtils.showToast(AddBankCard.this, "卡号格式不正确");
+        } else if (mSubbranchVale.equals("")) {
+            ToastUtils.showToast(AddBankCard.this, "开户行支行不能为空");
+        } else if (selImageList.size() < maxImgCount) {
+            ToastUtils.showToast(AddBankCard.this, "照片不能少于3张");
+        } else {
+            Submit();//提交
+        }
+    }
+
+    private void Submit() {
+        final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(AddBankCard.this);
+        shapeLoadingDialog.setCancelable(false);
+        shapeLoadingDialog.setLoadingText("提交中,请稍等...");
+        shapeLoadingDialog.show();
+        String Token = (String) SharedPreferencesUtil.getParam(AddBankCard.this, "Token", "");
+        mOpeningBankVale = Tv_Opening_Bank.getText().toString();
+        mCardNumberVale = Et_Card_Number.getText().toString();
+        mSubbranchVale = Et_Subbranch.getText().toString();
+        String TypeBase64 = "";
+        for (int i = 0; i < selImageList.size(); i++) {
+            String Path = selImageList.get(i).path;
+            String imgBase64 = Base64Util.imageToBase64(Path);
+            String imgType = Path.substring(Path.length() - 3);
+            if (selImageList.size() - 1 == i) {
+                TypeBase64 += imgType + " " + imgBase64;
+            } else {
+                TypeBase64 += imgType + " " + imgBase64 + "#";
             }
-        }).setCancelable(false).show();
+        }
+        Log.e("s>>>", TypeBase64);
+        String url = HttpURLs.BANK;
+        Map<String, String> params = new HashMap<>();
+        params.put("token", Token);
+        params.put("name", NameVale);
+        params.put("bankCode", mOpeningBankVale);
+        params.put("bankCardNo", mCardNumberVale);
+        params.put("branceBankName", mSubbranchVale);
+        params.put("imgStr", TypeBase64);
+        okHttp.postRequest(url, params, new MyStringCallBack() {
+            @Override
+            public void onResponse(String response, int id) {
+                Log.e("sssss>>>", response);
+                LoginJson login = JSONObject.parseObject(response, LoginJson.class);
+                int code = login.getCode();
+                String desc = login.getDesc();
+                switch (code) {
+                    case 200:
+                        ToastUtils.showToast(AddBankCard.this, "添加成功");
+                        shapeLoadingDialog.dismiss();
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(AddBankCard.this);
+                        dialog.setTitle("提示")
+                                .setMessage("\r\r\r\r\r\r\r\r您的资料已提交,请耐心等待,我们将在1-2个工作日人审核完成。")
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件
+                                        dialog.dismiss();
+                                        finish();
+                                    }
+                                }).setCancelable(false).show();
+
+                        break;
+                    case 400:
+                        shapeLoadingDialog.dismiss();
+                        ToastUtils.showToast(AddBankCard.this, desc);
+                        break;
+                }
+            }
+
+            @Override
+            public void onError(Call call, Exception e, int id) {
+                shapeLoadingDialog.dismiss();
+                Toast.makeText(AddBankCard.this, R.string.ConnectionError, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -92,8 +190,8 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
      */
     private void initData() {
         mList = new ArrayList<>();
-        id = new String[]{"1", "2", "3", "4", "5", "6"};
-        name = new String[]{"中国银行", "中国农业银行", "中国招商银行", "中国工商银行", "中国建设银行", "中国民生银行"};
+        id = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        name = new String[]{"中国银行", "中国交通银行", "中国农业银行", "中国建设银行", "招商银行", "工商银行", "中国民生银行", "浦发银行", "平安银行", "中信银行"};
         for (int i = 0; i < name.length; i++) {
             mList.add(new PickersBean(name[i], id[i]));
         }
@@ -106,9 +204,9 @@ public class AddBankCard extends BaseActivity implements View.OnClickListener, I
     PickerScrollView.onSelectListener pickerListener = new PickerScrollView.onSelectListener() {
         @Override
         public void onSelect(PickersBean pickers) {
-            Tv_Opening_bank.setText(pickers.getShowConetnt());
-            if (!Tv_Opening_bank.getText().toString().equals("请选择")) {
-                Tv_Opening_bank.setTextColor(getResources().getColor(R.color.absolute_black));
+            Tv_Opening_Bank.setText(pickers.getShowConetnt());
+            if (!Tv_Opening_Bank.getText().toString().equals("请选择")) {
+                Tv_Opening_Bank.setTextColor(getResources().getColor(R.color.absolute_black));
             }
         }
     };

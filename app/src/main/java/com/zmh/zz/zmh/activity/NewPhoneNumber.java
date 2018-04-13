@@ -86,11 +86,11 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
     }
 
     private void GetCode() {
-        UserName = (String) SharedPreferencesUtil.getParam(NewPhoneNumber.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(NewPhoneNumber.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("获取中,请稍等...");
         shapeLoadingDialog.show();
+        UserName = (String) SharedPreferencesUtil.getParam(NewPhoneNumber.this, "UserName", "");
         String url = HttpURLs.GETFCODE;
         Map<String, String> params = new HashMap<>();
         params.put("mobile", UserName);
@@ -123,13 +123,13 @@ public class NewPhoneNumber extends BaseActivity implements View.OnClickListener
     }
 
     private void BinDing() {
-        mNewPhoneValue = Et_NewPhone.getText().toString();
-        mCodeValue = Et_Code.getText().toString();
-        UserName = (String) SharedPreferencesUtil.getParam(NewPhoneNumber.this, "UserName", "");
         final ShapeLoadingDialog shapeLoadingDialog = new ShapeLoadingDialog(NewPhoneNumber.this);
         shapeLoadingDialog.setCancelable(false);
         shapeLoadingDialog.setLoadingText("绑定中,请稍等...");
         shapeLoadingDialog.show();
+        mNewPhoneValue = Et_NewPhone.getText().toString();
+        mCodeValue = Et_Code.getText().toString();
+        UserName = (String) SharedPreferencesUtil.getParam(NewPhoneNumber.this, "UserName", "");
         String url = HttpURLs.MODIFYNEWMOBILE;
         Map<String, String> params = new HashMap<>();
         params.put("loginname", UserName);

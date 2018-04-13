@@ -5,11 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Toast;
 
 import com.zmh.zz.zmh.R;
-import com.zmh.zz.zmh.modelinfo.ClientBonusInfo;
 import com.zmh.zz.zmh.modelinfo.ClientSumInfo;
 
 import java.util.List;
@@ -19,9 +17,6 @@ import java.util.List;
  */
 
 public class ClientSumAdapter extends RecyclerView.Adapter<ClientSumAdapter.MyViewHolder> {
-    private final int TYPE_HEAD = 1;
-    private final int TYPE_NOMAL = 2;
-    private int currentType;
     private Context mContext;
     private List<ClientSumInfo> list;
 
@@ -52,17 +47,6 @@ public class ClientSumAdapter extends RecyclerView.Adapter<ClientSumAdapter.MyVi
     public int getItemCount() {
         return 5;
     }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-            currentType = TYPE_HEAD;
-        } else {
-            currentType = TYPE_NOMAL;
-        }
-        return currentType;
-    }
-
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 

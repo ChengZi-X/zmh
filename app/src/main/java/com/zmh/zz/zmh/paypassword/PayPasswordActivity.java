@@ -98,7 +98,7 @@ public class PayPasswordActivity extends AppCompatActivity implements AdapterVie
                                 @Override
                                 public void run() {
                                     AlertDialog.Builder dialog = new AlertDialog.Builder(PayPasswordActivity.this);
-                                    dialog.setMessage("您的提现申请已经发出,我们将会在后台进行审核,审核通过后自动到你账户");
+                                    dialog.setMessage("    您的提现申请已经发出,我们将会在后台进行审核,审核通过后自动到您的账户。");
                                     dialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int i) {// 确定按钮的响应事件

@@ -200,6 +200,15 @@
             android:textColor="@color/light_black"
             android:textSize="@dimen/z2" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="15dp"
+            android:text="* 第一张正面，第二张反面，第三张手持身份证正面。"
+            android:textColor="@color/red"
+            android:textSize="12sp" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_add_photo"
             android:layout_width="match_parent"

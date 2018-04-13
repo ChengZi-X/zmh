@@ -1,14 +1,11 @@
 package com.zmh.zz.zmh.activity;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +20,6 @@ import com.zmh.zz.zmh.BaseActivity;
 import com.zmh.zz.zmh.R;
 import com.zmh.zz.zmh.alipay.OrderInfoUtil2_0;
 import com.zmh.zz.zmh.alipay.PayResult;
-import com.zmh.zz.zmh.utils.CashierInputFilter;
 import com.zmh.zz.zmh.utils.SharedPreferencesUtil;
 import com.zmh.zz.zmh.utils.ToastUtils;
 import com.zmh.zz.zmh.wxapi.WxPayUtils;
@@ -81,8 +77,6 @@ public class AccountPut extends BaseActivity implements View.OnClickListener, Ra
         Et_Money = (EditText) findViewById(R.id.et_money);
         Tv_Money = (TextView) findViewById(R.id.tv_money);
         Et_Money.addTextChangedListener(this);
-//        InputFilter[] filter = {new CashierInputFilter()};
-//        Et_Money.setFilters(filter);
         Rg_Pay.setOnCheckedChangeListener(this);
         But_Next.setOnClickListener(this);
         Rb_Alipay.setChecked(true);

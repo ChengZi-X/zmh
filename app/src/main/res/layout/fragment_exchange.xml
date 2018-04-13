@@ -38,10 +38,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="15dp" />
 
-    <ListView
-        android:id="@+id/lv_exchange"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_exchange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
         android:background="@color/white"
         android:divider="@null"
         android:overScrollMode="never"
